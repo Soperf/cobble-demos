@@ -1,0 +1,52 @@
+# Task: Generate a single-page Cotswolds Boutique B&B website demo (Cobble pipeline, Live Redesign stage)
+
+You are the Builder Agent for the Cobble project (AI-built hospitality websites for independent European retreats and boutique B&Bs). Generate a complete, production-quality single-page website redesign demo for the real property **Holly House Bed & Breakfast** in Bourton-on-the-Water, Gloucestershire, Cotswolds, UK (https://www.hollyhousebourton.co.uk/). Write the file `index.html` in the directory `hollyhouse/`. This is a live cold-outreach pitch demo targeting hosts David & Jayne to demonstrate an instant lift in direct bookings and elimination of 15%+ OTA commissions.
+
+## Business Brief (Real Property)
+
+- Name: **Holly House Bed & Breakfast** (Adults-only 4-star boutique guest house)
+- Location: Station Road, Bourton-on-the-Water, Gloucestershire, GL54 2ER, Cotswolds, United Kingdom (Coordinates: 51.8872° N, 1.7538° W)
+- Hosts: David & Jayne (renowned for outstanding customer service excellence and personalized attention)
+- Contact: Tel 01451 821302 / Mobile 07570 493757, Email hollyhousebourton@btinternet.com
+- Setting: Quintessential English honey-coloured limestone property set back on a peaceful road, just a level 3-5 minute stroll to the tranquil River Windrush, famous low stone bridges, and Bourton village centre.
+- Key Signature Offerings:
+  1. **Guaranteed Private On-Site Parking**: One dedicated free parking space per room directly at the house. In Bourton-on-the-Water where village parking is notoriously scarce, crowded, and expensive, this is a massive conversion driver.
+  2. **Adults-Only Peaceful Haven**: Tranquil retreat catering exclusively to couples and solo adult travellers seeking calm relaxation away from tour bus crowds.
+  3. **Award-Winning Cotswold Breakfast**: 10 consecutive Tourist Board Breakfast Awards. Freshly prepared to order using local Gloucestershire farm ingredients (Gloucester Old Spot sausages, local eggs, artisanal preserves, full vegetarian and gluten-free menus). Served 8:30am - 9:30am in the garden-view breakfast room.
+  4. **6 Individually Appointed Luxury Rooms & Suites**:
+     - **The Notgrove Suite**: 6ft UK Superking luxury memory foam bed, garden views, spacious ensuite with walk-in rainhead shower. From £155 / night.
+     - **The Naunton Suite**: Luxurious King ensuite with private seating area and countryside views. From £145 / night.
+     - **The Sherborne Room**: Handcrafted mahogany sleigh King bed, tranquil rear garden vista, ensuite with power shower and Duck Island toiletries. From £135 / night.
+     - **The Bourton Room**: Bright and cheerful King ensuite overlooking the front garden. From £130 / night.
+     - **The Rissington Room**: Classic Cotswold styling, King bed with memory foam mattress, sleek ensuite. From £125 / night.
+     - **The Windrush Room**: Romantic top-floor King ensuite under rustic character eaves. From £125 / night.
+  5. **Premium In-Room Amenities**: Under-counter silent fridge, Google Home assistant, flat-screen Smart TV with Netflix, hot beverage station with fine teas and filter mineral water, hairdryer, ironing set, and Duck Island luxury toiletries.
+  6. **Cotswolds Base**: Walking distance to Birdland, The Model Village, Cotswold Motoring Museum, and level footpaths to The Slaughters (Upper & Lower Slaughter) and The Rissingtons.
+
+## Design System
+
+- Aesthetic: Cotswold Honey Limestone Elegance & English Country Garden Warmth. Editorial typography, refined whitespace, authentic textures.
+- Fonts: Playfair Display (editorial serif headings) + Lato (clean modern body), loaded via Google Fonts CDN with `font-display: swap`.
+- Palette:
+  - Honey Limestone Linen: `#FAF8F3` (page background)
+  - Card & Container BG: `#FFFFFF`
+  - Cotswold Manor Forest Green: `#233B2B` (primary brand, headings, navigation accents)
+  - Cotswold Slate Dark: `#18261E` (footer, high contrast)
+  - English Rose Terracotta: `#C07A65` (primary CTA buttons, badges, warm accents)
+  - Cotswold Amber Glow: `#D99450` (subtle warm highlights)
+  - Cotswold Mortar Sand: `#E5DFD5` (borders, dividers)
+  - Charcoal Body Text: `#2C332D`
+  - Muted Slate: `#5E6E63`
+- Contrast meets WCAG 2.1 AA throughout.
+- Strict UK English copy throughout: colour, en-suite, cosy, flavours, favourite, travellers, programme, centre, enquiry.
+
+## Technical Constraints (Hard Requirements)
+
+- Single self-contained file: `hollyhouse/index.html` referencing local `images/`. All CSS & JS inline. No external scripts or frameworks; only external request is Google Fonts CDN with `display=swap`.
+- Mobile-first responsive: 375px (mobile) and 1440px (desktop) verified. Header navigation must NOT wrap awkwardly at 1160px–1250px laptop viewports (`white-space: nowrap` and `gap: clamp(...)`).
+- 4-scene hero slider with 2.2s automatic progress bar, scene tabs, and navigation arrows.
+- Room enquiry synchronization: clicking "Enquire This Room" on any room card automatically pre-selects that room in the booking enquiry form.
+- Native date pickers (`<input type="date">`) with arrival.min = today and departure.min = arrival + 1 day.
+- Anti-spam honeypot defense (`website_hp`).
+- Submission generates branded enquiry reference `HH-2026-XXXX` with 24-hour reply commitment from David & Jayne.
+- Complete Schema.org `BedAndBreakfast` and `LodgingBusiness` JSON-LD structured data.

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxglove House | Ambleside B&B</title>
+  <meta name="description" content="A quiet Edwardian retreat above Ambleside in the Lake District. Enjoy lake-glimpse suites, homemade breakfasts, and our friendly Herdwick neighbours.">
+  
+  <meta property="og:title" content="Foxglove House | Ambleside B&B">
+  <meta property="og:description" content="A quiet Edwardian retreat above Ambleside in the Lake District.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.foxglovehouse-demo.co.uk">
+  <meta property="og:image" content="https://www.foxglovehouse-demo.co.uk/og-image.jpg">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Foxglove House | Ambleside B&B">
+  <meta name="twitter:description" content="A quiet Edwardian retreat above Ambleside in the Lake District.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪻</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Foxglove House",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ambleside",
+      "addressRegion": "Cumbria",
+      "addressCountry": "UK"
+    },
+    "priceRange": "££",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "En-suite", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Dog-friendly", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Drying room", "value": true }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #3E5C6B;
+      --primary-hover: #314b58;
+      --secondary: #8E9F8E;
+      --bg: #F7F3EC;
+      --text: #2B2B28;
+      --white: #FFFFFF;
+      --font-head: 'Playfair Display', serif;
+      --font-body: 'Lato', sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 400; }
+    h2 { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
+    a { color: var(--primary); text-decoration: none; }
+    img, svg { max-width: 100%; height: auto; display: block; }
+    
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn:hover, .btn:focus {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      color: var(--white);
+    }
+
+    .top-bar-container {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .ribbon {
+      background-color: var(--secondary);
+      color: var(--white);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    nav {
+      background-color: var(--bg);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-brand {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus {
+      color: var(--primary);
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: var(--primary);
+    }
+    .hero-svg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+      object-fit: cover;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      padding: 2.5rem;
+      background: rgba(43, 43, 40, 0.5);
+      border-radius: 8px;
+      max-width: 600px;
+      backdrop-filter: blur(2px);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+      font-family: var(--font-head);
+    }
+
+    section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+    .about-facts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .about-facts li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .fact-icon {
+      width: 48px; height: 48px;
+      background-color: var(--secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .room-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .room-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+      }
+    }
+    .room-img-placeholder {
+      width: 100%;
+      height: 250px;
+      background-color: #ddd;
+      position: relative;
+    }
+    .room-img-placeholder svg {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .room-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .room-content h3 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .room-content p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      background: var(--bg);
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      border: 1px solid rgba(62, 92, 107, 0.1);
+    }
+    .room-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      padding-top: 1.25rem;
+    }
+    .price {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+    .room-enquire {
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: underline;
+      color: var(--primary);
+    }
+    .room-enquire:hover {
+      color: var(--primary-hover);
+    }
+
+    .reviews-section {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 6rem 5%;
+      margin: 2rem 0;
+    }
+    .reviews-section h2 {
+      color: var(--white);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.08);
+      padding: 2.5rem;
+      border-radius: 8px;
+    }
+    .review-card p {
+      font-size: 1.15rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-head);
+      line-height: 1.6;
+    }
+    .review-author {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      font-weight: 700;
+    }
+
+    .location-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+      color: var(--primary);
+      text-align: center;
+    }
+    .getting-there {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .transport-method {
+      padding: 2.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid #e0dbd3;
+      text-align: center;
+    }
+    .transport-method h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .enquire-container {
+      background-color: var(--white);
+      max-width: 750px;
+      border-radius: 8px;
+      padding: 3.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin: 2rem auto;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      background-color: #faf9f7;
+      color: var(--text);
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--primary);
+      border-color: transparent;
+      background-color: var(--white);
+    }
+    .honeypot {
+      display: none;
+    }
+    .success-msg {
+      display: none;
+      text-align: center;
+      color: var(--primary);
+      font-family: var(--font-head);
+      font-size: 1.75rem;
+      padding: 4rem 0;
+    }
+
+    footer {
+      background-color: var(--text);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 5%;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { 
+        display: flex; 
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.75rem; }
+      .enquire-container { padding: 2rem 1.5rem; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar-container">
+    <div class="ribbon">
+      Book direct & save &mdash; best rate guaranteed
+    </div>
+    <nav>
+      <div class="nav-brand">Foxglove House</div>
+      <ul class="nav-links">
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#enquire" class="btn" style="padding:0.4rem 1.2rem; color:var(--white);">Enquire</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <header id="hero" class="hero">
+    <svg class="hero-svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a lake and fells at sunrise">
+      <defs>
+        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#8E9F8E" />
+          <stop offset="100%" stop-color="#F7F3EC" />
+        </linearGradient>
+        <linearGradient id="lake" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#3E5C6B" />
+          <stop offset="100%" stop-color="#2B2B28" />
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="800" fill="url(#sky)" />
+      <path d="M0 400 L200 300 L500 450 L800 250 L1100 400 L1440 280 L1440 500 L0 500 Z" fill="#6c7f6c" opacity="0.4"/>
+      <path d="M0 450 L300 350 L600 480 L1000 300 L1440 420 L1440 600 L0 600 Z" fill="#506650" opacity="0.6"/>
+      <rect y="550" width="1440" height="250" fill="url(#lake)" />
+      <path d="M0 700 Q 300 650 700 720 T 1440 680 L1440 800 L0 800 Z" fill="#2B2B28" />
+      <text x="50%" y="780" fill="rgba(255,255,255,0.6)" font-family="Lato" font-size="14" text-anchor="middle">PHOTO SLOT &mdash; Lake and fells view from the property</text>
+    </svg>
+    <div class="hero-content reveal">
+      <h1>Foxglove House</h1>
+      <p>A quiet Edwardian retreat above Ambleside</p>
+      <a href="#enquire" class="btn">Check availability & enquire</a>
+    </div>
+  </header>
+
+  <section id="about" class="reveal">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Welcome to our home</h2>
+        <p>We are James & Eleanor Hartley. When we found Foxglove House, nestled gently against the fells with Windermere shimmering in the distance, we knew we had to share it. We’ve spent the last three years restoring its Edwardian charm, creating a peaceful haven for walkers, dreamers, and those seeking a quieter pace of life.</p>
+        <p>Our philosophy is simple: warm hospitality, comfortable beds, and a breakfast worth waking up for. We source our sausages from the local butcher in Ambleside, bake our own sourdough daily, and gather eggs from our own hens. Whether you’re setting out for a challenging hike or a gentle stroll to the lake, your day starts right here.</p>
+      </div>
+      <ul class="about-facts">
+        <li><div class="fact-icon" aria-hidden="true">🐑</div> <span>Herdwick neighbours on the fell behind the garden</span></li>
+        <li><div class="fact-icon" aria-hidden="true">🥾</div> <span>Dedicated drying room for muddy boots</span></li>
+        <li><div class="fact-icon" aria-hidden="true">🐾</div> <span>Dog-friendly ground-floor rooms</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="rooms">
+    <h2 class="reveal">Our Rooms</h2>
+    <div class="rooms-grid">
+      
+      <div class="room-card reveal">
+        <div class="room-img-placeholder">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Garden Suite room illustration">
+            <rect width="400" height="250" fill="#e0e5e0" />
+            <path d="M0 150 L400 100 L400 250 L0 250 Z" fill="#c3ccc3" />
+            <circle cx="200" cy="125" r="40" fill="#f0f2f0" />
+            <text x="50%" y="130" fill="#555" font-family="Lato" font-size="14" text-anchor="middle">PHOTO SLOT</text>
+            <text x="50%" y="150" fill="#777" font-family="Lato" font-size="12" text-anchor="middle">Garden Suite, lake-facing</text>
+          </svg>
+        </div>
+        <div class="room-content">
+          <h3>Garden Suite</h3>
+          <p>Our most spacious room, featuring French doors that open directly onto a private patio with glimpses of Lake Windermere through the trees.</p>
+          <div class="badges">
+            <span class="badge">En-suite</span>
+            <span class="badge">Lake view</span>
+            <span class="badge">Sleeps 2</span>
+          </div>
+          <div class="room-footer">
+            <span class="price">from £145</span>
+            <a href="#enquire" class="room-enquire" data-room="Garden Suite">Enquire about this room</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card reveal" style="transition-delay: 0.1s;">
+        <div class="room-img-placeholder">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Herdwick Room illustration">
+            <rect width="400" height="250" fill="#e8e5df" />
+            <path d="M0 120 Q 200 180 400 100 L400 250 L0 250 Z" fill="#d1ccbf" />
+            <rect x="150" y="80" width="100" height="100" fill="#f2f0ec" rx="8" />
+            <text x="50%" y="125" fill="#555" font-family="Lato" font-size="14" text-anchor="middle">PHOTO SLOT</text>
+            <text x="50%" y="145" fill="#777" font-family="Lato" font-size="12" text-anchor="middle">The Herdwick Room, ground floor</text>
+          </svg>
+        </div>
+        <div class="room-content">
+          <h3>The Herdwick Room</h3>
+          <p>A cosy ground-floor retreat with direct garden access. Perfect for guests bringing their four-legged friends. Decorated in warm, earthy tones.</p>
+          <div class="badges">
+            <span class="badge">En-suite</span>
+            <span class="badge">Dog-friendly</span>
+            <span class="badge">Sleeps 2</span>
+          </div>
+          <div class="room-footer">
+            <span class="price">from £120</span>
+            <a href="#enquire" class="room-enquire" data-room="The Herdwick Room">Enquire about this room</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card reveal" style="transition-delay: 0.2s;">
+        <div class="room-img-placeholder">
+          <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Tarn Room illustration">
+            <rect width="400" height="250" fill="#dce1e6" />
+            <path d="M0 250 L150 50 L250 150 L400 80 L400 250 Z" fill="#c2cbd6" />
+            <text x="50%" y="125" fill="#555" font-family="Lato" font-size="14" text-anchor="middle">PHOTO SLOT</text>
+            <text x="50%" y="145" fill="#777" font-family="Lato" font-size="12" text-anchor="middle">The Tarn Room, top floor</text>
+          </svg>
+        </div>
+        <div class="room-content">
+          <h3>The Tarn Room</h3>
+          <p>Tucked away on the top floor with characterful sloping ceilings. Boasts the best elevated views over Ambleside and towards the distant fells.</p>
+          <div class="badges">
+            <span class="badge">En-suite</span>
+            <span class="badge">Best views</span>
+            <span class="badge">Sleeps 2</span>
+          </div>
+          <div class="room-footer">
+            <span class="price">from £135</span>
+            <a href="#enquire" class="room-enquire" data-room="The Tarn Room">Enquire about this room</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="reviews-section" id="reviews">
+    <h2 class="reveal">Guestbook</h2>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <p>"James and Eleanor are the perfect hosts—warm, welcoming, but never intrusive. The sourdough bread at breakfast was an absolute revelation."</p>
+        <span class="review-author">Sarah, via Google &middot; June 2026</span>
+      </div>
+      <div class="review-card reveal" style="transition-delay: 0.1s;">
+        <p>"We loved being able to step out the front gate and directly onto the path up Wansfell Pike. Returning to the drying room and a hot shower was heavenly."</p>
+        <span class="review-author">Mark &amp; David, via TripAdvisor &middot; August 2026</span>
+      </div>
+      <div class="review-card reveal" style="transition-delay: 0.2s;">
+        <p>"A beautifully quiet spot. The dog-friendly ground floor room meant Barnaby could wander into the garden safely. We will certainly be returning next year."</p>
+        <span class="review-author">Claire, via Booking.com &middot; September 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="location">
+    <div class="reveal">
+      <h2>Finding Us</h2>
+      <p class="location-subtitle">Ten minutes' walk from Ambleside centre, at the foot of the fell</p>
+      
+      <div class="getting-there">
+        <div class="transport-method">
+          <h4 aria-hidden="true">🚆 By Train</h4>
+          <p>Arrive at Windermere station, then a scenic 15-minute taxi ride or the frequent 555 bus to Ambleside.</p>
+        </div>
+        <div class="transport-method">
+          <h4 aria-hidden="true">🚗 By Car</h4>
+          <p>We offer guaranteed on-site parking for all guests. Directions provided upon booking confirmation.</p>
+        </div>
+        <div class="transport-method">
+          <h4 aria-hidden="true">🥾 On Foot</h4>
+          <p>Step straight out of our garden gate and onto the public footpath leading directly up to the fells.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enquire">
+    <div class="reveal">
+      <h2>Enquire</h2>
+      
+      <div class="enquire-container">
+        <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+          <input type="text" name="website_url" class="honeypot" tabindex="-1" autocomplete="off" aria-label="Leave this field blank">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+              <label for="guests">Guests *</label>
+              <select id="guests" name="guests" required>
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="checkin">Check-in Date *</label>
+              <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+              <label for="checkout">Check-out Date *</label>
+              <input type="date" id="checkout" name="checkout" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="room_preference">Room Preference</label>
+            <select id="room_preference" name="room_preference">
+              <option value="Any">No Preference / Any Available</option>
+              <option value="Garden Suite">Garden Suite</option>
+              <option value="The Herdwick Room">The Herdwick Room</option>
+              <option value="The Tarn Room">The Tarn Room</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message / Special Requirements</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Send Enquiry</button>
+        </form>
+        <div id="successMsg" class="success-msg">
+          Thank you &mdash; we'll reply within 24 hours.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Foxglove House, Ambleside, Cumbria, LA22 9XX</p>
+    <p>&copy; 2026 Foxglove House &middot; Made with care in Cumbria</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetEl = document.querySelector(targetId);
+        
+        if(this.classList.contains('room-enquire')) {
+          const roomName = this.getAttribute('data-room');
+          const selectEl = document.getElementById('room_preference');
+          if(selectEl && roomName) {
+            selectEl.value = roomName;
+          }
+        }
+
+        if(targetEl) {
+          targetEl.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    if ('IntersectionObserver' in window) {
+      const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        });
+      }, revealOptions);
+
+      revealElements.forEach(el => {
+        revealOnScroll.observe(el);
+      });
+    } else {
+      revealElements.forEach(el => el.classList.add('active'));
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const honeypot = document.querySelector('.honeypot').value;
+      if(honeypot) return;
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('enquire').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

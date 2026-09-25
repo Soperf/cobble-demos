@@ -1,0 +1,42 @@
+# Task: Generate a single-page B&B website demo (Cobble pipeline, Demo stage)
+
+You are the Builder Agent for the Cobble project (AI-built websites for small UK businesses). Generate a complete, production-quality single-page website demo for a fictional-but-realistic Cornwall harbour-town B&B. Write the file `index.html` in the current working directory. This is a cold-outreach concept demo, so visual polish and emotional impact are everything.
+
+## Business brief (fictional, must feel real)
+
+- Name: **The Pilot's House** — a Georgian townhouse B&B on the harbour wall in St Ives, Cornwall
+- 5 rooms, run by a former fisherman (Nathan Rosewarne) and his partner (a ceramicist)
+- Signature: rooms over the working harbour, breakfast with St Ives pilchards and local larder, Porthmeor Beach 4 minutes on foot, roof terrace for sunset, artist-town character (Tate St Ives down the lane)
+- Tone of voice: warm, understated, British. Never salesy. UK English spelling throughout (colour, en-suite, bookable).
+
+## Design system
+
+- Coastal Georgian elegance: airy, chalky, light-filled, with one deep-sea accent
+- Fonts: Playfair Display (headings) + Lato (body), Google Fonts CDN with font-display: swap
+- Palette: chalk white (background, e.g. #FAF8F4), deep sea blue (primary, e.g. #1F3A5F), warm sand (secondary, e.g. #D9C7A7), faded terracotta accent (sparingly), charcoal text (#2A2A28). WCAG 2.1 AA contrast.
+- Imagery: NO external image URLs and NO stock photos. Create elegant in-file SVG/CSS artwork placeholders that evoke each scene (e.g. layered harbour-and-lighthouse scene for the hero, roof terrace at sunset, room vignettes). Each placeholder carries a small caption like "PHOTO SLOT — The Wheelhouse, harbour view". These slots get swapped for real photos later.
+- Micro-interactions: subtle hover lifts on room cards, smooth scroll, gentle reveal-on-scroll (IntersectionObserver, respecting prefers-reduced-motion). Nothing flashy.
+
+## Page sections (single page, in order)
+
+1. **Sticky slim top bar**: "Book direct & save — best rate guaranteed" ribbon + nav (Rooms / Reviews / St Ives / Enquire)
+2. **Hero**: full-viewport SVG harbour scene (townhouse, boats, lighthouse light), "The Pilot's House" in Playfair Display, one-line positioning ("Five rooms over St Ives harbour"), CTA button "Check availability & enquire"
+3. **Intro / About**: 2 short paragraphs — Nathan & the ceramicist, the house's fishing-family history, breakfast with pilchards and local larder; 3 icon facts (Harbour-front · Roof terrace · Porthmeor in 4 minutes)
+4. **Rooms**: 3 featured room cards (The Wheelhouse — full harbour view, The Crow's Nest — top floor, roof terrace access, The Pilchard Room — cosy, street side, quiet). Each card: SVG vignette, name, one-line description, badges (En-suite · Harbour view · Sleeps 2 · Terrace access), price from £X per night, "Enquire about this room" link
+5. **Reviews**: 3 quotes with first name + source + month ("Elaine, via Google · May 2026"), one mentions breakfast, one mentions watching the boats from bed, one mentions the location down the lane from Tate St Ives
+6. **St Ives / Location**: "On the harbour wall, a lane from everything" + getting-there mini grid (train → St Ives station + 6-min walk, car → harbour long-stay (permits provided), on foot → Porthmeor Beach 4 min, Tate St Ives 3 min) — pure CSS, no map embed
+7. **Enquiry form**: name, email, phone (optional), check-in date, check-out date, guests, room preference (select), message. Native date inputs. Honeypot anti-spam field. JS intercepts submit and shows an elegant inline confirmation: "Thank you — we'll reply within 24 hours." (no backend in demo)
+8. **Footer**: contact line, "© 2026 The Pilot's House · Made with care in Cornwall"
+
+## Technical constraints (hard requirements)
+
+- ONE file: `index.html`, all CSS + JS inline. Only external dependency allowed: Google Fonts CDN.
+- Mobile-first responsive: flawless at 375px and 1440px, no horizontal scroll, no hover-dependent functionality on touch.
+- Performance-minded: no heavy JS, no layout shift, Lighthouse mobile target ≥ 85.
+- Semantic HTML5, labelled form fields, alt/aria on SVGs, focus states visible.
+- Include: Open Graph + Twitter meta tags, favicon as inline SVG data-URI, and JSON-LD `LodgingBusiness` structured data (name, address St Ives, priceRange, amenityFeature list).
+- After writing the file, re-read it and verify: single complete valid HTML document ending with `</html>`, all sections present, no truncation. Fix anything wrong before finishing.
+
+## Final answer format
+
+When done, reply with a 5-line summary: file path, section count, palette used, fonts, any deviations.

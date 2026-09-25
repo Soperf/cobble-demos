@@ -1,0 +1,58 @@
+# Task: Generate a single-page Island Dune Camping & Glamping website demo (Cobble pipeline, Live Redesign stage)
+
+You are the Builder Agent for the Cobble project (AI-built hospitality websites for independent European retreats, boutique campings, and eco-lodges). Generate a complete, production-quality single-page website redesign demo for the real property **Camping De Duinkant** on Terschelling, Netherlands (https://www.campingdeduinkant.nl/). Write the file `index.html` in the directory `duinkant/`. This is a live cold-outreach pitch demo targeting host Jort Bos to demonstrate an instant lift in direct bookings, multilingual support (Dutch, English, German), and elimination of 15%+ OTA commissions.
+
+## Business Brief (Real Property)
+
+- Name: **Camping De Duinkant** (Camping De Duinkant B.V.)
+- Location: Oosterend 65, 8897 HX Terschelling, Friesland, Netherlands (Coordinates: 53.4034° N, 5.3789° E)
+- Host & Team: Jort Bos and family
+- Contact: Tel +31 (0)562 448917, Email info@duinkant.nl, KvK 82419825, BTW 826431781B01
+- Setting: Nestled directly against the sheltered dune edge (*duinkant*) in Oosterend, at the serene eastern tip of Terschelling. Bordering the UNESCO World Heritage Wadden Sea (*Waddenzee*) and the European Dark Sky Park De Boschplaat (zero light pollution, pristine stargazing).
+- Key Signature Offerings:
+  1. **Autovrij Natuurterrein (100% Car-Free Sanctuary)**: 51 spacious grassy pitches across 3 sheltered fields (*veldjes*). Dedicated peripheral parking lot keeps the camping area completely car-free, peaceful, and safe for children.
+  2. **Vakantiehuisjes (Semi-Detached Holiday Cottages)**:
+     - **Huisje De Visser**: Cosy 5-person cottage with open fireplace, dune edge view, fully equipped kitchen. From €140 / night.
+     - **Huisje De Jager**: 5-person cottage under the same thatched roof, fireplace, private sunny terrace. From €140 / night.
+  3. **Tentverhuur (Canvas Safari & De Waard Tents)**:
+     - Storm-proof luxury **De Waard Tents** (*Vergrote Zilvermeeuw*, *Steenuil*) and spacious 6-person tunnel tents set up for 4 persons with premium wooden camp kitchen. From €95 / night.
+  4. **Boerderij Appartementen (Authentic Frisian Farmhouse Apartments)**:
+     - Converted historic farmhouse featuring **De Jutter** (2 persons), **De Kooiker** (4 persons, west wing), and **De Stroper** (4 persons, east wing). From €115 / night.
+  5. **Kampeerplaatsen & Camperplaatsen**:
+     - 100m² & 80m² grass pitches with 10A/16A electricity and modern sanitary facilities. From €28 / night.
+     - Camperplaatsen: hard-standing spots for motorhomes up to 7m. From €26 / night.
+  6. **Vuurplaats & Afrikaanse Braai**: Communal open-fire pit and regular authentic South African Braai grill evenings hosted by the family under the starry Terschelling night sky.
+  7. **Met Jort naar de Zeehonden & Visavonturen**:
+     - Seal-watching expeditions aboard the private vessel "De Zeearend" (max 6 guests for intimate wildlife encounters).
+     - Sea bass sport fishing on the aluminium motorboat "De Visarend" (175 HP Suzuki engine, local fishing spots in the Wadden Sea and North Sea).
+  8. **Accreditations & Awards**: Zoover Award Gold 2025 Winner, Dark Sky Park Partner, UNESCO Wadden Sea Partner.
+- Tone of Voice: Warm, genuine Frisian island hospitality, earthy, grounded, editorial elegance (Kinfolk / Kip Hideaways standard). Multilingual support with an instant in-page toggle between Dutch (NL), English (EN - strict UK spelling), and German (DE).
+
+## Design System
+
+- Terschelling Dune & Wadden Eco Aesthetic: Sandy linen, deep North Sea blues, dune grass sage, and warm campfire amber.
+- Fonts: Playfair Display (editorial serif headings) + Lato (clean modern body), loaded via Google Fonts CDN with `font-display: swap`.
+- Palette:
+  - Background: Dune Linen Cream `#FBF8F3`
+  - Card & Container BG: `#FFFFFF`
+  - Primary Accent: Wadden Deep Navy `#203F54`
+  - Primary Dark: Dark Slate `#152A38`
+  - Secondary Nature: Dune Sage Grass `#4E6E5D`
+  - Warm Highlight: Campfire & Braai Amber `#C86A3D`
+  - Secondary Text: Slate Muted `#5F6F7A`
+  - Deep Text: Charcoal `#1C2A32`
+  - Border: Soft Dune Sand `#E3DCD3`
+  - Contrast meets WCAG 2.1 AA throughout.
+- Imagery: Authentic high-resolution photographs downloaded directly from the property into `images/` (including real campsite layout `plattegrond.jpg`, Braai feast, De Waard tents, farmhouse apartments, cottage facades, host Jort Bos, and boat excursions).
+- Micro-interactions: Card elevation lifts, smooth anchor scrolling, dynamic 4-scene hero slider with 2.2s progress fill, language switching without page reload, room pre-selection via `data-room`, native date constraints.
+
+## Technical Constraints (Hard Requirements)
+
+- Single self-contained `index.html` file in `duinkant/` (referencing local `images/`). All CSS and JS inline. Only external dependency: Google Fonts CDN with `display=swap`.
+- Mobile-first responsive: Tested flawlessly at 375px and 1440px. Navigation bar header inner width max 1380px, `flex-wrap: nowrap`, `white-space: nowrap`, and responsive mobile drawer at 1160px.
+- Instant in-page trilingual toggle (NL / EN / DE) using data-i18n.
+- Strict UK English when in English mode (colour, en-suite, cosy, favourite, flavours, travellers, centre, enquiry).
+- Native date pickers (`<input type="date">`) with arrival min = today and departure min = arrival + 1 day.
+- Anti-spam honeypot field (`website_hp`).
+- Accommodation preference synchronization: clicking "Reserveer / Enquire" on any card automatically selects that option in the booking form.
+- Full Schema.org `Campground` & `LodgingBusiness` JSON-LD structured data.

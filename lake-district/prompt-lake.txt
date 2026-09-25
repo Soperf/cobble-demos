@@ -1,0 +1,42 @@
+# Task: Generate a single-page B&B website demo (Cobble pipeline, Demo stage)
+
+You are the Builder Agent for the Cobble project (AI-built websites for small UK businesses). Generate a complete, production-quality single-page website demo for a fictional-but-realistic Lake District B&B. Write the file `index.html` in the current working directory. This is a cold-outreach concept demo, so visual polish and emotional impact are everything.
+
+## Business brief (fictional, must feel real)
+
+- Name: **Foxglove House** — an Edwardian villa B&B in Ambleside, Lake District
+- 6 rooms, run by a husband-and-wife team (James & Eleanor Hartley)
+- Signature: lake-glimpse suites, Herdwick sheep on the fell behind the garden, homemade breakfast with local Cumbrian produce, drying room for hikers, dog-friendly ground-floor rooms
+- Tone of voice: warm, understated, British. Never salesy. UK English spelling throughout (colour, en-suite, bookable).
+
+## Design system
+
+- British countryside elegance: quiet, generous whitespace, typography-led
+- Fonts: Playfair Display (headings) + Lato (body), Google Fonts CDN with font-display: swap
+- Palette: deep slate blue (primary, e.g. #3E5C6B), sage green (secondary), warm cream (background, e.g. #F7F3EC), charcoal text (#2B2B28). WCAG 2.1 AA contrast.
+- Imagery: NO external image URLs and NO stock photos. Create elegant in-file SVG/CSS artwork placeholders that evoke each scene (e.g. layered gradient fell-and-lake scene for the hero, garden, room vignettes). Each placeholder carries a small caption like "PHOTO SLOT — Garden Suite, lake-facing". These slots get swapped for real photos later.
+- Micro-interactions: subtle hover lifts on room cards, smooth scroll, gentle reveal-on-scroll (IntersectionObserver, respecting prefers-reduced-motion). Nothing flashy.
+
+## Page sections (single page, in order)
+
+1. **Sticky slim top bar**: "Book direct & save — best rate guaranteed" ribbon + nav (Rooms / Reviews / Location / Enquire)
+2. **Hero**: full-viewport SVG fell-and-lake scene, "Foxglove House" in Playfair Display, one-line positioning ("A quiet Edwardian retreat above Ambleside"), CTA button "Check availability & enquire"
+3. **Intro / About**: 2 short paragraphs — the Hartleys, the house, breakfast philosophy; 3 icon facts (Herdwick neighbours · Drying room · Dog-friendly)
+4. **Rooms**: 3 featured room cards (Garden Suite — lake glimpse, The Herdwick Room — ground floor, dog-friendly, The Tarn Room — top floor, best views). Each card: SVG vignette, name, one-line description, badges (En-suite · Lake view · Sleeps 2 · Dog-friendly), price from £X per night, "Enquire about this room" link
+5. **Reviews**: 3 quotes with first name + source + month ("Sarah, via Google · June 2026"), one mentions breakfast, one mentions the fells walk from the door, one mentions the hosts
+6. **Location**: "Ten minutes' walk from Ambleside centre, at the foot of the fell" + getting-there mini grid (train → Windermere station + taxi, car → on-site parking, on foot → fell path from the gate) — pure CSS, no map embed
+7. **Enquiry form**: name, email, phone (optional), check-in date, check-out date, guests, room preference (select), message. Native date inputs. Honeypot anti-spam field. JS intercepts submit and shows an elegant inline confirmation: "Thank you — we'll reply within 24 hours." (no backend in demo)
+8. **Footer**: contact line, "© 2026 Foxglove House · Made with care in Cumbria"
+
+## Technical constraints (hard requirements)
+
+- ONE file: `index.html`, all CSS + JS inline. Only external dependency allowed: Google Fonts CDN.
+- Mobile-first responsive: flawless at 375px and 1440px, no horizontal scroll, no hover-dependent functionality on touch.
+- Performance-minded: no heavy JS, no layout shift, Lighthouse mobile target ≥ 85.
+- Semantic HTML5, labelled form fields, alt/aria on SVGs, focus states visible.
+- Include: Open Graph + Twitter meta tags, favicon as inline SVG data-URI, and JSON-LD `LodgingBusiness` structured data (name, address Ambleside, priceRange, amenityFeature list).
+- After writing the file, re-read it and verify: single complete valid HTML document ending with `</html>`, all sections present, no truncation. Fix anything wrong before finishing.
+
+## Final answer format
+
+When done, reply with a 5-line summary: file path, section count, palette used, fonts, any deviations.

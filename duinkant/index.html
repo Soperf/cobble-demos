@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camping De Duinkant | Karakteristiek Kamperen & Glamping op Terschelling</title>
+  <meta name="description" content="Kleine, gastvrije natuurcamping aan de duinrand in Oosterend Terschelling. Autovrij kampeerterrein, luxe De Waard tenten, boerderij appartementen en Zuid-Afrikaanse braai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg-sand: #FBF8F3;
+      --card-bg: #FFFFFF;
+      --navy-deep: #203F54;
+      --navy-dark: #152A38;
+      --sage-green: #4E6E5D;
+      --amber-braai: #C86A3D;
+      --amber-warm: #E27F4D;
+      --text-dark: #1C2A32;
+      --text-muted: #5F6F7A;
+      --border-sand: #E3DCD3;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      --shadow-sm: 0 2px 8px rgba(32, 63, 84, 0.06);
+      --shadow-md: 0 8px 24px rgba(32, 63, 84, 0.08);
+      --shadow-lg: 0 16px 36px rgba(32, 63, 84, 0.12);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-sand);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4, .font-serif {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--navy-deep);
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-braai);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.2vw, 2.75rem);
+      margin-bottom: 1rem;
+      color: var(--navy-deep);
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      gap: 0.5rem;
+    }
+
+    .btn-warm {
+      background-color: #C86A3D;
+      background: var(--amber-braai, #C86A3D);
+      color: #FFFFFF !important;
+    }
+    .btn-warm:hover {
+      background: #B45B30;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(200, 106, 61, 0.3);
+    }
+
+    .btn-navy {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+    }
+    .btn-navy:hover {
+      background: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: var(--navy-deep);
+      color: var(--navy-deep);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+    }
+
+    /* TOP RIBBON */
+    .top-ribbon {
+      background: var(--navy-dark);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      padding: 0.45rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .top-ribbon-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ribbon-perk {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ribbon-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .ribbon-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #FFFFFF;
+      opacity: 0.9;
+      font-weight: 600;
+    }
+    .ribbon-phone:hover {
+      opacity: 1;
+      color: var(--amber-warm);
+    }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      display: inline-flex;
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--amber-braai);
+      color: #FFFFFF;
+    }
+    .lang-btn:hover:not(.active) {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* HEADER & NAV */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(251, 248, 243, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-sand);
+      transition: all 0.3s ease;
+    }
+    .header-inner {
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0.75rem clamp(1rem, 1.5vw, 1.5rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(0.5rem, 0.9vw, 1.25rem);
+    }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 1.25vw, 1.35rem);
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+      gap: clamp(0.35rem, 0.65vw, 0.85rem);
+      list-style: none;
+      align-items: center;
+    }
+    .nav-link {
+      white-space: nowrap;
+      font-size: clamp(0.8rem, 0.84vw, 0.88rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      padding: 0.35rem 0.15rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: var(--amber-braai);
+    }
+    .header-cta {
+      flex-shrink: 0;
+    }
+    .header-cta .btn {
+      padding: 0.65rem clamp(0.85rem, 1vw, 1.25rem);
+      font-size: clamp(0.82rem, 0.86vw, 0.9rem);
+      white-space: nowrap;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-sand);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.7rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+      color: var(--navy-deep);
+    }
+
+    /* MOBILE DRAWER */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg-sand);
+      z-index: 1001;
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      gap: 1.5rem;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+      display: flex;
+    }
+    .drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-sand);
+      padding-bottom: 1rem;
+    }
+    .drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .drawer-link {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+    .drawer-close {
+      background: transparent;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: var(--navy-deep);
+    }
+
+    @media (max-width: 1160px) {
+      .nav-links, .header-cta {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+    /* HERO MULTI-SCENE SECTION */
+    .hero {
+      position: relative;
+      min-height: 84vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy-dark);
+      color: #FFFFFF;
+      overflow: hidden;
+      padding: 5rem 0 7rem;
+    }
+    .hero-bg-slides {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-bg-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      z-index: 1;
+      transform: scale(1.03);
+      transition: opacity 0.8s ease, transform 4s ease;
+    }
+    .hero-bg-slide.is-active {
+      opacity: 1;
+      z-index: 2;
+      transform: scale(1);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        radial-gradient(ellipse at 50% 45%, rgba(21, 42, 56, 0.28) 0%, rgba(21, 42, 56, 0.72) 100%),
+        linear-gradient(180deg, rgba(15, 30, 40, 0.45) 0%, transparent 45%, rgba(15, 30, 40, 0.82) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(200, 106, 61, 0.25);
+      border: 1px solid rgba(200, 106, 61, 0.5);
+      color: #FFD2BC;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 1.25rem;
+    }
+    .hero-desc {
+      font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+      color: rgba(255,255,255,0.9);
+      max-width: 760px;
+      margin: 0 auto 2.25rem;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: left;
+    }
+    .hero-pillar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-pillar-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--amber-braai);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+    }
+    .hero-pillar-text {
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    /* SCENE TABS & PROGRESS */
+    .hero-scenes-bar {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(21,42,56,0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-top: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 12px 32px rgba(15, 30, 40, 0.35);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+    }
+    .hero-scene-tab {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .hero-scene-tab.is-active {
+      background: var(--amber-braai);
+      color: #FFFFFF;
+    }
+    .hero-progress-bar {
+      width: 50px;
+      height: 4px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-progress-fill {
+      width: 100%;
+      height: 100%;
+      background: var(--amber-braai);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.1s linear;
+    }
+    .hero-nav-arrow {
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.2rem;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+    }
+    .hero-nav-arrow:hover {
+      opacity: 1;
+    }
+
+    /* SECTIONS COMMON */
+    .section-pad {
+      padding: 5.5rem 0;
+    }
+
+    /* VERHAAL / ABOUT */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .story-img-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4 / 3;
+    }
+    .story-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .story-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: rgba(32, 63, 84, 0.95);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .story-badge-icon {
+      color: #FFD2BC;
+    }
+    .story-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-sand);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: var(--navy-deep);
+    }
+    .feature-card p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* IMPRESSIE & PLATTEGROND */
+    .impressie-section {
+      background: #F4EFEA;
+    }
+    .impressie-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: stretch;
+    }
+    .carousel-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-sand);
+      display: flex;
+      flex-direction: column;
+    }
+    .carousel-stage {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .carousel-slide.is-active {
+      opacity: 1;
+    }
+    .carousel-footer {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-sand);
+    }
+    .carousel-counter {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .carousel-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-sand);
+      background: var(--bg-sand);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy-deep);
+      transition: all 0.2s;
+    }
+    .carousel-btn:hover {
+      background: var(--navy-deep);
+      color: #fff;
+    }
+
+    .layout-card, .plattegrond-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-sand);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plattegrond-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-sand);
+      margin: 1rem 0;
+      cursor: pointer;
+    }
+
+    /* VERBLIJVEN / ACCOMMODATIONS */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-sand);
+      padding: 0.55rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      border-color: var(--navy-deep);
+    }
+
+    .verblijven-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
+    }
+    .verblijf-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-sand);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .verblijf-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .verblijf-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .verblijf-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .verblijf-card:hover .verblijf-img {
+      transform: scale(1.05);
+    }
+    .verblijf-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(32, 63, 84, 0.9);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    .verblijf-price {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--amber-braai);
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+    }
+    .verblijf-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .verblijf-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.85rem 0 1.25rem;
+    }
+    .spec-tag {
+      background: var(--bg-sand);
+      border: 1px solid var(--border-sand);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* BRAAI & AVONTUREN */
+    .braai-section {
+      background: var(--navy-dark);
+      color: #FFFFFF;
+    }
+    .braai-section h2, .braai-section h3, .braai-section h4 {
+      color: #FFFFFF;
+    }
+    .braai-section .section-desc {
+      color: rgba(255,255,255,0.8);
+    }
+    .split-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    /* TARIEVEN & POLICIES */
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .policy-card, .rule-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      border: 1px solid var(--border-sand);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .policy-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(32, 63, 84, 0.08);
+      color: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    /* REVIEWS / GASTENBOEK */
+    .reviews-section {
+      background: #F4EFEA;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .review-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--border-sand);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .review-quote {
+      font-style: italic;
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .review-author {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy-deep);
+    }
+    .review-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* COMMUNITY GRID */
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .community-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 1;
+    }
+    .community-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .community-card:hover img {
+      transform: scale(1.08);
+    }
+    .community-tag {
+      position: absolute;
+      inset: 0;
+      background: rgba(32, 63, 84, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .community-card:hover .community-tag {
+      opacity: 1;
+    }
+
+    /* RESERVEREN FORM */
+    .enquiry-container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      border: 1px solid var(--border-sand);
+      box-shadow: var(--shadow-lg);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+    .form-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+    .form-input, .form-select, .form-textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-sand);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      background: var(--bg-sand);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--amber-braai);
+      box-shadow: 0 0 0 3px rgba(200, 106, 61, 0.18);
+      background: #FFFFFF;
+    }
+
+    /* DIRECT BOOKING PERKS STRIP */
+    .direct-perks-strip {
+      background: #FFFFFF;
+      border: 1px solid var(--border-sand);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2.5rem;
+    }
+    .perks-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-sand);
+    }
+    .perks-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(200, 106, 61, 0.12);
+      color: var(--amber-braai);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+    }
+    .perks-ota-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .perk-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .perk-icon-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(78, 110, 93, 0.12);
+      color: var(--sage-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .perk-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-bottom: 0.25rem;
+    }
+    .perk-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) {
+      .perks-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .direct-perks-strip {
+        padding: 1.25rem 1rem;
+      }
+      .perks-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .perks-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .confirmation-box {
+      display: none;
+      text-align: center;
+      padding: 2.5rem;
+      background: rgba(78, 110, 93, 0.08);
+      border: 2px solid var(--sage-green);
+      border-radius: var(--radius-md);
+      margin-top: 1.5rem;
+    }
+    .confirmation-box h3 {
+      color: var(--sage-green);
+      margin-bottom: 0.75rem;
+    }
+    .confirmation-ref {
+      display: inline-block;
+      background: var(--sage-green);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 4px;
+      margin: 0.75rem 0;
+      letter-spacing: 0.08em;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a:hover {
+      color: var(--amber-warm);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 900px) {
+      .story-grid, .impressie-grid, .split-feature-grid, .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-pillars {
+        grid-template-columns: 1fr 1fr;
+      }
+      .community-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .enquiry-container {
+        padding: 1.75rem;
+      }
+      .hero-nav-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section-pad {
+        padding: 3.5rem 0;
+      }
+      .container {
+        padding: 0 1rem;
+      }
+      .section-title {
+        font-size: 1.85rem;
+        line-height: 1.25;
+      }
+      .section-desc {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+      
+      /* TOP RIBBON & HEADER MOBILE */
+      .top-ribbon {
+        padding: 0.5rem 0.75rem;
+      }
+      .top-ribbon-inner {
+        flex-direction: column;
+        gap: 0.4rem;
+        text-align: center;
+      }
+      .ribbon-perk {
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }
+      .ribbon-actions {
+        justify-content: center;
+        width: 100%;
+        gap: 0.75rem;
+      }
+      .ribbon-phone {
+        font-size: 0.76rem;
+      }
+      .lang-btn {
+        padding: 3px 5px;
+        font-size: 0.68rem;
+        min-width: 24px;
+      }
+      .brand-logo .brand-name {
+        font-size: 1.15rem;
+      }
+      .brand-logo .brand-sub {
+        font-size: 0.65rem;
+      }
+
+      /* HERO MOBILE ADAPTATION */
+      .hero {
+        min-height: 100svh;
+        padding-top: 5rem;
+        padding-bottom: 5.5rem;
+      }
+      .hero-content {
+        padding-bottom: 1.5rem;
+      }
+      .hero-title {
+        font-size: 1.75rem;
+        line-height: 1.22;
+        margin-bottom: 1rem;
+      }
+      .hero-desc {
+        font-size: 0.92rem;
+        line-height: 1.55;
+        margin-bottom: 1.5rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+        margin-bottom: 2.25rem;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 1.25rem;
+      }
+      .hero-pillars {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .hero-pillar {
+        padding: 0.5rem 0.75rem;
+      }
+
+      /* HERO SCENES BAR COMPACT FIT (PREVENTS OVERFLOW) */
+      .hero-scenes-bar {
+        width: calc(100% - 1.5rem);
+        max-width: 380px;
+        padding: 0.3rem 0.45rem;
+        gap: 0.25rem;
+        bottom: 0.75rem;
+        justify-content: space-between;
+      }
+      .hero-scene-tab {
+        padding: 0.3rem 0.45rem;
+        font-size: 0.72rem;
+        flex-shrink: 1;
+      }
+      .hero-progress-bar {
+        width: 28px;
+        flex-shrink: 0;
+      }
+
+      /* VERBLIJVEN, POLICIES & REVIEWS MOBILE */
+      .verblijven-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .filter-bar {
+        gap: 0.4rem;
+        margin-bottom: 1.75rem;
+      }
+      .filter-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.78rem;
+      }
+      .policies-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .policy-card {
+        padding: 1.15rem;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .review-card {
+        padding: 1.35rem;
+      }
+      .community-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      .enquiry-container {
+        padding: 1.25rem 1rem;
+      }
+      .plattegrond-card {
+        padding: 1.25rem 1rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.6rem;
+      }
+    }
+
+    /* TOUCH DEVICE HOVER ADAPTATION (WCAG & TOUCH UX) */
+    @media (hover: none) {
+      .community-tag {
+        opacity: 0.92;
+        background: linear-gradient(to top, rgba(21, 42, 56, 0.85) 0%, transparent 80%);
+        font-size: 0.75rem;
+        padding: 0.4rem;
+        align-items: flex-end;
+      }
+    }
+
+    /* GSAP PROGRESSIVE ENHANCEMENT GUARDS */
+    /* Added when GSAP takes over opacity/transform so CSS transitions don't double-animate */
+    html.gsap-ready .hero-bg-slide { transition: none; }
+    html.gsap-ready .carousel-slide { transition: none; }
+    html.gsap-ready .hero-progress-fill { transition: none; }
+
+    /* REDUCED MOTION (WCAG 2.1 AA) */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg-slide,
+      .carousel-slide,
+      .mobile-drawer,
+      .hero-progress-fill {
+        transition: none !important;
+      }
+      .btn:hover,
+      .verblijf-card:hover {
+        transform: none !important;
+      }
+      .verblijf-card:hover .verblijf-img,
+      .community-card:hover img {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP RIBBON -->
+  <aside class="top-ribbon" aria-label="Aankondigingsbalk">
+    <div class="top-ribbon-inner">
+      <div class="ribbon-perk">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span data-i18n="ribbon_text">Boek direct voor de beste prijsgarantie · Geen reserveringskosten · Persoonlijk contact met Jort</span>
+      </div>
+      <div class="ribbon-actions">
+        <a href="tel:+31562448917" class="ribbon-phone">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+31 (0)562 448917</span>
+        </a>
+        <div class="lang-switcher" role="group" aria-label="Taalkeuze / Language / Sprache / 语言 / 言語">
+          <button type="button" class="lang-btn active" data-lang="nl" aria-pressed="true">NL</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button type="button" class="lang-btn" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中</button>
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 1. SITE HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo">
+        <span class="brand-name">Camping De Duinkant</span>
+        <span class="brand-sub">Oosterend · Terschelling</span>
+      </a>
+
+      <nav aria-label="Hoofdnavigatie">
+        <ul class="nav-links">
+          <li><a href="#verhaal" class="nav-link" data-i18n="nav_story">Verhaal</a></li>
+          <li><a href="#impressie" class="nav-link" data-i18n="nav_impressie">Impressie</a></li>
+          <li><a href="#verblijven" class="nav-link" data-i18n="nav_rooms">Verblijven</a></li>
+          <li><a href="#braai" class="nav-link" data-i18n="nav_braai">Braai</a></li>
+          <li><a href="#avonturen" class="nav-link" data-i18n="nav_adventures">Avonturen</a></li>
+          <li><a href="#tarieven" class="nav-link" data-i18n="nav_rates">Tarieven</a></li>
+          <li><a href="#gastenboek" class="nav-link" data-i18n="nav_reviews">Reviews</a></li>
+          <li><a href="#omgeving" class="nav-link" data-i18n="nav_island">Omgeving</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="#reserveren" class="btn btn-warm" data-i18n="btn_book_direct">Direct Reserveren</a>
+      </div>
+
+      <button type="button" class="mobile-menu-btn" aria-label="Menu openen" id="mobile-menu-toggle">
+        &#9776;
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <span class="brand-name">De Duinkant</span>
+      <button type="button" class="drawer-close" id="drawer-close-btn">&times;</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#verhaal" class="drawer-link" data-i18n="nav_story">Verhaal</a></li>
+      <li><a href="#impressie" class="drawer-link" data-i18n="nav_impressie">Impressie</a></li>
+      <li><a href="#verblijven" class="drawer-link" data-i18n="nav_rooms">Verblijven</a></li>
+      <li><a href="#braai" class="drawer-link" data-i18n="nav_braai">Braai</a></li>
+      <li><a href="#avonturen" class="drawer-link" data-i18n="nav_adventures">Avonturen</a></li>
+      <li><a href="#tarieven" class="drawer-link" data-i18n="nav_rates">Tarieven</a></li>
+      <li><a href="#gastenboek" class="drawer-link" data-i18n="nav_reviews">Reviews</a></li>
+      <li><a href="#omgeving" class="drawer-link" data-i18n="nav_island">Omgeving</a></li>
+      <li><a href="#reserveren" class="btn btn-warm drawer-link" data-i18n="btn_book_direct" style="margin-top:1rem;width:100%;text-align:center;">Direct Reserveren</a></li>
+    </ul>
+  </div>
+
+  <!-- 2. HERO MULTI-SCENE -->
+  <section class="hero" id="hero" aria-label="Hero Scene">
+    <div class="hero-bg-slides">
+      <div class="hero-bg-slide is-active" style="background-image: url('images/hero_terschelling_sunset_dunes.jpg');" aria-label="Duinkant kampeerterrein bij zonsondergang"></div>
+      <div class="hero-bg-slide" style="background-image: url('images/hero_dewaard_huurtenten.jpg');" aria-label="Luxe De Waard Huurtenten op het kampeerveld"></div>
+      <div class="hero-bg-slide" style="background-image: url('images/hero_braai_campfire_night.jpg');" aria-label="Sfeervolle Afrikaanse Braai & Vuurplaats bij nacht"></div>
+      <div class="hero-bg-slide" style="background-image: url('images/hero_waddenzee_aerial.jpg');" aria-label="UNESCO Werelderfgoed Waddenzee en Waddendijk"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-eyebrow" data-i18n="hero_eyebrow">
+        <span>Oosterend · Terschelling · UNESCO Waddenzee</span>
+      </div>
+      <h1 class="hero-title" data-i18n="hero_title">Rust, Ruimte & Eilandgevoel aan de Duinrand van Terschelling</h1>
+      <p class="hero-desc" data-i18n="hero_desc">51 ruime autovrije kampeerplaatsen, karakteristieke boerderij-appartementen, De Waard huurtenten en gezellige duinhuisjes aan de voet van natuurgebied De Boschplaat.</p>
+      
+      <div class="hero-actions">
+        <a href="#verblijven" class="btn btn-warm" data-i18n="hero_cta_rooms">Ontdek de Verblijven</a>
+        <a href="#reserveren" class="btn btn-outline" style="color:#fff;border-color:#fff;" data-i18n="hero_cta_book">Direct Aanvragen</a>
+      </div>
+
+      <div class="hero-pillars">
+        <div class="hero-pillar">
+          <div class="hero-pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div class="hero-pillar-text" data-i18n="pillar_1">100% Autovrij Natuurterrein</div>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div class="hero-pillar-text" data-i18n="pillar_2">Afrikaanse Braai & Kampvuur</div>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0"/><path d="M2 17c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0"/></svg>
+          </div>
+          <div class="hero-pillar-text" data-i18n="pillar_3">Waddenzee Werelderfgoed</div>
+        </div>
+        <div class="hero-pillar">
+          <div class="hero-pillar-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/><path d="M19 5l.62 1.38L21 7l-1.38.62L19 9l-.62-1.38L17 7l1.38-.62z"/></svg>
+          </div>
+          <div class="hero-pillar-text" data-i18n="pillar_4">Dark Sky Park Boschplaat</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SCENES BAR -->
+    <div class="hero-scenes-bar">
+      <button type="button" class="hero-nav-arrow hero-nav-prev" id="hero-prev" aria-label="Vorige scène">&#10094;</button>
+      <button type="button" class="hero-scene-tab is-active" data-scene="0" data-i18n="scene_0">Kamperen</button>
+      <button type="button" class="hero-scene-tab" data-scene="1" data-i18n="scene_1">Huurtenten</button>
+      <button type="button" class="hero-scene-tab" data-scene="2" data-i18n="scene_2">Braai & Vuur</button>
+      <button type="button" class="hero-scene-tab" data-scene="3" data-i18n="scene_3">Waddenzee</button>
+      <div class="hero-progress-bar">
+        <div class="hero-progress-fill" id="hero-progress"></div>
+      </div>
+      <button type="button" class="hero-nav-arrow hero-nav-next" id="hero-next" aria-label="Volgende scène">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- 3. HET VERHAAL / ABOUT -->
+  <section class="section-pad" id="verhaal">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-img-wrap">
+          <img src="images/duinkant_waddendijk_aerial.jpg" alt="Luchtfoto Camping De Duinkant en de Waddendijk op Terschelling" width="600" height="337">
+          <div class="story-badge">
+            <div class="story-badge-icon" style="font-size:1.5rem;">&#9733;</div>
+            <div>
+              <div style="font-weight:700;font-size:0.95rem;">Zoover Gold Award 2025</div>
+              <div style="font-size:0.8rem;opacity:0.85;">Hoogst gewaardeerde camping Terschelling</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <span class="section-eyebrow" data-i18n="story_eyebrow">Het Echte Eilandleven</span>
+          <h2 class="section-title" data-i18n="story_title">Thuiskomen aan de Duinrand van Oosterend</h2>
+          <p style="margin-bottom:1rem;color:var(--text-muted);" data-i18n="story_p1">Camping De Duinkant is een kleinschalige, sfeervolle familiecamping aan de rustige oostkant van Terschelling. Hier kampeert u letterlijk tegen de duinen aan, met de geur van zilte zeelucht en wilde duinrozen.</p>
+          <p style="margin-bottom:1.5rem;color:var(--text-muted);" data-i18n="story_p2">Gastheer Jort Bos en familie heten u van harte welkom. Ons kampeerterrein is volledig autovrij: kinderen spelen onbezorgd op het gras, terwijl u 's avonds bij de vuurplaats geniet van de oneindige sterrenhemel van Dark Sky Park De Boschplaat.</p>
+
+          <div class="story-features">
+            <div class="feature-card">
+              <h4 data-i18n="feat_1_title">100% Autovrij Terrein</h4>
+              <p data-i18n="feat_1_desc">Veilig voor kinderen en pure rust. Bagagewagens staan klaar bij aankomst.</p>
+            </div>
+            <div class="feature-card">
+              <h4 data-i18n="feat_2_title">UNESCO Werelderfgoed</h4>
+              <p data-i18n="feat_2_desc">Wandelen over de kwelders van De Grie en langs de Waddenzee vanaf uw tent.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. IMPRESSIE & PLATTEGROND -->
+  <section class="section-pad impressie-section" id="impressie">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow" data-i18n="impressie_eyebrow">Sfeer & Plattegrond</span>
+        <h2 class="section-title" data-i18n="impressie_title">Ontdek Ons Terrein in Vogelvlucht</h2>
+        <p class="section-desc" data-i18n="impressie_desc">51 beschutte kampeerplaatsen verdeeld over drie groene veldjes, karakteristieke boerderij-appartementen en comfortabele duinhuisjes.</p>
+      </div>
+
+      <div class="impressie-grid">
+        <!-- Photo Carousel Card -->
+        <div class="carousel-card">
+          <div class="carousel-stage" id="carousel-stage">
+            <img src="images/gallery_1.jpg" alt="Duinkant sfeer 1" class="carousel-slide is-active" width="700" height="380">
+            <img src="images/gallery_2.jpg" alt="Duinkant sfeer 2" class="carousel-slide" width="700" height="380">
+            <img src="images/gallery_3.jpg" alt="Duinkant sfeer 3" class="carousel-slide" width="700" height="380">
+            <img src="images/gallery_4.jpg" alt="Duinkant sfeer 4" class="carousel-slide" width="700" height="380">
+            <img src="images/gallery_5.jpg" alt="Duinkant sfeer 5" class="carousel-slide" width="700" height="380">
+            <img src="images/gallery_6.jpg" alt="Duinkant sfeer 6" class="carousel-slide" width="700" height="380">
+          </div>
+          <div class="carousel-footer">
+            <span class="carousel-counter" id="carousel-counter">01 / 06</span>
+            <div class="carousel-controls">
+              <button type="button" class="carousel-btn" id="carousel-prev" aria-label="Vorige foto">&#10094;</button>
+              <button type="button" class="carousel-btn" id="carousel-next" aria-label="Volgende foto">&#10095;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plattegrond Layout Card -->
+        <div class="layout-card plattegrond-card">
+          <div>
+            <span class="section-eyebrow" style="color:var(--sage-green);" data-i18n="plattegrond_tag">Terreinindeling</span>
+            <h3 style="font-size:1.35rem;margin-bottom:0.5rem;" data-i18n="plattegrond_title">Plattegrond Camping De Duinkant</h3>
+            <p style="font-size:0.88rem;color:var(--text-muted);" data-i18n="plattegrond_text">Overzicht van de 3 kampeerveldjes, camperplaatsen, vakantiehuisjes, boerderij en centrale vuurplaats.</p>
+          </div>
+          <div class="plattegrond-wrap">
+            <a href="images/plattegrond.jpg" target="_blank" title="Klik om plattegrond op ware grootte te bekijken">
+              <img src="images/plattegrond.jpg" alt="Plattegrond Camping De Duinkant Terschelling" width="450" height="300">
+            </a>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:0.82rem;font-weight:700;color:var(--navy-deep);">&#128269; Tik voor vergroting</span>
+            <a href="images/plattegrond.jpg" download class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.8rem;">Download PDF / JPG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. VERBLIJVEN / ACCOMMODATIONS -->
+  <section class="section-pad" id="verblijven">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow" data-i18n="rooms_eyebrow">Verblijfsmogelijkheden</span>
+        <h2 class="section-title" data-i18n="rooms_title">Kies Uw Favoriete Plek op het Eiland</h2>
+        <p class="section-desc" data-i18n="rooms_desc">Van slapen in een authentieke De Waard stormtent tot een behaaglijk duinhuisje met open haard.</p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button type="button" class="filter-btn active" data-filter="all" data-i18n="filter_all">Alles Weergeven</button>
+        <button type="button" class="filter-btn" data-filter="cottage" data-i18n="filter_cottage">Vakantiehuisjes</button>
+        <button type="button" class="filter-btn" data-filter="tent" data-i18n="filter_tent">De Waard Huurtenten</button>
+        <button type="button" class="filter-btn" data-filter="farmhouse" data-i18n="filter_farmhouse">Boerderij Appartementen</button>
+        <button type="button" class="filter-btn" data-filter="camping" data-i18n="filter_pitch">Kamperen & Camper</button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="verblijven-grid">
+        <!-- 1. Huisje De Visser -->
+        <div class="verblijf-card" data-category="cottage">
+          <div class="verblijf-img-wrap">
+            <img src="images/cottage_visser.jpg" alt="Vakantiehuisje De Visser" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">5 Personen · Duinrand</span>
+            <span class="verblijf-price">vanaf €140 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Huisje De Visser</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Sfeervol 5-persoons vakantiehuisje onder één kap met open haard, royale living en zonnig privéterras aan de duinrand.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">Open haard</span>
+                <span class="spec-tag">Vaatwasser</span>
+                <span class="spec-tag">Eigen terras</span>
+                <span class="spec-tag">Huisdiervriendelijk</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Huisje De Visser" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 2. Huisje De Jager -->
+        <div class="verblijf-card" data-category="cottage">
+          <div class="verblijf-img-wrap">
+            <img src="images/cottage_living_fireplace.jpg" alt="Vakantiehuisje De Jager moderne sfeervolle woonkamer met open haard" class="verblijf-img" width="400" height="267">
+            <span class="verblijf-badge">5 Personen · Duinzicht</span>
+            <span class="verblijf-price">vanaf €140 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Huisje De Jager</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Comfortabel ingericht duinhuisje voorzien van alle gemakken, moderne keuken, fijne bedden en vrij uitzicht over het groen.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">Open haard</span>
+                <span class="spec-tag">Wifi</span>
+                <span class="spec-tag">Comfort bedden</span>
+                <span class="spec-tag">Duinwandelpad</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Huisje De Jager" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 3. De Waard Huurtent -->
+        <div class="verblijf-card" data-category="tent">
+          <div class="verblijf-img-wrap">
+            <img src="images/dewaard_tent.jpg" alt="Luxe De Waard Huurtent" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">4 Personen · Stormvast Canvas</span>
+            <span class="verblijf-price">vanaf €95 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>De Waard Huurtent</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">De legendarische Nederlandse stormtent Vergrote Zilvermeeuw. Volledig ingericht met echte bedden, kookstel en houten inventaris.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">De Waard katoen</span>
+                <span class="spec-tag">Echte matrassen</span>
+                <span class="spec-tag">Keukeninventaris</span>
+                <span class="spec-tag">Gezellig ingericht</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="De Waard Huurtent" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 4. Boerderij Appartement De Jutter -->
+        <div class="verblijf-card" data-category="farmhouse">
+          <div class="verblijf-img-wrap">
+            <img src="images/farmhouse_jutter.jpg" alt="Appartement De Jutter" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">2 Personen · Historische Boerderij</span>
+            <span class="verblijf-price">vanaf €115 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Appartement De Jutter</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Knus 2-persoons appartement in onze monumentale Terschellinger stolpboerderij. Rustieke balken en modern comfort.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">Historische balken</span>
+                <span class="spec-tag">Eigen badkamer</span>
+                <span class="spec-tag">Volledige keuken</span>
+                <span class="spec-tag">Rustiek warm</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Appartement De Jutter" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 5. Boerderij Appartement De Kooiker -->
+        <div class="verblijf-card" data-category="farmhouse">
+          <div class="verblijf-img-wrap">
+            <img src="images/farmhouse_kooiker.jpg" alt="Appartement De Kooiker" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">4 Personen · Boerderij Westkant</span>
+            <span class="verblijf-price">vanaf €135 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Appartement De Kooiker</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Ruim 4-persoons appartement met eigen tuinterras op het westen. Heerlijk genieten van de middag- en avondzon.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">2 Slaapkamers</span>
+                <span class="spec-tag">Zonneterras</span>
+                <span class="spec-tag">Vaatwasser</span>
+                <span class="spec-tag">Boerderijsfeer</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Appartement De Kooiker" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 6. Kampeerplaats 100m2 -->
+        <div class="verblijf-card" data-category="camping">
+          <div class="verblijf-img-wrap">
+            <img src="images/camping_pitch_100.jpg" alt="Kampeerplaats 100m2" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">Tent / Caravan · 10A/16A Stroom</span>
+            <span class="verblijf-price">vanaf €28 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Kampeerplaats 100m²</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Riante beschutte grasplaats op een van onze drie groene veldjes. Elektra en modern sanitairgebouw op korte loopafstand.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">100m² Gras</span>
+                <span class="spec-tag">Elektra aansluiting</span>
+                <span class="spec-tag">Autovrij veld</span>
+                <span class="spec-tag">Sanitair nabij</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Kampeerplaats 100m²" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+
+        <!-- 7. Camperplaats -->
+        <div class="verblijf-card" data-category="camping">
+          <div class="verblijf-img-wrap">
+            <img src="images/camper_pitch.jpg" alt="Camperplaats Terschelling" class="verblijf-img" width="400" height="220">
+            <span class="verblijf-badge">Campers tot 7m · Verhard</span>
+            <span class="verblijf-price">vanaf €26 / nacht</span>
+          </div>
+          <div class="verblijf-body">
+            <div>
+              <h3>Camperplaats</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);margin-top:0.4rem;">Speciale verharde camperplaatsen geschikt voor campers tot 7 meter. Inclusief stroom en vuilwater loosstation.</p>
+              <div class="verblijf-specs">
+                <span class="spec-tag">Tot 7 meter</span>
+                <span class="spec-tag">Verharde ondergrond</span>
+                <span class="spec-tag">Stroomvoorziening</span>
+                <span class="spec-tag">Snel inchecken</span>
+              </div>
+            </div>
+            <a href="#reserveren" class="btn btn-warm" data-room="Camperplaats" data-i18n="btn_enquire_room">Direct Aanvragen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SIGNATURE FEATURE: BRAAI & VUURPLAATS -->
+  <section class="section-pad braai-section" id="braai">
+    <div class="container">
+      <div class="split-feature-grid">
+        <div>
+          <span class="section-eyebrow" style="color:var(--amber-warm);" data-i18n="braai_eyebrow">Exclusief op Terschelling</span>
+          <h2 class="section-title" style="color:#fff;" data-i18n="braai_title">Vuurplaats & Authentieke Afrikaanse Braai</h2>
+          <p class="section-desc" style="color:rgba(255,255,255,0.85);margin:0 0 1.5rem;" data-i18n="braai_p1">Ervaar de warmte van echt samenkomen. Regelmatig steken we het vuur aan voor onze befaamde Afrikaanse Braai: bourgondisch genieten van heerlijke streekgerechten, vers gegrild boven gloeiende houtskool en hardhout.</p>
+          <p style="color:rgba(255,255,255,0.85);margin-bottom:2rem;" data-i18n="braai_p2">Als campinggast kunt u tevens vrij gebruik maken van onze gezellige centrale vuurplaats. Pak een drankje, rooster marshmallows met de kinderen en deel verhalen onder de fonkelende sterren van Terschelling.</p>
+          
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+            <div style="background:rgba(255,255,255,0.1);padding:1rem 1.25rem;border-radius:8px;border:1px solid rgba(255,255,255,0.15);">
+              <div style="font-size:1.4rem;color:var(--amber-warm);font-weight:700;">Hout & Kolen</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.8);">Authentiek roosteren</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.1);padding:1rem 1.25rem;border-radius:8px;border:1px solid rgba(255,255,255,0.15);">
+              <div style="font-size:1.4rem;color:var(--amber-warm);font-weight:700;">Centraal Kampvuur</div>
+              <div style="font-size:0.85rem;color:rgba(255,255,255,0.8);">Vrij toegankelijk</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <img src="images/braai_grill.jpg" alt="Afrikaanse Braai grillen" style="border-radius:12px;box-shadow:var(--shadow-lg);" width="300" height="240">
+          <img src="images/braai_guests.jpg" alt="Gezelligheid rond het vuur" style="border-radius:12px;box-shadow:var(--shadow-lg);" width="300" height="240">
+          <img src="images/campfire_night.jpg" alt="Vuurplaats Terschelling nacht" style="border-radius:12px;box-shadow:var(--shadow-lg);grid-column:1/-1;" width="620" height="260">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. AVONTUREN: ZEEHONDEN & ZEELVISSEN -->
+  <section class="section-pad" id="avonturen">
+    <div class="container">
+      <div class="split-feature-grid">
+        <div>
+          <img src="images/visarend_sea_adventure.jpg" alt="Met de snelle aluminium visboot Visarend de Waddenzee op met Jort" style="border-radius:16px;box-shadow:var(--shadow-lg);width:100%;height:auto;object-fit:cover;" width="600" height="500">
+        </div>
+
+        <div>
+          <span class="section-eyebrow" data-i18n="adv_eyebrow">Waddenzee Belevenissen</span>
+          <h2 class="section-title" data-i18n="adv_title">Met Jort naar de Zeehonden & Zeebaarsvissen</h2>
+          <p style="color:var(--text-muted);margin-bottom:1.25rem;" data-i18n="adv_p1">Als het getij gunstig is, neemt gastheer Jort onze campinggasten mee op de <strong>Zeearend</strong> naar de mooiste zandplaten van de Waddenzee waar kolonies wilde zeehonden liggen te zonnen. Kleinschalig (max 6 personen) voor een onvergetelijke, persoonlijke ontmoeting.</p>
+          <p style="color:var(--text-muted);margin-bottom:1.5rem;" data-i18n="adv_p2">Daarnaast kunt u mee op de <strong>Visarend</strong>, onze speciaal gebouwde 175pk aluminium visboot, voor spectaculaire vistrips op zeebaars rond het eiland. Zelf gevangen vis kunnen we 's avonds vers roken op de camping!</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="feature-card">
+              <h4 data-i18n="adv_seal_title">Zeehondentocht Zeearend</h4>
+              <p data-i18n="adv_seal_desc">Exclusief voor campinggasten. Maximaal 6 personen per afvaart.</p>
+            </div>
+            <div class="feature-card">
+              <h4 data-i18n="adv_fish_title">Zeebaars Visavontuur</h4>
+              <p data-i18n="adv_fish_desc">Met kunstaas of zagers op de snelle Visarend met schipper Jort.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. TARIEVEN & POLICIES -->
+  <section class="section-pad" id="tarieven" style="background:#F4EFEA;">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow" data-i18n="rates_eyebrow">Helder & Transparant</span>
+        <h2 class="section-title" data-i18n="rates_title">Tarieven & Verblijfsregels</h2>
+        <p class="section-desc" data-i18n="rates_desc">Geen verborgen servicekosten, geen boekingskosten via onze officiële website. Wat u ziet is wat u betaalt.</p>
+      </div>
+
+      <!-- Direct Booking Perks Strip -->
+      <div class="direct-perks-strip">
+        <div class="perks-header">
+          <div class="perks-badge-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span data-i18n="perks_badge">Direct Boeken = Altijd Voordeliger</span>
+          </div>
+          <div class="perks-ota-note" data-i18n="perks_ota_note">Bespaar 15% platformkosten t.o.v. Booking.com & Airbnb</div>
+        </div>
+        <div class="perks-grid">
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_1_title">Beste Prijsgarantie</div>
+              <div class="perk-desc" data-i18n="perk_1_desc">Geen reserveringskosten of platformopslag. U betaalt altijd de zuiverste eilander prijs.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_2_title">Gratis Zak Braaihout</div>
+              <div class="perk-desc" data-i18n="perk_2_desc">Exclusief bij directe aanvraag: een zak droog berkenhout voor uw eerste vuuravond.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_3_title">Flexibele Veerdienst</div>
+              <div class="perk-desc" data-i18n="perk_3_desc">Kosteloos omboeken bij storm of gewijzigde vaartijden van Rederij Doeksen.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_4_title">Persoonlijk Contact</div>
+              <div class="perk-desc" data-i18n="perk_4_desc">Direct overleg met Jort voor uw favoriete veldje, visvergunning en eilandtips.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Policy Cards -->
+      <div class="policies-grid">
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3 3 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_1_title">100% Autovrij Terrein</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_1_desc">Auto's parkeren op het centrale terrein. Bij aankomst en vertrek mag u laden en lossen met de bolderwagens.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M18 4v4"/><path d="M16 6h4"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_2_title">Dark Sky & Nachtrust</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_2_desc">Vanaf 22:30 uur heerst er stilte op het terrein. Geniet van de zuiverste sterrenhemel van Nederland.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5.172a2 2 0 0 0-3.414-1.414L3.828 6.516A2 2 0 0 0 3.242 7.93l.8 5.602A2 2 0 0 0 6.026 15.5l1.6-.23a2 2 0 0 0 1.6-1.414l.8-2.8"/><path d="M14 9.172a2 2 0 0 1 3.414-1.414l2.758 2.758a2 2 0 0 1 .586 1.414l-.8 5.602a2 2 0 0 1-1.984 1.97l-1.6-.23a2 2 0 0 1-1.6-1.414l-.8-2.8"/><circle cx="12" cy="5" r="1.5"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_3_title">Honden Aangelijnd</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_3_desc">Huisdieren zijn van harte welkom op de camping en in geselecteerde accommodaties, mits altijd aangelijnd.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_4_title">Veiligheid Rond Vuur</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_4_desc">Open vuur alleen toegestaan op de centrale vuurplaats onder toezicht. Geen losse grondvuren op de veldjes.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_5_title">Aankomst & Vertrek</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_5_desc">Inchecken vanaf 14:00 uur. Uitchecken kampeerplaatsen voor 12:00 uur, huuraccommodaties voor 10:30 uur.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="pol_6_title">Direct Boeken Voordeel</h4>
+            <p style="font-size:0.86rem;color:var(--text-muted);margin-top:0.25rem;" data-i18n="pol_6_desc">Beste prijs gegarandeerd, flexibele omboeking bij veranderde veerdienst en direct contact met familie Bos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. REVIEWS / GASTENBOEK -->
+  <section class="section-pad reviews-section" id="gastenboek">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow" data-i18n="reviews_eyebrow">Echte Ervaringen</span>
+        <h2 class="section-title" data-i18n="reviews_title">Wat Onze Gasten Vertellen</h2>
+        <p class="section-desc" data-i18n="reviews_desc">Al jarenlang een favoriete uitvalsbasis voor natuurliefhebbers, gezinnen en eilandgangers.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-quote" data-i18n="rev_1_quote">"Wat een fantastische plek! De kinderen hebben de hele week heerlijk gespeeld op het autovrije veld en de avond met de Afrikaanse Braai was het hoogtepunt van onze vakantie."</div>
+          <div>
+            <div class="review-author">Familie Van Veen, via Google</div>
+            <div class="review-meta">Verblijf in De Waard Huurtent · Juli 2026</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote" data-i18n="rev_2_quote">"Met Jort meegeweest op zeehondentocht, wat een bijzondere belevenis in zo'n klein groepje. De rust aan de duinrand is ongekend. We komen volgend jaar gegarandeerd terug!"</div>
+          <div>
+            <div class="review-author">Mark & Sophie, via Zoover</div>
+            <div class="review-meta">Huisje De Visser · Augustus 2026</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-quote" data-i18n="rev_3_quote">"Heerlijk rustige camping met brandschoon sanitair en ruime plekken. Vanaf de camping wandel je zo de Boschplaat op. De gastvrijheid van familie Bos voelt als een warm bad."</div>
+          <div>
+            <div class="review-author">Annet & Peter, via Google</div>
+            <div class="review-meta">Kampeerplaats 100m² · Juni 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. OMGEVING TERSCHELLING & COMMUNITY -->
+  <section class="section-pad" id="omgeving">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-eyebrow" data-i18n="island_eyebrow">Eilandverkenning & Community</span>
+        <h2 class="section-title" data-i18n="island_title">Beleef Terschelling & Volg #campingdeduinkant</h2>
+        <p class="section-desc" data-i18n="island_desc">De rust van Oosterend, de wildernis van De Boschplaat en gezellige strandtenten op fietsafstand.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;margin-bottom:3rem;">
+        <div>
+          <h3 style="margin-bottom:1rem;" data-i18n="reach_title">Hoe Bereikt u Ons?</h3>
+          <p style="color:var(--text-muted);margin-bottom:1rem;" data-i18n="reach_p1">Vanaf Harlingen neemt u de veerdienst van Rederij Doeksen naar West-Terschelling (snelle boot 45 min, veerdienst 120 min). Vanaf de haven rijdt u in 20 minuten met auto of buslijn 1 of 2 naar Oosterend. Fietsen huren kan direct bij de haven en uw bagage wordt gratis bezorgd!</p>
+          <div style="background:var(--card-bg);padding:1.25rem;border-radius:8px;border:1px solid var(--border-sand);">
+            <strong>Adres:</strong> Oosterend 65, 8897 HX Terschelling<br>
+            <strong>Coördinaten:</strong> 53.4034° N, 5.3789° E<br>
+            <strong>Contact:</strong> +31 (0)562 448917 · info@duinkant.nl
+          </div>
+        </div>
+
+        <div>
+          <img src="images/kaartje.jpg" alt="Kaart Terschelling met Camping De Duinkant" style="border-radius:12px;box-shadow:var(--shadow-md);" width="550" height="300">
+        </div>
+      </div>
+
+      <!-- 6-Photo Community Grid with #campingdeduinkant -->
+      <div class="community-grid">
+        <div class="community-card">
+          <img src="images/img_9688_full.jpg" alt="Zomerse sfeer op het kampeerveld met fietsers en De Waard tenten" width="300" height="300">
+          <div class="community-tag">#campingdeduinkant</div>
+        </div>
+        <div class="community-card">
+          <img src="images/hero_terschelling_sunset_dunes.jpg" alt="Zonsondergang over de duinen en de Waddenzee" width="300" height="300">
+          <div class="community-tag">#terschelling</div>
+        </div>
+        <div class="community-card">
+          <img src="images/braai_guests.jpg" alt="Gezelligheid en verhalen rond de Afrikaanse Braai" width="300" height="300">
+          <div class="community-tag">#braai</div>
+        </div>
+        <div class="community-card">
+          <img src="images/cottage_living_fireplace.jpg" alt="Warme houtkachel in het duinhuisje na een strandwandeling" width="300" height="300">
+          <div class="community-tag">#eilandgevoel</div>
+        </div>
+        <div class="community-card">
+          <img src="images/img_9710_full.jpg" alt="Uitzicht vanaf het duin op het kampeerterrein en de dijk" width="300" height="300">
+          <div class="community-tag">#duinkant</div>
+        </div>
+        <div class="community-card">
+          <img src="images/campfire_night.jpg" alt="Kampvuur onder de zuiverste sterrenhemel van Nederland" width="300" height="300">
+          <div class="community-tag">#darkskypark</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. DIRECT BOOKING ENQUIRY & FOOTER -->
+  <section class="section-pad" id="reserveren" style="background:#F4EFEA;">
+    <div class="container">
+      <div class="enquiry-container">
+        <div class="text-center" style="margin-bottom:2rem;">
+          <span class="section-eyebrow" data-i18n="form_eyebrow">Direct Boeken & Besparen</span>
+          <h2 class="section-title" data-i18n="form_title">Vrijblijvende Reserveringsaanvraag</h2>
+          <p style="color:var(--text-muted);font-size:0.95rem;" data-i18n="form_desc">Boek rechtstreeks bij familie Bos zonder boekingskosten. We reageren altijd binnen 24 uur met een passend voorstel.</p>
+        </div>
+
+        <form id="enquiry-form">
+          <!-- Honeypot -->
+          <input type="text" name="website_hp" style="display:none;" tabindex="-1" autocomplete="off">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="guest_name" class="form-label" data-i18n="label_name">Uw Naam *</label>
+              <input type="text" id="guest_name" name="guest_name" class="form-input" required placeholder="Bijv. Jan de Vries">
+            </div>
+
+            <div class="form-group">
+              <label for="guest_email" class="form-label" data-i18n="label_email">E-mailadres *</label>
+              <input type="email" id="guest_email" name="guest_email" class="form-input" required placeholder="uw@email.nl">
+            </div>
+
+            <div class="form-group">
+              <label for="guest_phone" class="form-label" data-i18n="label_phone">Telefoonnummer *</label>
+              <input type="tel" id="guest_phone" name="guest_phone" class="form-input" required placeholder="+31 (0)6 ...">
+            </div>
+
+            <div class="form-group">
+              <label for="room_preference" class="form-label" data-i18n="label_room">Gewenst Verblijf *</label>
+              <select id="room_preference" name="room_preference" class="form-select" required>
+                <option value="Huisje De Visser">Huisje De Visser (5 personen)</option>
+                <option value="Huisje De Jager">Huisje De Jager (5 personen)</option>
+                <option value="De Waard Huurtent">De Waard Huurtent (4 personen)</option>
+                <option value="Appartement De Jutter">Appartement De Jutter (2 personen)</option>
+                <option value="Appartement De Kooiker">Appartement De Kooiker (4 personen)</option>
+                <option value="Kampeerplaats 100m²">Kampeerplaats 100m² (Gras)</option>
+                <option value="Camperplaats">Camperplaats (Verhard tot 7m)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="arrival" class="form-label" data-i18n="label_arrival">Aankomstdatum *</label>
+              <input type="date" id="arrival" name="arrival" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="departure" class="form-label" data-i18n="label_departure">Vertrekdatum *</label>
+              <input type="date" id="departure" name="departure" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="guest_count" class="form-label" data-i18n="label_guests">Aantal Personen *</label>
+              <select id="guest_count" name="guest_count" class="form-select" required>
+                <option value="1">1 Persoon</option>
+                <option value="2" selected>2 Personen</option>
+                <option value="3">3 Personen</option>
+                <option value="4">4 Personen</option>
+                <option value="5">5 Personen</option>
+                <option value="6+">6+ Personen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="special_wishes" class="form-label" data-i18n="label_wishes">Bijzonderheden & Vragen</label>
+              <input type="text" id="special_wishes" name="special_wishes" class="form-input" placeholder="Bijv. hond mee, interesse in zeehondentocht...">
+            </div>
+
+            <div class="form-group full-width" style="margin-top:1rem;">
+              <button type="submit" class="btn btn-warm" style="width:100%;font-size:1.05rem;" data-i18n="btn_submit_enquiry">Aanvraag Vrijblijvend Verzenden</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Confirmation Notice -->
+        <div class="confirmation-box" id="enquiry-confirmation">
+          <h3>Bedankt voor uw aanvraag!</h3>
+          <p>Uw directe reserveringsaanvraag is succesvol in goede orde ontvangen met referentie:</p>
+          <div class="confirmation-ref" id="enquiry-ref">DK-2026-0000</div>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Jort of familie Bos neemt binnen 24 uur persoonlijk contact met u op om de beschikbaarheid en details te bevestigen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="brand-name" style="color:#fff;font-size:1.4rem;">Camping De Duinkant B.V.</span>
+          <p style="margin-top:0.75rem;max-width:360px;">Karakteristiek kamperen en ontspannen aan de ongerepte duinrand van Oosterend, Terschelling. UNESCO Werelderfgoed Waddenzee.</p>
+          <div style="margin-top:1rem;font-size:0.85rem;">
+            KvK: 82419825 · BTW: 826431781B01
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Snelkoppelingen</h4>
+          <ul class="footer-links">
+            <li><a href="#verhaal">Het Verhaal</a></li>
+            <li><a href="#impressie">Plattegrond & Kaart</a></li>
+            <li><a href="#verblijven">Accommodaties</a></li>
+            <li><a href="#braai">Afrikaanse Braai</a></li>
+            <li><a href="#avonturen">Zeehondentochten</a></li>
+            <li><a href="#reserveren">Direct Reserveren</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact & Adres</h4>
+          <p>Oosterend 65<br>8897 HX Terschelling<br>Nederland</p>
+          <p style="margin-top:0.6rem;">
+            Tel: <a href="tel:+31562448917" style="color:#fff;">+31 (0)562 448917</a><br>
+            Mail: <a href="mailto:info@duinkant.nl" style="color:#fff;">info@duinkant.nl</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Camping De Duinkant B.V. · Gemaakt met zorg op Terschelling</div>
+        <div>Officiële Direct Boeken Partner · Zoover Gold Award 2025</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Campground",
+        "@id": "https://www.campingdeduinkant.nl/#campground",
+        "name": "Camping De Duinkant",
+        "description": "Kleine, gastvrije natuurcamping aan de duinrand in Oosterend Terschelling met 51 autovrije kampeerplaatsen, De Waard huurtenten, boerderij appartementen en Afrikaanse braai.",
+        "url": "https://www.campingdeduinkant.nl/",
+        "telephone": "+31-562-448917",
+        "email": "info@duinkant.nl",
+        "priceRange": "€26 - €195",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Oosterend 65",
+          "addressLocality": "Terschelling Oosterend",
+          "postalCode": "8897 HX",
+          "addressCountry": "NL"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 53.4034,
+          "longitude": 5.3789
+        },
+        "amenityFeature": [
+          {"@type": "LocationFeatureSpecification", "name": "Autovrij terrein", "value": true},
+          {"@type": "LocationFeatureSpecification", "name": "Afrikaanse Braai & Kampvuur", "value": true},
+          {"@type": "LocationFeatureSpecification", "name": "Zeehondentochten", "value": true},
+          {"@type": "LocationFeatureSpecification", "name": "De Waard Huurtenten", "value": true},
+          {"@type": "LocationFeatureSpecification", "name": "Wifi", "value": true}
+        ]
+      },
+      {
+        "@type": "LodgingBusiness",
+        "@id": "https://www.campingdeduinkant.nl/#lodging",
+        "name": "Camping De Duinkant B.V.",
+        "url": "https://www.campingdeduinkant.nl/",
+        "telephone": "+31-562-448917"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. TRILINGUAL DICTIONARY (NL / EN / DE)
+    // Strict UK English used for all EN translations!
+    var translations = {
+      en: {
+        ribbon_text: "Book direct for our guaranteed best rates · Zero booking fees · Personal contact with Jort",
+        nav_story: "Story",
+        nav_impressie: "Gallery",
+        nav_rooms: "Stay",
+        nav_braai: "Braai",
+        nav_adventures: "Adventures",
+        nav_rates: "Rates",
+        nav_reviews: "Reviews",
+        nav_island: "Island",
+        btn_book_direct: "Book Direct",
+        hero_eyebrow: "Oosterend · Terschelling · UNESCO Wadden Sea Sanctuary",
+        hero_title: "Tranquility, Space & Island Living by the Dune Edge",
+        hero_desc: "51 spacious car-free camping pitches, handcrafted De Waard canvas tents, historic farmhouse apartments, and cosy dune cottages at the foot of De Boschplaat Nature Reserve.",
+        hero_cta_rooms: "Explore Accommodations",
+        hero_cta_book: "Direct Booking Enquiry",
+        pillar_1: "100% Car-Free Nature Grounds",
+        pillar_2: "African Braai & Campfire",
+        pillar_3: "UNESCO Wadden Sea Heritage",
+        pillar_4: "Dark Sky Park Boschplaat",
+        scene_0: "Camping Pitches",
+        scene_1: "Canvas Tents",
+        scene_2: "Braai & Fire",
+        scene_3: "Wadden Sea",
+        story_eyebrow: "Authentic Island Living",
+        story_title: "A Warm Welcome at the Dune Edge of Oosterend",
+        story_p1: "Camping De Duinkant is a tranquil, welcoming family campsite on the peaceful eastern coast of Terschelling. Pitch your tent right against the natural dunes, enveloped in fresh sea breeze and wild dune flora.",
+        story_p2: "Host Jort Bos and family welcome you warmly. Our campsite is completely car-free: children play freely on the grass while you gather by the campfire under the breathtaking star canopy of Europe's Dark Sky Park De Boschplaat.",
+        feat_1_title: "100% Car-Free Sanctuary",
+        feat_1_desc: "Peace of mind and pure safety for children. Luggage barrows are available at arrival.",
+        feat_2_title: "UNESCO World Heritage",
+        feat_2_desc: "Walk straight from your pitch across tidal salt marshes and the open Wadden Sea.",
+        impressie_eyebrow: "Atmosphere & Layout",
+        impressie_title: "Discover Our Campsite from Above",
+        impressie_desc: "51 sheltered pitches across three green fields, characterful farmhouse suites, and cosy holiday cottages.",
+        plattegrond_tag: "Property Layout",
+        plattegrond_title: "Camping De Duinkant Site Map",
+        plattegrond_text: "Clear overview of the 3 camping fields, camper spots, cottages, historic farmhouse, and central campfire area.",
+        rooms_eyebrow: "Your Island Retreat",
+        rooms_title: "Choose Your Favourite Spot on the Island",
+        rooms_desc: "From sleeping in storm-proof De Waard canvas tents to a warm cottage with an open log fireplace.",
+        filter_all: "View All",
+        filter_cottage: "Holiday Cottages",
+        filter_tent: "De Waard Canvas Tents",
+        filter_farmhouse: "Farmhouse Apartments",
+        filter_pitch: "Pitches & Campers",
+        btn_enquire_room: "Enquire This Accommodation",
+        braai_eyebrow: "Exclusive to Terschelling",
+        braai_title: "Campfire Hearth & Authentic African Braai",
+        braai_p1: "Experience the timeless warmth of gathering around the flames. We regularly light the fire for our celebrated African Braai evenings, grilling delicious local specialities over seasoned glowing coals.",
+        braai_p2: "Campsite guests are free to enjoy our communal campfire hearth. Unwind with a local drink, toast marshmallows with the children, and share stories beneath the starlight.",
+        adv_eyebrow: "Wadden Sea Encounters",
+        adv_title: "Seal Watching Expeditions & Sea Bass Angling with Jort",
+        adv_p1: "When tides allow, host Jort navigates guests aboard 'De Zeearend' to secluded Wadden Sea sandbanks where colonies of wild seals bask in the sun. Kept to a maximum of 6 guests for an intimate wildlife experience.",
+        adv_p2: "In addition, embark on 'De Visarend', our custom 175 HP aluminium angling craft, hunting sea bass in the dynamic coastal currents. Freshly caught fish can be smoked on the campsite in the evening!",
+        adv_seal_title: "Seal Safari Zeearend",
+        adv_seal_desc: "Exclusive to campsite guests. Maximum 6 persons per voyage.",
+        adv_fish_title: "Sea Bass Fishing Quest",
+        adv_fish_desc: "Specialist angling with skipper Jort around secret island marks.",
+        rates_eyebrow: "Transparent Pricing",
+        rates_title: "Rates & Eco Stay Policies",
+        rates_desc: "No hidden service fees, no OTA middleman commissions when booking directly with us.",
+        perks_badge: "Direct Booking = Always Better Value",
+        perks_ota_note: "Save 15% platform fees compared to Booking.com & Airbnb",
+        perk_1_title: "Guaranteed Best Rate",
+        perk_1_desc: "Zero booking fees or OTA mark-ups. You always pay our genuine island rates.",
+        perk_2_title: "Complimentary Braai Firewood",
+        perk_2_desc: "Exclusive to direct enquiries: a complimentary sack of dried birch for your first hearth evening.",
+        perk_3_title: "Flexible Ferry Rescheduling",
+        perk_3_desc: "Free date adjustments if Rederij Doeksen ferry sailings are disrupted by coastal weather.",
+        perk_4_title: "Direct Personal Care",
+        perk_4_desc: "Liaise directly with Jort for your favoured pitch, angling permits, and bespoke island advice.",
+        pol_1_title: "100% Car-Free Grounds",
+        pol_1_desc: "Vehicles remain in the designated car park. Free luggage wheelbarrows provided for unpacking.",
+        pol_2_title: "Dark Sky & Quiet Hours",
+        pol_2_desc: "Quiet hours commence at 22:30. Enjoy the most unpolluted night sky in the Netherlands.",
+        pol_3_title: "Dogs Welcome on Leash",
+        pol_3_desc: "Well-behaved dogs are welcome on camping pitches and selected cottages, kept on leash.",
+        pol_4_title: "Fire Safety Standards",
+        pol_4_desc: "Open campfires permitted exclusively at the designated central hearth with supplied safety buckets.",
+        pol_5_title: "Arrival & Departure",
+        pol_5_desc: "Check-in from 14:00. Check-out for camping pitches by 12:00, holiday cottages by 10:30.",
+        pol_6_title: "Direct Booking Protection",
+        pol_6_desc: "Best rate guarantee, flexible reschedule if ferry sailings change, and personal care from family Bos.",
+        reviews_eyebrow: "Verified Guest Reviews",
+        reviews_title: "Words from Our Guests",
+        reviews_desc: "A cherished retreat for nature enthusiasts, stargazers, and island travellers for generations.",
+        rev_1_quote: "What a splendid haven! The children spent the whole week playing safely on the car-free grass, and the communal African Braai evening was the highlight of our summer holiday.",
+        rev_2_quote: "Joining Jort on the seal-watching trip was unforgettable with such an intimate group. The peace along the dunes is unmatched. We will certainly return next summer!",
+        rev_3_quote: "Wonderfully tranquil site with spotless modern amenities and spacious grass pitches. You can walk straight onto De Boschplaat reserve from your tent.",
+        island_eyebrow: "Island Exploration & Community",
+        island_title: "Experience Terschelling & Follow #campingdeduinkant",
+        island_desc: "The peaceful sanctuary of Oosterend, wild salt marshes, and welcoming beach pavilions within easy cycling reach.",
+        reach_title: "How to Reach Us",
+        reach_p1: "From Harlingen port, board the Rederij Doeksen ferry to West-Terschelling (fast catamaran 45 mins, vehicle ferry 120 mins). A gentle 20-minute drive or scenic bus route 1 or 2 brings you straight to Oosterend. Island bicycles can be hired right at the ferry terminal with complimentary luggage transfer!",
+        form_eyebrow: "Direct Booking & Best Rate Guarantee",
+        form_title: "Direct Booking Enquiry",
+        form_desc: "Book direct with the Bos family with zero booking fees. We reply within 24 hours with confirmed availability.",
+        label_name: "Full Name *",
+        label_email: "Email Address *",
+        label_phone: "Telephone Number *",
+        label_room: "Accommodation Preference *",
+        label_arrival: "Arrival Date *",
+        label_departure: "Departure Date *",
+        label_guests: "Party Size *",
+        label_wishes: "Special Requests / Excursion Notes",
+        btn_submit_enquiry: "Send Direct Enquiry"
+      },
+      de: {
+        ribbon_text: "Direkt buchen zum garantiert besten Preis · Keine Buchungsgebühren · Persönlicher Kontakt mit Jort",
+        nav_story: "Geschichte",
+        nav_impressie: "Galerie",
+        nav_rooms: "Unterkünfte",
+        nav_braai: "Braai",
+        nav_adventures: "Abenteuer",
+        nav_rates: "Preise",
+        nav_reviews: "Reviews",
+        nav_island: "Insel",
+        btn_book_direct: "Direkt Buchen",
+        hero_eyebrow: "Oosterend · Terschelling · UNESCO Weltnaturerbe Wattenmeer",
+        hero_title: "Ruhe, Weite & Inselglück am Dünenrand von Terschelling",
+        hero_desc: "51 großzügige autofreie Stellplätze, De Waard Zelte, historische Bauernhof-Apartments und gemütliche Dünenhäuschen am Rande des Naturschutzgebiets De Boschplaat.",
+        hero_cta_rooms: "Unterkünfte entdecken",
+        hero_cta_book: "Direktanfrage senden",
+        pillar_1: "100% Autofreies Naturgelände",
+        pillar_2: "Afrikanisches Braai & Feuer",
+        pillar_3: "UNESCO Weltnaturerbe",
+        pillar_4: "Dark Sky Park Boschplaat",
+        scene_0: "Zeltplätze",
+        scene_1: "Mietzelte",
+        scene_2: "Braai & Feuer",
+        scene_3: "Wattenmeer",
+        story_eyebrow: "Echtes Inselleben",
+        story_title: "Zuhause am Dünenrand von Oosterend",
+        story_p1: "Camping De Duinkant ist ein gemütlicher Familien-Naturcampingplatz am ruhigen Ostende von Terschelling. Hier zelten Sie direkt an den Dünen, umgeben vom Duft von Meersalz und Strandhafer.",
+        story_p2: "Gastgeber Jort Bos und Familie heißen Sie herzlich willkommen. Unser Gelände ist vollkommen autofrei: Kinder spielen unbeschwert, während Sie abends am Lagerfeuer unter dem Sternenhimmel entspannen.",
+        feat_1_title: "100% Autofreies Gelände",
+        feat_1_desc: "Maximale Sicherheit für Kinder und absolute Ruhe. Gepäckkarren stehen bei Ankunft bereit.",
+        feat_2_title: "UNESCO Weltnaturerbe",
+        feat_2_desc: "Direkt vom Zelt aus über Salzwiesen und durch das Wattenmeer wandern.",
+        impressie_eyebrow: "Stimmung & Lageplan",
+        impressie_title: "Unser Campingplatz aus der Vogelperspektive",
+        impressie_desc: "51 windgeschützte Stellplätze auf drei grünen Wiesen, Bauernhof-Apartments und Ferienhäuschen.",
+        plattegrond_tag: "Lageplan",
+        plattegrond_title: "Lageplan Camping De Duinkant",
+        plattegrond_text: "Übersicht über die 3 Zeltwiesen, Wohnmobilstellplätze, Häuschen und die zentrale Feuerstelle.",
+        rooms_eyebrow: "Ihre Inselunterkunft",
+        rooms_title: "Wählen Sie Ihren Lieblingsplatz auf Terschelling",
+        rooms_desc: "Von sturmerprobten De Waard Mietzelten bis zum behaglichen Dünenhäuschen mit offenem Kamin.",
+        filter_all: "Alle",
+        filter_cottage: "Ferienhäuschen",
+        filter_tent: "De Waard Mietzelte",
+        filter_farmhouse: "Bauernhof-Apartments",
+        filter_pitch: "Stellplätze & Camper",
+        btn_enquire_room: "Diese Unterkunft anfragen",
+        braai_eyebrow: "Einzigartig auf Terschelling",
+        braai_title: "Feuerstelle & Echtes Afrikanisches Braai",
+        braai_p1: "Erleben Sie echte Geselligkeit. Regelmäßig entfachen wir das Feuer für unser afrikanisches Braai: Feines Grillen über glühender Holzkohle in familiärer Atmosphäre.",
+        braai_p2: "Als Campinggast steht Ihnen unsere zentrale Feuerstelle frei zur Verfügung. Rösten Sie Marshmallows mit den Kindern und genießen Sie den Abend unter den Sternen.",
+        adv_eyebrow: "Wattenmeer-Abenteuer",
+        adv_title: "Mit Jort zu den Seehunden & Wolfsbarsch-Angeln",
+        adv_p1: "Bei passender Gezeit nimmt Skipper Jort Sie auf der 'Zeearend' mit zu den Sandbänken der Seehunde. Klein und exklusiv (maximal 6 Personen) für ein persönliches Naturerlebnis.",
+        adv_p2: "Zudem bieten wir mit der 'Visarend', unserem 175-PS-Aluminiumboot, sportliche Angeltouren auf Wolfsbarsch. Frisch gefangener Fisch kann abends geräuchert werden!",
+        adv_seal_title: "Seehundtour Zeearend",
+        adv_seal_desc: "Exklusiv für Campinggäste. Maximal 6 Personen pro Fahrt.",
+        adv_fish_title: "Wolfsbarsch-Angelabenteuer",
+        adv_fish_desc: "Auf der schnellen Visarend mit Skipper Jort zu den besten Fanggründen.",
+        rates_eyebrow: "Faire Konditionen",
+        rates_title: "Preise & Platzregeln",
+        rates_desc: "Keine versteckten Gebühren, keine Portalprovisionen bei direkter Buchung.",
+        perks_badge: "Direkt Buchen = Immer Günstiger",
+        perks_ota_note: "Sparen Sie 15% Plattformgebühren gegenüber Booking.com & Airbnb",
+        perk_1_title: "Beste Preisgarantie",
+        perk_1_desc: "Keine Buchungsgebühren oder Plattformaufschläge. Sie zahlen stets den reinen Inselpreis.",
+        perk_2_title: "Gratis Sack Braai-Brennholz",
+        perk_2_desc: "Exklusiv bei direkter Anfrage: ein Sack trockenes Birkenholz für Ihren ersten Lagerfeuerabend.",
+        perk_3_title: "Flexible Fähranpassung",
+        perk_3_desc: "Kostenlose Umbuchung bei sturmbedingten Fahrplanänderungen der Reederei Doeksen.",
+        perk_4_title: "Persönlicher Kontakt",
+        perk_4_desc: "Direkte Absprache mit Jort für Ihren Wunschplatz, Angelscheine und Inseltipps.",
+        pol_1_title: "100% Autofreies Gelände",
+        pol_1_desc: "Autos verbleiben auf dem Parkplatz. Bollerwagen stehen zum Be- und Entladen bereit.",
+        pol_2_title: "Dark Sky & Nachtruhe",
+        pol_2_desc: "Nachtruhe ab 22:30 Uhr. Bewundern Sie den reinsten Nachthimmel der Niederlande.",
+        pol_3_title: "Hunde an der Leine",
+        pol_3_desc: "Hunde sind auf den Stellplätzen und in ausgewählten Häusern herzlich willkommen (angeleint).",
+        pol_4_title: "Feuersicherheit",
+        pol_4_desc: "Offenes Feuer ist ausschließlich an der zentralen Feuerstelle gestattet.",
+        pol_5_title: "Anreise & Abreise",
+        pol_5_desc: "Check-in ab 14:00 Uhr. Abreise für Stellplätze bis 12:00 Uhr, für Häuser bis 10:30 Uhr.",
+        pol_6_title: "Direktbucher-Vorteile",
+        pol_6_desc: "Beste Preise garantiert und persönliche Betreuung durch Familie Bos.",
+        reviews_eyebrow: "Echte Bewertungen",
+        reviews_title: "Was Unsere Gäste Sagen",
+        reviews_desc: "Seit Jahren ein beliebtes Urlaubsziel für Naturliebhaber und Familien.",
+        rev_1_quote: "Ein herrlicher Ort! Die Kinder konnten unbesorgt spielen und das afrikanische Braai am Abend war das absolute Highlight unseres Urlaubs.",
+        rev_2_quote: "Die Seehundtour mit Jort in kleiner Gruppe war einmalig. Die Ruhe am Dünenrand ist unvergleichlich.",
+        rev_3_quote: "Wunderbar ruhiger Campingplatz mit sauberen Sanitäranlagen und tollen Plätzen direkt an der Boschplaat.",
+        island_eyebrow: "Inselentdeckung",
+        island_title: "Erleben Sie Terschelling & Folgen Sie #campingdeduinkant",
+        island_desc: "Die Ruhe von Oosterend, die Weite der Dünen und die schönsten Strände mit dem Fahrrad erkunden.",
+        reach_title: "Ihre Anreise",
+        reach_p1: "Mit der Fähre von Harlingen nach West-Terschelling. Von dort sind es ca. 20 Minuten mit dem Auto oder Buslinie 1 bzw. 2 nach Oosterend. Fahrräder können direkt am Fährhafen gemietet werden.",
+        form_eyebrow: "Direkt Buchen & Sparen",
+        form_title: "Unverbindliche Buchungsanfrage",
+        form_desc: "Buchen Sie direkt bei Familie Bos ohne Vermittlergebühren. Wir antworten innerhalb von 24 Stunden.",
+        label_name: "Ihr Name *",
+        label_email: "E-Mail-Adresse *",
+        label_phone: "Telefonnummer *",
+        label_room: "Gewünschte Unterkunft *",
+        label_arrival: "Anreisedatum *",
+        label_departure: "Abreisedatum *",
+        label_guests: "Anzahl Personen *",
+        label_wishes: "Wünsche & Anmerkungen",
+        btn_submit_enquiry: "Unverbindliche Anfrage Senden"
+      },
+      zh: {
+        ribbon_text: "官方直订尊享最低价格保证 · 免收预订服务费 · 营地主理人 Jort 专属直联",
+        nav_story: "营地故事",
+        nav_impressie: "营地全貌",
+        nav_rooms: "房型住宿",
+        nav_braai: "营火烤肉",
+        nav_adventures: "海岛探险",
+        nav_rates: "价格与须知",
+        nav_reviews: "住客评价",
+        nav_island: "周边海岛",
+        btn_book_direct: "官方直订",
+        hero_eyebrow: "Oosterend · 泰尔斯海灵岛 · 联合国教科文组织瓦登海自然保护区",
+        hero_title: "沙丘之畔的静谧时光 · 纯粹自然的海岛生活",
+        hero_desc: "坐落于 De Boschplaat 欧洲暗夜星空公园脚下：51 处开阔的纯净无车露营位、De Waard 经典风暴帆布帐篷、百年历史农舍度假公寓，以及沙丘边温馨的原木小屋。",
+        hero_cta_rooms: "探索全部房型",
+        hero_cta_book: "立即直订询价",
+        pillar_1: "100% 纯无车生态自然营地",
+        pillar_2: "南非传统 Braai 营火慢烤",
+        pillar_3: "联合国教科文组织瓦登海世界遗产",
+        pillar_4: "欧洲暗夜星空公园 Boschplaat",
+        scene_0: "生态露营位",
+        scene_1: "轻奢帆布帐篷",
+        scene_2: "Braai 与营火",
+        scene_3: "瓦登海潮汐",
+        story_eyebrow: "真实纯粹的海岛生活",
+        story_title: "欢迎来到 Oosterend 沙丘边缘的温馨避风港",
+        story_p1: "Camping De Duinkant 是一处宁静宜人的家族露营地，坐落于泰尔斯海灵岛静谧的东部海岸。搭起帐篷紧依天然起伏的沙丘，海风裹挟着沙草香气拂面而来。",
+        story_p2: "主理人 Jort Bos 及其家人真诚欢迎每位旅人的到来。营地实行 100% 全面无车管理：孩子们在草地上无拘无束地奔跑嬉戏，夜晚大家围坐在中央营火旁，仰望欧洲 De Boschplaat 暗夜星空公园璀璨纯净的浩瀚银河。",
+        feat_1_title: "100% 无车安全绿洲",
+        feat_1_desc: "专为儿童与自然设计的安全庇护所。到达时营地入口配有专属行李独轮车，轻松搬运。",
+        feat_2_title: "直通联合国教科文组织世界遗产",
+        feat_2_desc: "从帐篷营位步行数步即可踏入沿海盐沼湿地，领略广袤开阔的瓦登海潮间带自然奇观。",
+        impressie_eyebrow: "营地环境与空间布局",
+        impressie_title: "俯瞰营地：沉浸于纯净大自然",
+        impressie_desc: "分布在三片避风绿茵草地上的 51 处独立营位、独具岛屿特色的百年农舍套房与温馨度假小屋。",
+        plattegrond_tag: "营地平面图",
+        plattegrond_title: "Camping De Duinkant 营地全景分布图",
+        plattegrond_text: "清晰展示三大草坪营区、露营车位、木屋区、历史农舍建筑与中央营火社交区的空间布局。",
+        rooms_eyebrow: "海岛居所",
+        rooms_title: "挑选属于您的心仪海岛栖所",
+        rooms_desc: "从在荷兰传奇防风暴 De Waard 帆布帐篷中听风入眠，到在配有燃木壁炉的温暖沙丘木屋中惬意度假。",
+        filter_all: "全部类型",
+        filter_cottage: "沙丘度假小屋",
+        filter_tent: "De Waard 经典帐篷",
+        filter_farmhouse: "历史农舍套房",
+        filter_pitch: "草地营位与房车",
+        btn_enquire_room: "咨询预订此房型",
+        braai_eyebrow: "泰尔斯海灵岛独家特色",
+        braai_title: "中央营火慢聚 · 地道南非 Braai 传统烤肉",
+        braai_p1: "重温围炉聚火的永恒温情。营地定期点燃火塘，举办备受赞誉的非洲传统 Braai 烤肉之夜，在精心慢燃的果木红炭上翻烤岛上精选风味食材。",
+        braai_p2: "所有露营住客均可自由使用公共营火聚会区。小酌一杯当地海岛饮品，与孩子们一同烤棉花糖，在静谧星空下倾听分享彼此的旅途故事。",
+        adv_eyebrow: "瓦登海野趣相遇",
+        adv_title: "与主理人 Jort 乘船出海：野生海豹寻访与海钓海鲈鱼",
+        adv_p1: "潮汐适宜时，营地主理人 Jort 会亲自掌舵「De Zeearend」号，带领住客驶向瓦登海隐秘沙洲，近距离观察成群晒太阳的野生海豹。每航次限额 6 位客人，确保私密纯粹的生态探索体验。",
+        adv_p2: "此外，亦可搭乘专属定制的 175 马力全铝合金快艇「De Visarend」号，在汹涌暗流中搏击垂钓生猛海鲈鱼。傍晚回到营地，还可在营火旁现场熏制烹饪您亲手捕获的战利品！",
+        adv_seal_title: "「Zeearend」号野生海豹生态巡游",
+        adv_seal_desc: "营地住客专属定制航程 · 每航次限乘 6 人。",
+        adv_fish_title: "「Visarend」号专业海钓海鲈鱼征途",
+        adv_fish_desc: "由船长 Jort 亲自指引，前往海岛绝密高产钓点。",
+        rates_eyebrow: "透明定价与营地规范",
+        rates_title: "入住价格与生态营地公约",
+        rates_desc: "官方直订绝无任何隐藏服务费，完全剔除第三方 OTA 平台中介佣金。",
+        perks_badge: "官方直接预订 = 尊享最佳价格与权益",
+        perks_ota_note: "相比 Booking.com 与 Airbnb 平台预订立省 15% 渠道加价",
+        perk_1_title: "最优惠价格保证",
+        perk_1_desc: "零预订服务费或平台溢价，您支付的始终是岛上最真实的本真底价。",
+        perk_2_title: "免费获赠 Braai 营火果木",
+        perk_2_desc: "直订独家特权：免费赠送一整袋天然干燥白桦木，点亮您的首个营火之夜。",
+        perk_3_title: "轮渡改期无忧保障",
+        perk_3_desc: "若受海岛恶劣风浪天气影响导致 Rederij Doeksen 轮渡停航，支持免费调整入住日期。",
+        perk_4_title: "主理人一对一直联服务",
+        perk_4_desc: "直接与主理人 Jort 沟通确认心仪营位位置、办理海钓许可证并获取定制海岛出行指南。",
+        pol_1_title: "100% 全无车营区",
+        pol_1_desc: "所有车辆统一停放于指定专属停车场。营地免费提供独轮行李车供搬运物品。",
+        pol_2_title: "暗夜星空与静音时段",
+        pol_2_desc: "每晚 22:30 准时进入静音时段。尽情享受全荷兰光污染最少、最澄澈静谧的夜空。",
+        pol_3_title: "宠物友好（需系绳）",
+        pol_3_desc: "露营位和部分指定度假木屋欢迎温顺守礼的爱犬入住，营区内请全程系好牵引绳。",
+        pol_4_title: "营火与消防安全准则",
+        pol_4_desc: "严禁在草坪裸地点火，仅限在配备安全防火水桶的中央专用火塘开展营火活动。",
+        pol_5_title: "入住与退房时间",
+        pol_5_desc: "入住时间自 14:00 起；露营位退房截止为 12:00，度假木屋及套房退房截止为 10:30。",
+        pol_6_title: "直订专享保障",
+        pol_6_desc: "承诺最佳优惠价格保证，因轮渡改期享免费调期，由 Bos 家族提供全天候贴心关怀。",
+        reviews_eyebrow: "真实住客评价",
+        reviews_title: "听听旅人们怎么说",
+        reviews_desc: "历代自然爱好者、观星者与海岛探索者们心目中的珍贵度假胜地。",
+        rev_1_quote: "多么令人惊叹的度假避风港！孩子们整整一周在全无车的草坪上安全无忧地奔跑玩耍，而晚上的集体非洲 Braai 烤肉更是成为我们暑假最难忘的亮点。",
+        rev_2_quote: "与 Jort 船长一起乘坐小船出海看海豹的经历令人终生难忘，小团队非常私密。沙丘边无与伦比的宁静深深治愈了我们，明年夏天一定会再来！",
+        rev_3_quote: "非常宁静祥和的自然营地，卫浴淋浴等设施现代化且一尘不染，草地营位极其宽敞。从帐篷出来就能直接漫步进入 De Boschplaat 自然保护区。",
+        island_eyebrow: "海岛探索与社交社区",
+        island_title: "感受泰尔斯海灵岛之美 · 关注话题 #campingdeduinkant",
+        island_desc: "Oosterend 的静谧避世、原生态潮间带湿地与温暖亲切的海滩木屋餐厅，均可在骑行短途内轻松抵达。",
+        reach_title: "如何抵达营地",
+        reach_p1: "从哈灵根（Harlingen）港口乘坐 Rederij Doeksen 渡轮抵达西泰尔斯海灵港（高速双体快船约 45 分钟，常规轮渡约 120 分钟）。随后驱车 20 分钟或搭乘 1 路/2 路观景公交直达 Oosterend。渡轮码头提供自行车租赁服务，并可将大件行李免费配送直达营地！",
+        form_eyebrow: "官方直订 · 最优价格保证",
+        form_title: "在线直订预订意向单",
+        form_desc: "直接向 Bos 家族预订，无任何中介服务费。我们将在 24 小时内回复并确认房态与档期。",
+        label_name: "您的姓名 *",
+        label_email: "电子邮箱 *",
+        label_phone: "联系电话 *",
+        label_room: "意向房型 / 营位类型 *",
+        label_arrival: "计划入住日期 *",
+        label_departure: "计划离营日期 *",
+        label_guests: "入住总人数 *",
+        label_wishes: "特殊需求 / 出海探险备注",
+        btn_submit_enquiry: "提交直订意向"
+      },
+      ja: {
+        ribbon_text: "公式サイト直接予約で最安値保証 · 予約手数料無料 · オーナーJort直通サポート",
+        nav_story: "ストーリー",
+        nav_impressie: "ギャラリー",
+        nav_rooms: "宿泊タイプ",
+        nav_braai: "焚き火＆Braai",
+        nav_adventures: "アクティビティ",
+        nav_rates: "料金・ポリシー",
+        nav_reviews: "口コミ",
+        nav_island: "周辺・アクセス",
+        btn_book_direct: "直接予約する",
+        hero_eyebrow: "オーステレンド · テルスヘリング島 · UNESCO世界遺産ワッデン海",
+        hero_title: "砂丘の彼方に広がる静寂 · 心ほどける島時間",
+        hero_desc: "ボスプラート自然保護区の麓に広がる、51区画のカーフリー自然サイト。本格De Waardコットンテント、歴史ある農家アパートメント、温もりあふれるデューンコテージ。",
+        hero_cta_rooms: "宿泊プランを見る",
+        hero_cta_book: "空室確認・直接予約",
+        pillar_1: "100% カーフリーの自然サイト",
+        pillar_2: "本格南アフリカ式Braai＆焚き火",
+        pillar_3: "UNESCO世界遺産ワッデン海",
+        pillar_4: "星空保護区ボスプラート",
+        scene_0: "キャンプサイト",
+        scene_1: "コットンテント",
+        scene_2: "Braai＆焚き火",
+        scene_3: "ワッデン海",
+        story_eyebrow: "ありのままの島時間を紡ぐ",
+        story_title: "オーステレンドの砂丘で、温かなおもてなしを",
+        story_p1: "Camping De Duinkant（デ・ダインカント）は、テルスヘリング島東部の静けさに包まれたアットホームな自然キャンプ場です。砂丘のすぐ隣にテントを張り、心地よい潮風と野の花の香りに包まれます。",
+        story_p2: "オーナーのJort Bos（ヨルト・ボス）一家が皆様を温かくお迎えします。場内は完全車両進入禁止。子どもたちは青々とした芝生の上を自由に駆け回り、夜にはヨーロッパ屈指の星空保護区ボスプラートの満天の星の下で、焚き火を囲んで語り合えます。",
+        feat_1_title: "完全車両進入禁止の安心空間",
+        feat_1_desc: "お子様連れでも安心・安全な環境。ご到着時には荷物運搬用の一輪車をご自由にご利用いただけます。",
+        feat_2_title: "UNESCO世界遺産に隣接",
+        feat_2_desc: "テントサイトからそのまま歩いて、塩性湿地やワッデン海の雄大な干潟へと繰り出すことができます。",
+        impressie_eyebrow: "場の空気感とマップ",
+        impressie_title: "上空から見渡す、緑豊かなキャンプ場",
+        impressie_desc: "風を遮る3つの緑豊かなエリアに点在する51のサイト、趣ある農家スイート、そして心地よいコテージ。",
+        plattegrond_tag: "場内マップ",
+        plattegrond_title: "Camping De Duinkant 全体配置図",
+        plattegrond_text: "3つのテントエリア、キャンピングカー区画、コテージ、伝統農家、中央焚き火サークルを一望できます。",
+        rooms_eyebrow: "島での滞在スタイル",
+        rooms_title: "お気に入りの居場所を見つける",
+        rooms_desc: "オランダが誇る耐暴風De Waardコットンテントから、暖炉のある温もりあふれるログコテージまで。",
+        filter_all: "すべて",
+        filter_cottage: "ホリデーコテージ",
+        filter_tent: "De Waard コットンテント",
+        filter_farmhouse: "伝統農家アパートメント",
+        filter_pitch: "テントサイト＆キャンピングカー",
+        btn_enquire_room: "この宿泊タイプを問い合わせる",
+        braai_eyebrow: "テルスヘリング島随一の醍醐味",
+        braai_title: "集いの焚き火と、本格南アフリカ式Braai",
+        braai_p1: "揺らめく炎を囲む、温かなひととき。定期的に開催される人気の南アフリカ式Braaiの夜では、じっくり熾した炭火の上で島の名産食材を豪快にグリルします。",
+        braai_p2: "ご宿泊のお客様は共用焚き火サークルをいつでも自由にご利用いただけます。島のお酒を片手に、お子様とマシュマロを焼きながら、満天の星の下で語り合いましょう。",
+        adv_eyebrow: "ワッデン海のアクティビティ",
+        adv_title: "船長Jortと行く野生アザラシクルーズ＆スズキ釣り",
+        adv_p1: "潮の満ち引きに合わせ、船長Jortが「De Zeearend（白尾鷲号）」で皆様を秘密の砂州へとお連れします。日光浴を楽しむ野生のアザラシたちを至近距離で観察。1便あたり最大6名様限定の贅沢な自然体験です。",
+        adv_p2: "さらに175馬力の高速アルミボート「De Visarend（鶚号）」で、潮流の激しい好漁場へスズキ釣りに出撃。釣り上げた新鮮な魚は、夕方にキャンプ場で燻製にして味わえます！",
+        adv_seal_title: "Zeearend号で行くアザラシサファリ",
+        adv_seal_desc: "宿泊者限定の特別ツアー · 1便最大6名様まで。",
+        adv_fish_title: "Visarend号本格スズキ釣りツアー",
+        adv_fish_desc: "船長Jortが秘密のポイントをご案内する本格フィッシング。",
+        rates_eyebrow: "明朗な料金とご利用案内",
+        rates_title: "ご宿泊料金と滞在ポリシー",
+        rates_desc: "公式サイトからの直接予約なら、隠れた追加料金や仲介手数料は一切不要です。",
+        perks_badge: "公式直接予約 = いつでも最安＆安心",
+        perks_ota_note: "Booking.comやAirbnbの手数料15%をまるごとカット",
+        perk_1_title: "ベストレート保証",
+        perk_1_desc: "予約手数料や上乗せ料金は一切なし。いつでも正規の島価格でご案内します。",
+        perk_2_title: "Braai用薪を1袋プレゼント",
+        perk_2_desc: "直接予約限定特典：最初の焚き火ナイトに使える乾燥白樺薪1袋を無料で進呈。",
+        perk_3_title: "フェリー運航に合わせた柔軟な日程変更",
+        perk_3_desc: "天候不良等でRederij Doeksenのフェリーが欠航・遅延した場合も、無料で日程変更が可能です。",
+        perk_4_title: "オーナーJortによる直接サポート",
+        perk_4_desc: "お好みの区画指定やフィッシング許可証の手配、島のおすすめ案内までJortが直接対応。",
+        pol_1_title: "場内完全車両進入禁止",
+        pol_1_desc: "お車は専用駐車場に駐車いただきます。お荷物運搬には無料の一輪車をご利用ください。",
+        pol_2_title: "満天の星と夜間の静粛時間",
+        pol_2_desc: "22:30以降はクワイエットタイム（消灯・静粛時間）です。オランダ屈指の清らかな星空をお楽しみください。",
+        pol_3_title: "愛犬同伴歓迎（リード必須）",
+        pol_3_desc: "テントサイトおよび一部の指定コテージにて、リード着用を条件に愛犬とのご宿泊が可能です。",
+        pol_4_title: "火気使用と安全ルール",
+        pol_4_desc: "焚き火は安全バケツが常備された中央の専用焚き火サークルでのみお楽しみいただけます。",
+        pol_5_title: "チェックイン・チェックアウト",
+        pol_5_desc: "チェックインは14:00から。チェックアウトはテントサイトが12:00、コテージは10:30まで。",
+        pol_6_title: "公式直接予約の安心保証",
+        pol_6_desc: "ベストレート保証、フェリー欠航時の柔軟な日程変更、そしてBos一家による温かなおもてなし。",
+        reviews_eyebrow: "ご宿泊のお客様の声",
+        reviews_title: "心温まるゲストからのメッセージ",
+        reviews_desc: "大自然を愛するキャンパー、天体観測ファン、島を愛する旅人たちに長年親しまれています。",
+        rev_1_quote: "まさに夢のような空間でした！車が入ってこない広い芝生で子どもたちが伸び伸びと遊び、夜のBraaiイベントは最高の夏の思い出になりました。",
+        rev_2_quote: "少人数でJortの船に乗って出かけたアザラシウォッチングは一生の思い出です。砂丘沿いの静けさは格別。来年の夏も必ず戻ってきます！",
+        rev_3_quote: "清潔で快適な設備が整った、驚くほど静かなキャンプ場。サイトはとても広く、テントを出てすぐにボスプラート自然保護区へ散策に出られます。",
+        island_eyebrow: "島巡りとコミュニティ",
+        island_title: "テルスヘリング島を体験する · #campingdeduinkant",
+        island_desc: "静かなオーステレンドの村、野生味あふれる塩性湿地、心地よいビーチパビリオンもサイクリングですぐ。",
+        reach_title: "アクセス・交通案内",
+        reach_p1: "Harlingen（ハーリンゲン）港からRederij DoeksenフェリーでWest-Terschellingへ（高速船45分、通常フェリー120分）。港から車で約20分、または1番・2番バスでOosterendへ直行。フェリー乗り場ですぐに自転車をレンタルでき、手荷物の無料配送サービスも利用できます！",
+        form_eyebrow: "公式直接予約 · ベストレート保証",
+        form_title: "ご予約・空室確認のお問い合わせ",
+        form_desc: "Bos一家への直接予約なら手数料ゼロ。24時間以内に空室状況とお見積もりをご案内いたします。",
+        label_name: "お名前 *",
+        label_email: "メールアドレス *",
+        label_phone: "お電話番号 *",
+        label_room: "ご希望の宿泊タイプ *",
+        label_arrival: "チェックイン日 *",
+        label_departure: "チェックアウト日 *",
+        label_guests: "ご宿泊人数 *",
+        label_wishes: "ご要望・アクティビティ希望など",
+        btn_submit_enquiry: "予約リクエストを送信する"
+      }
+    };
+
+    // 2. LANGUAGE SWITCHER LOGIC (instant, zero reload)
+    // Cache the original Dutch copy at init so switching back to NL restores without a reload.
+    // innerHTML (not textContent) keeps inline markup like the boat-name <strong> tags intact.
+    var nlDictionary = {};
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      nlDictionary[el.getAttribute('data-i18n')] = el.innerHTML;
+    });
+
+    function applyLanguageTexts(dict) {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+    }
+
+    function setLanguage(lang) {
+      var dict = lang === 'nl' ? nlDictionary : translations[lang];
+      if (!dict) return;
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        var isActive = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      var applyLanguage = function() {
+        applyLanguageTexts(dict);
+        document.documentElement.setAttribute('lang', lang);
+      };
+
+      if (window.gsap && !prefersReducedMotion()) {
+        gsap.to(document.body, {
+          autoAlpha: 0, duration: 0.12, ease: 'none', overwrite: true,
+          onComplete: function() {
+            applyLanguage();
+            gsap.to(document.body, { autoAlpha: 1, duration: 0.2, ease: 'none' });
+          }
+        });
+      } else {
+        applyLanguage();
+      }
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var chosenLang = this.getAttribute('data-lang');
+        setLanguage(chosenLang);
+      });
+    });
+
+    // 3. MOBILE DRAWER TOGGLE
+    var menuToggle = document.getElementById('mobile-menu-toggle');
+    var drawer = document.getElementById('mobile-drawer');
+    var drawerClose = document.getElementById('drawer-close-btn');
+
+    if (menuToggle && drawer) {
+      menuToggle.addEventListener('click', function() {
+        drawer.classList.add('is-open');
+        if (window.gsap && !prefersReducedMotion()) {
+          gsap.fromTo('.drawer-link', { autoAlpha: 0, y: 12 }, {
+            autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out', delay: 0.1
+          });
+        }
+      });
+      if (drawerClose) {
+        drawerClose.addEventListener('click', function() {
+          drawer.classList.remove('is-open');
+        });
+      }
+      drawer.querySelectorAll('.drawer-link').forEach(function(l) {
+        l.addEventListener('click', function() {
+          drawer.classList.remove('is-open');
+        });
+      });
+    }
+
+    // 4. HERO 4-SCENE SLIDER WITH 2.2S PROGRESS BAR (baseline engine, no dependencies)
+    function prefersReducedMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    var urlParams = new URLSearchParams(window.location.search);
+
+    function initBaselineHeroEngine() {
+      var heroSlides = document.querySelectorAll('.hero-bg-slide');
+      var heroTabs = document.querySelectorAll('.hero-scene-tab');
+      var heroProgress = document.getElementById('hero-progress');
+      var currentScene = 0;
+      var sceneCount = heroSlides.length;
+      var sceneDuration = 2200; // 2.2s as specified
+      var progressInterval = null;
+      var sceneTimer = null;
+      var progressStart = Date.now();
+
+      var heroParam = urlParams.get('hero');
+      var isAutoplay = urlParams.get('autoplay') !== '0' && urlParams.get('autoplay') !== 'false' && !prefersReducedMotion();
+      if (heroParam !== null) {
+        var hIdx = parseInt(heroParam, 10);
+        if (!isNaN(hIdx)) {
+          currentScene = (hIdx + sceneCount) % sceneCount;
+        }
+      }
+
+      function showScene(index, auto) {
+        if (typeof auto === 'undefined') { auto = true; }
+        currentScene = (index + sceneCount) % sceneCount;
+        heroSlides.forEach(function(slide, i) {
+          slide.classList.toggle('is-active', i === currentScene);
+        });
+        heroTabs.forEach(function(tab, i) {
+          tab.classList.toggle('is-active', i === currentScene);
+        });
+        resetHeroProgress(auto);
+      }
+
+      function resetHeroProgress(auto) {
+        if (typeof auto === 'undefined') { auto = true; }
+        clearInterval(progressInterval);
+        clearTimeout(sceneTimer);
+        if (heroProgress) { heroProgress.style.transform = 'scaleX(0)'; }
+        progressStart = Date.now();
+
+        progressInterval = setInterval(function() {
+          var elapsed = Date.now() - progressStart;
+          var pct = Math.min((elapsed / sceneDuration) * 100, 100);
+          if (heroProgress) { heroProgress.style.transform = 'scaleX(' + (pct / 100) + ')'; }
+        }, 50);
+
+        if (auto && isAutoplay) {
+          sceneTimer = setTimeout(function() {
+            showScene(currentScene + 1, true);
+          }, sceneDuration);
+        }
+      }
+
+      heroTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var sc = parseInt(this.getAttribute('data-scene'), 10);
+          showScene(sc, isAutoplay);
+        });
+      });
+
+      var heroPrev = document.getElementById('hero-prev');
+      var heroNext = document.getElementById('hero-next');
+      if (heroPrev) {
+        heroPrev.addEventListener('click', function() { showScene(currentScene - 1, isAutoplay); });
+      }
+      if (heroNext) {
+        heroNext.addEventListener('click', function() { showScene(currentScene + 1, isAutoplay); });
+      }
+
+      showScene(currentScene, isAutoplay);
+    }
+
+    // 4b. GSAP-ENHANCED HERO ENGINE (progressive enhancement layer)
+    function initGsapHeroEngine() {
+      var heroSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-bg-slide'));
+      var heroTabs = document.querySelectorAll('.hero-scene-tab');
+      var heroProgress = document.getElementById('hero-progress');
+      var reduce = prefersReducedMotion();
+      var currentScene = 0;
+      var sceneCount = heroSlides.length;
+      var sceneDuration = 2.2;
+      var sceneDelay = null;
+
+      var heroParam = urlParams.get('hero');
+      var isAutoplay = urlParams.get('autoplay') !== '0' && urlParams.get('autoplay') !== 'false' && !reduce;
+      if (heroParam !== null) {
+        var hIdx = parseInt(heroParam, 10);
+        if (!isNaN(hIdx)) {
+          currentScene = (hIdx + sceneCount) % sceneCount;
+        }
+      }
+
+      var isFirstScene = true;
+      function animateScene(index) {
+        var otherSlides = heroSlides.filter(function(slide, i) { return i !== index; });
+
+        heroSlides.forEach(function(slide, i) {
+          slide.classList.toggle('is-active', i === index);
+        });
+        heroTabs.forEach(function(tab, i) {
+          tab.classList.toggle('is-active', i === index);
+        });
+
+        if (!reduce) {
+          if (isFirstScene) {
+            // The first scene is already painted by the HTML: keep it visible, no fade-from-black flash.
+            gsap.set(heroSlides[index], { autoAlpha: 1 });
+            gsap.set(otherSlides, { autoAlpha: 0 });
+          } else {
+            gsap.fromTo(heroSlides[index], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8, ease: 'power2.inOut' });
+            gsap.to(otherSlides, { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut' });
+          }
+          gsap.fromTo(heroSlides[index], { scale: 1.03 }, { scale: 1, duration: 4, ease: 'none' });
+          isFirstScene = false;
+        }
+      }
+
+      function scheduleNext() {
+        if (sceneDelay) { sceneDelay.kill(); }
+        if (heroProgress) { gsap.killTweensOf(heroProgress); }
+        if (isAutoplay) {
+          if (!reduce && heroProgress) {
+            gsap.fromTo(heroProgress, { scaleX: 0 }, { scaleX: 1, duration: sceneDuration, ease: 'none' });
+          }
+          sceneDelay = gsap.delayedCall(sceneDuration, function() {
+            currentScene = (currentScene + 1) % sceneCount;
+            animateScene(currentScene);
+            scheduleNext();
+          });
+        }
+      }
+
+      heroTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          currentScene = parseInt(this.getAttribute('data-scene'), 10);
+          animateScene(currentScene);
+          scheduleNext();
+        });
+      });
+
+      var heroPrev = document.getElementById('hero-prev');
+      var heroNext = document.getElementById('hero-next');
+      if (heroPrev) {
+        heroPrev.addEventListener('click', function() {
+          currentScene = (currentScene - 1 + sceneCount) % sceneCount;
+          animateScene(currentScene);
+          scheduleNext();
+        });
+      }
+      if (heroNext) {
+        heroNext.addEventListener('click', function() {
+          currentScene = (currentScene + 1) % sceneCount;
+          animateScene(currentScene);
+          scheduleNext();
+        });
+      }
+
+      animateScene(currentScene);
+      scheduleNext();
+
+      // LCP guard: hero title/desc stay visible; only pillars animate in.
+      if (!reduce) {
+        gsap.from('.hero-pillar', {
+          autoAlpha: 0, y: 16, duration: 0.5, ease: 'power2.out', stagger: 0.08, delay: 0.3
+        });
+      }
+    }
+
+    // 4c. SCROLLTRIGGER REVEAL (registered only when motion is welcome)
+    function initRevealAnimations() {
+      // Section heading groups (eyebrow / title / description)
+      document.querySelectorAll('.section-eyebrow, .section-title, .section-desc').forEach(function(el) {
+        // Headings inside grouped sections ride their card-group tween instead (avoids double tweens).
+        if (el.closest('#verhaal') || el.closest('#braai') || el.closest('#avonturen')) { return; }
+        gsap.from(el, {
+          autoAlpha: 0, y: 24, duration: 0.7, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        });
+      });
+
+      // Card grids: container is the trigger, cards stagger in as one group
+      var cardGroups = [
+        ['#verhaal .story-grid', '#verhaal .story-img-wrap, #verhaal .story-content'],
+        ['.impressie-grid', '.impressie-grid .carousel-card, .impressie-grid .layout-card'],
+        ['.story-features', '.story-features .feature-card'],
+        ['.verblijven-grid', '.verblijven-grid .verblijf-card'],
+        ['.policies-grid', '.policies-grid .policy-card'],
+        ['.reviews-grid', '.reviews-grid .review-card'],
+        ['.community-grid', '.community-grid .community-card'],
+        ['#braai .split-feature-grid', '#braai .split-feature-grid > *'],
+        ['#avonturen .split-feature-grid', '#avonturen .split-feature-grid > *']
+      ];
+      cardGroups.forEach(function(pair) {
+        gsap.from(pair[1], {
+          autoAlpha: 0, y: 24, duration: 0.7, ease: 'power2.out', stagger: 0.08,
+          scrollTrigger: { trigger: pair[0], start: 'top 85%', once: true }
+        });
+      });
+
+      // Hero pillars are excluded (they animate on load in the hero engine).
+      // Footer is intentionally excluded (editorial restraint).
+    }
+
+    function initGsapEnhancements() {
+      document.documentElement.classList.add('gsap-ready');
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero engine always runs (manual scene switching must survive reduced motion);
+      // it internally skips tweens and autoplay when the user prefers reduced motion.
+      initGsapHeroEngine();
+
+      // Reveal animations only register when motion is welcome; matchMedia
+      // auto-reverts them if the preference flips while the page is open.
+      var motion = gsap.matchMedia();
+      motion.add('(prefers-reduced-motion: no-preference)', function() {
+        initRevealAnimations();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.gsap && window.ScrollTrigger) {
+        initGsapEnhancements();
+      } else {
+        initBaselineHeroEngine();
+      }
+
+      var scrollTarget = urlParams.get('scroll');
+      if (scrollTarget) {
+        setTimeout(function() {
+          var el = document.getElementById(scrollTarget);
+          if (el) {
+            window.scrollTo(0, el.offsetTop - 50);
+          }
+        }, 300);
+      }
+    });
+
+    // 5. ATMOSPHERE CAROUSEL (01 / 06)
+    var carouselSlides = document.querySelectorAll('.carousel-slide');
+    var carouselCounter = document.getElementById('carousel-counter');
+    var carouselPrev = document.getElementById('carousel-prev');
+    var carouselNext = document.getElementById('carousel-next');
+    var currentCarouselIdx = 0;
+    var carouselTotal = carouselSlides.length;
+
+    function updateCarousel(idx) {
+      var prevIdx = currentCarouselIdx;
+      currentCarouselIdx = (idx + carouselTotal) % carouselTotal;
+      carouselSlides.forEach(function(s, i) {
+        s.classList.toggle('is-active', i === currentCarouselIdx);
+      });
+      if (carouselCounter) {
+        var numStr = (currentCarouselIdx + 1 < 10 ? '0' : '') + (currentCarouselIdx + 1);
+        var totalStr = (carouselTotal < 10 ? '0' : '') + carouselTotal;
+        carouselCounter.textContent = numStr + ' / ' + totalStr;
+      }
+      if (window.gsap && !prefersReducedMotion()) {
+        gsap.fromTo(carouselSlides[currentCarouselIdx], { autoAlpha: 0, scale: 1.04 },
+          { autoAlpha: 1, scale: 1, duration: 0.6, ease: 'power2.out' });
+        if (prevIdx !== currentCarouselIdx) {
+          gsap.to(carouselSlides[prevIdx], { autoAlpha: 0, duration: 0.6, ease: 'power2.out' });
+        }
+      }
+    }
+
+    if (carouselPrev && carouselNext) {
+      carouselPrev.addEventListener('click', function() { updateCarousel(currentCarouselIdx - 1); });
+      carouselNext.addEventListener('click', function() { updateCarousel(currentCarouselIdx + 1); });
+    }
+
+    // 6. ACCOMMODATIONS FILTER BAR
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.verblijf-card');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var filter = this.getAttribute('data-filter');
+
+        var applyFilter = function() {
+          var visibleCards = [];
+          cards.forEach(function(card) {
+            var matches = filter === 'all' || card.getAttribute('data-category') === filter;
+            card.style.display = matches ? 'flex' : 'none';
+            if (matches) { visibleCards.push(card); }
+          });
+          if (window.gsap && window.ScrollTrigger && !prefersReducedMotion()) {
+            // Cancel any pending reveal tweens: filtering cards visible must win over scroll-triggered from().
+            gsap.killTweensOf(visibleCards);
+            gsap.fromTo(visibleCards, { autoAlpha: 0, y: 12 }, {
+              autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.06, ease: 'power2.out',
+              onComplete: function() { ScrollTrigger.refresh(); }
+            });
+          }
+        };
+
+        if (window.gsap && window.ScrollTrigger && !prefersReducedMotion()) {
+          gsap.to(cards, { autoAlpha: 0, duration: 0.18, ease: 'power1.in', onComplete: applyFilter });
+        } else {
+          applyFilter();
+        }
+      });
+    });
+
+    // 7. ROOM ENQUIRY PRE-SELECTION SYNC
+    document.querySelectorAll('[data-room]').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        var roomName = this.getAttribute('data-room');
+        var select = document.getElementById('room_preference');
+        if (select && roomName) {
+          for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === roomName || select.options[i].text.indexOf(roomName) !== -1) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      });
+    });
+
+    // 8. DYNAMIC NATIVE DATE PICKER CONSTRAINTS
+    var today = new Date().toISOString().split('T')[0];
+    var arrival = document.getElementById('arrival');
+    var departure = document.getElementById('departure');
+
+    if (arrival && departure) {
+      arrival.min = today;
+      arrival.addEventListener('change', function() {
+        if (this.value) {
+          var nextDay = new Date(new Date(this.value).getTime() + 86400000).toISOString().split('T')[0];
+          departure.min = nextDay;
+          if (departure.value && departure.value <= this.value) {
+            departure.value = nextDay;
+          }
+        }
+      });
+    }
+
+    // 9. FORM SUBMISSION, HONEYPOT & REFERENCE CONFIRMATION
+    var enquiryForm = document.getElementById('enquiry-form');
+    var confirmationBox = document.getElementById('enquiry-confirmation');
+    var refEl = document.getElementById('enquiry-ref');
+
+    if (enquiryForm) {
+      enquiryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var hp = enquiryForm.querySelector('input[name="website_hp"]');
+        if (hp && hp.value.length > 0) {
+          return; // bot trapped
+        }
+
+        // Generate DK-2026-XXXX reference
+        var randomNum = Math.floor(1000 + Math.random() * 9000);
+        var refCode = 'DK-2026-' + randomNum;
+        if (refEl) { refEl.textContent = refCode; }
+
+        enquiryForm.style.display = 'none';
+        if (confirmationBox) {
+          confirmationBox.style.display = 'block';
+          if (window.gsap && !prefersReducedMotion()) {
+            gsap.fromTo(confirmationBox, { autoAlpha: 0, y: 16 }, {
+              autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out'
+            });
+            if (refEl) {
+              gsap.fromTo(refEl, { scale: 0.8 }, { scale: 1, duration: 0.45, ease: 'back.out(1.7)', delay: 0.25 });
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

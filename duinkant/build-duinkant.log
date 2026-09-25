@@ -1,0 +1,5 @@
+File: duinkant/index.html
+Sections: 11 (Top Ribbon/Nav, Hero Multi-Scene Slider [4 Scenes @ 2.2s], Het Verhaal, Sfeer & Impressie [Plattegrond Card], De Verblijven [Filter Bar], Afrikaanse Braai & Vuurplaats, Zeehonden & Zeevissen, Heldere Tarieven & 6 Eco Policies, Gastenboek, Omgeving Terschelling & Community, Reserveren Engine/Footer)
+Palette: Dune Sand Linen (#FBF8F3), Wadden Deep Navy (#203F54), Dune Sage Grass (#4E6E5D), Campfire Amber (#C86A3D), Dark Slate (#152A38)
+Fonts: Playfair Display, Lato (Google Fonts with display=swap)
+Deviations: GSAP 3.12.5 + ScrollTrigger loaded via cdnjs CDN (defer + SRI) as approved progressive enhancement; falls back to baseline CSS/JS engine when unavailable; reveal-on-scroll and prefers-reduced-motion added per AGENTS.md motion spec.

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cobble — Boutique Hospitality Demo Showcase</title>
+  <meta name="description" content="Cobble pipeline hospitality demo websites for European boutique B&Bs and luxury nature campsites.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF7F2;
+      --bg-card: #FFFFFF;
+      --slate-deep: #1A2E3B;
+      --navy-deep: #203F54;
+      --text-muted: #5C6A72;
+      --amber-braai: #C86A3D;
+      --amber-warm: #E28C5E;
+      --border-sand: #E6E0D4;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-cream);
+      color: var(--slate-deep);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-sand);
+    }
+
+    .badge {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--amber-braai);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 600;
+      color: var(--navy-deep);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-sand);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-sand);
+      border-radius: 8px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(32, 63, 84, 0.08);
+      border-color: var(--amber-warm);
+    }
+
+    .card.featured {
+      border: 2px solid var(--amber-braai);
+      position: relative;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
+    }
+
+    .featured-ribbon {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--amber-braai);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--amber-braai);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--navy-deep);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .tag {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-sand);
+      font-size: 0.75rem;
+      color: var(--slate-deep);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .card:hover .card-link {
+      color: var(--amber-braai);
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-sand);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Project Cobble · Live Showcase</span>
+      <h1>Hospitality Demo Pipeline</h1>
+      <p class="subtitle">Direct booking web experiences crafted for European boutique B&amp;Bs, heritage hideaways, and luxury nature campsites.</p>
+    </header>
+
+    <main>
+      <h2 class="section-title">Generation II — Real Merchant Live Redesigns</h2>
+      <div class="grid">
+        <!-- 1. DUINKANT (Featured) -->
+        <a href="projects/duinkant/" class="card featured">
+          <span class="featured-ribbon">⭐ Featured Demo</span>
+          <div>
+            <div class="card-meta">Terschelling · Netherlands</div>
+            <h3 class="card-title">Camping De Duinkant</h3>
+            <p class="card-desc">Off-grid dune camping &amp; safari tents by the UNESCO Wadden Sea sanctuary. Features instant 5-language toggle, African Braai hearths, seal safari tours, and Finesse UI craftsmanship.</p>
+            <div class="card-tags">
+              <span class="tag">5 Languages (NL/EN/DE/ZH/JA)</span>
+              <span class="tag">Finesse UI &amp; SVG</span>
+              <span class="tag">375px Mobile Parity</span>
+              <span class="tag">Direct Booking Perks</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Live Demo &rarr;</span>
+        </a>
+
+        <!-- 2. OOSTERBEEK -->
+        <a href="projects/oosterbeek/" class="card">
+          <div>
+            <div class="card-meta">Gelderland · Netherlands</div>
+            <h3 class="card-title">Oosterbeeks Rijnoever</h3>
+            <p class="card-desc">Riverside nature campsite &amp; B&amp;B along the Rhine river. The foundational Gen-II baseline benchmark with 11 full sections, atmosphere carousel, and Dutch copy.</p>
+            <div class="card-tags">
+              <span class="tag">Bilingual (NL/EN)</span>
+              <span class="tag">Hero Multi-Scene</span>
+              <span class="tag">Site Plattegrond</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Live Demo &rarr;</span>
+        </a>
+
+        <!-- 3. WOODBINE HOUSE -->
+        <a href="woodbine/" class="card">
+          <div>
+            <div class="card-meta">Isle of Skye · Scotland</div>
+            <h3 class="card-title">Woodbine House B&amp;B</h3>
+            <p class="card-desc">Victorian stone coastal B&amp;B overlooking Portree harbour. Tailored for morning ferry travellers with early Scottish breakfast, room preference linkage, and cosy fireplaces.</p>
+            <div class="card-tags">
+              <span class="tag">Strict UK English</span>
+              <span class="tag">Highland Slate Palette</span>
+              <span class="tag">Room Selector</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Live Demo &rarr;</span>
+        </a>
+
+        <!-- 4. HOLLY HOUSE -->
+        <a href="projects/hollyhouse/" class="card">
+          <div>
+            <div class="card-meta">Bourton-on-the-Water · Cotswolds</div>
+            <h3 class="card-title">Holly House B&amp;B</h3>
+            <p class="card-desc">Classic Cotswold honey-stone residence in the 'Venice of the Cotswolds'. Emphasizes exclusive free village-centre parking and award-winning breakfasts.</p>
+            <div class="card-tags">
+              <span class="tag">Cotswold Stone Theme</span>
+              <span class="tag">Free Parking Highlight</span>
+              <span class="tag">Drawer Nav</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Live Demo &rarr;</span>
+        </a>
+      </div>
+
+      <h2 class="section-title">Generation I — Conceptual Prototypes</h2>
+      <div class="grid">
+        <!-- 5. CORNWALL -->
+        <a href="cornwall/" class="card">
+          <div>
+            <div class="card-meta">Cornwall Coast · England</div>
+            <h3 class="card-title">St Ives Coastal B&amp;B</h3>
+            <p class="card-desc">Early Gen-I prototype exploring 8-section layout, chalk white and terracotta palette, and direct booking enquiry form.</p>
+            <div class="card-tags">
+              <span class="tag">Gen-I Baseline</span>
+              <span class="tag">8 Sections</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Prototype &rarr;</span>
+        </a>
+
+        <!-- 6. LAKE DISTRICT -->
+        <a href="projects/lake-district/" class="card">
+          <div>
+            <div class="card-meta">Lake District · England</div>
+            <h3 class="card-title">Grasmere Country House</h3>
+            <p class="card-desc">Early Gen-I layout testing inline SVG scenery slot placeholders and slate blue mountain palettes.</p>
+            <div class="card-tags">
+              <span class="tag">Gen-I SVG Slots</span>
+              <span class="tag">Slate Blue Theme</span>
+            </div>
+          </div>
+          <span class="card-link">Launch Prototype &rarr;</span>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Project Cobble. Built for independent European hospitality businesses.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pilot's House | Georgian Harbour-Front B&amp;B, St Ives, Cornwall</title>
+  <meta name="description" content="Five rooms perched directly over St Ives harbour wall in Cornwall. Restored by a former fisherman and a ceramicist. Artisan Cornish breakfast, sea-facing suites, and private sunset roof terrace.">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Pilot's House | St Ives Harbour B&amp;B, Cornwall">
+  <meta property="og:description" content="Five rooms over St Ives working harbour. Wake to fishing boats, fresh pilchards on sourdough, and sunset drinks on the roof terrace.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:url" content="https://www.thepilotshouse-stives.co.uk">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Pilot's House | St Ives Harbour B&amp;B">
+  <meta name="twitter:description" content="A Georgian harbour-front sanctuary in Cornwall. Five rooms over St Ives working wharf.">
+
+  <!-- Favicon (Delicate Nautical Mark) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%231A2838%22/><circle cx=%2250%22 cy=%2250%22 r=%2243%22 fill=%22none%22 stroke=%22%23D2C4B0%22 stroke-width=%221.5%22/><path d=%22M50 25v50M35 42h30M32 60c5 8 18 10 36 0%22 fill=%22none%22 stroke=%22%23FAF7F2%22 stroke-width=%223%22 stroke-linecap=%22round%22/></svg>">
+
+  <!-- Typography: Playfair Display + Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- Schema.org BedAndBreakfast Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BedAndBreakfast",
+    "name": "The Pilot's House",
+    "description": "A historic Georgian harbour-front B&B on The Wharf in St Ives, Cornwall, offering luxury seaside rooms and artisan Cornish breakfasts.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "The Wharf",
+      "addressLocality": "St Ives",
+      "addressRegion": "Cornwall",
+      "postalCode": "TR26 1LP",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.2145,
+      "longitude": -5.4795
+    },
+    "priceRange": "£125 - £185",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Harbour view suites", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Sunset roof terrace", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Artisan cooked breakfast included", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Complimentary harbour car park permit", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "En-suite bathrooms", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "High-speed Wi-Fi", "value": true }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       British Editorial Design System (The Pig / Kip Hideaways Aesthetic)
+       ========================================================================== */
+    :root {
+      --bg: #FAF7F2;                /* Warm limewashed chalk */
+      --bg-alt: #F3EFE9;            /* Weathered parchment */
+      --bg-card: #FFFFFF;
+      --primary: #1A2838;           /* Atlantic deep ink */
+      --primary-light: #2C3E52;
+      --secondary: #D2C4B0;         /* Raw coastal linen */
+      --secondary-dark: #A8967E;
+      --accent: #B86851;            /* Weathered Cornish terracotta */
+      --accent-hover: #9E523D;
+      --text: #262422;              /* Muted charcoal */
+      --text-muted: #6B6760;        /* Soft stone grey */
+      --border: rgba(26, 40, 56, 0.09);
+      --border-strong: rgba(26, 40, 56, 0.18);
+      --font-head: 'Playfair Display', Georgia, serif;
+      --font-body: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --radius: 2px;
+      --shadow-subtle: 0 4px 20px rgba(26, 40, 56, 0.05);
+      --shadow-hover: 0 16px 36px rgba(26, 40, 56, 0.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Editorial Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-head);
+      color: var(--primary);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.4rem); }
+    h2 { font-size: clamp(2rem, 3.8vw, 3rem); text-align: center; }
+    h3 { font-size: 1.75rem; }
+    p { margin-bottom: 1.2rem; }
+    a { color: inherit; text-decoration: none; transition: all 0.25s ease; }
+
+    /* Accessible Focus States */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 1.5px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Eyebrow Label Tag */
+    .eyebrow {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+    .eyebrow.light { color: var(--secondary); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--primary);
+      color: #FAF7F2;
+      padding: 0.95rem 2rem;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary-light);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-subtle);
+    }
+    .btn-terracotta {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-terracotta:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--border-strong);
+    }
+    .btn-ghost:hover {
+      background-color: var(--bg-card);
+      border-color: var(--primary);
+    }
+
+    /* Layout Containers */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 6%;
+    }
+    section {
+      padding: 7.5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4.5rem auto;
+    }
+    .section-subtitle {
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+    }
+
+    /* 1. Header & Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s ease;
+    }
+    .top-ribbon {
+      background-color: #121E2C;
+      color: #E6E0D6;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 400;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .top-ribbon strong {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .brand-title {
+      font-family: var(--font-head);
+      font-size: 1.45rem;
+      color: var(--primary);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .brand-locale {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--text-muted);
+      margin-top: -0.15rem;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: var(--primary); }
+    .nav-link:hover::after { width: 100%; }
+
+    /* 2. Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      background-color: #162436;
+      color: #FAF7F2;
+      overflow: hidden;
+    }
+    .hero-bg-container {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1;
+    }
+    .hero-img-base {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      filter: brightness(0.68) saturate(0.92) sepia(0.06);
+    }
+
+    .hero-vignette {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(18, 30, 44, 0.35) 0%, rgba(18, 30, 44, 0.75) 100%);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 780px;
+      padding: 4rem 0;
+    }
+    .hero-content h1 {
+      color: #FFFFFF;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+    .hero-content h1 em {
+      font-style: italic;
+      font-family: var(--font-head);
+      color: var(--secondary);
+    }
+    .hero-lead {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #E2DBD0;
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-explore {
+      color: var(--secondary);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0;
+    }
+    .hero-explore:hover { color: #FFF; }
+
+    /* 3. About / The Story Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-quote {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      line-height: 1.45;
+      color: var(--primary);
+      margin-bottom: 1.8rem;
+      font-style: italic;
+    }
+    .about-narrative p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .pillar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .pillar-line-icon {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      stroke-width: 1.4;
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+    .pillar-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .about-visual-frame {
+      position: relative;
+    }
+    .image-border-wrap {
+      position: relative;
+      padding: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+    }
+    .about-photo {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      filter: contrast(0.96) sepia(0.06);
+    }
+    .photo-caption-bar {
+      margin-top: 0.85rem;
+      font-size: 0.76rem;
+      font-family: var(--font-body);
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 4. Rooms Section */
+    .rooms-section {
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .rooms-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+    }
+    .room-editorial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      position: relative;
+    }
+    .room-editorial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--secondary-dark);
+    }
+    .room-image-window {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background-color: #E3DDD4;
+    }
+    .room-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: contrast(0.96) sepia(0.05);
+    }
+    .room-editorial-card:hover .room-photo {
+      transform: scale(1.04);
+    }
+    .room-plate-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(26, 40, 56, 0.85);
+      backdrop-filter: blur(4px);
+      color: #FFF;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      font-weight: 700;
+    }
+    .room-body {
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .room-title {
+      font-size: 1.65rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+    .room-description {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+      min-height: 60px;
+    }
+    .room-spec-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+    }
+    .spec-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.6rem;
+    }
+    .spec-tag.highlight {
+      background: rgba(184, 104, 81, 0.08);
+      color: var(--accent);
+      border-color: rgba(184, 104, 81, 0.25);
+    }
+    .room-tariff-bar {
+      margin-top: auto;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tariff-figure {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    .tariff-unit {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .room-reserve-link {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-bottom: 1px solid transparent;
+    }
+    .room-reserve-link:hover {
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent-hover);
+    }
+
+    /* 5. Guestbook / Reviews */
+    .guestbook-section {
+      background-color: #152230;
+      color: #FAF7F2;
+      padding: 8rem 0;
+    }
+    .guestbook-section h2 {
+      color: #FFFFFF;
+    }
+    .guestbook-section .section-subtitle {
+      color: var(--secondary);
+    }
+    .guestbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .guestbook-entry {
+      border: 1px solid rgba(210, 196, 176, 0.2);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2.8rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .quote-mark {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--secondary);
+      opacity: 0.6;
+      margin-bottom: 1rem;
+    }
+    .quote-body {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      font-style: italic;
+      color: #FAF7F2;
+      margin-bottom: 2rem;
+    }
+    .guest-attribution {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    /* 6. Location & Arrival */
+    .location-details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .direction-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.6rem 2rem;
+      border-top: 3px solid var(--primary);
+      box-shadow: var(--shadow-subtle);
+    }
+    .direction-card.accent-card {
+      border-top-color: var(--accent);
+    }
+    .direction-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .direction-icon {
+      width: 22px;
+      height: 22px;
+      stroke: var(--primary);
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .accent-card .direction-icon { stroke: var(--accent); }
+    .direction-title {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .direction-text {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* 7. Enquiry Form (The Registry) */
+    .enquiry-section {
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--border);
+    }
+    .enquiry-panel {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 4.5rem 4rem;
+      box-shadow: var(--shadow-subtle);
+    }
+    .enquiry-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+    .form-span-2 { grid-column: span 2; }
+
+    .field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .field-label span.req { color: var(--accent); }
+
+    .input-understated {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #D8D2C6;
+      border-radius: var(--radius);
+      background-color: #FCFBF9;
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+    .input-understated:focus {
+      background-color: #FFFFFF;
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(26, 40, 56, 0.08);
+    }
+
+    /* Honeypot hidden */
+    .bot-trap {
+      position: absolute;
+      left: -9999px;
+      width: 0; height: 0; opacity: 0;
+      pointer-events: none;
+    }
+
+    .form-btn-block {
+      width: 100%;
+      padding: 1.15rem;
+      margin-top: 1rem;
+      font-size: 0.88rem;
+      letter-spacing: 0.16em;
+    }
+
+    /* Inline Confirmation */
+    .confirmation-view {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .confirm-ring {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem auto;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+    .confirm-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .confirm-body {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.7;
+    }
+    .confirm-ref {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--bg-alt);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    /* 8. Heritage Footer */
+    .site-footer {
+      background-color: #0E1620;
+      color: #FAF7F2;
+      padding: 5rem 0 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .footer-col-brand h3 {
+      color: #FFF;
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .footer-address {
+      font-size: 0.92rem;
+      color: #A39D93;
+      line-height: 1.7;
+      margin-top: 0.8rem;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .footer-nav a {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--secondary);
+    }
+    .footer-nav a:hover { color: #FFF; }
+    .footer-sub {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      font-size: 0.78rem;
+      color: rgba(250, 247, 242, 0.5);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Reveal on Scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* Responsive Design (Mobile 375px & Tablets) */
+    @media (max-width: 980px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .rooms-container { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+      .guestbook-grid { grid-template-columns: 1fr; }
+      .location-details-grid { grid-template-columns: 1fr; }
+      .nav-menu { display: none; } /* Kept clean for mobile header */
+      .enquiry-panel { padding: 3rem 1.8rem; }
+      .enquiry-form-grid { grid-template-columns: 1fr; }
+      .form-span-2 { grid-column: span 1; }
+      .about-photo { height: 380px; }
+      section { padding: 5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. STICKY TOP BAR & DIRECT BOOKING PRIVILEGE -->
+  <header class="site-header">
+    <div class="top-ribbon">
+      Book direct &mdash; guaranteed best rate &middot; <strong>Complimentary Reserved Harbour Parking Permit Included</strong>
+    </div>
+    <div class="container">
+      <nav class="nav-bar" aria-label="Main Navigation">
+        <a href="#hero" class="brand-mark">
+          <span class="brand-title">The Pilot's House</span>
+          <span class="brand-locale">St Ives &middot; Cornwall</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#about" class="nav-link">The House</a></li>
+          <li><a href="#rooms" class="nav-link">Rooms &amp; Suites</a></li>
+          <li><a href="#reviews" class="nav-link">Dispatches</a></li>
+          <li><a href="#location" class="nav-link">Location</a></li>
+          <li><a href="#enquire" class="btn btn-ghost" style="padding: 0.6rem 1.4rem; font-size: 0.74rem;">Direct Enquiry</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <header id="hero" class="hero-section">
+    <div class="hero-bg-container">
+      <img src="images/hero.jpg" alt="St Ives Cornish coast and sea horizon at golden dusk" class="hero-img-base">
+      <div class="hero-vignette"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <span class="eyebrow light">Established 1812 &middot; The Wharf, St Ives</span>
+        <h1>Five rooms over the <em>Atlantic tide.</em></h1>
+        <p class="hero-lead">
+          A quiet Georgian townhouse perched directly on the granite harbour wall. Watch working luggers glide past your window and begin each morning with wild sea herbs, warm sourdough, and ocean light.
+        </p>
+        <div class="hero-actions">
+          <a href="#enquire" class="btn btn-terracotta">Check Availability &amp; Enquire</a>
+          <a href="#rooms" class="hero-explore">
+            Explore The Five Chambers
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. ABOUT / THE STORY SECTION -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        
+        <div class="about-narrative reveal">
+          <span class="eyebrow">The Keepers &amp; The House</span>
+          <h2 style="text-align: left; margin-bottom: 1.5rem;">Restored by a fisherman and a ceramicist.</h2>
+          
+          <p class="about-quote">
+            &ldquo;Built for St Ives&rsquo; chief harbour pilot in 1812, this granite house has held two centuries of Atlantic weather. We wanted it to feel like coming home to a quiet coastal sanctuary.&rdquo;
+          </p>
+          
+          <p>
+            We are Nathan Rosewarne and Freya Miller. Nathan spent twenty seasons fishing these coastal waters aboard local pilchard luggers, and Freya throws salt-glazed stoneware in her studio just down Back Road West.
+          </p>
+          <p>
+            When we restored the house, we removed layers of modern wallpaper to uncover original lime-washed granite, maritime pitch-pine beams, and high sash windows that drink in the luminous Cornish light.
+          </p>
+          <p>
+            Breakfast is served around our long scrubbed-pine refectory table: freshly landed St Ives pilchards grilled with wild sea fennel, artisan sourdough from Fore Street bakery, Cornish clotted cream butter, and seasonal preserves served in Freya’s handmade bowls.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-item">
+              <svg class="pillar-line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <div>
+                <div class="pillar-title">On The Granite Wharf</div>
+                <p class="pillar-desc">Direct quayside frontage overlooking the working inner boat harbour.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <svg class="pillar-line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+              <div>
+                <div class="pillar-title">Sunset Roof Terrace</div>
+                <p class="pillar-desc">Private guest panorama spanning the entire bay towards Godrevy Lighthouse.</p>
+              </div>
+            </div>
+            <div class="pillar-item">
+              <svg class="pillar-line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <div class="pillar-title">Porthmeor in 4 Minutes</div>
+                <p class="pillar-desc">Atlantic surf beach and Tate St Ives just across the cobbled neck of land.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual-frame reveal" style="transition-delay: 0.15s;">
+          <div class="image-border-wrap">
+            <img src="images/about.jpg" alt="Artisan ceramic tableware and fresh morning produce at The Pilot's House" class="about-photo">
+            <div class="photo-caption-bar">
+              <span>Plate 01 &mdash; Freya&rsquo;s Stoneware &amp; Morning Larder</span>
+              <span>The Refectory Table</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ROOMS & SUITES SECTION -->
+  <section id="rooms" class="rooms-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Accommodation</span>
+        <h2>The Chambers &amp; Suites</h2>
+        <p class="section-subtitle">
+          Furnished with organic linen, maritime salvage brass, and views of tide and cobbles.
+        </p>
+      </div>
+
+      <div class="rooms-container">
+        
+        <!-- Room 1: The Wheelhouse -->
+        <article class="room-editorial-card reveal">
+          <div class="room-image-window">
+            <img src="images/room-wheelhouse.jpg" alt="The Wheelhouse bedroom overlooking St Ives harbour" class="room-photo">
+            <span class="room-plate-tag">Master Harbour Suite</span>
+          </div>
+          <div class="room-body">
+            <h3 class="room-title">The Wheelhouse</h3>
+            <p class="room-description">
+              First-floor master chamber featuring twin Georgian bay windows overlooking the working slipway and Smeaton's Pier.
+            </p>
+            <div class="room-spec-tags">
+              <span class="spec-tag highlight">Harbour View</span>
+              <span class="spec-tag">Super King Linen</span>
+              <span class="spec-tag">En-suite Rain Shower</span>
+              <span class="spec-tag">Sleeps 2</span>
+            </div>
+            <div class="room-tariff-bar">
+              <div>
+                <span class="tariff-figure">from &pound;165</span>
+                <span class="tariff-unit">/ night</span>
+              </div>
+              <a href="#enquire" class="room-reserve-link" data-room="The Wheelhouse">
+                Enquire
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 2: The Crow's Nest -->
+        <article class="room-editorial-card reveal" style="transition-delay: 0.12s;">
+          <div class="room-image-window">
+            <img src="images/room-crows-nest.jpg" alt="The Crow's Nest top floor terrace suite" class="room-photo">
+            <span class="room-plate-tag">Terrace Loft</span>
+          </div>
+          <div class="room-body">
+            <h3 class="room-title">The Crow's Nest</h3>
+            <p class="room-description">
+              Tucked high under the lime-washed rafters. French doors open directly onto our rooftop sundeck for evening drinks overlooking the bay.
+            </p>
+            <div class="room-spec-tags">
+              <span class="spec-tag highlight">Terrace Access</span>
+              <span class="spec-tag">Panoramic Sea Vista</span>
+              <span class="spec-tag">Freestanding Bath</span>
+              <span class="spec-tag">Sleeps 2</span>
+            </div>
+            <div class="room-tariff-bar">
+              <div>
+                <span class="tariff-figure">from &pound;150</span>
+                <span class="tariff-unit">/ night</span>
+              </div>
+              <a href="#enquire" class="room-reserve-link" data-room="The Crow's Nest">
+                Enquire
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Room 3: The Pilchard Room -->
+        <article class="room-editorial-card reveal" style="transition-delay: 0.24s;">
+          <div class="room-image-window">
+            <img src="images/room-pilchard.jpg" alt="The Pilchard Room historic beams and cozy bedroom interior" class="room-photo">
+            <span class="room-plate-tag">Historic Double</span>
+          </div>
+          <div class="room-body">
+            <h3 class="room-title">The Pilchard Room</h3>
+            <p class="room-description">
+              Facing the tranquil cobbles of Virgin Street. Thick granite walls and heavy original timbers create a deeply quiet sanctuary.
+            </p>
+            <div class="room-spec-tags">
+              <span class="spec-tag">Cobbled Lane Aspect</span>
+              <span class="spec-tag">Original Oak Beams</span>
+              <span class="spec-tag">En-suite Shower</span>
+              <span class="spec-tag">Sleeps 2</span>
+            </div>
+            <div class="room-tariff-bar">
+              <div>
+                <span class="tariff-figure">from &pound;125</span>
+                <span class="tariff-unit">/ night</span>
+              </div>
+              <a href="#enquire" class="room-reserve-link" data-room="The Pilchard Room">
+                Enquire
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. GUESTBOOK / DISPATCHES -->
+  <section id="reviews" class="guestbook-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow light">Dispatches from The Harbour</span>
+        <h2>Words from the Pilot&rsquo;s Log</h2>
+        <p class="section-subtitle">Reflections left by those who stayed on the tide</p>
+      </div>
+
+      <div class="guestbook-grid">
+        
+        <div class="guestbook-entry reveal">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-body">
+            Lying in bed at The Wheelhouse watching the fishing boats motor past Smeaton&rsquo;s Pier in the dawn mist is a memory that will stay with me for life. Pure St Ives magic.
+          </p>
+          <div class="guest-attribution">
+            Elaine &middot; via Google Reviews &middot; May 2026
+          </div>
+        </div>
+
+        <div class="guestbook-entry reveal" style="transition-delay: 0.12s;">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-body">
+            Nathan&rsquo;s grilled harbour pilchards on sourdough are worthy of a Michelin mention alone. And sipping wine from Freya&rsquo;s pottery mugs on the roof terrace as the sun dipped behind Man&rsquo;s Head was perfection.
+          </p>
+          <div class="guest-attribution">
+            David &amp; Marcus &middot; via TripAdvisor &middot; July 2026
+          </div>
+        </div>
+
+        <div class="guestbook-entry reveal" style="transition-delay: 0.24s;">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="quote-body">
+            An unbeatable location. We spent our mornings surfing Porthmeor, walked three minutes to the Tate, and were back on the wharf wall by dusk without touching a car all week.
+          </p>
+          <div class="guest-attribution">
+            Fiona &middot; via Booking.com &middot; August 2026
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ST IVES & GETTING HERE -->
+  <section id="location">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">The Setting &amp; Arrival</span>
+        <h2>On the Harbour Wall</h2>
+        <p class="section-subtitle">A quiet lane from everything, yet insulated from the crowds</p>
+      </div>
+
+      <div class="location-details-grid">
+        
+        <div class="direction-card reveal">
+          <div class="direction-header">
+            <svg class="direction-icon" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v8M8 19l-2 3M16 19l2 3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg>
+            <h3 class="direction-title">By Scenic Rail</h3>
+          </div>
+          <p class="direction-text">
+            Arrive via the iconic single-track St Ives Bay branch line from St Erth. Step off the train and take the gentle 6-minute stroll past the harbour beach straight to our door on The Wharf.
+          </p>
+        </div>
+
+        <div class="direction-card accent-card reveal" style="transition-delay: 0.12s;">
+          <div class="direction-header">
+            <svg class="direction-icon" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="15" r="2"/><circle cx="17" cy="15" r="2"/><path d="M2 10h20"/></svg>
+            <h3 class="direction-title">By Car &amp; Parking</h3>
+          </div>
+          <p class="direction-text">
+            Driving into medieval St Ives is notoriously challenging, but we eliminate the hassle: every direct booking includes a complimentary reserved permit for the secure harbour car park.
+          </p>
+        </div>
+
+        <div class="direction-card reveal" style="transition-delay: 0.24s;">
+          <div class="direction-header">
+            <svg class="direction-icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h3 class="direction-title">On Foot &amp; Surf</h3>
+          </div>
+          <p class="direction-text">
+            The South West Coast Path runs past our front step. Porthmeor surf beach is 4 minutes on foot, Tate St Ives is 3 minutes away, and coastal passenger boats moor right opposite.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. DIRECT ENQUIRY FORM -->
+  <section id="enquire" class="enquiry-section">
+    <div class="container">
+      <div class="enquiry-panel reveal">
+        
+        <div class="section-header" style="margin-bottom: 2.8rem;">
+          <span class="eyebrow">Direct Reservations</span>
+          <h2>Enquire for Dates</h2>
+          <p class="section-subtitle">Guaranteed direct rates, priority room allocation, and personal host care.</p>
+        </div>
+
+        <form id="bookingRegistry" onsubmit="handleReservationSubmit(event)" novalidate>
+          <!-- Bot trap field -->
+          <div class="bot-trap" aria-hidden="true">
+            <label for="contact_web_source">Website Source</label>
+            <input type="text" id="contact_web_source" name="contact_web_source" tabindex="-1">
+          </div>
+
+          <div class="enquiry-form-grid">
+            <div>
+              <label for="guest_fullname" class="field-label">Full Name <span class="req">*</span></label>
+              <input type="text" id="guest_fullname" name="guest_fullname" required class="input-understated" placeholder="e.g. Catherine Trevelyan">
+            </div>
+
+            <div>
+              <label for="guest_emailaddr" class="field-label">Email Address <span class="req">*</span></label>
+              <input type="email" id="guest_emailaddr" name="guest_emailaddr" required class="input-understated" placeholder="catherine@example.co.uk">
+            </div>
+
+            <div>
+              <label for="guest_phonenum" class="field-label">Contact Telephone (Optional)</label>
+              <input type="tel" id="guest_phonenum" name="guest_phonenum" class="input-understated" placeholder="+44 7700 900123">
+            </div>
+
+            <div>
+              <label for="guest_party" class="field-label">Party Size <span class="req">*</span></label>
+              <select id="guest_party" name="guest_party" class="input-understated" required>
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults (Double / King)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="arrival_date" class="field-label">Arrival Date <span class="req">*</span></label>
+              <input type="date" id="arrival_date" name="arrival_date" required class="input-understated">
+            </div>
+
+            <div>
+              <label for="departure_date" class="field-label">Departure Date <span class="req">*</span></label>
+              <input type="date" id="departure_date" name="departure_date" required class="input-understated">
+            </div>
+
+            <div class="form-span-2">
+              <label for="room_preference" class="field-label">Chamber Preference</label>
+              <select id="room_preference" name="room_preference" class="input-understated">
+                <option value="Any Available">Any Available Suite / Best Direct Rate</option>
+                <option value="The Wheelhouse">The Wheelhouse (Master Harbour Suite &mdash; from &pound;165)</option>
+                <option value="The Crow's Nest">The Crow's Nest (Terrace Loft &mdash; from &pound;150)</option>
+                <option value="The Pilchard Room">The Pilchard Room (Historic Double &mdash; from &pound;125)</option>
+              </select>
+            </div>
+
+            <div class="form-span-2">
+              <label for="guest_notes" class="field-label">Dietary Notes, Arrival Timing or Enquiries</label>
+              <textarea id="guest_notes" name="guest_notes" rows="4" class="input-understated" placeholder="Please let us know if you have any dietary preferences (pescatarian, vegan, gluten-free), celebration notes, or estimated arrival times..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-terracotta form-btn-block">
+            Transmit Direct Enquiry &rarr;
+          </button>
+        </form>
+
+        <!-- Inline Elegant Confirmation -->
+        <div id="bookingConfirmation" class="confirmation-view">
+          <div class="confirm-ring" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 class="confirm-title">Enquiry Received</h3>
+          <p class="confirm-body">
+            Thank you. Nathan and Freya have received your dates. We personally check the tidal chamber availability and will reply directly to your email within 24 hours.
+          </p>
+          <div class="confirm-ref">
+            Enquiry Reference: #PILOT-<span id="refNumber"></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. HERITAGE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <h3>The Pilot's House</h3>
+          <p class="footer-address">
+            The Wharf, St Ives, Cornwall, TR26 1LP<br>
+            United Kingdom &middot; Tel: +44 (0)1736 794000
+          </p>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="#about">The Story</a></li>
+          <li><a href="#rooms">Chambers</a></li>
+          <li><a href="#reviews">Guestbook</a></li>
+          <li><a href="#location">Arrival</a></li>
+          <li><a href="#enquire">Direct Rates</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-sub">
+        <div>
+          &copy; 2026 The Pilot's House &middot; Made with care in Cornwall. All rights reserved.
+        </div>
+        <div>
+          Book Direct &middot; Zero Commission &middot; Local Support
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
+  <script>
+    // 1. Smooth Scrolling & Automatic Room Selection
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (!targetEl) return;
+
+        e.preventDefault();
+
+        // Check if room selection parameter is attached
+        if (this.hasAttribute('data-room')) {
+          const roomChoice = this.getAttribute('data-room');
+          const selectBox = document.getElementById('room_preference');
+          if (selectBox) {
+            for (let i = 0; i < selectBox.options.length; i++) {
+              if (selectBox.options[i].value === roomChoice) {
+                selectBox.selectedIndex = i;
+                break;
+              }
+            }
+          }
+        }
+
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // 2. IntersectionObserver for Tasteful Reveal on Scroll
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 3. Enquiry Form Submission & Confirmation
+    function handleReservationSubmit(e) {
+      e.preventDefault();
+      const botTrap = document.getElementById('contact_web_source').value;
+      if (botTrap) return false;
+
+      const form = document.getElementById('bookingRegistry');
+      const confirmation = document.getElementById('bookingConfirmation');
+      const codeSpan = document.getElementById('refNumber');
+
+      codeSpan.textContent = Math.floor(1000 + Math.random() * 9000);
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+
+      document.getElementById('enquire').scrollIntoView({ behavior: 'smooth' });
+      return false;
+    }
+
+    // 4. Default Date Constraints (Today & Tomorrow)
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      const fmt = d => d.toISOString().split('T')[0];
+      const arrival = document.getElementById('arrival_date');
+      const departure = document.getElementById('departure_date');
+
+      if (arrival && departure) {
+        arrival.min = fmt(today);
+        departure.min = fmt(tomorrow);
+
+        arrival.addEventListener('change', () => {
+          if (arrival.value) {
+            const nextDay = new Date(arrival.value);
+            nextDay.setDate(nextDay.getDate() + 1);
+            departure.min = fmt(nextDay);
+            if (departure.value && departure.value <= arrival.value) {
+              departure.value = fmt(nextDay);
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
