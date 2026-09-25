@@ -6,11 +6,21 @@
 .Trashes
 Thumbs.db
 
-# Video & screen recording files
+# Confidential sales documents & internal strategies
+PITCH-PROPOSAL.md
+*/PITCH-PROPOSAL.md
+
+# Internal build logs and AI prompts
+*.log
+prompt-*.txt
+*/prompt-*.txt
+
+# Large video and screen recording showcases
+showcase/
+*/showcase/
 *.mp4
 *.mov
 *.webm
 *.avi
 *.mkv
 *.gif
-showcase/
