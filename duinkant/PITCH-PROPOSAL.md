@@ -65,12 +65,13 @@ By converting just **10% to 15% more guests to book directly through your own we
 
 ### Live Demo Preview
 
-Your single-file, zero-dependency demo website is fully built and ready to inspect immediately:
+Your single-file, zero-dependency demo website is fully built and deployed live:
 
-```bash
-# Open locally on your Mac / browser
-open duinkant/index.html
-```
+- **Online Live Website**: [https://soperf.github.io/cobble-demos/duinkant/](https://soperf.github.io/cobble-demos/duinkant/)
+- **Local Inspection**:
+  ```bash
+  open duinkant/index.html
+  ```
 
 - **Mobile First**: Flawless at 375px touchscreens with accessible drawer menu.
 - **Desktop**: Single-line navigation with `white-space: nowrap` and zero layout shift.
