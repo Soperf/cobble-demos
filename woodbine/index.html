@@ -314,13 +314,19 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .ribbon-left {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .ribbon-left span {
+      white-space: nowrap;
     }
 
     .ribbon-highlight {
@@ -329,12 +335,14 @@
       gap: 0.4rem;
       font-weight: 700;
       color: var(--gold-soft);
+      flex-shrink: 0;
     }
 
     .ribbon-right {
       display: flex;
       align-items: center;
       gap: 1.25rem;
+      flex-shrink: 0;
     }
 
     .ribbon-link {
@@ -391,6 +399,9 @@
     }
 
     @media (max-width: 1160px) {
+      .ribbon-season {
+        display: none;
+      }
       .mobile-lang-row {
         display: flex;
         align-items: center;
@@ -406,6 +417,29 @@
         background: var(--color-hearth-amber);
         color: #FFFFFF;
         border-color: var(--color-hearth-amber);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-ribbon {
+        padding: 0.45rem 0;
+      }
+      .ribbon-inner {
+        flex-direction: column;
+        gap: 0.35rem;
+        text-align: center;
+      }
+      .ribbon-left {
+        justify-content: center;
+        white-space: normal;
+        font-size: 0.76rem;
+      }
+      .ribbon-left span {
+        white-space: normal;
+      }
+      .ribbon-right {
+        justify-content: center;
+        gap: 0.85rem;
       }
     }
 
@@ -2278,7 +2312,7 @@
         <span data-i18n="ribbon_text">Book direct for our guaranteed best rates &amp; daily homemade Scottish breakfast included</span>
       </div>
       <div class="ribbon-right">
-        <span data-i18n="ribbon_season">Open March – October</span>
+        <span class="ribbon-season" data-i18n="ribbon_season">Open March – October</span>
         <a href="tel:01470542243" class="ribbon-link">Tel: 01470 542243</a>
         <div class="lang-switcher" role="group" aria-label="Language selection / 语言选择 / 言語選択">
           <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
