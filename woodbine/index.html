@@ -26,7 +26,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
+  <!-- GSAP & ScrollTrigger with SRI (Finesse UI Motion Enhancement) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous"></script>
+
   <style>
+    /* finesse · register=brand · A=ocean-slate+hearth-amber · B=playfair+lato · C=editorial-stack
+     * D=GSAP-dual-engine · E=highland-coastal-manor · SOUL=8 SPECTACLE=6 DENSITY=5 */
     :root {
       --color-ocean-slate: #2D4B5A;
       --color-hearth-amber: #C06E3E;
@@ -225,6 +231,36 @@
       color: #FFFFFF;
     }
 
+    .btn-outline {
+      border: 1px solid var(--sea-dark);
+      color: var(--sea-dark);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--sea-dark);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .hero-actions .btn-outline {
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      color: #FFFFFF !important;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .hero-actions .btn-outline:hover,
+    .hero-actions .btn-outline:focus-visible {
+      background: #FFFFFF !important;
+      color: var(--sea-dark) !important;
+      border-color: #FFFFFF !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+    }
+
     .btn-hero-ghost {
       background: rgba(251, 249, 245, 0.2);
       backdrop-filter: blur(8px);
@@ -313,6 +349,66 @@
       color: var(--gold-soft);
     }
 
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #FBF9F5;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      line-height: 1.2;
+    }
+
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lang-btn.active {
+      background: var(--color-hearth-amber);
+      color: #FFFFFF;
+    }
+
+    .mobile-lang-row {
+      display: none;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border-sand);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 1160px) {
+      .mobile-lang-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .mobile-lang-row .lang-btn {
+        color: var(--sea-dark);
+        border: 1px solid var(--border-sand);
+        padding: 4px 12px;
+        font-size: 0.85rem;
+      }
+      .mobile-lang-row .lang-btn.active {
+        background: var(--color-hearth-amber);
+        color: #FFFFFF;
+        border-color: var(--color-hearth-amber);
+      }
+    }
+
     /* Site Header */
     .site-header {
       position: sticky;
@@ -322,6 +418,7 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-sand);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 4px 18px rgba(26, 46, 59, 0.04);
       transition: var(--transition-smooth);
     }
 
@@ -680,7 +777,7 @@
       padding: 0.4rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.22);
-      margin-bottom: 3.25rem;
+      margin-bottom: 2.75rem;
     }
 
     .hero-scene-tab {
@@ -760,71 +857,6 @@
       }
     }
 
-    /* Quick Availability Strip */
-    .quick-availability-strip {
-      background-color: #FFFFFF;
-      border-radius: var(--radius-md);
-      padding: 1.35rem 1.75rem;
-      border: 1px solid var(--border-sand);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-      margin: 0 auto 3rem;
-      max-width: 960px;
-      color: var(--text-main);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr) auto;
-      gap: 1.25rem;
-      align-items: end;
-      text-align: left;
-      position: relative;
-      z-index: 5;
-    }
-
-    .search-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .search-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .search-input, .search-select {
-      width: 100%;
-      padding: 0.7rem 0.85rem;
-      border: 1px solid var(--border-sand);
-      border-radius: var(--radius-sm);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.92rem;
-      color: var(--text-main);
-      background-color: var(--bg-primary);
-      transition: var(--transition-smooth);
-    }
-
-    .search-input:focus, .search-select:focus {
-      border-color: var(--sea-dark);
-      outline: none;
-      background-color: #FFFFFF;
-    }
-
-    .search-btn {
-      height: 48px;
-      white-space: nowrap;
-      padding: 0 1.75rem;
-    }
-
-    @media (max-width: 900px) {
-      .quick-availability-strip {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1.25rem;
-      }
-    }
-
     /* Trust Badges Grid */
     .hero-badges-grid {
       display: grid;
@@ -867,7 +899,14 @@
       align-items: center;
       justify-content: center;
       color: var(--gold-soft);
-      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .trust-icon-box svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--gold-soft);
+      display: block;
     }
 
     .trust-title {
@@ -1500,9 +1539,30 @@
     }
 
     .policy-icon-box {
-      font-size: 1.4rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(192, 110, 62, 0.1);
       color: var(--gold-accent);
-      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .policy-card:hover .policy-icon-box {
+      background: var(--gold-accent);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .policy-icon-box svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      display: block;
+      transition: stroke 0.25s ease;
     }
 
     .policy-title {
@@ -1887,9 +1947,9 @@
 
     .form-control:focus {
       outline: none;
-      border-color: var(--sea-dark);
+      border-color: var(--gold-accent);
       background-color: #FFFFFF;
-      box-shadow: 0 0 0 2px rgba(26, 46, 59, 0.1);
+      box-shadow: 0 0 0 3px rgba(192, 110, 62, 0.18);
     }
 
     textarea.form-control {
@@ -2017,6 +2077,10 @@
       }
     }
 
+    /* GSAP PROGRESSIVE ENHANCEMENT GUARDS */
+    html.gsap-ready .hero-bg-slide { transition: none; }
+    html.gsap-ready .carousel-slide { transition: none; }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -2026,7 +2090,125 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+      .hero-bg-slide,
+      .carousel-slide,
+      .hero-scene-tab::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .btn:hover,
+      .room-card:hover,
+      .policy-card:hover,
+      .review-card:hover,
+      .stat-card:hover,
+      .attraction-card:hover {
+        transform: none !important;
+      }
     }
+
+    /* Official Recommendations & Badges */
+    .official-recommendations-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-sand);
+    }
+
+    .official-rec-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: var(--bg-alt);
+      padding: 0.75rem 1.15rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-sand);
+      flex: 1 1 240px;
+    }
+
+    .official-rec-badge img {
+      width: 48px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .official-rec-badge strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--sea-dark);
+      line-height: 1.3;
+    }
+
+    .official-rec-badge span {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+
+    /* Dining in Uig Guide Card */
+    .dining-guide-box {
+      margin-top: 3rem;
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-sand);
+      box-shadow: var(--shadow-subtle);
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .dining-guide-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dining-guide-image {
+      position: relative;
+      height: 100%;
+      min-height: 240px;
+    }
+
+    .dining-guide-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dining-guide-content {
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .dining-guide-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: var(--sea-dark);
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .dining-guide-desc {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .dining-guide-alert {
+      background: var(--bg-alt);
+      border-left: 3px solid var(--amber-warm);
+      padding: 0.85rem 1.15rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.85rem;
+      color: var(--sea-dark);
+      line-height: 1.55;
+    }
+
   </style>
 
   <!-- JSON-LD Structured Data -->
@@ -2092,12 +2274,17 @@
   <div class="top-ribbon">
     <div class="container ribbon-inner">
       <div class="ribbon-left">
-        <span class="ribbon-highlight">★ Direct Booking Advantage:</span>
-        <span>Book direct for our guaranteed best rates &amp; daily homemade Scottish breakfast included</span>
+        <span class="ribbon-highlight" data-i18n="ribbon_advantage">★ Direct Booking Advantage:</span>
+        <span data-i18n="ribbon_text">Book direct for our guaranteed best rates &amp; daily homemade Scottish breakfast included</span>
       </div>
       <div class="ribbon-right">
-        <span>Open March – October</span>
+        <span data-i18n="ribbon_season">Open March – October</span>
         <a href="tel:01470542243" class="ribbon-link">Tel: 01470 542243</a>
+        <div class="lang-switcher" role="group" aria-label="Language selection / 语言选择 / 言語選択">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中</button>
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日</button>
+        </div>
       </div>
     </div>
   </div>
@@ -2124,16 +2311,24 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#about" class="nav-link">Our Story</a></li>
-          <li><a href="#impressie" class="nav-link">Gallery</a></li>
-          <li><a href="#rooms" class="nav-link">Rooms</a></li>
-          <li><a href="#breakfast" class="nav-link">Breakfast</a></li>
-          <li><a href="#tarieven" class="nav-link">Rates</a></li>
-          <li><a href="#reviews" class="nav-link">Reviews</a></li>
-          <li><a href="#community" class="nav-link">Community</a></li>
-          <li><a href="#location" class="nav-link">Skye Guide</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav_story">Our Story</a></li>
+          <li><a href="#impressie" class="nav-link" data-i18n="nav_impressie">Gallery</a></li>
+          <li><a href="#rooms" class="nav-link" data-i18n="nav_rooms">Rooms</a></li>
+          <li><a href="#breakfast" class="nav-link" data-i18n="nav_breakfast">Breakfast</a></li>
+          <li><a href="#tarieven" class="nav-link" data-i18n="nav_rates">Rates</a></li>
+          <li><a href="#reviews" class="nav-link" data-i18n="nav_reviews">Reviews</a></li>
+          <li><a href="#community" class="nav-link" data-i18n="nav_community">Community</a></li>
+          <li><a href="#location" class="nav-link" data-i18n="nav_location">Skye Guide</a></li>
         </ul>
-        <a href="#enquire" class="btn btn-warm nav-cta">Book Direct</a>
+        <a href="#enquire" class="btn btn-warm nav-cta" data-i18n="nav_book_btn">Book Direct</a>
+        <div class="mobile-lang-row">
+          <span style="font-size: 0.85rem; font-weight: 600; color: var(--sea-dark);">Language:</span>
+          <div class="lang-switcher" role="group" aria-label="Language selection">
+            <button type="button" class="lang-btn active" data-lang="en">EN</button>
+            <button type="button" class="lang-btn" data-lang="zh">中</button>
+            <button type="button" class="lang-btn" data-lang="ja">日</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -2154,112 +2349,99 @@
     <button type="button" class="hero-nav-arrow hero-nav-next" id="hero-next" aria-label="Next scene">→</button>
 
     <div class="container hero-content">
-      <div class="hero-pill">Victorian Bed &amp; Breakfast Built 1890 · Uig Bay, Isle of Skye</div>
+      <div class="hero-pill" data-i18n="hero_pill">Victorian Bed &amp; Breakfast Built 1890 · Uig Bay, Isle of Skye</div>
 
       <!-- Text Slider with smooth morphing -->
       <div class="hero-text-slider">
         <!-- Slide 1 -->
         <div class="hero-text-slide is-active">
-          <h1 class="hero-title">A Warm Highland Haven Above Uig Bay</h1>
-          <p class="hero-subtitle">
+          <h1 class="hero-title" data-i18n="hero_title_1">A Warm Highland Haven Above Uig Bay</h1>
+          <p class="hero-subtitle" data-i18n="hero_sub_1">
             Four individually styled en-suite rooms, rich sunset colour, hearty Stornoway breakfasts, and heartfelt hospitality from Steve &amp; Cass overlooking the Hebridean ferry port.
           </p>
         </div>
         <!-- Slide 2 -->
         <div class="hero-text-slide">
-          <h2 class="hero-title">Unbroken Vistas Across Loch Snizort</h2>
-          <p class="hero-subtitle">
+          <h2 class="hero-title" data-i18n="hero_title_2">Unbroken Vistas Across Loch Snizort</h2>
+          <p class="hero-subtitle" data-i18n="hero_sub_2">
             Watch Caledonian MacBrayne ferries glide past the headlands as evening colours bathe the sea loch in gold. A tranquil sanctuary for discerning travellers.
           </p>
         </div>
         <!-- Slide 3 -->
         <div class="hero-text-slide">
-          <h2 class="hero-title">Cosy Evenings by the Peat Fire</h2>
-          <p class="hero-subtitle">
+          <h2 class="hero-title" data-i18n="hero_title_3">Cosy Evenings by the Peat Fire</h2>
+          <p class="hero-subtitle" data-i18n="hero_sub_3">
             Unwind after exhilarating coastal hikes by our roaring log fire in the guest lounge, with a dram of Island whisky and quiet conversation.
           </p>
         </div>
         <!-- Slide 4 -->
         <div class="hero-text-slide">
-          <h2 class="hero-title">Heartfelt Skye Hospitality Since 2017</h2>
-          <p class="hero-subtitle">
+          <h2 class="hero-title" data-i18n="hero_title_4">Heartfelt Skye Hospitality Since 2017</h2>
+          <p class="hero-subtitle" data-i18n="hero_sub_4">
             Personalised route tips for the Quiraing and Fairy Glen, freshly baked morning soda bread, and genuine Highland care from your resident hosts.
           </p>
         </div>
       </div>
 
       <div class="hero-actions">
-        <a href="#enquire" class="btn btn-warm">Check Room Availability</a>
-        <a href="#rooms" class="btn btn-hero-ghost">Explore Our Rooms</a>
+        <a href="#rooms" class="btn btn-warm" data-i18n="hero_btn_explore">Explore Our Rooms</a>
+        <a href="#enquire" class="btn btn-outline" data-i18n="hero_btn_enquire" title="Check Room Availability" aria-label="Check Room Availability">Direct Reservation Enquiry</a>
       </div>
 
       <!-- Hero Scene Selector Tabs (With Timer Progress Animation) -->
       <div class="hero-scenes-bar">
         <button type="button" class="hero-scene-tab is-active" data-scene="0">
-          <span class="scene-num">01</span> House &amp; Gardens
+          <span class="scene-num">01</span> <span data-i18n="scene_0_label">House &amp; Gardens</span>
         </button>
         <button type="button" class="hero-scene-tab" data-scene="1">
-          <span class="scene-num">02</span> Uig Bay Panorama
+          <span class="scene-num">02</span> <span data-i18n="scene_1_label">Uig Bay Panorama</span>
         </button>
         <button type="button" class="hero-scene-tab" data-scene="2">
-          <span class="scene-num">03</span> Cosy Peat Fire
+          <span class="scene-num">03</span> <span data-i18n="scene_2_label">Cosy Peat Fire</span>
         </button>
         <button type="button" class="hero-scene-tab" data-scene="3">
-          <span class="scene-num">04</span> Steve &amp; Cass
+          <span class="scene-num">04</span> <span data-i18n="scene_3_label">Steve &amp; Cass</span>
         </button>
       </div>
 
-      <!-- Quick Availability Strip (Oosterbeek Component) -->
-      <div class="quick-availability-strip">
-        <div class="search-field">
-          <label for="quick-arrival" class="search-label">Arrival Date</label>
-          <input type="date" id="quick-arrival" class="search-input">
-        </div>
-        <div class="search-field">
-          <label for="quick-departure" class="search-label">Departure Date</label>
-          <input type="date" id="quick-departure" class="search-input">
-        </div>
-        <div class="search-field">
-          <label for="quick-room" class="search-label">Preferred Room</label>
-          <select id="quick-room" class="search-select">
-            <option value="Any Available Room">Any Available Room</option>
-            <option value="Room 1: Hillside Double Room">Room 1: Hillside Double Room</option>
-            <option value="Room 2: Sea View Superking / Twin">Room 2: Sea View Superking / Twin</option>
-            <option value="Room 3: Sea View King Room">Room 3: Sea View King Room</option>
-            <option value="Room 4: Ground Floor King Room">Room 4: Ground Floor King Room</option>
-          </select>
-        </div>
-        <button type="button" id="quick-search-btn" class="btn btn-primary search-btn">Check Availability</button>
-      </div>
+      <!-- Quick-availability note: streamlined into hero direct enquiry actions & reservation section (Duinkant parity) -->
 
       <!-- Trust Badges Grid -->
       <div class="hero-badges-grid">
         <div class="trust-card">
-          <div class="trust-icon-box">✦</div>
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="10" r="4"/><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M2 18h20"/><path d="M4 22h16"/></svg>
+          </div>
           <div>
-            <div class="trust-title">Panoramic Sea Views</div>
-            <p class="trust-desc">Direct vistas of Uig Bay</p>
+            <div class="trust-title" data-i18n="trust_1_title">Panoramic Sea Views</div>
+            <p class="trust-desc" data-i18n="trust_1_desc">Direct vistas of Uig Bay</p>
           </div>
         </div>
         <div class="trust-card">
-          <div class="trust-icon-box">☕</div>
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+          </div>
           <div>
-            <div class="trust-title">Cooked Scottish Breakfast</div>
-            <p class="trust-desc">Stornoway black pudding</p>
+            <div class="trust-title" data-i18n="trust_2_title">Cooked Scottish Breakfast</div>
+            <p class="trust-desc" data-i18n="trust_2_desc">Stornoway black pudding</p>
           </div>
         </div>
         <div class="trust-card">
-          <div class="trust-icon-box">⚓</div>
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+          </div>
           <div>
-            <div class="trust-title">Minutes to CalMac Ferry</div>
-            <p class="trust-desc">CalMac to Lewis &amp; Harris</p>
+            <div class="trust-title" data-i18n="trust_3_title">Minutes to CalMac Ferry</div>
+            <p class="trust-desc" data-i18n="trust_3_desc">CalMac to Lewis &amp; Harris</p>
           </div>
         </div>
         <div class="trust-card">
-          <div class="trust-icon-box">P</div>
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="4"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg>
+          </div>
           <div>
-            <div class="trust-title">Private Parking</div>
-            <p class="trust-desc">Free on-site guest bays</p>
+            <div class="trust-title" data-i18n="trust_4_title">Private Parking</div>
+            <p class="trust-desc" data-i18n="trust_4_desc">Free on-site guest bays</p>
           </div>
         </div>
       </div>
@@ -2280,31 +2462,49 @@
         </div>
 
         <div class="story-text-content">
-          <span class="section-eyebrow">Our Story &amp; Hospitality</span>
-          <h2 class="section-title">Warm Highland Welcomes Since 2017</h2>
-          <p>
-            Perched gracefully on the hillside overlooking the tranquil waters of Uig Bay, Woodbine House was originally built in 1890 as a Victorian residence, now lovingly updated to blend period character with modern cosy comfort.
+          <span class="section-eyebrow" data-i18n="about_eyebrow">Our Story &amp; Hospitality</span>
+          <h2 class="section-title" data-i18n="about_title">Warm Highland Welcomes Since 2017</h2>
+          <p data-i18n="about_p1">
+            Built in the 1890s, Woodbine House is the longest running B&amp;B guest house in Uig. Perched gracefully on the hillside overlooking the tranquil waters of Uig Bay, it has been lovingly updated to blend Victorian heritage with modern cosy comfort.
           </p>
-          <p>
+          <p data-i18n="about_p2">
             When we moved to Skye in 2017, our ambition was simple: to create a restful, unhurried haven for travellers exploring the wild beauty of Trotternish. Officially recognised by Secret Scotland and proud members of Scotland's Best B&amp;Bs, we ensure every detail of your Highland stay is tailored with genuine warmth.
           </p>
-          <p>
+          <p data-i18n="about_p3">
             Whether you are catching the early morning CalMac ferry to the Western Isles, hiking the ancient Quiraing ridges, or seeking solitude by our evening peat fire, Steve &amp; Cass are here to ensure your Scottish adventure is truly memorable.
           </p>
 
           <!-- Story Stats -->
           <div class="story-stats">
             <div class="stat-card">
-              <span class="stat-number">4</span>
-              <span class="stat-label">Boutique En-Suite Bedrooms</span>
+              <span class="stat-number" data-i18n="about_stat_1_num">4</span>
+              <span class="stat-label" data-i18n="about_stat_1_lbl">Boutique En-Suite Bedrooms</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">9.8</span>
-              <span class="stat-label">Guest Rating Score</span>
+              <span class="stat-number" data-i18n="about_stat_2_num">9.8</span>
+              <span class="stat-label" data-i18n="about_stat_2_lbl">Guest Rating Score</span>
             </div>
             <div class="stat-card">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Homemade Scottish Breakfast</span>
+              <span class="stat-number" data-i18n="about_stat_3_num">100%</span>
+              <span class="stat-label" data-i18n="about_stat_3_lbl">Homemade Scottish Breakfast</span>
+            </div>
+          </div>
+
+          <!-- Official Recommendations & Heritage Recognition -->
+          <div class="official-recommendations-row">
+            <div class="official-rec-badge">
+              <img src="images/secret_scotland_logo.png" alt="Secret Scotland Recommended Logo" width="102" height="102" loading="lazy">
+              <div>
+                <strong>Secret Scotland Recommended</strong>
+                <span data-i18n="badge_secret_scotland">Officially inspected &amp; recommended B&amp;B</span>
+              </div>
+            </div>
+            <div class="official-rec-badge">
+              <img src="images/scotlands_best_bbs_logo.png" alt="Scotland's Best B&Bs Logo" width="86" height="107" loading="lazy">
+              <div>
+                <strong>Scotland's Best B&amp;Bs</strong>
+                <span data-i18n="badge_scotlands_best">Quality assured boutique member</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2316,9 +2516,9 @@
   <section id="impressie" class="section-pad impression-section">
     <div class="container impression-container">
       <div class="text-center mx-auto" style="max-width: 720px;">
-        <span class="section-eyebrow">Highland Atmosphere &amp; Gallery</span>
-        <h2 class="section-title">Life Above The Hebridean Sea Loch</h2>
-        <p class="section-lead mx-auto">
+        <span class="section-eyebrow" data-i18n="impressie_eyebrow">Highland Atmosphere &amp; Gallery</span>
+        <h2 class="section-title" data-i18n="impressie_title">Life Above The Hebridean Sea Loch</h2>
+        <p class="section-lead mx-auto" data-i18n="impressie_desc">
           From the golden light filtering across our gardens to evening mist rolling off the Trotternish ridge — discover the unhurried spirit of Woodbine House.
         </p>
       </div>
@@ -2327,7 +2527,7 @@
       <div class="carousel-card">
         <div class="carousel-topbar">
           <div class="carousel-topbar-left">
-            <span class="badge badge-gold">Atmosphere Gallery</span>
+            <span class="badge badge-gold" data-i18n="carousel_badge">Atmosphere Gallery</span>
             <span class="carousel-counter" id="carousel-counter">01 / 06</span>
           </div>
           <div class="carousel-ctrl-btns">
@@ -2341,48 +2541,48 @@
           <div class="carousel-slide is-active">
             <img src="images/hero_house_exterior.jpg" alt="Victorian stone exterior of Woodbine House in morning sunshine" width="1000" height="563" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">Victorian Highland Stone Residence</h3>
-              <p class="carousel-caption-desc">Built in 1890 with granite steps, hillside terraces, and sheltered flowering gardens.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_1_title">Victorian Highland Stone Residence</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_1_desc">Built in 1890 with granite steps, hillside terraces, and sheltered flowering gardens.</p>
             </div>
           </div>
           <!-- Slide 2 -->
           <div class="carousel-slide">
             <img src="images/hero_uig_bay.jpg" alt="Panoramic vista over Uig Bay and ferry terminal" width="1000" height="563" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">Expansive Waters of Uig Bay</h3>
-              <p class="carousel-caption-desc">CalMac ferries sailing to Tarbert and Lochmaddy against dramatic Atlantic skies.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_2_title">Expansive Waters of Uig Bay</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_2_desc">CalMac ferries sailing to Tarbert and Lochmaddy against dramatic Atlantic skies.</p>
             </div>
           </div>
           <!-- Slide 3 -->
           <div class="carousel-slide">
             <img src="images/living_room_fire.jpg" alt="Cast iron wood burning stove in guest lounge" width="1000" height="563" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">The Cosy Fireside Guest Lounge</h3>
-              <p class="carousel-caption-desc">Warm peat embers, leather armchairs, and quiet moments after Highland hikes.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_3_title">The Cosy Fireside Guest Lounge</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_3_desc">Warm peat embers, leather armchairs, and quiet moments after Highland hikes.</p>
             </div>
           </div>
           <!-- Slide 4 -->
           <div class="carousel-slide">
             <img src="images/cooked_scottish_breakfast.jpg" alt="Cooked Scottish breakfast with Stornoway black pudding" width="1000" height="750" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">Artisan Scottish Morning Table</h3>
-              <p class="carousel-caption-desc">Stornoway black pudding, Haggis, free-range eggs, and homemade soda bread.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_4_title">Artisan Scottish Morning Table</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_4_desc">Stornoway black pudding, Haggis, free-range eggs, and homemade soda bread.</p>
             </div>
           </div>
           <!-- Slide 5 -->
           <div class="carousel-slide">
             <img src="images/fairy_glen.jpg" alt="Conical mounds of the Fairy Glen" width="1000" height="563" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">The Mystical Fairy Glen</h3>
-              <p class="carousel-caption-desc">Just 15 minutes on foot from our door through ancient rowan trees.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_5_title">The Mystical Fairy Glen</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_5_desc">Just 15 minutes on foot from our door through ancient rowan trees.</p>
             </div>
           </div>
           <!-- Slide 6 -->
           <div class="carousel-slide">
             <img src="images/quiraing.jpg" alt="Geological escarpment of the Quiraing" width="1000" height="563" loading="lazy">
             <div class="carousel-caption-bar">
-              <h3 class="carousel-caption-title">The Mighty Quiraing Plateau</h3>
-              <p class="carousel-caption-desc">Skye's iconic rock spires and hiking ridges, an easy 15-minute drive.</p>
+              <h3 class="carousel-caption-title" data-i18n="c_slide_6_title">The Mighty Quiraing Plateau</h3>
+              <p class="carousel-caption-desc" data-i18n="c_slide_6_desc">Skye's iconic rock spires and hiking ridges, an easy 15-minute drive.</p>
             </div>
           </div>
         </div>
@@ -2400,40 +2600,40 @@
       <!-- Property Orientation & Layout Card (Plattegrond Equivalent) -->
       <div class="layout-card">
         <div>
-          <span class="section-eyebrow">Property Orientation &amp; Terrain</span>
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--sea-dark);">Woodbine House Orientation Guide</h3>
-          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem;">
+          <span class="section-eyebrow" data-i18n="plattegrond_eyebrow">Property Orientation &amp; Terrain</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--sea-dark);" data-i18n="plattegrond_title">Woodbine House Orientation Guide</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.25rem;" data-i18n="plattegrond_desc">
             Designed for effortless Highland comfort, our Victorian property is positioned in an elevated amphitheatre overlooking the bay, providing both serene privacy and immediate pedestrian access to the pier.
           </p>
           <div class="layout-grid-list">
             <div class="layout-item">
               <span class="layout-item-num">1</span>
-              <div><strong>Ground Floor:</strong> Room 4 (step-free access), fireside guest lounge, and breakfast dining room.</div>
+              <div data-i18n="plattegrond_item_1"><strong>Ground Floor:</strong> Room 4 (step-free access), fireside guest lounge, and breakfast dining room.</div>
             </div>
             <div class="layout-item">
               <span class="layout-item-num">2</span>
-              <div><strong>First Floor:</strong> Rooms 1, 2, and 3 with elevated sea and woodland views.</div>
+              <div data-i18n="plattegrond_item_2"><strong>First Floor:</strong> Rooms 1, 2, and 3 with elevated sea and woodland views.</div>
             </div>
             <div class="layout-item">
               <span class="layout-item-num">3</span>
-              <div><strong>Private Car Park:</strong> Dedicated guest parking spaces located directly at the rear driveway.</div>
+              <div data-i18n="plattegrond_item_3"><strong>Private Car Park:</strong> Dedicated guest parking spaces located directly at the rear driveway.</div>
             </div>
             <div class="layout-item">
               <span class="layout-item-num">4</span>
-              <div><strong>Ferry Path:</strong> Direct 5-minute walking path leading downhill to Uig Ferry Pier.</div>
+              <div data-i18n="plattegrond_item_4"><strong>Ferry Path:</strong> Direct 5-minute walking path leading downhill to Uig Ferry Pier.</div>
             </div>
           </div>
         </div>
 
         <div class="layout-frame">
-          <div style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--sea-dark); margin-bottom: 0.5rem;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--sea-dark); margin-bottom: 0.5rem;" data-i18n="plattegrond_map_title">
             Woodbine House Hillside Ground &amp; Surroundings
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;" data-i18n="plattegrond_map_sub">
             Uig Bay Waterfront · Elevation 42m · Protected Shoreline
           </p>
           <img src="images/hero_uig_bay.jpg" alt="Aerial terrain layout of Uig Bay and Woodbine House" style="border-radius: var(--radius-sm); width: 100%; height: 180px; object-fit: cover;" loading="lazy">
-          <a href="#location" class="btn btn-secondary" style="margin-top: 1rem; width: 100%;">View Area Map &amp; Directions ↓</a>
+          <a href="#location" class="btn btn-secondary" style="margin-top: 1rem; width: 100%;" data-i18n="plattegrond_btn">View Area Map &amp; Directions ↓</a>
         </div>
       </div>
     </div>
@@ -2443,9 +2643,9 @@
   <section id="rooms" class="rooms-section section-pad">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 720px; margin-bottom: 3.5rem;">
-        <span class="section-eyebrow">Four Distinctive Bedrooms</span>
-        <h2 class="section-title">Restful En-Suite Sanctuaries</h2>
-        <p class="section-lead mx-auto">
+        <span class="section-eyebrow" data-i18n="rooms_eyebrow">Four Distinctive Bedrooms</span>
+        <h2 class="section-title" data-i18n="rooms_title">Restful En-Suite Sanctuaries</h2>
+        <p class="section-lead mx-auto" data-i18n="rooms_desc">
           Each room features premium pocket-sprung mattresses, crisp Egyptian cotton linens, complimentary Nespresso coffee facilities, and spotless private bathrooms.
         </p>
       </div>
@@ -2455,28 +2655,28 @@
         <div class="room-card">
           <div class="room-image-wrap">
             <img src="images/room1_hillside_double.jpg" alt="Room 1 Hillside Double bedroom with woodland view" width="1000" height="562" loading="lazy">
-            <span class="badge room-badge-float">Quiet Hillside</span>
-            <span class="room-price-tag">From £120 / night</span>
+            <span class="badge room-badge-float" data-i18n="r1_badge">Quiet Hillside</span>
+            <span class="room-price-tag" data-i18n="r1_price">From £120 / night</span>
           </div>
           <div class="room-body">
             <div class="room-meta-bar">
-              <span>Double Bed</span>
+              <span data-i18n="r1_meta_bed">Double Bed</span>
               <span>•</span>
-              <span>Private En-Suite Shower</span>
+              <span data-i18n="r1_meta_bath">Private En-Suite Shower</span>
               <span>•</span>
-              <span>Hillside &amp; Garden View</span>
+              <span data-i18n="r1_meta_view">Hillside &amp; Garden View</span>
             </div>
-            <h3 class="room-title">Room 1: Hillside Double Room</h3>
-            <p class="room-desc">
+            <h3 class="room-title" data-i18n="r1_title">Room 1: Hillside Double Room</h3>
+            <p class="room-desc" data-i18n="r1_desc">
               Tucked away at the quiet rear of the house, this restful double room looks out upon natural birch woodland and colourful garden terraces. Ideal for peaceful nights after rigorous coastal walks.
             </p>
             <ul class="room-amenities-list">
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> En-suite power shower</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Nespresso coffee maker</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Highland organic toiletries</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> High-speed Wi-Fi</li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r1_amenity_1">En-suite power shower</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r1_amenity_2">Nespresso coffee maker</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r1_amenity_3">Highland organic toiletries</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r1_amenity_4">High-speed Wi-Fi</span></li>
             </ul>
-            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 1: Hillside Double Room">Enquire This Room</a>
+            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 1: Hillside Double Room" data-i18n="room_enquire_cta">Enquire This Room</a>
           </div>
         </div>
 
@@ -2484,28 +2684,28 @@
         <div class="room-card">
           <div class="room-image-wrap">
             <img src="images/room2_seaview_superking.jpg" alt="Room 2 Sea View Superking bedroom with panoramic window over Uig Bay" width="1000" height="562" loading="lazy">
-            <span class="badge badge-gold room-badge-float">Bay Panorama</span>
-            <span class="room-price-tag">From £142 / night</span>
+            <span class="badge badge-gold room-badge-float" data-i18n="r2_badge">Bay Panorama</span>
+            <span class="room-price-tag" data-i18n="r2_price">From £142 / night</span>
           </div>
           <div class="room-body">
             <div class="room-meta-bar">
-              <span>Superking or Twin</span>
+              <span data-i18n="r2_meta_bed">Superking or Twin</span>
               <span>•</span>
-              <span>En-Suite Shower</span>
+              <span data-i18n="r2_meta_bath">En-Suite Shower</span>
               <span>•</span>
-              <span>Full Bay Panorama</span>
+              <span data-i18n="r2_meta_view">Full Bay Panorama</span>
             </div>
-            <h3 class="room-title">Room 2: Sea View Superking / Twin</h3>
-            <p class="room-desc">
+            <h3 class="room-title" data-i18n="r2_title">Room 2: Sea View Superking / Twin</h3>
+            <p class="room-desc" data-i18n="r2_desc">
               Our flagship bedroom features a generous bay picture window framing panoramic views of Uig Bay, CalMac ferries, and distant Waternish headlands. Configurable as one superking or two generous twins.
             </p>
             <ul class="room-amenities-list">
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Panoramic sea window</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Superking or twin beds</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Luxury waffle bathrobes</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Hospitality tray &amp; biscuits</li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r2_amenity_1">Panoramic sea window</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r2_amenity_2">Superking or twin beds</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r2_amenity_3">Luxury waffle bathrobes</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r2_amenity_4">Hospitality tray &amp; biscuits</span></li>
             </ul>
-            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 2: Sea View Superking / Twin">Enquire This Room</a>
+            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 2: Sea View Superking / Twin" data-i18n="room_enquire_cta">Enquire This Room</a>
           </div>
         </div>
 
@@ -2513,28 +2713,28 @@
         <div class="room-card">
           <div class="room-image-wrap">
             <img src="images/room3_seaview_king.jpg" alt="Room 3 Sea View King bedroom with evening sunset aspect" width="1000" height="523" loading="lazy">
-            <span class="badge badge-gold room-badge-float">Sunset Facing</span>
-            <span class="room-price-tag">From £142 / night</span>
+            <span class="badge badge-gold room-badge-float" data-i18n="r3_badge">Sunset Facing</span>
+            <span class="room-price-tag" data-i18n="r3_price">From £142 / night</span>
           </div>
           <div class="room-body">
             <div class="room-meta-bar">
-              <span>Kingsize Bed</span>
+              <span data-i18n="r3_meta_bed">Kingsize Bed</span>
               <span>•</span>
-              <span>Private En-Suite</span>
+              <span data-i18n="r3_meta_bath">Private En-Suite</span>
               <span>•</span>
-              <span>Sea View &amp; Sunset</span>
+              <span data-i18n="r3_meta_view">Sea View &amp; Sunset</span>
             </div>
-            <h3 class="room-title">Room 3: Sea View King Room</h3>
-            <p class="room-desc">
+            <h3 class="room-title" data-i18n="r3_title">Room 3: Sea View King Room</h3>
+            <p class="room-desc" data-i18n="r3_desc">
               An elevated first-floor sanctuary positioned directly toward the evening sun. Relax in the reading armchairs as golden Hebridean sunset colours reflect across the sea loch.
             </p>
             <ul class="room-amenities-list">
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Kingsize pocket-sprung bed</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Unobstructed sunset view</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Smart television &amp; Wi-Fi</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Hairdryer &amp; fresh towels</li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r3_amenity_1">Kingsize pocket-sprung bed</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r3_amenity_2">Unobstructed sunset view</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r3_amenity_3">Smart television &amp; Wi-Fi</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r3_amenity_4">Hairdryer &amp; fresh towels</span></li>
             </ul>
-            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 3: Sea View King Room">Enquire This Room</a>
+            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 3: Sea View King Room" data-i18n="room_enquire_cta">Enquire This Room</a>
           </div>
         </div>
 
@@ -2542,28 +2742,28 @@
         <div class="room-card">
           <div class="room-image-wrap">
             <img src="images/room4_groundfloor_king.jpg" alt="Room 4 Ground Floor King bedroom with step-free garden access" width="1000" height="563" loading="lazy">
-            <span class="badge room-badge-float">Step-Free Access</span>
-            <span class="room-price-tag">From £135 / night</span>
+            <span class="badge room-badge-float" data-i18n="r4_badge">Step-Free Access</span>
+            <span class="room-price-tag" data-i18n="r4_price">From £135 / night</span>
           </div>
           <div class="room-body">
             <div class="room-meta-bar">
-              <span>Kingsize Bed</span>
+              <span data-i18n="r4_meta_bed">Kingsize Bed</span>
               <span>•</span>
-              <span>Walk-in En-Suite Shower</span>
+              <span data-i18n="r4_meta_bath">Walk-in En-Suite Shower</span>
               <span>•</span>
-              <span>Ground Floor</span>
+              <span data-i18n="r4_meta_view">Ground Floor</span>
             </div>
-            <h3 class="room-title">Room 4: Ground Floor King Room</h3>
-            <p class="room-desc">
+            <h3 class="room-title" data-i18n="r4_title">Room 4: Ground Floor King Room</h3>
+            <p class="room-desc" data-i18n="r4_desc">
               Offering completely level step-free access on the ground floor, this spacious bedroom features an expansive walk-in rainfall shower and pleasant garden outlooks. Perfect for easy luggage handling.
             </p>
             <ul class="room-amenities-list">
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Step-free ground floor</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Walk-in rainfall shower</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Generous wardrobe space</li>
-              <li class="room-amenity"><span class="room-amenity-check">✓</span> Nespresso &amp; herbal teas</li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r4_amenity_1">Step-free ground floor</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r4_amenity_2">Walk-in rainfall shower</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r4_amenity_3">Generous wardrobe space</span></li>
+              <li class="room-amenity"><span class="room-amenity-check">✓</span> <span data-i18n="r4_amenity_4">Nespresso &amp; herbal teas</span></li>
             </ul>
-            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 4: Ground Floor King Room">Enquire This Room</a>
+            <a href="#enquire" class="btn btn-secondary room-cta" data-room="Room 4: Ground Floor King Room" data-i18n="room_enquire_cta">Enquire This Room</a>
           </div>
         </div>
       </div>
@@ -2584,36 +2784,36 @@
         </div>
 
         <div class="lifestyle-content">
-          <span class="section-eyebrow">Fresh From The Highland Pantry</span>
-          <h2 class="section-title">Start Your Highland Day Right</h2>
-          <p>
+          <span class="section-eyebrow" data-i18n="bfast_eyebrow">Fresh From The Highland Pantry</span>
+          <h2 class="section-title" data-i18n="bfast_title">Start Your Highland Day Right</h2>
+          <p data-i18n="bfast_desc">
             We believe a day exploring the Isle of Skye demands a breakfast of true substance and wholesome quality. Served in our sunlit dining room overlooking Uig Bay between 7:45 and 9:00 each morning, our table celebrates Scotland's finest independent suppliers.
           </p>
 
           <ul class="features-list">
             <li class="feature-item">
               <span class="feature-bullet">✦</span>
-              <span><strong>World-Famous Stornoway Black Pudding:</strong> Sourced direct from Charles Macleod in the Outer Hebrides.</span>
+              <span data-i18n="bfast_feat_1"><strong>World-Famous Stornoway Black Pudding:</strong> Sourced direct from Charles Macleod in the Outer Hebrides.</span>
             </li>
             <li class="feature-item">
               <span class="feature-bullet">✦</span>
-              <span><strong>Traditional Highland Haggis &amp; Ayrshire Bacon:</strong> Served alongside farm-fresh eggs cooked exactly as you prefer.</span>
+              <span data-i18n="bfast_feat_2"><strong>Traditional Highland Haggis &amp; Ayrshire Bacon:</strong> Served alongside farm-fresh eggs cooked exactly as you prefer.</span>
             </li>
             <li class="feature-item">
               <span class="feature-bullet">✦</span>
-              <span><strong>Slow-Cooked Scottish Porridge:</strong> Made with wholesome pinhead oats, Scottish heather honey, and an optional dram of single malt whisky.</span>
+              <span data-i18n="bfast_feat_3"><strong>Slow-Cooked Scottish Porridge:</strong> Made with wholesome pinhead oats, Scottish heather honey, and an optional dram of single malt whisky.</span>
             </li>
             <li class="feature-item">
               <span class="feature-bullet">✦</span>
-              <span><strong>Homemade Bread &amp; Cass's Preserves:</strong> Freshly baked soda bread, Seville orange marmalade, and seasonal berry compote.</span>
+              <span data-i18n="bfast_feat_4"><strong>Homemade Bread &amp; Cass's Preserves:</strong> Freshly baked soda bread, Seville orange marmalade, and seasonal berry compote.</span>
             </li>
             <li class="feature-item">
               <span class="feature-bullet">✦</span>
-              <span><strong>Vegetarian &amp; Gluten-Free Menus:</strong> Thoughtfully crafted options prepared fresh to order each morning.</span>
+              <span data-i18n="bfast_feat_5"><strong>Vegetarian &amp; Gluten-Free Menus:</strong> Thoughtfully crafted options prepared fresh to order each morning.</span>
             </li>
           </ul>
 
-          <div class="badge badge-gold">Included With Every Direct Booking</div>
+          <div class="badge badge-gold" data-i18n="bfast_badge">Included With Every Direct Booking</div>
         </div>
       </div>
     </div>
@@ -2623,9 +2823,9 @@
   <section id="tarieven" class="section-pad rates-section">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 720px; margin-bottom: 3.5rem;">
-        <span class="section-eyebrow">Transparent Pricing &amp; Policies</span>
-        <h2 class="section-title">Nightly Rates &amp; Guest Guidelines</h2>
-        <p class="section-lead mx-auto">
+        <span class="section-eyebrow" data-i18n="rates_eyebrow">Transparent Pricing &amp; Policies</span>
+        <h2 class="section-title" data-i18n="rates_title">Nightly Rates &amp; Guest Guidelines</h2>
+        <p class="section-lead mx-auto" data-i18n="rates_desc">
           Clear, straightforward terms with zero hidden fees. Full Scottish breakfast, private parking, and high-speed Wi-Fi are always included.
         </p>
       </div>
@@ -2635,41 +2835,41 @@
         <table class="rates-table">
           <thead>
             <tr>
-              <th>Bedroom</th>
-              <th>Bed Type</th>
-              <th>View &amp; Aspect</th>
-              <th>Nightly Rate</th>
-              <th>Direct Inclusions</th>
+              <th data-i18n="th_room">Bedroom</th>
+              <th data-i18n="th_bed">Bed Type</th>
+              <th data-i18n="th_view">View &amp; Aspect</th>
+              <th data-i18n="th_rate">Nightly Rate</th>
+              <th data-i18n="th_inclusions">Direct Inclusions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Room 1: Hillside Double</strong></td>
-              <td>Double Bed</td>
-              <td>Hillside &amp; Garden Terrace</td>
-              <td><strong>£120</strong> / night</td>
-              <td>Full Scottish Breakfast, En-Suite, Free Wi-Fi, Parking</td>
+              <td><strong data-i18n="r1_row_title">Room 1: Hillside Double</strong></td>
+              <td data-i18n="r1_row_bed">Double Bed</td>
+              <td data-i18n="r1_row_view">Hillside &amp; Garden Terrace</td>
+              <td><strong data-i18n="r1_row_rate">£120 / night</strong></td>
+              <td data-i18n="r1_row_inc">Full Scottish Breakfast, En-Suite, Free Wi-Fi, Parking</td>
             </tr>
             <tr>
-              <td><strong>Room 2: Sea View Superking / Twin</strong></td>
-              <td>Superking or 2 Twins</td>
-              <td>Panoramic Uig Bay Window</td>
-              <td><strong>£142</strong> / night</td>
-              <td>Full Scottish Breakfast, Bay Views, Robes, Parking</td>
+              <td><strong data-i18n="r2_row_title">Room 2: Sea View Superking / Twin</strong></td>
+              <td data-i18n="r2_row_bed">Superking or 2 Twins</td>
+              <td data-i18n="r2_row_view">Panoramic Uig Bay Window</td>
+              <td><strong data-i18n="r2_row_rate">£142 / night</strong></td>
+              <td data-i18n="r2_row_inc">Full Scottish Breakfast, Bay Views, Robes, Parking</td>
             </tr>
             <tr>
-              <td><strong>Room 3: Sea View King</strong></td>
-              <td>Kingsize Bed</td>
-              <td>Sunset Facing &amp; Bay</td>
-              <td><strong>£142</strong> / night</td>
-              <td>Full Scottish Breakfast, Sunset Aspect, En-Suite, Parking</td>
+              <td><strong data-i18n="r3_row_title">Room 3: Sea View King</strong></td>
+              <td data-i18n="r3_row_bed">Kingsize Bed</td>
+              <td data-i18n="r3_row_view">Sunset Facing &amp; Bay</td>
+              <td><strong data-i18n="r3_row_rate">£142 / night</strong></td>
+              <td data-i18n="r3_row_inc">Full Scottish Breakfast, Sunset Aspect, En-Suite, Parking</td>
             </tr>
             <tr>
-              <td><strong>Room 4: Ground Floor King</strong></td>
-              <td>Kingsize Bed</td>
-              <td>Garden Aspect (Step-Free)</td>
-              <td><strong>£135</strong> / night</td>
-              <td>Full Scottish Breakfast, Walk-in Shower, Parking</td>
+              <td><strong data-i18n="r4_row_title">Room 4: Ground Floor King</strong></td>
+              <td data-i18n="r4_row_bed">Kingsize Bed</td>
+              <td data-i18n="r4_row_view">Garden Aspect (Step-Free)</td>
+              <td><strong data-i18n="r4_row_rate">£135 / night</strong></td>
+              <td data-i18n="r4_row_inc">Full Scottish Breakfast, Walk-in Shower, Parking</td>
             </tr>
           </tbody>
         </table>
@@ -2678,49 +2878,61 @@
       <!-- 6 House Rules / Policy Cards -->
       <div class="rules-grid">
         <div class="policy-card">
-          <div class="policy-icon-box">🕒</div>
-          <h3 class="policy-title">Check-in &amp; Departure</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_1_title">Check-in &amp; Departure</h3>
+          <p class="policy-desc" data-i18n="pol_1_desc">
             Check-in is welcomed between 16:00 and 19:00. Departure is by 10:00. Early luggage drop-off is happily arranged for ferry travellers.
           </p>
         </div>
 
         <div class="policy-card">
-          <div class="policy-icon-box">☕</div>
-          <h3 class="policy-title">Fresh Highland Breakfast</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_2_title">Fresh Highland Breakfast</h3>
+          <p class="policy-desc" data-i18n="pol_2_desc">
             Served between 7:45 and 9:00 am in the panoramic dining room. Early morning continental breakfast bags are prepared for dawn ferries upon request.
           </p>
         </div>
 
         <div class="policy-card">
-          <div class="policy-icon-box">🕊️</div>
-          <h3 class="policy-title">Quiet Highland Hours</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_3_title">Quiet Highland Hours</h3>
+          <p class="policy-desc" data-i18n="pol_3_desc">
             We preserve a peaceful haven between 22:30 and 07:30 to ensure every traveller enjoys restorative sleep after mountain and coastal excursions.
           </p>
         </div>
 
         <div class="policy-card">
-          <div class="policy-icon-box">🚗</div>
-          <h3 class="policy-title">Private Guest Parking</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 10.7 2 10.9 2 11.1V16c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_4_title">Private Guest Parking</h3>
+          <p class="policy-desc" data-i18n="pol_4_desc">
             Complimentary on-site guest parking situated directly behind the house with generous turning space for larger touring vehicles.
           </p>
         </div>
 
         <div class="policy-card">
-          <div class="policy-icon-box">🚢</div>
-          <h3 class="policy-title">Ferry Pier Proximity</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.5 0 2.5 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_5_title">Ferry Pier Proximity</h3>
+          <p class="policy-desc" data-i18n="pol_5_desc">
             Located just 5 minutes on foot from CalMac Uig Ferry Pier. Convenient luggage hold is available on your departure day until sailing time.
           </p>
         </div>
 
         <div class="policy-card">
-          <div class="policy-icon-box">✦</div>
-          <h3 class="policy-title">Direct Booking Guarantee</h3>
-          <p class="policy-desc">
+          <div class="policy-icon-box">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="policy-title" data-i18n="pol_6_title">Direct Booking Guarantee</h3>
+          <p class="policy-desc" data-i18n="pol_6_desc">
             Direct reservations are guaranteed the lowest rate, zero booking commissions, and free cancellation up to 14 days prior to arrival.
           </p>
         </div>
@@ -2732,8 +2944,8 @@
   <section id="reviews" class="reviews-section section-pad">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 720px; margin-bottom: 2.5rem;">
-        <span class="section-eyebrow">Verified Guest Experiences</span>
-        <h2 class="section-title">Memories Made On Skye</h2>
+        <span class="section-eyebrow" data-i18n="rev_eyebrow">Verified Guest Experiences</span>
+        <h2 class="section-title" data-i18n="rev_title">Memories Made On Skye</h2>
       </div>
 
       <!-- Official Trust Logos -->
@@ -2742,21 +2954,21 @@
           <img src="images/secret_scotland_logo.png" alt="Secret Scotland Recommended B&B emblem" width="102" height="102" loading="lazy">
           <div class="trust-logo-text">
             <span class="trust-logo-title">Secret Scotland</span>
-            <span class="trust-logo-sub">Officially Recommended B&amp;B</span>
+            <span class="trust-logo-sub" data-i18n="trust_logo_1_sub">Officially Recommended B&amp;B</span>
           </div>
         </div>
         <div class="trust-logo-card">
           <img src="images/scotland_best_logo.png" alt="Scotland's Best B&Bs verified member logo" width="86" height="107" loading="lazy">
           <div class="trust-logo-text">
             <span class="trust-logo-title">Scotland's Best B&amp;Bs</span>
-            <span class="trust-logo-sub">Quality Assured Member</span>
+            <span class="trust-logo-sub" data-i18n="trust_logo_2_sub">Quality Assured Member</span>
           </div>
         </div>
         <div class="trust-logo-card">
           <div style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold-accent);">9.8</div>
           <div class="trust-logo-text">
-            <span class="trust-logo-title">Exceptional Guest Rating</span>
-            <span class="trust-logo-sub">Based on verified Google reviews</span>
+            <span class="trust-logo-title" data-i18n="trust_logo_3_title">Exceptional Guest Rating</span>
+            <span class="trust-logo-sub" data-i18n="trust_logo_3_sub">Based on verified Google reviews</span>
           </div>
         </div>
       </div>
@@ -2765,29 +2977,29 @@
       <div class="reviews-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
+          <p class="review-quote" data-i18n="rev_1_quote">
             "The view over Uig Bay from our bedroom was simply breathtaking, and Steve's cooked Scottish breakfast set us up perfectly for hiking the Quiraing. Steve and Cass are the most genuine hosts in Scotland."
           </p>
           <div class="review-author">Fiona &amp; Callum</div>
-          <div class="review-origin">Edinburgh · Stayed September 2025</div>
+          <div class="review-origin" data-i18n="rev_1_origin">Edinburgh · Stayed September 2025</div>
         </div>
 
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
+          <p class="review-quote" data-i18n="rev_2_quote">
             "Spotlessly clean, immensely comfortable beds, and genuine Highland warmth. The recommendations for quiet spots on Skye were invaluable. We loved the evening peat fire in the lounge."
           </p>
           <div class="review-author">Marcus &amp; Helga</div>
-          <div class="review-origin">Munich · Stayed August 2025</div>
+          <div class="review-origin" data-i18n="rev_2_origin">Munich · Stayed August 2025</div>
         </div>
 
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
+          <p class="review-quote" data-i18n="rev_3_quote">
             "Booking direct was seamless and the welcome tea and homemade shortbread after the ferry ride was pure bliss. Room 2 has an unforgettable bay panorama that made our anniversary."
           </p>
           <div class="review-author">David &amp; Sarah</div>
-          <div class="review-origin">London · Stayed July 2025</div>
+          <div class="review-origin" data-i18n="rev_3_origin">London · Stayed July 2025</div>
         </div>
       </div>
     </div>
@@ -2797,9 +3009,9 @@
   <section id="community" class="section-pad community-section">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 720px; margin-bottom: 2.5rem;">
-        <span class="section-eyebrow">Guest Moments &amp; Social Proof</span>
-        <h2 class="section-title">Shared Memories #woodbineskye</h2>
-        <p class="section-lead mx-auto">
+        <span class="section-eyebrow" data-i18n="comm_eyebrow">Guest Moments &amp; Social Proof</span>
+        <h2 class="section-title" data-i18n="comm_title">Shared Memories #woodbineskye</h2>
+        <p class="section-lead mx-auto" data-i18n="comm_desc">
           Moments captured by travellers from across the globe staying at Woodbine House on the Isle of Skye.
         </p>
       </div>
@@ -2808,42 +3020,42 @@
         <div class="community-card">
           <img src="images/hero_uig_bay.jpg" alt="Sunset over Uig Bay ferry pier captured by guest" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"Golden hour over Uig Bay from our window."</p>
+            <p class="community-quote" data-i18n="comm_q1">"Golden hour over Uig Bay from our window."</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
         <div class="community-card">
           <img src="images/fairy_glen.jpg" alt="Fairy Glen morning hike capture" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"15-minute morning stroll to the Fairy Glen!"</p>
+            <p class="community-quote" data-i18n="comm_q2">"15-minute morning stroll to the Fairy Glen!"</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
         <div class="community-card">
           <img src="images/cooked_scottish_breakfast.jpg" alt="Breakfast plate with Stornoway black pudding" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"The legendary Stornoway breakfast spread."</p>
+            <p class="community-quote" data-i18n="comm_q3">"The legendary Stornoway breakfast spread."</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
         <div class="community-card">
           <img src="images/living_room_fire.jpg" alt="Evening fire in the guest lounge" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"Peat fire glow after a blustery day on the ridge."</p>
+            <p class="community-quote" data-i18n="comm_q4">"Peat fire glow after a blustery day on the ridge."</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
         <div class="community-card">
           <img src="images/quiraing.jpg" alt="Quiraing hike panoramic viewpoint" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"Steve's route recommendation for the Quiraing."</p>
+            <p class="community-quote" data-i18n="comm_q5">"Steve's route recommendation for the Quiraing."</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
         <div class="community-card">
           <img src="images/hero_house_exterior.jpg" alt="Flowers in the front garden of Woodbine House" loading="lazy">
           <div class="community-overlay">
-            <p class="community-quote">"Arriving at our Victorian Highland home."</p>
+            <p class="community-quote" data-i18n="comm_q6">"Arriving at our Victorian Highland home."</p>
             <span class="community-tag">#woodbineskye</span>
           </div>
         </div>
@@ -2855,9 +3067,9 @@
   <section id="location" class="location-section section-pad">
     <div class="container">
       <div class="text-center mx-auto" style="max-width: 740px; margin-bottom: 3.5rem;">
-        <span class="section-eyebrow">Explore The Trotternish Peninsula</span>
-        <h2 class="section-title">The Ideal Base For Skye's Wonders</h2>
-        <p class="section-lead mx-auto">
+        <span class="section-eyebrow" data-i18n="loc_eyebrow">Explore The Trotternish Peninsula</span>
+        <h2 class="section-title" data-i18n="loc_title">The Ideal Base For Skye's Wonders</h2>
+        <p class="section-lead mx-auto" data-i18n="loc_desc">
           Woodbine House sits peacefully at the head of Uig Bay, positioned moments from world-renowned geological wonders and the CalMac Ferry Terminal (Uig Pier) to the Outer Hebrides.
         </p>
       </div>
@@ -2869,9 +3081,9 @@
             <img src="images/fairy_glen.jpg" alt="Fairy Glen miniature conical green hills near Uig" width="1000" height="563" loading="lazy">
           </div>
           <div class="attraction-body">
-            <div class="attraction-time">15-Min Walk · 3-Min Drive</div>
-            <h3 class="attraction-title">The Fairy Glen</h3>
-            <p class="attraction-desc">An enchanting miniature landscape of cone-shaped grassy mounds, ancient rowan trees, and Castle Ewen ruin.</p>
+            <div class="attraction-time" data-i18n="attr_1_time">15-Min Walk · 3-Min Drive</div>
+            <h3 class="attraction-title" data-i18n="attr_1_title">The Fairy Glen</h3>
+            <p class="attraction-desc" data-i18n="attr_1_desc">An enchanting miniature landscape of cone-shaped grassy mounds, ancient rowan trees, and Castle Ewen ruin.</p>
           </div>
         </div>
 
@@ -2881,9 +3093,9 @@
             <img src="images/quiraing.jpg" alt="The Quiraing geological rock pinnacles and hiking ridge" width="1000" height="563" loading="lazy">
           </div>
           <div class="attraction-body">
-            <div class="attraction-time">15-Min Scenic Drive</div>
-            <h3 class="attraction-title">The Quiraing</h3>
-            <p class="attraction-desc">Scotland's most dramatic landslip plateau. A breathtaking circuit walk past the Needle, Table, and Prison peaks.</p>
+            <div class="attraction-time" data-i18n="attr_2_time">15-Min Scenic Drive</div>
+            <h3 class="attraction-title" data-i18n="attr_2_title">The Quiraing</h3>
+            <p class="attraction-desc" data-i18n="attr_2_desc">Scotland's most dramatic landslip plateau. A breathtaking circuit walk past the Needle, Table, and Prison peaks.</p>
           </div>
         </div>
 
@@ -2893,21 +3105,21 @@
             <img src="images/the_storr.jpg" alt="Old Man of Storr stone pinnacle on the Isle of Skye" width="1000" height="563" loading="lazy">
           </div>
           <div class="attraction-body">
-            <div class="attraction-time">25-Min Coastal Drive</div>
-            <h3 class="attraction-title">Old Man of Storr</h3>
-            <p class="attraction-desc">The iconic basalt rock pinnacle towering above the Sound of Raasay. A classic Skye sunrise photography summit.</p>
+            <div class="attraction-time" data-i18n="attr_3_time">25-Min Coastal Drive</div>
+            <h3 class="attraction-title" data-i18n="attr_3_title">Old Man of Storr</h3>
+            <p class="attraction-desc" data-i18n="attr_3_desc">The iconic basalt rock pinnacle towering above the Sound of Raasay. A classic Skye sunrise photography summit.</p>
           </div>
         </div>
 
-        <!-- Uig Ferry Pier -->
+        <!-- Rha Falls & Uig Pier -->
         <div class="attraction-card">
           <div class="attraction-img-wrap">
-            <img src="images/hero_uig_bay.jpg" alt="Panoramic view of Uig Bay and ferry terminal" width="1000" height="563" loading="lazy">
+            <img src="images/rha_falls.jpg" alt="Rha Falls waterfall and Uig Pier walking path" width="1000" height="563" loading="lazy">
           </div>
           <div class="attraction-body">
-            <div class="attraction-time">5-Min Walk Downhill</div>
-            <h3 class="attraction-title">Uig Pier (CalMac Terminal)</h3>
-            <p class="attraction-desc">Direct daily sailings to Tarbert (Isle of Harris) and Lochmaddy (North Uist). Early breakfast available for ferry travellers.</p>
+            <div class="attraction-time" data-i18n="attr_4_time">5-Min Walk in Uig Village</div>
+            <h3 class="attraction-title" data-i18n="attr_4_title">Rha Falls &amp; Uig Pier</h3>
+            <p class="attraction-desc" data-i18n="attr_4_desc">A hidden woodland double waterfall right in Uig, leading directly down to Uig Pier and the CalMac Ferry Terminal for Outer Hebrides sailings.</p>
           </div>
         </div>
       </div>
@@ -2915,16 +3127,33 @@
       <!-- Logistics Card -->
       <div class="logistics-card">
         <div>
-          <div class="logistics-item-title">Arrival By Car</div>
-          <p class="logistics-item-desc">Follow the scenic A87 north from Portree (15 miles) to postal code IV51 9XP. Navigation what3words: ///respect.caused.middle. Turn uphill directly before the pier; our private guest car park is immediately on the right.</p>
+          <div class="logistics-item-title" data-i18n="log_1_title">Arrival By Car</div>
+          <p class="logistics-item-desc" data-i18n="log_1_desc">Follow the scenic A87 north from Portree (15 miles) to postal code IV51 9XP. Navigation what3words: ///respect.caused.middle. Turn uphill directly before the pier; our private guest car park is immediately on the right.</p>
         </div>
         <div>
-          <div class="logistics-item-title">Public Transport &amp; Bus</div>
-          <p class="logistics-item-desc">CityLink coaches connect Glasgow, Fort William, and Inverness directly to Uig Pier, just a brief 5-minute stroll from Woodbine House.</p>
+          <div class="logistics-item-title" data-i18n="log_2_title">Public Transport &amp; Bus</div>
+          <p class="logistics-item-desc" data-i18n="log_2_desc">CityLink coaches connect Glasgow, Fort William, and Inverness directly to Uig Pier, just a brief 5-minute stroll from Woodbine House.</p>
         </div>
         <div>
-          <div class="logistics-item-title">Ferry Connections</div>
-          <p class="logistics-item-desc">We gladly welcome guests travelling via Caledonian MacBrayne ferries to/from the Western Isles, with luggage drop-off readily arranged.</p>
+          <div class="logistics-item-title" data-i18n="log_3_title">Ferry Connections</div>
+          <p class="logistics-item-desc" data-i18n="log_3_desc">We gladly welcome guests travelling via Caledonian MacBrayne ferries to/from the Western Isles, with luggage drop-off readily arranged.</p>
+        </div>
+      </div>
+    </div>
+        <!-- Dining in Uig: Exclusive Host Guidance (From Source Website) -->
+      <div class="dining-guide-box">
+        <div class="dining-guide-image">
+          <img src="images/ferry_inn.jpg" alt="Fresh seafood and local dining in Uig" width="800" height="533" loading="lazy">
+        </div>
+        <div class="dining-guide-content">
+          <span class="badge badge-gold" data-i18n="dining_badge">Local Dining Advice</span>
+          <h3 class="dining-guide-title" data-i18n="dining_title">Fresh Seafood &amp; Village Dining in Uig</h3>
+          <p class="dining-guide-desc" data-i18n="dining_desc">
+            Uig offers exceptional dining with locally landed seafood at <strong>The Ferry Inn</strong>, <strong>The Galley Seafood Cafe</strong>, and <strong>Uig Hotel Restaurant</strong>.
+          </p>
+          <div class="dining-guide-alert" data-i18n="dining_alert">
+            ✦ <strong>Important Host Tip:</strong> Table availability is strictly limited during summer season. For guests reserving direct, Steve &amp; Cass gladly assist with advance table reservations prior to your arrival on Skye.
+          </div>
         </div>
       </div>
     </div>
@@ -2935,13 +3164,13 @@
     <div class="container">
       <div class="enquiry-wrapper">
         <div class="enquiry-intro">
-          <span class="section-eyebrow">Direct Reservation Enquiry</span>
-          <h2 class="section-title">Plan Your Isle of Skye Escape</h2>
-          <p class="section-lead mx-auto" style="margin-bottom: 1.5rem;">
+          <span class="section-eyebrow" data-i18n="enq_eyebrow">Direct Reservation Enquiry</span>
+          <h2 class="section-title" data-i18n="enq_title">Plan Your Isle of Skye Escape</h2>
+          <p class="section-lead mx-auto" style="margin-bottom: 1.5rem;" data-i18n="enq_desc">
             Reserve directly with Steve &amp; Cass for the guaranteed lowest rates, flexible terms, and our full Scottish breakfast included.
           </p>
 
-          <div class="direct-pledge-box">
+          <div class="direct-pledge-box" data-i18n="enq_pledge">
             ✦ Best Rate Guarantee · Zero Commission Fees · Free Cancellation Up to 14 Days Prior ✦
           </div>
         </div>
@@ -2949,9 +3178,9 @@
         <!-- Form Submission Confirmation Block -->
         <div id="enquiry-success" class="enquiry-confirmation">
           <div class="confirm-icon">✓</div>
-          <h3 class="confirm-title">Thank You — Your Enquiry Is Received</h3>
+          <h3 class="confirm-title" data-i18n="confirm_title">Thank You — Your Enquiry Is Received</h3>
           <p class="confirm-desc">
-            Thank you for contacting Woodbine House! We have received your direct booking request (<span id="confirm-ref-code" style="font-weight: 700;">WB-2026</span>). Steve &amp; Cass will personally review availability and reply by email within 24 hours.
+            <span data-i18n="confirm_prefix">Thank you for contacting Woodbine House! We have received your direct booking request (</span><span id="confirm-ref-code" style="font-weight: 700;">WB-2026</span><span data-i18n="confirm_suffix">). Steve &amp; Cass will personally review availability and reply by email within 24 hours.</span>
           </p>
         </div>
 
@@ -2961,57 +3190,57 @@
           <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
 
           <div>
-            <label for="form-name" class="form-label">Full Name *</label>
+            <label for="form-name" class="form-label" data-i18n="form_lbl_name">Full Name *</label>
             <input type="text" id="form-name" class="form-control" placeholder="e.g. Alistair MacLeod" required>
           </div>
 
           <div>
-            <label for="form-email" class="form-label">Email Address *</label>
+            <label for="form-email" class="form-label" data-i18n="form_lbl_email">Email Address *</label>
             <input type="email" id="form-email" class="form-control" placeholder="e.g. alistair@example.co.uk" required>
           </div>
 
           <div>
-            <label for="form-phone" class="form-label">Phone Number</label>
+            <label for="form-phone" class="form-label" data-i18n="form_lbl_phone">Phone Number</label>
             <input type="tel" id="form-phone" class="form-control" placeholder="+44 (0) 7700 900123">
           </div>
 
           <div>
-            <label for="room_select" class="form-label">Preferred Bedroom</label>
+            <label for="room_select" class="form-label" data-i18n="form_lbl_room">Preferred Bedroom</label>
             <select id="room_select" class="form-control">
-              <option value="Any Available Room">Any Available Room</option>
-              <option value="Room 1: Hillside Double Room">Room 1: Hillside Double Room (£120/night)</option>
-              <option value="Room 2: Sea View Superking / Twin">Room 2: Sea View Superking / Twin (£142/night)</option>
-              <option value="Room 3: Sea View King Room">Room 3: Sea View King Room (£142/night)</option>
-              <option value="Room 4: Ground Floor King Room">Room 4: Ground Floor King Room (£135/night)</option>
+              <option value="Any Available Room" data-i18n="form_opt_any">Any Available Room</option>
+              <option value="Room 1: Hillside Double Room" data-i18n="form_opt_r1">Room 1: Hillside Double Room (£120/night)</option>
+              <option value="Room 2: Sea View Superking / Twin" data-i18n="form_opt_r2">Room 2: Sea View Superking / Twin (£142/night)</option>
+              <option value="Room 3: Sea View King Room" data-i18n="form_opt_r3">Room 3: Sea View King Room (£142/night)</option>
+              <option value="Room 4: Ground Floor King Room" data-i18n="form_opt_r4">Room 4: Ground Floor King Room (£135/night)</option>
             </select>
           </div>
 
           <div>
-            <label for="arrival" class="form-label">Arrival Date *</label>
+            <label for="arrival" class="form-label" data-i18n="form_lbl_arr">Arrival Date *</label>
             <input type="date" id="arrival" class="form-control" required>
           </div>
 
           <div>
-            <label for="departure" class="form-label">Departure Date *</label>
+            <label for="departure" class="form-label" data-i18n="form_lbl_dep">Departure Date *</label>
             <input type="date" id="departure" class="form-control" required>
           </div>
 
           <div class="form-group-full">
-            <label for="form-guests" class="form-label">Number of Guests</label>
+            <label for="form-guests" class="form-label" data-i18n="form_lbl_guests">Number of Guests</label>
             <select id="form-guests" class="form-control">
-              <option value="2">2 Adults (Maximum 2 per room)</option>
-              <option value="1">1 Adult (Solo traveller)</option>
+              <option value="2" data-i18n="form_opt_2guests">2 Adults (Maximum 2 per room)</option>
+              <option value="1" data-i18n="form_opt_1guest">1 Adult (Solo traveller)</option>
             </select>
           </div>
 
           <div class="form-group-full">
-            <label for="form-message" class="form-label">Special Requests, Ferry Times or Dietary Preferences</label>
+            <label for="form-message" class="form-label" data-i18n="form_lbl_msg">Special Requests, Ferry Times or Dietary Preferences</label>
             <textarea id="form-message" class="form-control" placeholder="Please let us know if you require vegetarian/gluten-free breakfast options, are catching an early morning ferry, or require twin beds in Room 2..."></textarea>
           </div>
 
           <div class="form-group-full">
-            <button type="submit" class="btn btn-warm btn-submit">Submit Direct Reservation Enquiry</button>
-            <p style="font-size: 0.78rem; text-align: center; color: var(--text-muted); margin-top: 0.85rem;">
+            <button type="submit" class="btn btn-warm btn-submit" data-i18n="form_btn_submit">Submit Direct Reservation Enquiry</button>
+            <p style="font-size: 0.78rem; text-align: center; color: var(--text-muted); margin-top: 0.85rem;" data-i18n="form_note_nopay">
               No payment is taken now. Steve &amp; Cass will respond directly with confirmed availability and instructions.
             </p>
           </div>
@@ -3026,7 +3255,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand-title">Woodbine House B&amp;B</div>
-          <p class="footer-brand-desc">
+          <p class="footer-brand-desc" data-i18n="footer_brand_desc">
             A Victorian guest house offering serene en-suite accommodation and warm Highland hospitality in Uig, overlooking the dramatic waters of Loch Snizort.
           </p>
           <div style="font-size: 0.85rem; color: var(--gold-soft); line-height: 1.6;">
@@ -3036,23 +3265,23 @@
         </div>
 
         <div>
-          <div class="footer-heading">Explore</div>
+          <div class="footer-heading" data-i18n="footer_heading_explore">Explore</div>
           <ul class="footer-links">
-            <li><a href="#about" class="footer-link">Our Story &amp; Hosts</a></li>
-            <li><a href="#impressie" class="footer-link">Atmosphere &amp; Layout</a></li>
-            <li><a href="#rooms" class="footer-link">En-Suite Bedrooms</a></li>
-            <li><a href="#breakfast" class="footer-link">Scottish Breakfast</a></li>
-            <li><a href="#tarieven" class="footer-link">Rates &amp; Policies</a></li>
-            <li><a href="#reviews" class="footer-link">Guest Reviews</a></li>
-            <li><a href="#community" class="footer-link">Community Gallery</a></li>
-            <li><a href="#location" class="footer-link">Skye Travel Guide</a></li>
-            <li><a href="#enquire" class="footer-link">Direct Booking</a></li>
+            <li><a href="#about" class="footer-link" data-i18n="footer_link_story">Our Story &amp; Hosts</a></li>
+            <li><a href="#impressie" class="footer-link" data-i18n="footer_link_impressie">Atmosphere &amp; Layout</a></li>
+            <li><a href="#rooms" class="footer-link" data-i18n="footer_link_rooms">En-Suite Bedrooms</a></li>
+            <li><a href="#breakfast" class="footer-link" data-i18n="footer_link_breakfast">Scottish Breakfast</a></li>
+            <li><a href="#tarieven" class="footer-link" data-i18n="footer_link_tarieven">Rates &amp; Policies</a></li>
+            <li><a href="#reviews" class="footer-link" data-i18n="footer_link_reviews">Guest Reviews</a></li>
+            <li><a href="#community" class="footer-link" data-i18n="footer_link_community">Community Gallery</a></li>
+            <li><a href="#location" class="footer-link" data-i18n="footer_link_location">Skye Travel Guide</a></li>
+            <li><a href="#enquire" class="footer-link" data-i18n="footer_link_enquire">Direct Booking</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-heading">Season &amp; Licencing</div>
-          <p class="footer-brand-desc">
+          <div class="footer-heading" data-i18n="footer_heading_season">Season &amp; Licencing</div>
+          <p class="footer-brand-desc" data-i18n="footer_lic_text">
             Open annually from late March through October.<br><br>
             Highland Council Short Term Let Licence: <strong>STL00124F</strong>.<br>
             Energy Performance Certificate: Band E.
@@ -3061,104 +3290,279 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 Woodbine House B&amp;B · Crafted with care on the Isle of Skye</div>
-        <div>Direct Booking Guarantee · UK English Standard</div>
+        <div data-i18n="footer_copy">© 2026 Woodbine House B&amp;B · Crafted with care on the Isle of Skye</div>
+        <div data-i18n="footer_pledge">Direct Booking Guarantee · UK English Standard</div>
       </div>
     </div>
   </footer>
 
-  <!-- Inline JavaScript Logic (Oosterbeek 1:1 Parity) -->
+  <!-- Inline JavaScript Logic (Finesse UI Dual Engine & GSAP Progressive Enhancement) -->
   <script>
     (function() {
+      // 0. Motion Probe & Utility Functions
+      function prefersReducedMotion() {
+        return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
+
+      // Shared Interactive Elements
+      var heroSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-bg-slide'));
+      var textSlides = Array.prototype.slice.call(document.querySelectorAll('.hero-text-slide'));
+      var sceneTabs = Array.prototype.slice.call(document.querySelectorAll('.hero-scene-tab'));
+      var heroPrev = document.getElementById('hero-prev');
+      var heroNext = document.getElementById('hero-next');
+      var currentScene = 0;
+      var sceneCount = heroSlides.length;
+
       // 1. Mobile Menu Drawer Toggle
-      const menuBtn = document.getElementById('mobile-menu-btn');
-      const siteNav = document.getElementById('site-nav');
+      var menuBtn = document.getElementById('mobile-menu-btn');
+      var siteNav = document.getElementById('site-nav');
       if (menuBtn && siteNav) {
         menuBtn.addEventListener('click', function() {
           siteNav.classList.toggle('is-open');
+          if (siteNav.classList.contains('is-open') && window.gsap && !prefersReducedMotion()) {
+            window.gsap.fromTo(siteNav.querySelectorAll('.nav-link'), { autoAlpha: 0, y: 12 }, {
+              autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out', delay: 0.08
+            });
+          }
         });
-        // Close on link click
-        siteNav.querySelectorAll('.nav-link').forEach(link => {
-          link.addEventListener('click', () => siteNav.classList.remove('is-open'));
+        siteNav.querySelectorAll('.nav-link').forEach(function(link) {
+          link.addEventListener('click', function() {
+            siteNav.classList.remove('is-open');
+          });
         });
       }
 
-      // 2. Hero Multi-Scene Slider (2.2s Rotation)
-      const heroSlides = document.querySelectorAll('.hero-bg-slide');
-      const textSlides = document.querySelectorAll('.hero-text-slide');
-      const sceneTabs = document.querySelectorAll('.hero-scene-tab');
-      const heroPrev = document.getElementById('hero-prev');
-      const heroNext = document.getElementById('hero-next');
-      let currentScene = 0;
-      let sceneTimer = null;
-
-      function showScene(index) {
-        if (index < 0) index = heroSlides.length - 1;
-        if (index >= heroSlides.length) index = 0;
+      // 2. Dual Hero Engine Architecture
+      // Baseline engine (no GSAP or offline fallback)
+      var sceneTimer = null;
+      function showSceneBaseline(index) {
+        index = (index + sceneCount) % sceneCount;
         currentScene = index;
 
-        heroSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
-        textSlides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
-        sceneTabs.forEach((tab, i) => tab.classList.toggle('is-active', i === index));
+        heroSlides.forEach(function(slide, i) { slide.classList.toggle('is-active', i === index); });
+        textSlides.forEach(function(slide, i) { slide.classList.toggle('is-active', i === index); });
+        sceneTabs.forEach(function(tab, i) { tab.classList.toggle('is-active', i === index); });
 
         resetHeroTimer();
       }
 
       function resetHeroTimer() {
         if (sceneTimer) clearInterval(sceneTimer);
-        sceneTimer = setInterval(() => {
-          showScene(currentScene + 1);
+        sceneTimer = setInterval(function() {
+          showSceneBaseline(currentScene + 1);
         }, 2200);
       }
 
-      sceneTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-          const sc = parseInt(this.getAttribute('data-scene'), 10);
-          showScene(sc);
+      function initBaselineHeroEngine() {
+        sceneTabs.forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            var sc = parseInt(this.getAttribute('data-scene'), 10);
+            showSceneBaseline(sc);
+          });
         });
-      });
 
-      if (heroPrev) heroPrev.addEventListener('click', () => showScene(currentScene - 1));
-      if (heroNext) heroNext.addEventListener('click', () => showScene(currentScene + 1));
+        if (heroPrev) heroPrev.addEventListener('click', function() { showSceneBaseline(currentScene - 1); });
+        if (heroNext) heroNext.addEventListener('click', function() { showSceneBaseline(currentScene + 1); });
 
-      resetHeroTimer();
+        resetHeroTimer();
+      }
+
+      // GSAP Hero Engine (progressive enhancement)
+      function initGsapHeroEngine() {
+        var gsap = window.gsap;
+        if (!gsap) return;
+        var reduce = prefersReducedMotion();
+        var sceneDuration = 2.2;
+        var sceneDelay = null;
+        var isFirstScene = true;
+
+        function animateScene(index) {
+          index = (index + sceneCount) % sceneCount;
+          currentScene = index;
+
+          sceneTabs.forEach(function(tab, i) { tab.classList.toggle('is-active', i === index); });
+          textSlides.forEach(function(slide, i) { slide.classList.toggle('is-active', i === index); });
+          heroSlides.forEach(function(s, i) { s.classList.toggle('is-active', i === index); });
+
+          var otherSlides = heroSlides.filter(function(_, i) { return i !== index; });
+          var targetSlide = heroSlides[index];
+
+          if (!reduce) {
+            if (isFirstScene) {
+              gsap.set(targetSlide, { autoAlpha: 1 });
+              gsap.set(otherSlides, { autoAlpha: 0 });
+            } else {
+              gsap.fromTo(targetSlide, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.8, ease: 'power2.inOut' });
+              gsap.to(otherSlides, { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut' });
+            }
+            gsap.fromTo(targetSlide, { scale: 1.03 }, { scale: 1, duration: 4, ease: 'none' });
+            isFirstScene = false;
+          }
+        }
+
+        function scheduleNext() {
+          if (sceneDelay) { sceneDelay.kill(); }
+          if (!reduce) {
+            sceneDelay = gsap.delayedCall(sceneDuration, function() {
+              animateScene((currentScene + 1) % sceneCount);
+              scheduleNext();
+            });
+          }
+        }
+
+        sceneTabs.forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            var sc = parseInt(this.getAttribute('data-scene'), 10);
+            animateScene(sc);
+            scheduleNext();
+          });
+        });
+
+        if (heroPrev) {
+          heroPrev.addEventListener('click', function() {
+            animateScene((currentScene - 1 + sceneCount) % sceneCount);
+            scheduleNext();
+          });
+        }
+        if (heroNext) {
+          heroNext.addEventListener('click', function() {
+            animateScene((currentScene + 1) % sceneCount);
+            scheduleNext();
+          });
+        }
+
+        animateScene(currentScene);
+        scheduleNext();
+      }
+
+      // GSAP ScrollTrigger Reveals (100% Non-Destructive Safe Progressive Enhancement)
+      // Cards and content remain 100% visibly rendered in CSS by default; animations are purely additive gentle lifts.
+      function initRevealAnimations() {
+        var gsap = window.gsap;
+        var ScrollTrigger = window.ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+
+        document.querySelectorAll('.section-eyebrow, .section-title, .section-lead').forEach(function(el) {
+          gsap.from(el, {
+            y: 12,
+            duration: 0.5,
+            ease: 'power2.out',
+            clearProps: 'transform',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 95%',
+              once: true
+            }
+          });
+        });
+
+        var cardGroups = [
+          ['.story-stats', '.story-stats .stat-card'],
+          ['.rooms-grid', '.rooms-grid .room-card'],
+          ['.lifestyle-grid', '.lifestyle-grid > div'],
+          ['.rules-grid', '.rules-grid .policy-card'],
+          ['.reviews-grid', '.reviews-grid .review-card'],
+          ['.community-grid', '.community-grid .community-card'],
+          ['.attractions-grid', '.attractions-grid .attraction-card'],
+          ['.dining-guide-box', '.dining-guide-box'],
+          ['#impressie .carousel-card', '#impressie .carousel-card'],
+          ['#impressie .layout-card', '#impressie .layout-card'],
+          ['#location .logistics-card', '#location .logistics-card'],
+          ['#enquire .enquiry-card', '#enquire .enquiry-card']
+        ];
+
+        cardGroups.forEach(function(pair) {
+          var triggerEl = document.querySelector(pair[0]);
+          var items = document.querySelectorAll(pair[1]);
+          if (triggerEl && items.length > 0) {
+            gsap.from(items, {
+              y: 16,
+              duration: 0.55,
+              stagger: 0.06,
+              ease: 'power2.out',
+              clearProps: 'transform',
+              scrollTrigger: {
+                trigger: triggerEl,
+                start: 'top 95%',
+                once: true
+              }
+            });
+          }
+        });
+
+        // Lifecycle refreshes
+        window.addEventListener('load', function() {
+          ScrollTrigger.refresh();
+        });
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function() {
+            ScrollTrigger.refresh();
+          });
+        }
+      }
+
+      function initGsapEnhancements() {
+        var gsap = window.gsap;
+        var ScrollTrigger = window.ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+        document.documentElement.classList.add('gsap-ready');
+        gsap.registerPlugin(ScrollTrigger);
+        initGsapHeroEngine();
+
+        var motion = gsap.matchMedia();
+        motion.add('(prefers-reduced-motion: no-preference)', function() {
+          initRevealAnimations();
+        });
+      }
 
       // 3. Atmosphere Photo Carousel (#impressie)
-      const cSlides = document.querySelectorAll('.carousel-slide');
-      const cDots = document.querySelectorAll('.carousel-dot');
-      const cCounter = document.getElementById('carousel-counter');
-      const cPrev = document.getElementById('carousel-prev');
-      const cNext = document.getElementById('carousel-next');
-      let cIndex = 0;
+      var cSlides = document.querySelectorAll('.carousel-slide');
+      var cDots = document.querySelectorAll('.carousel-dot');
+      var cCounter = document.getElementById('carousel-counter');
+      var cPrev = document.getElementById('carousel-prev');
+      var cNext = document.getElementById('carousel-next');
+      var cIndex = 0;
 
       function showCarousel(idx) {
         if (idx < 0) idx = cSlides.length - 1;
         if (idx >= cSlides.length) idx = 0;
+        var prevIdx = cIndex;
         cIndex = idx;
 
-        cSlides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
-        cDots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+        cSlides.forEach(function(s, i) { s.classList.toggle('is-active', i === idx); });
+        cDots.forEach(function(d, i) { d.classList.toggle('is-active', i === idx); });
         if (cCounter) {
-          const numStr = (idx + 1).toString().padStart(2, '0');
+          var numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
           cCounter.textContent = numStr + ' / 06';
+        }
+
+        if (window.gsap && !prefersReducedMotion() && cSlides[idx]) {
+          window.gsap.fromTo(cSlides[idx], { autoAlpha: 0, scale: 1.03 }, {
+            autoAlpha: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+          });
+          if (prevIdx !== idx && cSlides[prevIdx]) {
+            window.gsap.to(cSlides[prevIdx], { autoAlpha: 0, duration: 0.6, ease: 'power2.out' });
+          }
         }
       }
 
-      if (cPrev) cPrev.addEventListener('click', () => showCarousel(cIndex - 1));
-      if (cNext) cNext.addEventListener('click', () => showCarousel(cIndex + 1));
-      cDots.forEach(dot => {
+      if (cPrev) cPrev.addEventListener('click', function() { showCarousel(cIndex - 1); });
+      if (cNext) cNext.addEventListener('click', function() { showCarousel(cIndex + 1); });
+      cDots.forEach(function(dot) {
         dot.addEventListener('click', function() {
-          const dIdx = parseInt(this.getAttribute('data-dot'), 10);
+          var dIdx = parseInt(this.getAttribute('data-dot'), 10);
           showCarousel(dIdx);
         });
       });
 
       // 4. Dynamic Native Date Constraints
-      const today = new Date().toISOString().split('T')[0];
-      const quickArrival = document.getElementById('quick-arrival');
-      const quickDeparture = document.getElementById('quick-departure');
-      const formArrival = document.getElementById('arrival');
-      const formDeparture = document.getElementById('departure');
+      var today = new Date().toISOString().split('T')[0];
+      var formArrival = document.getElementById('arrival');
+      var formDeparture = document.getElementById('departure');
+      var formRoom = document.getElementById('room_select');
 
       function setDateConstraints(arrivalEl, departureEl) {
         if (!arrivalEl || !departureEl) return;
@@ -3166,9 +3570,9 @@
 
         arrivalEl.addEventListener('change', function() {
           if (this.value) {
-            const arrDate = new Date(this.value);
+            var arrDate = new Date(this.value);
             arrDate.setDate(arrDate.getDate() + 1);
-            const minDep = arrDate.toISOString().split('T')[0];
+            var minDep = arrDate.toISOString().split('T')[0];
             departureEl.min = minDep;
             if (departureEl.value && departureEl.value <= this.value) {
               departureEl.value = minDep;
@@ -3177,37 +3581,13 @@
         });
       }
 
-      setDateConstraints(quickArrival, quickDeparture);
       setDateConstraints(formArrival, formDeparture);
 
-      // 5. Quick Availability Bar sync to Form
-      const quickBtn = document.getElementById('quick-search-btn');
-      const quickRoom = document.getElementById('quick-room');
-      const formRoom = document.getElementById('room_select');
-
-      if (quickBtn) {
-        quickBtn.addEventListener('click', function() {
-          if (quickArrival && quickArrival.value && formArrival) {
-            formArrival.value = quickArrival.value;
-          }
-          if (quickDeparture && quickDeparture.value && formDeparture) {
-            formDeparture.value = quickDeparture.value;
-          }
-          if (quickRoom && quickRoom.value !== 'Any Available Room' && formRoom) {
-            formRoom.value = quickRoom.value;
-          }
-          const enquireSec = document.getElementById('enquire');
-          if (enquireSec) {
-            enquireSec.scrollIntoView({ behavior: 'smooth' });
-          }
-        });
-      }
-
-      // 6. Room Card "Enquire This Room" Links (data-room preselection)
-      const roomLinks = document.querySelectorAll('[data-room]');
-      roomLinks.forEach(link => {
+      // 5. Room Card "Enquire This Room" Links (data-room preselection)
+      var roomLinks = document.querySelectorAll('[data-room]');
+      roomLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
-          const roomVal = this.getAttribute('data-room');
+          var roomVal = this.getAttribute('data-room');
           if (roomVal && formRoom) {
             formRoom.value = roomVal;
           }
@@ -3215,23 +3595,23 @@
       });
 
       // 7. Form Submission with Honeypot & Inline Confirmation
-      const form = document.getElementById('enquiry-form');
-      const successBlock = document.getElementById('enquiry-success');
-      const refCodeEl = document.getElementById('confirm-ref-code');
+      var form = document.getElementById('enquiry-form');
+      var successBlock = document.getElementById('enquiry-success');
+      var refCodeEl = document.getElementById('confirm-ref-code');
 
       if (form) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
 
           // Honeypot check
-          const hp = form.querySelector('.hp-field');
+          var hp = form.querySelector('.hp-field');
           if (hp && hp.value.trim() !== '') {
             console.warn('Spam submission detected.');
             return;
           }
 
           // Generate reference code
-          const randomNum = Math.floor(1000 + Math.random() * 9000);
+          var randomNum = Math.floor(1000 + Math.random() * 9000);
           if (refCodeEl) {
             refCodeEl.textContent = 'WB-' + randomNum;
           }
@@ -3239,9 +3619,661 @@
           form.style.display = 'none';
           if (successBlock) {
             successBlock.style.display = 'block';
+            if (window.gsap && !prefersReducedMotion()) {
+              window.gsap.fromTo(successBlock, { autoAlpha: 0, y: 16 }, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+              });
+              if (refCodeEl) {
+                window.gsap.fromTo(refCodeEl, { scale: 0.8 }, {
+                  scale: 1,
+                  duration: 0.45,
+                  ease: 'back.out(1.7)',
+                  delay: 0.2
+                });
+              }
+            }
             successBlock.scrollIntoView({ behavior: 'smooth' });
           }
         });
+      }
+
+
+      // Multilingual Client-side Engine (EN / ZH / JA)
+      var translations = {
+  "zh": {
+    "ribbon_advantage": "★ 官网直订专属礼遇：",
+    "ribbon_text": "官网直接预订立享最优房价保障与每日自制下午茶点心",
+    "ribbon_season": "营业季：3月 至 10月",
+    "nav_story": "庄园故事",
+    "nav_impressie": "掠影实景",
+    "nav_rooms": "客房套间",
+    "nav_breakfast": "苏格兰早餐",
+    "nav_rates": "价格与政策",
+    "nav_reviews": "宾客评价",
+    "nav_community": "社区画廊",
+    "nav_location": "天空岛指南",
+    "nav_book_btn": "官网直订",
+    "hero_pill": "建于1890年的维多利亚风格精品B&amp;B · 天空岛伊格湾（Uig Bay）",
+    "hero_title_1": "高居伊格湾之上的温馨高地避风港",
+    "hero_sub_1": "四间独具格调的独立卫浴套房，落日晚霞尽收眼底，静享炉火边的苏格兰高地待客之道。",
+    "hero_title_2": "眺望斯尼佐特湖的辽阔海天",
+    "hero_sub_2": "凭窗俯瞰渡轮穿越海角，在微咸的海风中迎接天空岛宁静的破晓清晨。",
+    "hero_title_3": "泥煤炉火旁的惬意温馨夜晚",
+    "hero_sub_3": "在经历壮阔的海岸徒步后，围坐噼啪作响的原木火炉旁，品一杯岛产单一麦芽威士忌。",
+    "hero_title_4": "始于2017年的真挚天空岛款待",
+    "hero_sub_4": "店主亲自提供奎朗峰与仙女峡徒步秘籍，更有热气腾腾的每日新鲜出炉司康饼相迎。",
+    "hero_btn_check": "查询空房状态",
+    "hero_btn_explore": "探索精致客房",
+    "scene_0_label": "主屋与花园",
+    "scene_1_label": "伊格湾全景",
+    "scene_2_label": "客厅暖炉",
+    "scene_3_label": "清晨早餐",
+    "quick_arr_label": "入住日期",
+    "quick_dep_label": "退房日期",
+    "quick_room_label": "预订房型",
+    "quick_opt_any": "全部房型（自动匹配）",
+    "quick_opt_r1": "客房 1：山景双人房（£120/晚）",
+    "quick_opt_r2": "客房 2：海景特大床/双床（£142/晚）",
+    "quick_opt_r3": "客房 3：海景大床房（£142/晚）",
+    "quick_opt_r4": "客房 4：无障碍一层大床房（£135/晚）",
+    "quick_btn_search": "直接预订询价 →",
+    "trust_1_title": "全网最优价格保证",
+    "trust_1_desc": "直接在官网预订，比任何第三方在线预订平台省 15% 以上佣金差价。",
+    "trust_2_title": "现烹苏格兰热早餐",
+    "trust_2_desc": "每日精选高地地道风味食材，冷热丰富，包含在每一次官网直订中。",
+    "trust_3_title": "私人车位与便捷码头",
+    "trust_3_desc": "庄园附设免费私人停车位，步行5分钟即达 CalMac 渡轮码头。",
+    "trust_4_title": "独享宁静四间套房",
+    "trust_4_desc": "全栋仅4间配备独立卫浴的高品质客房，保证私密安宁的度假时光。",
+    "about_eyebrow": "我们的故事与主人",
+    "about_title": "自1890年以来的高地温馨款待",
+    "about_p1": "Woodbine House 建于1890年代，是伊格村（Uig）历史最悠久的精品 B&amp;B 客栈。高耸于俯瞰伊格湾宁静水域的山坡之上，经过精心翻修改造，将维多利亚时期的历史底蕴与现代高地温馨舒适完美融合。",
+    "about_p2": "2017年，我们来到这里接管这栋屋宇，誓言打造一处真正让旅人停歇脚步、沉浸大自然的避世居所。在这里，没有冰冷的流水线服务，只有清晨烤盘里散发着黄油香气的现烤司康饼、关于高地隐秘徒步路线的耐心指引，以及夜晚炉火旁温暖的闲话家常。",
+    "about_p3": "我们仅设4间独立客房，以确保每一位远道而来的旅人都能享有充足的宁静空间与无微不至的专属照料。",
+    "about_stat_1_num": "1890",
+    "about_stat_1_lbl": "维多利亚庄园建成年份",
+    "about_stat_2_num": "4 间",
+    "about_stat_2_lbl": "精品独立卫浴套房",
+    "about_stat_3_num": "9.9",
+    "about_stat_3_lbl": "真实住客综合评分",
+    "impressie_eyebrow": "庄园掠影与氛围",
+    "impressie_title": "体验高地慢生活的每一个瞬间",
+    "impressie_desc": "从清晨海面升起的薄雾，到暮色苍茫中的温暖炉火，Woodbine House 为您呈献纯正苏格兰岛屿韵味。",
+    "carousel_badge": "画廊掠影",
+    "c_slide_1_title": "伊格湾夕阳全景",
+    "c_slide_1_desc": "从高处客房窗台俯瞰落日熔金的斯尼佐特湖海面",
+    "c_slide_2_title": "维多利亚客房典雅陈设",
+    "c_slide_2_desc": "配有纯埃及棉奢华床品与复古高地格调软装",
+    "c_slide_3_title": "现烹高地全套热早餐",
+    "c_slide_3_desc": "斯托诺韦黑布丁、本地香肠与新鲜出炉自制点心",
+    "c_slide_4_title": "炉火起居室与读书角",
+    "c_slide_4_desc": "徒步归来后，在噼啪作响的泥煤木柴炉火旁小憩",
+    "c_slide_5_title": "阶梯式维多利亚花园露台",
+    "c_slide_5_desc": "高地石楠花簇拥的观景露台，静坐看海品一杯下午茶",
+    "c_slide_6_title": "近在咫尺的奎朗奇峰",
+    "c_slide_6_desc": "距庄园仅十几分钟车程的天空岛史诗级玄武岩断层",
+    "plattegrond_eyebrow": "庄园方位与地形导引",
+    "plattegrond_title": "Woodbine House 庄园布局与导引",
+    "plattegrond_desc": "专为轻松舒适的高地度假而设计。依山傍海的地形确保每间卧房与公共区域都拥有宽敞的视野与安宁的氛围。",
+    "plattegrond_item_1": "<strong>一层底层：</strong>主门厅、起居室壁炉暖炉、全景海景早餐餐厅以及无障碍 4 号客房。",
+    "plattegrond_item_2": "<strong>二层楼上：</strong>1 号山景双人房、2 号海景特大床房与 3 号落日大床房。",
+    "plattegrond_item_3": "<strong>私人免费车位：</strong>位于庄园前院平整区域，行李装卸便捷无碍。",
+    "plattegrond_item_4": "<strong>渡轮与海湾步道：</strong>下山步行仅5分钟即可抵达渡轮码头及村中小餐馆。",
+    "plattegrond_map_title": "Woodbine 依山庄园与周边海湾概貌",
+    "plattegrond_map_sub": "伊格湾滨海 · 海拔42米 · 坐享辽阔海景",
+    "plattegrond_btn": "查看周边地图与交通指引 ↓",
+    "rooms_eyebrow": "四间独具格调的卧房",
+    "rooms_title": "宁静惬意的套内卫浴庇护所",
+    "rooms_desc": "每间卧房均配有高档袋装独立弹簧床垫、纯棉羽绒床品与强劲独立花洒淋浴间。",
+    "r1_badge": "静谧山景",
+    "r1_price": "£120 起 / 晚",
+    "r1_meta_bed": "舒适双人床",
+    "r1_meta_bath": "独立卫浴淋浴间",
+    "r1_meta_view": "山峦与后花园景",
+    "r1_title": "客房 1：山景双人房（Hillside Double）",
+    "r1_desc": "位于建筑安静的背山一侧，面向阶梯花园与高地缓坡。环境极为静谧，是徒步归来后安心深睡与静心阅读的理想之所。",
+    "r1_amenity_1": "套内强劲增压淋浴间",
+    "r1_amenity_2": "胶囊咖啡机与精选茶饮",
+    "r1_amenity_3": "苏格兰高地植物芳香洗护",
+    "r1_amenity_4": "全屋高速光纤 Wi-Fi",
+    "room_enquire_cta": "预订此客房",
+    "r2_badge": "海湾全景旗舰",
+    "r2_price": "£142 起 / 晚",
+    "r2_meta_bed": "特大床（可分双床）",
+    "r2_meta_bath": "独立卫浴淋浴间",
+    "r2_meta_view": "伊格湾全景大窗",
+    "r2_title": "客房 2：海景特大床 / 双床房（Sea View Superking）",
+    "r2_desc": "我们的旗舰客房，拥有直面伊格湾与斯尼佐特湖的开阔大窗。可配置为 6 英尺超大特大床或两张单人双床，视野极佳。",
+    "r2_amenity_1": "超宽幅海湾全景窗台",
+    "r2_amenity_2": "特大床（Superking）或双单人床",
+    "r2_amenity_3": "奢华华夫格浴袍与拖鞋",
+    "r2_amenity_4": "迎宾茶盘与自制烘焙点心",
+    "r3_badge": "落日海景",
+    "r3_price": "£142 起 / 晚",
+    "r3_meta_bed": "King 豪华大床",
+    "r3_meta_bath": "独立卫浴淋浴间",
+    "r3_meta_view": "正西落日与海景",
+    "r3_title": "客房 3：海景大床房（Sea View King）",
+    "r3_desc": "位于二层的朝西套房，傍晚时分金色的高地晚霞洒满房间。配备舒适的 King 大床与复古橡木家具，浪漫温馨。",
+    "r3_amenity_1": "King 高弹袋装弹簧大床",
+    "r3_amenity_2": "正西方向绝美落日视野",
+    "r3_amenity_3": "智能高清电视与高速网络",
+    "r3_amenity_4": "大功率电吹风与洁净毛巾",
+    "r4_badge": "一层无障碍",
+    "r4_price": "£135 起 / 晚",
+    "r4_meta_bed": "King 豪华大床",
+    "r4_meta_bath": "步入式平缓淋浴间",
+    "r4_meta_view": "一层花园景观",
+    "r4_title": "客房 4：一层大床房（Ground Floor King）",
+    "r4_desc": "位于建筑底层，出入完全平步无台阶，大行李出入极其便利。配备宽敞的步入式淋浴间与充裕的收纳衣柜空间。",
+    "r4_amenity_1": "全平步无台阶出入体验",
+    "r4_amenity_2": "步入式宽敞雨淋花洒",
+    "r4_amenity_3": "充裕的衣柜与行李收纳位",
+    "r4_amenity_4": "客房咖啡机与高地草本茶",
+    "bfast_eyebrow": "高地纯正风味",
+    "bfast_title": "开启美好一天的传统苏格兰热早餐",
+    "bfast_desc": "我们坚信，探索天空岛奇峻地貌的最佳起点，是一顿丰盛且真材实料的高地早餐。所有食材严选自本地信誉供应商。",
+    "bfast_feat_1": "<strong>享誉盛名的斯托诺韦黑布丁：</strong>来自刘易斯岛手工肉铺的正宗黑布丁，风味醇厚独特。",
+    "bfast_feat_2": "<strong>传统苏格兰肉馅羊肚与培根：</strong>搭配优质高地烟熏五花培根与本地农场散养鸡蛋。",
+    "bfast_feat_3": "<strong>慢火细熬苏格兰燕麦粥：</strong>可自选淋上野生石楠花蜂蜜、肉桂糖粉，或滴入纯麦芽威士忌。",
+    "bfast_feat_4": "<strong>手作烘焙面包与果酱：</strong>Cass 每日亲手烘烤的暖热司康饼与自制草莓黑莓果酱。",
+    "bfast_feat_5": "<strong>素食与无麸质菜单：</strong>提供素食香肠、新鲜炒波特菇及无麸质纯手工面包。",
+    "bfast_badge": "每一次官网直订均免费包含",
+    "rates_eyebrow": "透明价格与住客守则",
+    "rates_title": "每晚价格与直订明细",
+    "rates_desc": "条款清晰透明，绝无任何隐藏附加费用。官网直订立享最优惠的房价与最真挚的待客保障。",
+    "th_room": "客房名称",
+    "th_bed": "床型配置",
+    "th_view": "窗外视野",
+    "th_rate": "每晚价格",
+    "th_inclusions": "直订礼遇明细",
+    "r1_row_title": "客房 1：山景双人房",
+    "r1_row_bed": "舒适标准双人床",
+    "r1_row_view": "静谧山丘与阶梯花园",
+    "r1_row_rate": "£120 / 晚",
+    "r1_row_inc": "全套苏格兰早餐、独立卫浴、免费车位、光纤Wi-Fi",
+    "r2_row_title": "客房 2：海景特大床 / 双床房",
+    "r2_row_bed": "特大床（Superking）或两张单人床",
+    "r2_row_view": "伊格湾全景大窗",
+    "r2_row_rate": "£142 / 晚",
+    "r2_row_inc": "全套苏格兰早餐、无敌海景、华夫格浴袍、每日自制茶点",
+    "r3_row_title": "客房 3：海景大床房",
+    "r3_row_bed": "King 豪华大床",
+    "r3_row_view": "正西落日方向海湾景致",
+    "r3_row_rate": "£142 / 晚",
+    "r3_row_inc": "全套苏格兰早餐、落日景观、高档洗浴用品、免费车位",
+    "r4_row_title": "客房 4：一层大床房",
+    "r4_row_bed": "King 豪华大床",
+    "r4_row_view": "一层花园景观（无台阶步入）",
+    "r4_row_rate": "£135 / 晚",
+    "r4_row_inc": "全套苏格兰早餐、步入式雨淋花洒、平步进出、免费车位",
+    "pol_1_title": "办理入住与退房",
+    "pol_1_desc": "入住时间为 16:00 至 19:00（如搭乘晚班渡轮可提前预约自助入住）；退房时间为上午 10:30 前。",
+    "pol_2_title": "现烹高地热早餐",
+    "pol_2_desc": "每天清晨 7:45 至 9:00 在海景餐厅呈献，现点现烹，食材全部来自当地农庄与手作坊。",
+    "pol_3_title": "高地静歇静音时段",
+    "pol_3_desc": "每日 22:30 至次日 07:30 为庄园静音时段，谢绝派对，确保所有客人享有宁静的高质量睡眠。",
+    "pol_4_title": "住客专属免费停车",
+    "pol_4_desc": "庄园前院为所有住客提供宽敞平整的免费停车位，出入方便，无需提前预订车位。",
+    "pol_5_title": "紧邻渡轮码头",
+    "pol_5_desc": "步行仅需5分钟即可抵达 CalMac 渡轮码头，搭乘前往哈里斯岛及外赫布里底群岛极其轻松。",
+    "pol_6_title": "官网直订最优保证",
+    "pol_6_desc": "官网直接预订立享最优价格保障与迎宾手作司康饼，绝无任何第三方平台中介佣金附加。",
+    "rev_eyebrow": "真实住客评价",
+    "rev_title": "在天空岛留下的难忘回忆",
+    "trust_logo_1_sub": "官方推荐精品客栈",
+    "trust_logo_2_sub": "高地品质认证会员",
+    "trust_logo_3_title": "卓越住客综合评价",
+    "trust_logo_3_sub": "基于 Google Verified 真实评价",
+    "rev_1_quote": "“从我们房间望出去的伊格湾全景美得令人屏息。Steve 和 Cass 的真诚款待让人宾至如归，自制的苏格兰早餐更是无可挑剔，尤其是现烤的热司康饼！”",
+    "rev_1_origin": "爱丁堡住客 · 2025年9月入住",
+    "rev_2_quote": "“房间纤尘不染，床铺极其舒适。走路到渡轮码头只要5分钟。主人为我们手绘的奎朗峰避开人潮的路线图帮了大忙，极力推荐大家在官网直接预订！”",
+    "rev_2_origin": "慕尼黑住客 · 2025年8月入住",
+    "rev_3_quote": "“直接在官网预订非常顺畅，到店后受到的热情欢迎让我们深受感动。在狂风微雨的高地徒步一天后，坐在温暖壁炉前品一杯威士忌的感觉无与伦比。”",
+    "rev_3_origin": "伦敦住客 · 2025年7月入住",
+    "comm_eyebrow": "精彩瞬间与社交印记",
+    "comm_title": "分享难忘时光 #woodbineskye",
+    "comm_desc": "来自世界各地的旅人在 Woodbine House 记录下的真实感动时刻。",
+    "comm_q1": "“从窗前望出去，伊格湾上空壮丽的金色霞光”",
+    "comm_q2": "“清晨从客栈漫步 15 分钟即可抵达静谧的仙女峡”",
+    "comm_q3": "“斯托诺韦手工黑布丁与全套热早餐的难忘滋味”",
+    "comm_q4": "“在狂风呼啸的海岸徒步归来后，炉火微光带来的无尽安宁”",
+    "comm_q5": "“店主 Steve 亲自推荐的避开人潮的奎朗峰绝美小径”",
+    "comm_q6": "“终于抵达这栋建于 1890 年的维多利亚高地温馨宅邸”",
+    "loc_eyebrow": "探索特罗特尼什半岛",
+    "loc_title": "探访天空岛奇迹景观的理想大本营",
+    "loc_desc": "Woodbine House 恬静地坐落于伊格湾上方，让您在避开主干道喧嚣的同时，轻松抵达天空岛各大核心胜景。",
+    "attr_1_time": "步行 15 分钟 · 车程 3 分钟",
+    "attr_1_title": "仙女峡谷（The Fairy Glen）",
+    "attr_1_desc": "迷人的微缩翠绿锥形山丘与神秘石圈，宛如精灵居住的奇幻童话秘境。",
+    "attr_2_time": "景观公路车程 15 分钟",
+    "attr_2_title": "奎朗奇峰（The Quiraing）",
+    "attr_2_desc": "苏格兰最震撼的高山地质滑坡断层，玄武岩奇峰连绵，俯瞰辽阔海湾。",
+    "attr_3_time": "沿海景观公路车程 25 分钟",
+    "attr_3_title": "老人岩（Old Man of Storr）",
+    "attr_3_desc": "高耸入云的标志性尖锐玄武岩石柱，是天空岛最为著名的地标步道与摄影圣地。",
+    "attr_4_time": "伊格村内步行 5 分钟",
+    "attr_4_title": "拉哈瀑布与伊格码头（Rha Falls & Uig Pier）",
+    "attr_4_desc": "藏于村内林木深处的双阶隐秘瀑布，漫步直通伊格码头与 CalMac 渡轮码头，前往外赫布里底群岛极其轻松。",
+    "log_1_title": "自驾驾车抵达",
+    "log_1_desc": "从波特里沿着风景优美的 A87 主干道向北行驶即可抵达伊格，庄园附设免费私人停车位。",
+    "log_2_title": "公共交通与巴士",
+    "log_2_desc": "CityLink 长途大巴直通格拉斯哥、威廉堡与因弗内斯，在伊格码头设有停靠站。",
+    "log_3_title": "渡轮航班接驳",
+    "log_3_desc": "搭乘 CalMac 渡轮往返外岛极其便捷，若遇晚班航班抵港，我们可提供贴心自助入住协助。",
+    "enq_eyebrow": "官网直订询价",
+    "enq_title": "规划您的天空岛静谧假期",
+    "enq_desc": "直接向店主 Steve &amp; Cass 预订，立享最优价格保障与每日下午茶点，绝无隐藏佣金差价。",
+    "enq_pledge": "✦ 最优价格保证 · 零中间商佣金 · 24小时内店主直复 ✦",
+    "confirm_title": "感谢您的垂询 — 您的直订询价已成功送达",
+    "confirm_prefix": "衷心感谢您联系 Woodbine House！您的直订查询编号是：",
+    "confirm_suffix": "。店主 Steve &amp; Cass 将在 24 小时内亲自查验房态，并向您的邮箱发送专属优惠确认函。",
+    "form_lbl_name": "您的全名 *",
+    "form_lbl_email": "电子邮箱 *",
+    "form_lbl_phone": "联系电话",
+    "form_lbl_room": "偏好客房套型",
+    "form_opt_any": "全部房型（请为我推荐最适合的房型）",
+    "form_opt_r1": "客房 1：山景双人房（£120/晚）",
+    "form_opt_r2": "客房 2：海景特大床 / 双床房（£142/晚）",
+    "form_opt_r3": "客房 3：海景大床房（£142/晚）",
+    "form_opt_r4": "客房 4：一层大床房（£135/晚）",
+    "form_lbl_arr": "入住日期 *",
+    "form_lbl_dep": "退房日期 *",
+    "form_lbl_guests": "入住人数",
+    "form_opt_2guests": "2 位成人（每间客房上限2人）",
+    "form_opt_1guest": "1 位成人（单人独行旅人）",
+    "form_lbl_msg": "特别需求、渡轮班次或饮食过敏偏好",
+    "form_btn_submit": "提交官网直订询价",
+    "form_note_nopay": "当前步骤无需任何付款。Steve &amp; Cass 将在 24 小时内直接发送确认函至您的邮箱。",
+    "footer_brand_desc": "坐落于苏格兰天空岛伊格湾之上的维多利亚风格精品客栈，拥有4间高品质独立套房、壮丽海景与每日手工烹饪的高地热早餐。",
+    "footer_heading_explore": "探索庄园",
+    "footer_link_story": "庄园历史与店主",
+    "footer_link_impressie": "庄园氛围与布局",
+    "footer_link_rooms": "独立卫浴客房",
+    "footer_link_breakfast": "苏格兰传统早餐",
+    "footer_link_tarieven": "价格与政策",
+    "footer_link_reviews": "住客真实心声",
+    "footer_link_community": "社区精彩画廊",
+    "footer_link_location": "天空岛旅游指南",
+    "footer_link_enquire": "官网直接预订",
+    "footer_heading_season": "营业周期与营业许可",
+    "footer_lic_text": "每年自 3 月下旬持续营业至 10 月底。",
+    "footer_copy": "© 2026 Woodbine House B&amp;B · 悉心打造于苏格兰天空岛",
+    "footer_pledge": "官网直订最优价格保证 · 英国标准服务",
+    "badge_secret_scotland": "官方独立实地考察推荐客栈",
+    "badge_scotlands_best": "苏格兰顶级B&amp;B品质认证会员",
+    "dining_badge": "店主美食指引",
+    "dining_title": "伊格湾本地海鲜与小镇就餐推荐",
+    "dining_desc": "伊格村内汇集了极高水准的本地海鲜美食，包括步行即达的 <strong>The Ferry Inn</strong> 酒馆、<strong>The Galley Seafood Cafe</strong> 纯正海鲜以及 <strong>Uig Hotel Restaurant</strong> 海景餐厅。",
+    "dining_alert": "✦ <strong>店主贴心提醒：</strong> 夏季旅游旺季各餐厅餐位极其紧俏，极力建议提前预约。官网直接预订的宾客，店主 Steve &amp; Cass 非常乐意在您抵达天空岛前协助代为锁定热门餐厅餐位。",
+    "hero_btn_enquire": "官网直订询价"
+  },
+  "ja": {
+    "ribbon_advantage": "★ 公式サイト直接予約の特典：",
+    "ribbon_text": "公式サイトからのご予約で最安値保証と毎日の自家製アフタヌーンティーをご提供",
+    "ribbon_season": "営業期間：3月〜10月",
+    "nav_story": "当館の物語",
+    "nav_impressie": "館内ギャラリー",
+    "nav_rooms": "客室のご案内",
+    "nav_breakfast": "伝統の朝食",
+    "nav_rates": "料金・規定",
+    "nav_reviews": "お客様の声",
+    "nav_community": "フォトギャラリー",
+    "nav_location": "スカイ島案内",
+    "nav_book_btn": "直接予約する",
+    "hero_pill": "1890年創業のヴィクトリア様式B&amp;B · スカイ島 ウィグ湾（Uig Bay）",
+    "hero_title_1": "ウィグ湾を望む、心安らぐハイランドの隠れ家",
+    "hero_sub_1": "趣の異なる4つの専用バスルーム付き客室。美しい夕景と温炉が迎える、心温まるスコットランドのおもてなし。",
+    "hero_title_2": "スニゾート湖を見渡す雄大なパノラマ",
+    "hero_sub_2": "岬を行き交うフェリーを眺め、潮風に包まれながらスカイ島の穏やかな夜明けを迎える贅沢。",
+    "hero_title_3": "ピートの香る暖炉を囲む穏やかな夕べ",
+    "hero_sub_3": "絶景の海岸トレッキングの後は、パチパチと薪がはぜる暖炉のそばで島のシングルモルトをご堪能ください。",
+    "hero_title_4": "2017年から紡ぐ、スカイ島への真心",
+    "hero_sub_4": "キーラングやフェアリーグレンの穴場案内と、毎日焼き上げる温かなスコーンでお迎えいたします。",
+    "hero_btn_check": "空室状況を確認",
+    "hero_btn_explore": "客室を見る",
+    "scene_0_label": "本館と庭園",
+    "scene_1_label": "ウィグ湾の眺望",
+    "scene_2_label": "暖炉のラウンジ",
+    "scene_3_label": "朝食ダイニング",
+    "quick_arr_label": "チェックイン",
+    "quick_dep_label": "チェックアウト",
+    "quick_room_label": "ご希望の客室",
+    "quick_opt_any": "おまかせ（全室から検索）",
+    "quick_opt_r1": "客室1：ガーデンダブル（£120/泊）",
+    "quick_opt_r2": "客室2：海景特大キング/ツイン（£142/泊）",
+    "quick_opt_r3": "客室3：海景キング（£142/泊）",
+    "quick_opt_r4": "客室4：バリアフリーキング（£135/泊）",
+    "quick_btn_search": "空室問合せ・直接予約 →",
+    "trust_1_title": "公式サイト最安値保証",
+    "trust_1_desc": "公式サイトからの直接予約なら、仲介手数料ゼロで15%以上お得にご宿泊いただけます。",
+    "trust_2_title": "伝統の手作り温朝食付",
+    "trust_2_desc": "スカイ島やハイランドの地元食材をふんだんに使用した自慢の朝食を無料でお届け。",
+    "trust_3_title": "無料専用駐車場＆港至近",
+    "trust_3_desc": "敷地内パーキング完備。カルマック・フェリー乗り場まで徒歩わずか5分の好立地。",
+    "trust_4_title": "1日4組限定の静寂空間",
+    "trust_4_desc": "全室専用バス・トイレ付の上質な4室のみ。静けさと落ち着きをお約束します。",
+    "about_eyebrow": "当館の歴史とオーナー",
+    "about_title": "1890年から受け継がれるハイランドのぬくもり",
+    "about_p1": "1890年代に建てられたウッドバイン・ハウスは、ウィグ村で最も長い歴史を誇るB&amp;Bです。ウィグ湾の穏やかな水面を見下ろす丘の上に佇み、ヴィクトリア朝の伝統の趣と現代の温かな快適さを見事に融合させています。",
+    "about_p2": "2017年に私たちがこの館を受け継いだとき、目指したのは旅人が喧騒を忘れ、雄大な自然に抱かれて心から安らげる場所でした。型通りのサービスではなく、毎朝焼き上げるバター香るスコーン、地元ならではのハイキングルートの助言、暖炉のそばでの温かな会話を大切にしています。",
+    "about_p3": "わずか4室のみに限定しているのは、遠方から訪れるすべてのお客様に、静寂に満ちた特別な時間と細やかなおもてなしをお届けするためです。",
+    "about_stat_1_num": "1890年",
+    "about_stat_1_lbl": "ヴィクトリア様式創業",
+    "about_stat_2_num": "4室",
+    "about_stat_2_lbl": "全室専用バス・トイレ付",
+    "about_stat_3_num": "9.9",
+    "about_stat_3_lbl": "宿泊者総合クチコミ得点",
+    "impressie_eyebrow": "館内の雰囲気と光景",
+    "impressie_title": "ハイランドの穏やかな時に身をゆだねて",
+    "impressie_desc": "朝の静寂な海霧から夕暮れの薪暖炉まで、ウッドバイン・ハウスで過ごすかけがえのないスコットランドの時間。",
+    "carousel_badge": "ギャラリー",
+    "c_slide_1_title": "ウィグ湾を黄金に染める夕景",
+    "c_slide_1_desc": "客室の窓から見渡すスニゾート湖に沈む雄大な落日",
+    "c_slide_2_title": "クラシックなヴィクトリア調客室",
+    "c_slide_2_desc": "最高級エジプト綿のリネンと心温まるツイードの設え",
+    "c_slide_3_title": "出来立ての温かいスコティッシュ朝食",
+    "c_slide_3_desc": "ストーノウェイ産ブラックプディングと焼きたてスコーン",
+    "c_slide_4_title": "薪暖炉のゲストラウンジ",
+    "c_slide_4_desc": "トレッキングの後は、ピート香る暖炉の前で読書とウィスキーを",
+    "c_slide_5_title": "テラス庭園からの眺望",
+    "c_slide_5_desc": "ヘザーの花が揺れるテラスで海を眺めながら過ごす午後",
+    "c_slide_6_title": "奇岩連なるキーラング連峰",
+    "c_slide_6_desc": "当館から車でわずか15分の場所にあるスカイ島の象徴的絶景",
+    "plattegrond_eyebrow": "館内構成とロケーション",
+    "plattegrond_title": "ウッドバイン・ハウス 館内レイアウト案内",
+    "plattegrond_desc": "快適なハイランドステイのために工夫された2階建ての館内。静けさと眺望を両立させたレイアウトです。",
+    "plattegrond_item_1": "<strong>1階：</strong>エントランス、暖炉ラウンジ、海を望む朝食ダイニング、段差のない客室4。",
+    "plattegrond_item_2": "<strong>2階：</strong>客室1（ガーデンビュー）、客室2（海景特大スイート）、客室3（夕景キング）。",
+    "plattegrond_item_3": "<strong>敷地内無料駐車場：</strong>お車横付け可能で大きなお荷物の積み下ろしもスムーズです。",
+    "plattegrond_item_4": "<strong>フェリー＆遊歩道：</strong>港やローカルパブまで徒歩わずか5分の緩やかな下り道。",
+    "plattegrond_map_title": "高台に佇む館内とウィグ湾のロケーション",
+    "plattegrond_map_sub": "ウィグ湾岸 · 標高42m · 開放的なパノラマビュー",
+    "plattegrond_btn": "周辺地図・交通案内を見る ↓",
+    "rooms_eyebrow": "趣異なる4室の客室",
+    "rooms_title": "静寂に包まれた専用バス付の寛ぎ空間",
+    "rooms_desc": "全室に上質なポケットコイルベッド、清潔なエジプト綿リネン、水圧抜群の専用シャワーを完備。",
+    "r1_badge": "静寂の山景",
+    "r1_price": "£120〜 / 泊",
+    "r1_meta_bed": "ダブルベッド",
+    "r1_meta_bath": "専用シャワールーム",
+    "r1_meta_view": "庭園＆ヒルサイドビュー",
+    "r1_title": "客室1：ガーデンダブル（Hillside Double）",
+    "r1_desc": "館の奥側に位置し、美しいテラスガーデンと丘陵に面した最も静かなお部屋。トレッキング後の深い眠りと読書に最適です。",
+    "r1_amenity_1": "水圧十分な専用パワフルシャワー",
+    "r1_amenity_2": "ネスプレッソ珈琲＆紅茶セット",
+    "r1_amenity_3": "スコットランド産オーガニック石鹸",
+    "r1_amenity_4": "館内全域 高速光Wi-Fi完備",
+    "room_enquire_cta": "この客室を予約する",
+    "r2_badge": "ウィグ湾一望の特等席",
+    "r2_price": "£142〜 / 泊",
+    "r2_meta_bed": "特大キングまたはツイン",
+    "r2_meta_bath": "専用シャワールーム",
+    "r2_meta_view": "ウィグ湾パノラマビュー",
+    "r2_title": "客室2：海景特大キング / ツイン（Sea View Superking）",
+    "r2_desc": "当館自慢のフラッグシップルーム。大きな窓からウィグ湾とスニゾート湖を一望。特大キングまたはシングル2台のツインに変更可能。",
+    "r2_amenity_1": "海を見晴らす大型パノラマ窓",
+    "r2_amenity_2": "幅180cmキングまたはツイン選択",
+    "r2_amenity_3": "上質なワッフル地バスローブ完備",
+    "r2_amenity_4": "ウェルカムトレイ＆手作り焼菓子",
+    "r3_badge": "夕陽の海景",
+    "r3_price": "£142〜 / 泊",
+    "r3_meta_bed": "キングサイズベッド",
+    "r3_meta_bath": "専用シャワールーム",
+    "r3_meta_view": "サンセット＆海景",
+    "r3_title": "客室3：海景キング（Sea View King）",
+    "r3_desc": "2階西向きのお部屋。夕暮れ時には部屋全体が黄金色の夕陽に包まれます。落ち着きのあるアンティーク調の家具が特別な夜を演出。",
+    "r3_amenity_1": "ポケットコイル キングベッド",
+    "r3_amenity_2": "視界を遮るもののない夕景パノラマ",
+    "r3_amenity_3": "スマートTV＆高速Wi-Fi完備",
+    "r3_amenity_4": "ヘアドライヤー＆清潔なタオル一式",
+    "r4_badge": "段差なしバリアフリー",
+    "r4_price": "£135〜 / 泊",
+    "r4_meta_bed": "キングサイズベッド",
+    "r4_meta_bath": "ウォークインシャワー",
+    "r4_meta_view": "1階ガーデンビュー",
+    "r4_title": "客室4：1階キング（Ground Floor King）",
+    "r4_desc": "1階に位置し、館内への出入りに段差が一切ありません。大きなお荷物をお持ちの方や階段が苦手な方にも安心してご利用いただけます。",
+    "r4_amenity_1": "階段なしのフラットアクセス",
+    "r4_amenity_2": "ゆったりウォークインレインシャワー",
+    "r4_amenity_3": "余裕のあるクローゼット＆荷物置場",
+    "r4_amenity_4": "ネスプレッソ＆ハーブティー完備",
+    "bfast_eyebrow": "ハイランドの豊かな恵み",
+    "bfast_title": "素晴らしい一日を始めるスコティッシュブレックファスト",
+    "bfast_desc": "スカイ島散策への活力を満たす、できたて熱々の伝統朝食。島とハイランドの厳選された地元食材を使用しています。",
+    "bfast_feat_1": "<strong>名高いストーノウェイ産ブラックプディング：</strong>ルイス島の名店より取り寄せる伝統の深い味わい。",
+    "bfast_feat_2": "<strong>伝統のスコティッシュハギス＆ベーコン：</strong>ハイランド産スモークベーコンと平飼い地鶏卵のソテー。",
+    "bfast_feat_3": "<strong>じっくり煮込んだオーツ麦ポリッジ：</strong>ヘザーハニーやシナモン、お好みでシングルモルトを添えて。",
+    "bfast_feat_4": "<strong>自家製パンと手作りジャム：</strong>毎朝焼き上げるスコーンとベリーの特製コンフィチュール。",
+    "bfast_feat_5": "<strong>ヴィーガン＆グルテンフリー対応：</strong>特製ベジソーセージやグルテンフリーブレッドも常時ご用意。",
+    "bfast_badge": "公式サイト直接予約ですべて無料サービス",
+    "rates_eyebrow": "料金案内とご宿泊規定",
+    "rates_title": "宿泊料金とサービス内容",
+    "rates_desc": "追加費用なしの明確な料金体系。公式サイトからの直接予約が常に最安値となります。",
+    "th_room": "客室名",
+    "th_bed": "ベッド仕様",
+    "th_view": "眺望・方角",
+    "th_rate": "宿泊料金",
+    "th_inclusions": "含まれるサービス",
+    "r1_row_title": "客室1：ガーデンダブル",
+    "r1_row_bed": "ダブルベッド",
+    "r1_row_view": "静かな庭園＆山景",
+    "r1_row_rate": "£120 / 泊",
+    "r1_row_inc": "手作り温朝食、専用シャワー、敷地内駐車場、高速Wi-Fi",
+    "r2_row_title": "客室2：海景特大キング/ツイン",
+    "r2_row_bed": "特大キングまたはツイン2台",
+    "r2_row_view": "ウィグ湾パノラマ大窓",
+    "r2_row_rate": "£142 / 泊",
+    "r2_row_inc": "手作り温朝食、海景、特製バスローブ、アフタヌーンティー",
+    "r3_row_title": "客室3：海景キング",
+    "r3_row_bed": "キングベッド",
+    "r3_row_view": "夕陽と海景",
+    "r3_row_rate": "£142 / 泊",
+    "r3_row_inc": "手作り温朝食、サンセットビュー、高級アメニティ、無料駐車",
+    "r4_row_title": "客室4：1階キング",
+    "r4_row_bed": "キングベッド",
+    "r4_row_view": "1階庭園景（段差なし）",
+    "r4_row_rate": "£135 / 泊",
+    "r4_row_inc": "手作り温朝食、広々シャワー、バリアフリー、無料駐車場",
+    "pol_1_title": "チェックイン＆アウト",
+    "pol_1_desc": "チェックイン：16:00〜19:00（遅いフェリー時はセルフチェックイン可）。チェックアウト：10:30まで。",
+    "pol_2_title": "温かい伝統の朝食",
+    "pol_2_desc": "毎朝 7:45〜9:00 に海を望むダイニングにてご提供。出来立てのメインディッシュをお席までお届け。",
+    "pol_3_title": "夜間の静粛時間",
+    "pol_3_desc": "静かな休息をお届けするため、22:30〜翌07:30はクワイエットタイムとさせていただきます。",
+    "pol_4_title": "敷地内無料パーキング",
+    "pol_4_desc": "全室分のお車をゆったり駐車いただけるスペースを確保しております（事前予約不要）。",
+    "pol_5_title": "港へのアクセス至近",
+    "pol_5_desc": "カルマック・フェリーターミナルまで徒歩5分。アウター・ヘブリディーズ諸島への観光に最適です。",
+    "pol_6_title": "公式サイト最安値保証",
+    "pol_6_desc": "直予約のお客様には最安値の適用と、到着時の温かいスコーンのおもてなしをお約束します。",
+    "rev_eyebrow": "宿泊者の体験談",
+    "rev_title": "スカイ島で刻まれた特別な思い出",
+    "trust_logo_1_sub": "公式推薦ブティックB&amp;B",
+    "trust_logo_2_sub": "ハイランド品質保証加盟",
+    "trust_logo_3_title": "卓越したクチコミ評価",
+    "trust_logo_3_sub": "Googleの認証レビューに基づく評価",
+    "rev_1_quote": "「お部屋の窓から見下ろすウィグ湾の景色は息を呑む美しさでした。SteveとCassの温かいもてなし、毎朝の出来立て朝食と焼きたてスコーンは感動の美味しさでした！」",
+    "rev_1_origin": "エディンバラより · 2025年9月宿泊",
+    "rev_2_quote": "「どこも清潔でベッドの寝心地も最高でした。フェリー港まで歩いて5分と便利。オーナーが教えてくれたキーラングの穴場ルートは最高でした。直予約を心からお勧めします。」",
+    "rev_2_origin": "ミュンヘンより · 2025年8月宿泊",
+    "rev_3_quote": "「公式サイトからの予約はとてもスムーズで、到着時のもてなしも温かいものでした。風の強い日のトレッキング後、薪暖炉の前で寛ぐ時間は格別のひとときでした。」",
+    "rev_3_origin": "ロンドンより · 2025年7月宿泊",
+    "comm_eyebrow": "旅のワンシーンと感動",
+    "comm_title": "思い出の共有 #woodbineskye",
+    "comm_desc": "世界中の旅人がウッドバイン・ハウスで切り取った心温まる瞬間。",
+    "comm_q1": "「部屋の窓からウィグ湾を見下ろす、黄金色の夕暮れ時」",
+    "comm_q2": "「朝の澄んだ空気の中、妖精の谷（フェアリーグレン）へ散歩」",
+    "comm_q3": "「伝統のブラックプディングと焼きたてパンの贅沢な朝食」",
+    "comm_q4": "「風の冷たいトレッキングの後、赤々と燃える暖炉のぬくもり」",
+    "comm_q5": "「オーナーが教えてくれた、混雑を避けたキーラングの秘密ルート」",
+    "comm_q6": "「1890年創業のヴィクトリア朝の館に到着した心躍る瞬間」",
+    "loc_eyebrow": "トロッタニッシュ半島を巡る",
+    "loc_title": "スカイ島の絶景探訪に最適な拠点",
+    "loc_desc": "ウッドバイン・ハウスはウィグ湾の静かな高台に位置し、喧騒を離れながらも島を代表する名所へスムーズに向かえます。",
+    "attr_1_time": "徒歩15分 · 車で3分",
+    "attr_1_title": "妖精の谷（The Fairy Glen）",
+    "attr_1_desc": "まるで絵本の世界に迷い込んだような円錐形の緑の小丘群と神秘的なストーンサークル。",
+    "attr_2_time": "車で15分（絶景ドライブルート）",
+    "attr_2_title": "キーラング奇岩群（The Quiraing）",
+    "attr_2_desc": "巨大な玄武岩の断崖と大地が裂けたような壮大な地形。ハイランド随一のトレッキング名所。",
+    "attr_3_time": "海岸線を車で25分",
+    "attr_3_title": "オールド・マン・オブ・ストア（Old Man of Storr）",
+    "attr_3_desc": "天空に突き刺すような巨大な奇岩柱。頂上からは海峡と島々の雄大な眺望が広がります。",
+    "attr_4_time": "ウィグ村内 徒歩5分",
+    "attr_4_title": "ラハの滝＆ウィグ港（Rha Falls & Uig Pier）",
+    "attr_4_desc": "村内の木立にひっそり佇む2段の滝。カルマック・フェリー港へも徒歩すぐ、島巡りへのアクセス抜群です。",
+    "log_1_title": "お車でのアクセス",
+    "log_1_desc": "ポートリーよりA87号線を北へ。絶景ドライブを楽しみながらウィグへ。敷地内に無料専用駐車場完備。",
+    "log_2_title": "公共バスのご利用",
+    "log_2_desc": "グラスゴーやインヴァネスからのCityLink長距離バスがウィグ港前に停車します。",
+    "log_3_title": "フェリー乗降のご案内",
+    "log_3_desc": "フェリー乗り場まで歩いてすぐ。夜遅い到着便をご利用の場合も、セルフチェックインで安心です。",
+    "enq_eyebrow": "直接予約のお問合せ",
+    "enq_title": "スカイ島での特別なご滞在を計画する",
+    "enq_desc": "オーナーのSteve &amp; Cassへの直接予約で、最安値保証とウェルカムアフタヌーンティーをご提供いたします。",
+    "enq_pledge": "✦ 最安値保証 · 手数料ゼロ · 24時間以内にオーナーより直接返信 ✦",
+    "confirm_title": "お問合せありがとうございます — 送信完了いたしました",
+    "confirm_prefix": "ウッドバイン・ハウスへのお問合せ、誠にありがとうございます。お問い合わせ番号は：",
+    "confirm_suffix": " です。オーナーのSteve &amp; Cassより24時間以内に空室状況とお見積りをメールにてご連絡いたします。",
+    "form_lbl_name": "お名前 *",
+    "form_lbl_email": "メールアドレス *",
+    "form_lbl_phone": "お電話番号",
+    "form_lbl_room": "ご希望の客室",
+    "form_opt_any": "おまかせ（最適な客室をご案内）",
+    "form_opt_r1": "客室1：ガーデンダブル（£120/泊）",
+    "form_opt_r2": "客室2：海景特大キング/ツイン（£142/泊）",
+    "form_opt_r3": "客室3：海景キング（£142/泊）",
+    "form_opt_r4": "客室4：1階キング（£135/泊）",
+    "form_lbl_arr": "チェックイン日 *",
+    "form_lbl_dep": "チェックアウト日 *",
+    "form_lbl_guests": "ご宿泊人数",
+    "form_opt_2guests": "大人2名様（各部屋定員最大2名）",
+    "form_opt_1guest": "大人1名様（一人旅）",
+    "form_lbl_msg": "特別なご要望・フェリー予定・アレルギーなど",
+    "form_btn_submit": "直接予約の空室問合せを送信",
+    "form_note_nopay": "現時点での決済は一切発生しません。24時間以内に直接ご連絡差し上げます。",
+    "footer_brand_desc": "スコットランド・スカイ島のウィグ湾を望む、ヴィクトリア様式のブティックB&amp;B。4室の上質な客室、パノラマの絶景、毎朝の手作り朝食でお迎えします。",
+    "footer_heading_explore": "館内・ご案内",
+    "footer_link_story": "当館の歴史とオーナー",
+    "footer_link_impressie": "館内の雰囲気・見取図",
+    "footer_link_rooms": "客室のご案内",
+    "footer_link_breakfast": "伝統の温朝食",
+    "footer_link_tarieven": "宿泊料金と規定",
+    "footer_link_reviews": "お客様の声",
+    "footer_link_community": "フォトギャラリー",
+    "footer_link_location": "スカイ島観光案内",
+    "footer_link_enquire": "公式サイト直接予約",
+    "footer_heading_season": "営業期間と営業許可",
+    "footer_lic_text": "毎年3月下旬から10月末日まで営業しております。",
+    "footer_copy": "© 2026 Woodbine House B&amp;B · スコットランド・スカイ島にて真心を込めて",
+    "footer_pledge": "公式サイト最安値保証 · 英国ホスピタリティ基準",
+    "badge_secret_scotland": "公式調査員推薦・厳選の宿",
+    "badge_scotlands_best": "スコットランド最高峰B&amp;B品質認証加盟",
+    "dining_badge": "オーナー特選グルメ案内",
+    "dining_title": "ウィグ湾の新鮮魚介とローカルダイニング",
+    "dining_desc": "水揚げされたばかりの魚介を楽しめる <strong>The Ferry Inn</strong>、地元で愛される <strong>The Galley Seafood Cafe</strong>、<strong>Uig Hotel Restaurant</strong> など名店が揃っています。",
+    "dining_alert": "✦ <strong>オーナーからの大切なご案内：</strong> 夏季はレストランの混雑が予想されます。公式サイトから直接ご予約のお客様には、ご到着前のお席のご予約をSteve &amp; Cassが喜んでお手伝いいたします。",
+    "hero_btn_enquire": "直接予約のお問合せ"
+  }
+};
+
+      var enDictionary = {};
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (key && enDictionary[key] === undefined) {
+          enDictionary[key] = el.innerHTML;
+        }
+      });
+
+      function applyTranslations(dict, lang) {
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var key = el.getAttribute('data-i18n');
+          if (key && dict[key] !== undefined) {
+            el.innerHTML = dict[key];
+          }
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          var bLang = btn.getAttribute('data-lang');
+          var isActive = (bLang === lang);
+          btn.classList.toggle('active', isActive);
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        if (lang === 'zh') {
+          document.documentElement.lang = 'zh-Hans';
+        } else if (lang === 'ja') {
+          document.documentElement.lang = 'ja';
+        } else {
+          document.documentElement.lang = 'en-GB';
+        }
+
+        try {
+          localStorage.setItem('woodbine_lang', lang);
+        } catch(e) {}
+      }
+
+      function setLanguage(lang) {
+        if (lang !== 'en' && lang !== 'zh' && lang !== 'ja') return;
+        var dict = (lang === 'en') ? enDictionary : (translations[lang] || {});
+        if (!dict) return;
+
+        var applyLanguage = function() {
+          applyTranslations(dict, lang);
+        };
+
+        if (window.gsap && !prefersReducedMotion()) {
+          window.gsap.to(document.body, {
+            autoAlpha: 0.65,
+            duration: 0.08,
+            ease: 'none',
+            overwrite: true,
+            onComplete: function() {
+              applyLanguage();
+              window.gsap.to(document.body, { autoAlpha: 1, duration: 0.12, ease: 'none' });
+            }
+          });
+        } else {
+          applyLanguage();
+        }
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var lang = this.getAttribute('data-lang');
+          setLanguage(lang);
+        });
+      });
+
+      var savedLang = null;
+      try {
+        savedLang = localStorage.getItem('woodbine_lang');
+      } catch(e) {}
+      if (savedLang && (savedLang === 'zh' || savedLang === 'ja')) {
+        setLanguage(savedLang);
+      }
+
+      // Engine Mount: GSAP Progressive Enhancement vs Baseline
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          if (window.gsap && window.ScrollTrigger) {
+            initGsapEnhancements();
+          } else {
+            initBaselineHeroEngine();
+          }
+        });
+      } else {
+        if (window.gsap && window.ScrollTrigger) {
+          initGsapEnhancements();
+        } else {
+          initBaselineHeroEngine();
+        }
       }
     })();
   </script>
