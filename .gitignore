@@ -24,3 +24,11 @@ showcase/
 *.avi
 *.mkv
 *.gif
+
+# Raw uncompressed source assets (>4MB and unused in live site)
+the-jumble-room/images/source_contact_hero.jpg
+the-jumble-room/images/source_randy_0*.jpg
+the-jumble-room/images/source_menu_hero.png
+the-jumble-room/images/interior_room1.jpg
+the-jumble-room/images/randy_pike_suite.jpg
+

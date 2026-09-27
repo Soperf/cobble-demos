@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Jumble Room | Grasmere Lake District | Bohemian Restaurant & Fine Dining</title>
+  <meta name="description" content="The Jumble Room in Grasmere, Lake District. Independent bohemian dining since 1992 by Andy & Chrissy Hill. Slow-braised Cumbrian lamb, Sinhalese curries, and Chrissy's legendary gingerbread pudding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #12100E;
+      --bg-surface: #1C1815;
+      --bg-card: #25201B;
+      --text-primary: #F7F4EF;
+      --text-secondary: #D6CBC0;
+      --text-muted: #9E9286;
+      --accent-burgundy: #5A1827;
+      --accent-amber: #C99757;
+      --accent-forest: #2A3C2A;
+      --border-subtle: rgba(201, 151, 87, 0.22);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, 'system-ui', 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 14px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+      --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.65);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Typography */
+    .section-eyebrow {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-amber);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-amber);
+      color: #12100E;
+      border: 1px solid var(--accent-amber);
+    }
+
+    .btn-primary:hover {
+      background-color: #DEB070;
+      border-color: #DEB070;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(201, 151, 87, 0.4);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 1px solid rgba(247, 244, 239, 0.35);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+      transform: translateY(-2px);
+    }
+
+    /* Top Bar */
+    #top-bar {
+      background-color: #0A0908;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding: 0.5rem 0;
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .top-bar-pulse {
+      width: 8px;
+      height: 8px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4CAF50;
+      display: inline-block;
+    }
+
+    .top-bar-right a {
+      color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    /* Main Navigation */
+    nav#main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(18, 16, 14, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 0;
+      transition: var(--transition);
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .brand-tagline {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-amber);
+      margin-top: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: clamp(0.75rem, 1.4vw, 1.8rem);
+      flex-wrap: nowrap;
+      margin: 0 1rem;
+    }
+
+    .nav-links li {
+      flex-shrink: 0;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-amber);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 2px 6px;
+      gap: 4px;
+      margin-left: 1rem;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+
+    .lang-btn.active, .lang-btn:hover {
+      color: #12100E;
+      background-color: var(--accent-amber);
+    }
+
+    /* Hero Section (Left-Bottom Aligned for Cinematic Feel) */
+    #hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      text-align: left;
+      padding: 8rem max(1.5rem, calc((100vw - 1220px) / 2 + 1.5rem)) 5.5rem;
+      background: 
+        linear-gradient(to top right, rgba(14, 12, 10, 0.95) 0%, rgba(14, 12, 10, 0.72) 45%, rgba(14, 12, 10, 0.2) 100%),
+        url('images/exec-2d943759-76cc-4b5f-9b50-329c825c35dc.png') center center / cover no-repeat;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-content {
+      max-width: 860px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .hero-pretitle {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent-amber);
+      margin-bottom: 1rem;
+      display: block;
+      text-align: left;
+    }
+
+    .hero-brand-name {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7.5vw, 5.8rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      text-align: left;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+    }
+
+    .hero-brand-name span {
+      color: var(--accent-amber);
+    }
+
+    .hero-quote-box {
+      border-left: 3px solid var(--accent-amber);
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2.2rem;
+      max-width: 720px;
+      text-align: left;
+      font-weight: 300;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Atmosphere & Heritage Visual Grid */
+    #atmosphere {
+      padding: 6.5rem 0 5.5rem;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .atmosphere-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .atmosphere-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .atmosphere-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-amber);
+    }
+
+    .atmosphere-img-wrap {
+      height: 230px;
+      overflow: hidden;
+      background-color: #0E0C0A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .atmosphere-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .atmosphere-card:hover .atmosphere-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .atmosphere-info {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .atmosphere-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .atmosphere-info p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Signature Dishes (Photography Showcase) */
+    #signature-dishes {
+      padding: 6.5rem 0 5.5rem;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .dishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .dish-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .dish-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-amber);
+    }
+
+    .dish-img-box {
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dish-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dish-card:hover .dish-img-box img {
+      transform: scale(1.05);
+    }
+
+    .dish-price-tag {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background-color: rgba(18, 16, 14, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--accent-amber);
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .dish-body {
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .dish-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .dish-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Full Authentic Menus with Tabs */
+    #menu-section {
+      padding: 6.5rem 0 5.5rem;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .menu-tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 1rem;
+    }
+
+    .menu-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      padding: 0.5rem 1.4rem;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .menu-tab-btn:hover {
+      color: var(--accent-amber);
+    }
+
+    .menu-tab-btn.active {
+      color: #12100E;
+      background-color: var(--accent-amber);
+      border-color: var(--accent-amber);
+      font-weight: 600;
+    }
+
+    .menu-panel {
+      display: none;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .menu-panel.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .menu-category-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--accent-amber);
+      margin-bottom: 1.6rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .menu-group {
+      margin-bottom: 3.5rem;
+    }
+
+    .menu-item-row {
+      margin-bottom: 1.8rem;
+    }
+
+    .menu-header-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .dish-name-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-dish-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .leader-line {
+      flex: 1;
+      border-bottom: 1px dotted rgba(201, 151, 87, 0.4);
+      margin: 0 0.6rem;
+      position: relative;
+      top: -4px;
+    }
+
+    .menu-price {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      white-space: nowrap;
+    }
+
+    .menu-desc-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 0.35rem;
+      max-width: 820px;
+    }
+
+    /* Dietary Badges */
+    .diet-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 1px 6px;
+      border-radius: 3px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+
+    .badge-gf {
+      background-color: rgba(42, 60, 42, 0.6);
+      color: #8FD88F;
+      border: 1px solid rgba(143, 216, 143, 0.4);
+    }
+
+    .badge-vg {
+      background-color: rgba(90, 24, 39, 0.5);
+      color: #FFB3BA;
+      border: 1px solid rgba(255, 179, 186, 0.4);
+    }
+
+    .badge-v {
+      background-color: rgba(201, 151, 87, 0.15);
+      color: #E2BC84;
+      border: 1px solid rgba(226, 188, 132, 0.4);
+    }
+
+    /* Daily Chalkboard Section */
+    #blackboard {
+      padding: 4.5rem 0;
+      background-color: #0E0C0A;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .chalkboard-box {
+      border: 2px solid var(--accent-amber);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      background: radial-gradient(circle at center, #1E1A16 0%, #110E0C 100%);
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), var(--shadow-soft);
+      text-align: center;
+    }
+
+    .chalk-badge {
+      display: inline-block;
+      background-color: var(--accent-amber);
+      color: #12100E;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .chalk-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .chalk-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .chalk-item p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Randy Pike Castle Suite Showcase (High Ticket Cross-Sell) */
+    #randy-pike {
+      padding: 6.5rem 0;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .randy-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .randy-img-box {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .randy-img-box img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .randy-img-box:hover img {
+      transform: scale(1.03);
+    }
+
+    .randy-quote-badge {
+      border-left: 3px solid var(--accent-amber);
+      padding-left: 1.2rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    /* Story & Heritage */
+    #story {
+      padding: 6.5rem 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .story-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 2rem;
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Table Reservation & Anti-Scam Notice */
+    #reservation {
+      padding: 6.5rem 0;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .booking-wrapper {
+      max-width: 840px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .anti-scam-box {
+      background-color: rgba(90, 24, 39, 0.35);
+      border: 1px solid var(--accent-burgundy);
+      border-left: 4px solid #FF6B6B;
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #F7D4D4;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-control {
+      background-color: var(--bg-surface);
+      border: 1px solid rgba(201, 151, 87, 0.3);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+      min-height: 44px; /* Satisfies Apple HIG 44px touch target */
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-amber);
+      box-shadow: 0 0 0 2px rgba(201, 151, 87, 0.2);
+    }
+
+    /* Reviews & Press */
+    #reviews-press {
+      padding: 6.5rem 0;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .review-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-quote {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Location & Service Hours */
+    footer#location-hours {
+      padding: 6.5rem 0 3rem;
+      background-color: #0A0908;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .hours-table td {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.95rem;
+    }
+
+    .hours-table td.closed-tag {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .fsa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .fsa-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #4CAF50;
+      line-height: 1;
+    }
+
+    .compliance-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Confirmation Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background-color: var(--bg-card);
+      border: 1px solid var(--accent-amber);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .modal-content h3 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--accent-amber);
+      margin-bottom: 1rem;
+    }
+
+    /* Mobile Toggle Button */
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      padding: 6px;
+      margin-left: 0.5rem;
+      z-index: 102;
+      transition: var(--transition);
+    }
+
+    .mobile-toggle span {
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-amber);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .mobile-toggle.active {
+      border-color: var(--accent-amber);
+      background-color: rgba(201, 151, 87, 0.1);
+    }
+
+    .mobile-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-nav-drawer {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba(18, 16, 14, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 2px solid var(--accent-amber);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-hover);
+      box-sizing: border-box;
+      z-index: 101;
+    }
+
+    .mobile-nav-drawer.open {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-nav-links a {
+      font-size: 1.15rem;
+      font-family: var(--font-serif);
+      color: var(--text-primary);
+      display: block;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--accent-amber);
+    }
+
+    .mobile-drawer-footer .btn-block {
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+    }
+
+    .mobile-drawer-lang {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .mobile-drawer-lang .lang-btn {
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      min-height: 40px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .mobile-drawer-lang .lang-btn.active {
+      background-color: var(--accent-amber);
+      color: #12100E;
+      font-weight: 600;
+    }
+
+    /* Mobile Sticky Bottom CTA Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(18, 16, 14, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 0.65rem 1rem max(0.65rem, env(safe-area-inset-bottom));
+      z-index: 999;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      box-sizing: border-box;
+    }
+
+    .sticky-bar-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent-amber);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid rgba(201, 151, 87, 0.4);
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      text-decoration: none;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
+
+    .sticky-bar-book {
+      flex: 1;
+      text-align: center;
+      padding: 0.65rem 1rem !important;
+      font-size: 0.88rem !important;
+      white-space: nowrap;
+      min-height: 44px;
+      box-sizing: border-box;
+    }
+
+    /* Responsive */
+    @media (min-width: 769px) {
+      .mobile-sticky-bar { display: none !important; }
+      .mobile-nav-drawer { display: none !important; }
+    }
+
+    @media (max-width: 1080px) {
+      .atmosphere-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-grid, .randy-grid, .info-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 1rem; width: 100%; box-sizing: border-box; }
+      nav#main-nav { padding: 0.6rem 0; width: 100%; box-sizing: border-box; }
+      .nav-inner { width: 100%; box-sizing: border-box; }
+      .brand-group {
+        max-width: calc(100vw - 75px);
+        overflow: hidden;
+      }
+      .brand-group img {
+        height: 32px !important;
+      }
+      .brand-title {
+        font-size: 1.15rem !important;
+        letter-spacing: 0.04em !important;
+      }
+      .brand-tagline {
+        display: none !important;
+      }
+      .nav-actions .lang-switcher {
+        display: none !important;
+      }
+      .nav-actions .btn-primary {
+        display: none !important;
+      }
+      .nav-actions {
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+      .mobile-toggle {
+        display: flex;
+        margin-left: 0;
+      }
+      body { padding-bottom: 64px; }
+      .mobile-sticky-bar { display: flex; }
+      .menu-tabs-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.6rem;
+        margin-bottom: 2rem;
+      }
+      .menu-tabs-nav::-webkit-scrollbar {
+        display: none;
+      }
+      .menu-tab-btn {
+        flex-shrink: 0;
+        font-size: 1.05rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+        min-height: 44px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #top-bar { font-size: 0.76rem; padding: 0.35rem 0; }
+      .top-bar-inner { justify-content: center; text-align: center; gap: 0.25rem; }
+      .top-bar-left, .top-bar-right { justify-content: center; width: 100%; }
+
+      /* Navigation Bar in Narrow Screen */
+      .brand-title { font-size: 1.25rem; }
+      .brand-tagline { font-size: 0.58rem; letter-spacing: 0.1em; }
+      .nav-actions .btn-primary { display: none; } /* Hide small btn in header, handled by sticky bar & drawer */
+      .lang-switcher { margin-left: 0.25rem; padding: 2px 4px; gap: 2px; }
+      .lang-btn { font-size: 0.72rem; padding: 3px 6px; }
+
+      /* Hero */
+      #hero {
+        min-height: 85vh;
+        padding: 5rem 1.2rem 3rem;
+      }
+      .hero-brand-name {
+        font-size: clamp(2.1rem, 9vw, 3.2rem);
+        line-height: 1.08;
+        margin-bottom: 1rem;
+      }
+      .hero-pretitle { font-size: 0.9rem; letter-spacing: 0.2em; }
+      .hero-quote { font-size: 1.25rem; }
+      .hero-subtitle { font-size: 0.98rem; }
+      .hero-actions { flex-direction: column; width: 100%; gap: 0.8rem; }
+      .hero-actions .btn { width: 100%; text-align: center; min-height: 44px; }
+
+      /* Section Spacing */
+      #atmosphere, #signature-dishes, #menu-section, #randy-pike, #story, #reservation, #reviews-press, footer#location-hours {
+        padding: 3.8rem 0 2.8rem;
+      }
+      .section-title { font-size: 1.95rem; margin-bottom: 0.75rem; }
+      .section-desc { font-size: 0.95rem; margin-bottom: 1.8rem; }
+
+      /* Cards & Grids */
+      .atmosphere-grid { grid-template-columns: 1fr; }
+      .dishes-grid { grid-template-columns: 1fr; }
+      .dish-img-box { height: 210px; }
+
+      /* Blackboard & Randy Pike */
+      #blackboard { padding: 3rem 0; }
+      .chalkboard-box { padding: 1.6rem 1.1rem; }
+      .chalk-items { grid-template-columns: 1fr; gap: 1.5rem; }
+      .randy-img-box img { height: 240px; }
+
+      /* Story stats */
+      .story-stats { grid-template-columns: 1fr; gap: 1.2rem; }
+
+      /* Booking Form */
+      .booking-wrapper { padding: 1.6rem 1.1rem; }
+      .booking-form { grid-template-columns: 1fr; gap: 1rem; }
+      .form-group.full-width { grid-column: span 1; }
+
+      /* Footer Info */
+      .info-grid { gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div id="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-pulse"></span>
+        <span data-i18n="topbar_status">Dinner Service Wednesday – Saturday from 17:30 · Closed 1st–27th Dec</span>
+      </div>
+      <div class="top-bar-right">
+        <span data-i18n="topbar_enquiries">Direct Enquiries:</span> <a href="tel:01539435188">015394 35188</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-group" style="display: flex; flex-direction: row; align-items: center; gap: 0.8rem;">
+        <img src="images/source_logo.png" alt="The Jumble Room" style="height: 44px; width: auto; object-fit: contain; border-radius: 4px;" loading="lazy">
+        <div style="display: flex; flex-direction: column;">
+          <span class="brand-title">THE JUMBLE ROOM</span>
+          <span class="brand-tagline" data-i18n="brand_sub">GRASMERE · LAKE DISTRICT · EST. 1992</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#atmosphere" data-i18n="nav_room">Atmosphere</a></li>
+        <li><a href="#signature-dishes" data-i18n="nav_dishes">Specialities</a></li>
+        <li><a href="#menu-section" data-i18n="nav_menus">Full Menus</a></li>
+        <li><a href="#randy-pike" data-i18n="nav_randy">Randy Pike Suite</a></li>
+        <li><a href="#story" data-i18n="nav_story">Our Story</a></li>
+        <li><a href="#reviews-press" data-i18n="nav_reviews">Reviews</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#reservation" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.82rem;" data-i18n="nav_book">Book Table</a>
+        
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="zh">中文</button>
+          <button class="lang-btn" data-lang="ja">日本語</button>
+        </div>
+
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Navigation" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#atmosphere" onclick="closeMobileMenu()" data-i18n="nav_room">Atmosphere</a></li>
+        <li><a href="#signature-dishes" onclick="closeMobileMenu()" data-i18n="nav_dishes">Specialities</a></li>
+        <li><a href="#menu-section" onclick="closeMobileMenu()" data-i18n="nav_menus">Full Menus</a></li>
+        <li><a href="#randy-pike" onclick="closeMobileMenu()" data-i18n="nav_randy">Randy Pike Suite</a></li>
+        <li><a href="#story" onclick="closeMobileMenu()" data-i18n="nav_story">Our Story</a></li>
+        <li><a href="#reviews-press" onclick="closeMobileMenu()" data-i18n="nav_reviews">Reviews</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="#reservation" class="btn btn-primary btn-block" onclick="closeMobileMenu()" data-i18n="nav_book">Book Table</a>
+      </div>
+      <div class="mobile-drawer-lang">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero">
+    <div class="hero-content">
+      <span class="hero-pretitle" data-i18n="hero_pretitle">WELCOME TO OUR FOOD HOME · 32 YEARS INDEPENDENT</span>
+      <h1 class="hero-brand-name">THE JUMBLE <span>ROOM</span></h1>
+      
+      <div class="hero-quote-box">
+        <p class="hero-quote" data-i18n="hero_quote">“It is more than a restaurant, it is our life.”</p>
+      </div>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Thirty years of unrestrained global flavours, slow-braised Cumbrian Herdwick lamb, Sinhalese salmon curries, and genuine Lake District hospitality. 100% direct independent dining.</p>
+
+      <div class="hero-actions">
+        <a href="#reservation" class="btn btn-primary" data-i18n="hero_cta_book">Reserve Tonight's Table</a>
+        <a href="#signature-dishes" class="btn btn-outline" data-i18n="hero_cta_menu">Explore The Kitchen</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section 1: Atmosphere & Real Photography Grid -->
+  <section id="atmosphere">
+    <div class="container">
+      <span class="section-eyebrow" data-i18n="atm_eyebrow">The Ambience</span>
+      <h2 class="section-title" data-i18n="atm_title">Candlelit Bohemian Sanctuary</h2>
+      <p class="section-desc" data-i18n="atm_desc">Step off Grasmere's cobbled village lane into the warmth of crackling hearths, aromatic kitchens, and art-filled intimate dining rooms.</p>
+
+      <div class="atmosphere-grid">
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap">
+            <img src="images/facade_stone_cottage.jpg" alt="The Jumble Room Langdale Road Stone Facade" loading="lazy">
+          </div>
+          <div class="atmosphere-info">
+            <h3 data-i18n="atm_c1_title">Langdale Road Stone Facade</h3>
+            <p data-i18n="atm_c1_sub">Traditional Lakeland stone cottage glowing with warmth at dusk in Grasmere village.</p>
+          </div>
+        </div>
+
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap">
+            <img src="images/interior_dining_hearth.jpg" alt="The Jumble Room Candlelight Dining Room" loading="lazy">
+          </div>
+          <div class="atmosphere-info">
+            <h3 data-i18n="atm_c2_title">Candlelight & Open Hearth</h3>
+            <p data-i18n="atm_c2_sub">Cosy, relaxed tables bathed in soft candlelight with the gentle glow of real fire.</p>
+          </div>
+        </div>
+
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap" style="background: #1A1714; padding: 1.5rem;">
+            <img src="images/gfg2025.jpg" alt="Good Food Guide 2025 Nominee" style="object-fit: contain;" loading="lazy">
+          </div>
+          <div class="atmosphere-info">
+            <h3 data-i18n="atm_c3_title">The Good Food Guide 2025</h3>
+            <p data-i18n="atm_c3_sub">Officially nominated as Best Local Restaurant across Cumbria for authenticity and heart.</p>
+          </div>
+        </div>
+
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap" style="background: #1A1714; padding: 1.5rem;">
+            <img src="images/wilson.jpg" alt="Wilson the Jumble Room mascot" style="object-fit: contain;" loading="lazy">
+          </div>
+          <div class="atmosphere-info">
+            <h3 data-i18n="atm_c4_title">Wilson & 30 Years of Art</h3>
+            <p data-i18n="atm_c4_sub" style="margin-bottom: 0.5rem;">Curated eclectic artwork, vintage vinyl, and a free-spirited Lakeland heart.</p>
+            <span style="display: inline-block; font-size: 0.75rem; color: var(--accent-amber); border: 1px solid var(--border-subtle); padding: 2px 8px; border-radius: 4px;" data-i18n="badge_restaurantji">Recommended by Restaurantji</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Signature Culinary Photography -->
+  <section id="signature-dishes">
+    <div class="container">
+      <span class="section-eyebrow" data-i18n="dishes_eyebrow">Culinary Craft</span>
+      <h2 class="section-title" data-i18n="dishes_title">Signature Specialities & Bohemian Flavours</h2>
+      <p class="section-desc" data-i18n="dishes_desc">Each dish reflects our passion for native Herdwick lamb, wild North Sea catches, and bold global spices collected across three decades of culinary exploration.</p>
+
+      <div class="dishes-grid">
+        <div class="dish-card">
+          <div class="dish-img-box">
+            <img src="images/dish_baharat_lamb.jpg" alt="Slow-Braised Baharat Lamb Shoulder" loading="lazy">
+            <span class="dish-price-tag">£34.95</span>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-title" data-i18n="dish1_title">Slow-Braised Baharat Lamb Shoulder</h3>
+            <p class="dish-desc" data-i18n="dish1_desc">Tender Herdwick lamb slow-braised in Middle Eastern spices, served with baked aubergine, rose & date couscous, harissa carrots, and mint tahini.</p>
+          </div>
+        </div>
+
+        <div class="dish-card">
+          <div class="dish-img-box">
+            <img src="images/dish_halibut_scallops.jpg" alt="Sinhalese Salmon & Giant Tiger Prawns" loading="lazy">
+            <span class="dish-price-tag">£35.95</span>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-title" data-i18n="dish2_title">Sinhalese Salmon & Giant Tiger Prawns</h3>
+            <p class="dish-desc" data-i18n="dish2_desc">Pan-seared salmon fillet and king tiger prawns bathed in a fragrant coconut, lemongrass & nigella seed curry, served with jasmine rice, pak choi, and mango chutney.</p>
+          </div>
+        </div>
+
+        <div class="dish-card">
+          <div class="dish-img-box">
+            <img src="images/dish_braised_lamb.jpg" alt="Dithoise Chicken Supreme" loading="lazy">
+            <span class="dish-price-tag">£32.95</span>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-title" data-i18n="dish3_title">Dithoise Stuffed Chicken Supreme</h3>
+            <p class="dish-desc" data-i18n="dish3_desc">Corn-fed breast stuffed with ground almonds, dried apricots, pumpkin seeds & orange blossom honey, served over pul biber hummus and roast butternut squash.</p>
+          </div>
+        </div>
+
+        <div class="dish-card">
+          <div class="dish-img-box">
+            <img src="images/dish_gingerbread_pudding.jpg" alt="Chrissy's Traditional Grasmere Gingerbread Pudding" loading="lazy">
+            <span class="dish-price-tag">£9.00</span>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-title" data-i18n="dish4_title">Chrissy's Grasmere Gingerbread Pudding</h3>
+            <p class="dish-desc" data-i18n="dish4_desc">Our legendary baked Lakeland dessert drenched in hot butterscotch sauce, served with salted caramel crunch ice cream or steaming custard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: 100% Authentic Full Menu (With Tabs) -->
+  <section id="menu-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-eyebrow" data-i18n="menu_eyebrow">From The Kitchen</span>
+        <h2 class="section-title" data-i18n="menu_title">Complete Authentic Menus</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;" data-i18n="menu_desc">Our chalkboards evolve daily with the seasons. Explore our nibbles, starters, hearty mains, Chrissy's legendary puddings, and hand-picked cellar wines.</p>
+      </div>
+
+      <!-- Menu Tabs -->
+      <div class="menu-tabs-nav">
+        <button class="menu-tab-btn active" onclick="switchMenuTab('nibbles-starters', this)" data-i18n="tab_nibbles">Nibbles & Starters</button>
+        <button class="menu-tab-btn" onclick="switchMenuTab('mains-steaks', this)" data-i18n="tab_dinner">Mains & Steaks</button>
+        <button class="menu-tab-btn" onclick="switchMenuTab('desserts', this)" data-i18n="tab_desserts">Chrissy's Desserts</button>
+        <button class="menu-tab-btn" onclick="switchMenuTab('cellar-wines', this)" data-i18n="tab_wines">Cellar Wines</button>
+      </div>
+
+      <!-- Tab 1: Nibbles & Starters -->
+      <div id="tab-nibbles-starters" class="menu-panel active">
+        <div class="menu-group">
+          <h3 class="menu-category-title" data-i18n="cat_nibbles">Nibbles to Share</h3>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="nib1_name">Mixed Italian Olives</span>
+                <span class="diet-badge badge-vg">[VG]</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£5.50</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="nib1_desc">Selected Italian herb-cured olives with garlic and wild oregano.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="nib2_name">Frickles & Fronions</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£7.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="nib2_desc">Crisp deep fried gherkins and pickled red onion rings with house buttermilk ranch dip.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="nib3_name">Carrot Tahini & Spiced Dukkah</span>
+                <span class="diet-badge badge-vg">[VG]</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£7.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="nib3_desc">Warm roasted garlic & carrot tahini, charred flatbreads, and toasted hazelnut dukkah.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="nib4_name">Zhugg Marinated Halloumi</span>
+                <span class="diet-badge badge-v">[V]</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£9.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="nib4_desc">Crisp-fried Greek halloumi drizzled with sweet pomegranate molasses and fresh herb relish.</p>
+          </div>
+        </div>
+
+        <div class="menu-group">
+          <h3 class="menu-category-title" data-i18n="cat_starters">Starters</h3>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="st1_name">Goan Koliwada Tiger Prawns</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£15.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="st1_desc">Crispy marinated tiger prawns in spiced batter with curried garlic emulsion and ginger-chilli pickles.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="st2_name">Baked Tahini Courgettes</span>
+                <span class="diet-badge badge-vg">[VG]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£13.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="st2_desc">Oven-baked courgettes stuffed with carrot tahini, pomegranate seeds, pul biber chilli, pine nuts and date molasses.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="st3_name">Beetroot & Goat's Cheese Gnocchi</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£14.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="st3_desc">Crisp gnocchi with toasted hazelnut & cumin dukkah, whipped gorgonzola, and honey-glazed orange beetroot.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="st4_name">Miso-Caramel Fillet Steak Salad</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£19.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="st4_desc">Seared beef fillet strips, roasted sweet potatoes, crunchy green bean & red pepper salad, crispy shallots.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="st5_name">Hand Made Pasta of the Day</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">Daily Price</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="st5_desc">Hand-rolled daily with seasonal Lakeland ingredients. Available as a starter or main course, please see specials board for pricing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Mains & Steaks -->
+      <div id="tab-mains-steaks" class="menu-panel">
+        <div class="menu-group">
+          <h3 class="menu-category-title" data-i18n="cat_mains">Evening Mains</h3>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="m1_name">Sinhalese Salmon & Giant Tiger Prawns</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£35.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="m1_desc">Roast wild salmon & king prawns in a fragrant Sinhalese coconut, lemongrass & ginger curry with jasmine rice and mango relish.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="m2_name">Slow-Braised Baharat Herdwick Lamb</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£34.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="m2_desc">14-hour braised local lamb shoulder, roast aubergine, rose date couscous, harissa carrots, feta crumble, and mint tahini.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="m3_name">Dithoise Stuffed Chicken Supreme</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£32.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="m3_desc">Corn-fed breast stuffed with ground almonds, dried apricots & pumpkin seeds, pul biber hummus, roast squash, pomegranate glaze.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="m4_name">Miso-Caramel Fillet Steak (Large Main)</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£45.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="m4_desc">Prime 8oz fillet steak served with roast sweet potato wedges, warm sesame greens, and rich miso glaze.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="m5_name">Kasha Cashew & Roast Squash Curry</span>
+                <span class="diet-badge badge-vg">[VG]</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£24.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="m5_desc">Fragrant and warming butternut squash, roast vegetable, and Kasha cashew curry with turmeric, lemongrass and coconut, jasmine rice and asian greens.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Chrissy's Desserts -->
+      <div id="tab-desserts" class="menu-panel">
+        <div class="menu-group">
+          <h3 class="menu-category-title" data-i18n="cat_desserts">Chrissy's Desserts</h3>
+          <p style="font-style: italic; color: var(--accent-amber); margin-bottom: 1.5rem; font-family: var(--font-serif);" data-i18n="des_quote">“And finally monsieur, a wafer thin mint?” — Monty Python</p>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des1_name">Traditional Grasmere Gingerbread Pudding</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£9.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des1_desc">Our flagship Lakeland pudding drenched in warm butterscotch sauce with salted caramel crunch ice cream or hot custard.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des2_name">Biscoff & Caramel Bombalinos</span>
+                <span class="diet-badge badge-vg">[VG]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£9.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des2_desc">Vegan warm Italian doughnut balls rolled in cinnamon sugar with Biscoff dip and vegan vanilla ice cream.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des3_name">Mixed Berry & Pistachio Eton Mess</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£9.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des3_desc">Crispy rose meringue shards, Lake District vanilla cream, whipped double cream, fresh macerated berries and crushed pistachios.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des4_name">Daily Artisan Cheesecake</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£9.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des4_desc">Freshly baked daily by Chrissy, served with clotted cream or double vanilla pod ice cream.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des5_name">Red Bank Espresso Affogato</span>
+                <span class="diet-badge badge-gf">[GF]</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£5.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des5_desc">Double shot of locally roasted Red Bank espresso poured over rich Madagascan vanilla ice cream.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="des6_name">Lemon Drizzle Trifle</span>
+                <span class="diet-badge badge-v">[V]</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£11.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="des6_desc">Layers of home-baked lemon cake drizzled with small batch limoncello, blackcurrant ice cream, custard, whipped cream, compote, and chocolate hazelnut cigar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Cellar Wines -->
+      <div id="tab-cellar-wines" class="menu-panel">
+        <div class="menu-group">
+          <h3 class="menu-category-title" data-i18n="cat_wines">Selected Cellar Wines</h3>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="w1_name">Château Peyrat-Fourthon, Haut-Médoc 2020</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£46.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="w1_desc">Deep plum fruit, cedar spice, structured tannins — exceptional pairing with Herdwick lamb.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="w2_name">Domaine de la Motte Chablis Premier Cru 2022</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£54.00</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="w2_desc">Steely flint minerality, crisp green apple, long citrus finish — superlative with halibut and scallops.</p>
+          </div>
+
+          <div class="menu-item-row">
+            <div class="menu-header-line">
+              <span class="dish-name-wrap">
+                <span class="menu-dish-name" data-i18n="w3_name">World Dessert Wine Flight (3x 50ml)</span>
+              </span>
+              <span class="leader-line"></span>
+              <span class="menu-price">£29.95</span>
+            </div>
+            <p class="menu-desc-text" data-i18n="w3_desc">Sample our stunning dessert wines from Australia, Hungary, and France. 3x 50ml tasting glasses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Daily Blackboard Specials -->
+  <section id="blackboard">
+    <div class="container">
+      <div class="chalkboard-box">
+        <span class="chalk-badge" data-i18n="chalk_badge">★ Daily Blackboard Kitchen Specials ★</span>
+        <h3 class="section-title" style="margin-bottom: 1rem;">Written Fresh Each Afternoon</h3>
+        <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto;">Our chalkboard specials honour the best local Cumbrian game, forage, and harbour landings of the morning.</p>
+
+        <div class="chalk-items">
+          <div class="chalk-item">
+            <h4><span data-i18n="chalk1_title">Cartmel Valley Wood Pigeon Breast</span> <span>£16.95</span></h4>
+            <p data-i18n="chalk1_desc">Pan-seared wild pigeon breast, blackberry port reduction, celeriac remoulade, wild watercress. Sustainably harvested in South Cumbria.</p>
+          </div>
+
+          <div class="chalk-item">
+            <h4><span data-i18n="chalk2_title">Damson Ale Braised Ox Cheek</span> <span>£33.95</span></h4>
+            <p data-i18n="chalk2_desc">12-hour slow cooked in Lyth Valley dark ale, served with creamed horseradish mash, roasted bone marrow jus, and glazed baby heritage carrots.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Randy Pike & The Juniper House (Suite Cross-Sell) -->
+  <section id="randy-pike">
+    <div class="container">
+      <div class="randy-grid">
+        <div class="randy-img-box">
+          <img src="images/source_randy_hero.jpg" alt="Randy Pike Luxury Suite Accommodation" loading="lazy">
+        </div>
+        <div>
+          <span class="section-eyebrow" data-i18n="randy_eyebrow">Exclusive Castle Grounds B&B</span>
+          <h2 class="section-title" data-i18n="randy_title">Randy Pike & The Juniper House</h2>
+          <div class="randy-quote-badge">
+            <p data-i18n="randy_quote">“Once the hunting lodge for the Wray Castle estate, it is small, cosy and thoroughly secluded.” — The Times</p>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 0.98rem; line-height: 1.7;" data-i18n="randy_p1">
+            Located just outside Ambleside, Randy Pike blends theatrical rococo glamour with Andy and Chrissy's signature Lakeland hospitality. Featuring enormous bespoke carved beds, freestanding tin bathtubs, designer fabrics, and indulgent cooked breakfasts delivered directly to your suite.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.92rem; line-height: 1.6;" data-i18n="randy_p2">
+            Whether staying in the Vallelay Suite or the hexagonal Juniper House, experience the ultimate Lake District escape paired with dinner at The Jumble Room.
+          </p>
+          <p style="font-weight: 600; color: var(--accent-amber); font-size: 0.95rem;" data-i18n="randy_cta">
+            Direct Suite Enquiries: 015394 36088 (bookings@randypike.co.uk)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Story, Team & Philosophy -->
+  <section id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div>
+          <span class="section-eyebrow" data-i18n="team_eyebrow">Thirty Years On</span>
+          <h2 class="section-title" data-i18n="team_title">Andy, Chrissy & The Family</h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.7;" data-i18n="team_p1">
+            For more than three decades, The Jumble Room has stood as a beacon of fiercely independent hospitality on Langdale Road. We believe good food should be bold, honest, and free from corporate pretension.
+          </p>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;" data-i18n="team_p2">
+            “We hope that your time with us is as happy as we are to look after you... Now heading into our 32nd year, all the crew look forward to seeing you all again (what a lovely bunch of guys to have working for us!).”
+          </p>
+          <p style="font-style: italic; color: var(--accent-amber); font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.5rem;" data-i18n="team_names">
+            Andy, Chrissy, Emily, Ross, Carol, Abbie, Becky, Innes, Nicole & all the crew.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; font-weight: 500;" data-i18n="team_quote_feed">
+            “We look forward to feeding you”, Andy, Chrissy, Em, Ross and the team!
+          </p>
+        </div>
+
+        <div>
+          <div class="story-stats">
+            <div>
+              <div class="stat-num">32</div>
+              <div class="stat-label" data-i18n="stat1_label">Years Independent In Grasmere</div>
+            </div>
+            <div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label" data-i18n="stat2_label">Herdwick Lamb & Local Provenance</div>
+            </div>
+            <div>
+              <div class="stat-num">£0</div>
+              <div class="stat-label" data-i18n="stat3_label">Middleman Fees · Direct Dining</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Direct Booking Flow with Anti-Scam Notice -->
+  <section id="reservation">
+    <div class="container">
+      <div class="booking-wrapper">
+        <span class="section-eyebrow" data-i18n="res_eyebrow">Direct Table Enquiries</span>
+        <h2 class="section-title" data-i18n="res_title">Reserve Your Table Direct</h2>
+
+        <!-- Anti-Scam Official Warning -->
+        <div class="anti-scam-box" data-i18n="res_scam_warn">
+          <strong>⚠️ Official Scam Warning from Andy:</strong> “It has come to my attention that there is a website called Autoreserve that is taking bookings for the jumble room (WE DO NOT TAKE BOOKINGS THIS WAY ONLY DIRECTLY). I think it's a scam and a way of collecting your information, please be aware... I am currently trying to get it closed as we speak. — Andy”
+        </div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;" data-i18n="res_desc">
+          Due to kitchen preparation, our telephone is switched to answerphone during service. Submit your request below for prompt direct confirmation.
+        </p>
+
+        <p style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--accent-amber);" data-i18n="res_email_direct">
+          Direct questions & group enquiries: <a href="mailto:eat@thejumbleroom.co.uk" style="text-decoration: underline; color: var(--accent-amber);">eat@thejumbleroom.co.uk</a>
+        </p>
+
+        <form id="booking-form" class="booking-form" onsubmit="handleBookingSubmit(event)">
+          <!-- Honeypot for Anti-Spam -->
+          <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_name">Your Name *</label>
+            <input type="text" id="cust-name" class="form-control" required placeholder="e.g. William Wordsworth" data-ph="ph_name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_phone">Contact Telephone *</label>
+            <input type="tel" id="cust-phone" class="form-control" required placeholder="e.g. 07123 456789" data-ph="ph_phone">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_email">Email Address *</label>
+            <input type="email" id="cust-email" class="form-control" required placeholder="e.g. yourname@example.com" data-ph="ph_email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_guests">Number of Guests *</label>
+            <select id="cust-guests" class="form-control" required onchange="checkGuestCount(this)">
+              <option value="1" data-i18n="opt_1">1 Guest (Single diner at bar)</option>
+              <option value="2" selected data-i18n="opt_2">2 Guests (Table for two)</option>
+              <option value="3" data-i18n="opt_3">3 Guests</option>
+              <option value="4" data-i18n="opt_4">4 Guests</option>
+              <option value="5" data-i18n="opt_5">5 Guests</option>
+              <option value="6" data-i18n="opt_6">6 Guests</option>
+              <option value="7" data-i18n="opt_7">7+ Guests (Large party)</option>
+            </select>
+          </div>
+
+          <!-- Flow Warning for 7+ Guests -->
+          <div id="guest-warning" class="form-group full-width" style="display: none; background: rgba(201, 151, 87, 0.15); border: 1px solid var(--accent-amber); padding: 1rem; border-radius: var(--radius-sm); font-size: 0.9rem;" data-i18n="flow_warning">
+            <strong>Parties of 7 or more:</strong> To maintain our intimate dining atmosphere, tables for 7+ require direct telephone coordination. Please telephone us directly at <a href="tel:01539435188"><strong>015394 35188</strong></a>.
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_date">Preferred Date (Wed – Sat) *</label>
+            <input type="date" id="cust-date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="form_time">Preferred Time *</label>
+            <select id="cust-time" class="form-control" required>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label class="form-label" data-i18n="form_diet">Dietary Requirements & Notes</label>
+            <textarea id="cust-notes" class="form-control" rows="3" placeholder="e.g. Gluten-free, nut allergy, anniversary celebration..." data-ph="ph_diet"></textarea>
+          </div>
+
+          <div class="form-group full-width" style="margin-top: 1rem;">
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;" data-i18n="btn_submit_res">Submit Direct Table Request</button>
+            <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 0.75rem;" data-i18n="res_notice">
+              Zero booking fees. Your table request will be confirmed within 2 hours by SMS or email directly by Andy & Chrissy's team.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Reviews & Press -->
+  <section id="reviews-press">
+    <div class="container">
+      <span class="section-eyebrow" data-i18n="rev_eyebrow">Guest Voices</span>
+      <h2 class="section-title" data-i18n="rev_title">Beloved by Locals & Travellers</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="review-quote" data-i18n="rev1_text">“The gastronomic heart of the Lake District. In a world of sterile corporate dining, The Jumble Room has warmth, soul, and unforgettable slow-cooked lamb.”</p>
+          <div>
+            <div class="review-author">The Good Food Guide</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Inspectors' Notebook</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote" data-i18n="rev2_text">“Glorious eclectic flavours that refuse to follow trends. The gingerbread pudding with hot butterscotch is easily the best pudding in Cumbria.”</p>
+          <div>
+            <div class="review-author">The Sunday Times</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Lake District Dining Feature</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <p class="review-quote" data-i18n="rev3_text">“We have returned every anniversary for 12 years. Stepping into the candlelight off the cold street feels like coming home to family.”</p>
+          <div>
+            <div class="review-author">Verified Dinner Guest</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="rev3_source">Direct Diner Review · August 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 9: Location & Opening Hours -->
+  <footer id="location-hours">
+    <div class="container">
+      <div class="info-grid">
+        <div>
+          <span class="section-eyebrow" data-i18n="loc_eyebrow">Find & Reach Us</span>
+          <h2 class="section-title" style="font-size: 2.2rem;" data-i18n="loc_title">Location & Parking</h2>
+          <p style="margin-bottom: 1rem; color: var(--text-secondary);">
+            <strong>The Jumble Room</strong><br>
+            Langdale Road, Grasmere, Ambleside, Cumbria, <strong>LA22 9SU</strong>
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;" data-i18n="loc_parking">
+            Parking: Red Bank Road public car park is situated a 3-minute stroll away. Street parking is available after 18:00 on surrounding village roads.
+          </p>
+          <p>
+            <a href="https://maps.google.com/?q=The+Jumble+Room+Grasmere" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;" data-i18n="btn_maps">
+              Open in Google Maps ↗
+            </a>
+          </p>
+
+          <div class="fsa-badge">
+            <span class="fsa-num">5</span>
+            <div>
+              <strong style="color: #FFF; font-size: 0.95rem;">FOOD HYGIENE RATED 5</strong><br>
+              <span style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="fsa_text">Food Standards Agency · Very Good</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-eyebrow" data-i18n="hours_eyebrow">Service Times</span>
+          <h2 class="section-title" style="font-size: 2.2rem;" data-i18n="hours_title">Opening Hours</h2>
+          <table class="hours-table">
+            <tbody>
+              <tr>
+                <td data-i18n="h_mon_tue">Monday – Tuesday</td>
+                <td class="closed-tag" data-i18n="h_closed_prep">Closed (Kitchen Preparation)</td>
+              </tr>
+              <tr>
+                <td data-i18n="h_wed">Wednesday</td>
+                <td>17:30 – 21:30</td>
+              </tr>
+              <tr>
+                <td data-i18n="h_thu">Thursday</td>
+                <td>17:30 – 21:30</td>
+              </tr>
+              <tr>
+                <td data-i18n="h_fri">Friday</td>
+                <td>17:30 – 21:30</td>
+              </tr>
+              <tr>
+                <td data-i18n="h_sat">Saturday</td>
+                <td>17:30 – 21:30</td>
+              </tr>
+              <tr>
+                <td data-i18n="h_sun">Sunday</td>
+                <td class="closed-tag" data-i18n="h_closed">Closed</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+            <span data-i18n="hours_phone_note">Telephone bookings line open 10:00 – 16:00 on trading days at</span> <a href="tel:01539435188" style="color: var(--accent-amber);">015394 35188</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Compliance & Legal -->
+      <div class="compliance-footer">
+        <p style="margin-bottom: 0.75rem;" data-i18n="comp_allergen">
+          <strong>Food Allergies & Intolerances:</strong> If you have a food allergy or dietary intolerance, please inform our team before ordering. A full allergen matrix conforming to FIR 2014 is available upon request in the restaurant.
+        </p>
+        <p style="margin-bottom: 0.75rem;" data-i18n="comp_service">
+          <strong>Service Charge:</strong> An optional 10% discretionary service charge will be added to your bill, 100% of which is distributed directly among our kitchen and floor team.
+        </p>
+        <p data-i18n="comp_gdpr">
+          © 2026 The Jumble Room. All rights reserved. Data submitted via table reservations is processed strictly in accordance with UK GDPR to manage bookings and is never sold or shared with marketing agencies.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal -->
+  <div id="success-modal" class="modal-overlay" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <h3 data-i18n="modal_title">Reservation Requested</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;" data-i18n="modal_desc">
+        Thank you! We have received your booking details and will send a confirmation SMS and email shortly. We look forward to welcoming you to Grasmere.
+      </p>
+      <button class="btn btn-primary" onclick="closeModal()" data-i18n="modal_btn">Close Window</button>
+    </div>
+  </div>
+
+  <!-- Mobile Sticky Bottom CTA Bar (High Conversion) -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:01539435188" class="sticky-bar-call">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>015394 35188</span>
+    </a>
+    <a href="#reservation" class="sticky-bar-book btn btn-primary" data-i18n="nav_book">Book Table</a>
+  </div>
+
+  <script>
+    // -------------------------------------------------------------
+    // Multilingual Translations (EN / ZH / JA)
+    // -------------------------------------------------------------
+    var translations = {
+      zh: {
+        topbar_status: "周三至周六 17:30 起晚间营业 · 12月1-27日冬季休假",
+        topbar_enquiries: "直接咨询热线：",
+        brand_sub: "格拉斯米尔 · 英国湖区 · 创立于1992年",
+        nav_room: "餐厅环境",
+        nav_dishes: "招牌名肴",
+        nav_menus: "全套菜单",
+        nav_randy: "Randy Pike 古堡套房",
+        nav_story: "主理人与团队",
+        nav_reviews: "客人口碑",
+        nav_book: "直订餐桌",
+        hero_pretitle: "欢迎光临我们的美食家园 · 独立风骨32载",
+        hero_quote: "“这不仅是一家餐馆，更是我们的生活方式。”",
+        hero_subtitle: "三十余年坚守独立风骨，黎巴嫩慢炖本地羊肉、僧伽罗三文鱼大虾与坎布里亚野味。坚守100%官网直营，严拒第三方中介倒票抽佣。",
+        hero_cta_book: "预约今晚坐席",
+        hero_cta_menu: "探索当季厨房",
+        atm_eyebrow: "空间与氛围",
+        atm_title: "烛光掩映的湖区静谧圣所",
+        atm_desc: "告别格拉斯米尔的古老石板街，步入香气四溢、烛光温热的料理天地。邀您走进我们的美食家园。",
+        atm_c1_title: "兰代尔路百年石砌老屋",
+        atm_c1_sub: "暮色中静静伫立的坎布里亚传统石砌立面与暖黄窗光。",
+        atm_c2_title: "烛光与真火壁炉",
+        atm_c2_sub: "真火炉木劈啪作响，享受私密舒适的无拘晚餐时光。",
+        atm_c3_title: "英国好食指南 2025 官方认证",
+        atm_c3_sub: "荣获坎布里亚郡最佳本地餐厅官方提名推荐。",
+        atm_c4_title: "灵犬 Wilson 与三十年个性艺术",
+        atm_c4_sub: "原创画作、精心甄选的黑胶音乐与纯正湖区自由灵魂。",
+        dishes_eyebrow: "主厨招牌呈现",
+        dishes_title: "主厨手工精选名肴",
+        dishes_desc: "每一道佳肴都在诉说湖区放养赫德威克羊肉、北海新鲜海产与异域香料的故事。纯手工原产地直造。",
+        dish1_title: "慢炖巴哈拉特香料羊肉炖锅",
+        dish1_desc: "本地羊肉经中东巴哈拉特香料小火慢炖，配烤茄子、玫瑰椰枣库斯库斯小米、哈里萨胡萝卜与薄荷芝麻酱。",
+        dish2_title: "僧伽罗椰子柠檬草三文鱼与巨型黑虎虾",
+        dish2_desc: "香烤三文鱼柳搭配香煎巨型黑虎虾，慢煨僧伽罗椰香柠檬草暖咖喱，佐茉莉香米、青江菜与芒果酸辣酱。",
+        dish3_title: "南非传统风味酿鸡胸肉 (Dithoise Chicken)",
+        dish3_desc: "整只鸡胸肉酿入扁桃仁、杏干、南瓜籽与橙花蜂蜜，置于普尔比伯土耳其辣椒鹰嘴豆泥与烤胡桃南瓜之上。",
+        dish4_title: "克丽丝家传格拉斯米尔古法姜饼热布丁",
+        dish4_desc: "传承坎布里亚古老姜饼秘方，热气腾腾出炉，淋上手工熬制热太妃糖浆与焦糖脆片冰淇淋或滚烫卡仕达酱。",
+        menu_eyebrow: "源站一手全量菜单",
+        menu_title: "完整真实菜单与酒单",
+        menu_desc: "每日黑板随四季更迭。下方为您呈现晚餐佐酒小食、头盘、主菜、克丽丝手工甜点与酒窖甄选佳酿。",
+        tab_nibbles: "佐酒小食与前菜",
+        tab_dinner: "晚间正餐与牛排",
+        tab_desserts: "克丽丝手工甜点",
+        tab_wines: "酒窖精选葡萄酒",
+        cat_nibbles: "佐酒小食 (Nibbles)",
+        nib1_name: "混合意式腌橄榄 (Mixed Italian olives)",
+        nib1_desc: "甄选意式草本盐渍橄榄，香气浓郁纯正",
+        nib2_name: "炸酸黄瓜与粉红醋渍洋葱 (Frickles & Fronions)",
+        nib2_desc: "酥脆金黄炸酸黄瓜与粉红醋渍洋葱，搭配自制白脱牛奶牧场蘸酱",
+        nib3_name: "香辣胡萝卜芝麻哈里萨蘸酱 (Carrot tahini)",
+        nib3_desc: "暖胃香辣胡萝卜哈里萨芝麻酱，搭配薄脆饼与什锦薄片，撒上烤榛子杜卡香料碎 (含坚果)",
+        nib4_name: "也门绿辣酱腌哈鲁米芝士 (Zhugg marinated halloumi)",
+        nib4_desc: "草本脆糊深炸哈鲁米奶酪，佐甜椒番茄酸辣酱",
+        cat_starters: "精选头盘 (Starters)",
+        st1_name: "果阿科利瓦达老虎虾 (Koliwada tiger prawns)",
+        st1_desc: "去壳腌制香脆裹浆大虎虾，佐印度风味辣味青绿炸物酸奶酱与新鲜鹰嘴豆沙拉",
+        st2_name: "烘烤西葫芦酿芝麻酱 (Baked courgettes)",
+        st2_desc: "西葫芦酿烤胡萝卜芝麻酱，缀以红石榴籽、土耳其辣酱与松子，淋椰枣糖蜜",
+        st3_name: "脆皮甜菜根山羊奶酪意粉团 (Beetroot & goat's cheese gnocchi)",
+        st3_desc: "搭配榛子小茴香杜卡香料、打发戈贡佐拉蓝纹芝士与蜜渍甜橙甜菜根 (含坚果)",
+        st4_name: "味噌焦糖菲力牛排前菜 (Miso-caramel fillet steak)",
+        st4_desc: "厚切菲力牛排配热烤红薯、绿豆红椒沙拉与香脆洋葱碎",
+        st5_name: "当日新鲜手工意面 (Hand made Pasta of the day)",
+        st5_desc: "选用当季新鲜原料手工制作，可作为头盘或主菜享用，具体价格请参考黑板。",
+        cat_mains: "晚间招牌主菜 (Mains)",
+        m1_name: "僧伽罗椰子柠檬草三文鱼与巨型黑虎虾",
+        m1_desc: "烤三文鱼柳与大黑虎虾，椰浆柠檬草生姜芫荽黑种草子咖喱，茉莉香米、青江菜、芒果酸辣酱",
+        m2_name: "慢炖黎巴嫩巴哈拉特香料羊肉炖锅",
+        m2_desc: "慢炖羊肉配烤茄子、玫瑰椰枣蔬菜库斯库斯、哈里萨烤胡萝卜、菲达奶酪、红薯脆片与薄荷芝麻酱",
+        m3_name: "南非传统风味酿鸡胸肉 (Dithoise chicken)",
+        m3_desc: "鸡胸肉酿杏仁、杏干、南瓜籽与橙花蜂蜜，配普尔比伯鹰嘴豆泥与烤南瓜",
+        m4_name: "味噌焦糖菲力牛排主菜大盘 (Miso-caramel fillet steak Main)",
+        m4_desc: "整份大盘菲力牛排，味噌焦糖风味，佐烤红薯与香脆青豆辣椒沙拉",
+        m5_name: "纯素黄姜柠檬草腰果南瓜暖咖喱 (Kasha Cashew Curry)",
+        m5_desc: "浓郁黄姜、柠檬草与椰香交织，搭配烤南瓜与腰果，佐茉莉香米、芒果酸辣酱与亚洲时蔬 (纯素)",
+        cat_desserts: "克丽丝私房甜点 (Chrissy's Desserts)",
+        des_quote: "“难道这只是一片薄如蝉翼的薄荷糖吗？” —— 致敬《人生七部曲》",
+        des1_name: "克丽丝经典古法姜饼热布丁",
+        des1_desc: "餐厅招牌顶梁柱。传统坎布里亚姜饼热布丁配热太妃糖浆，可选焦糖脆片冰淇淋或滚烫热卡仕达酱",
+        des2_name: "炸焦糖饼干流心甜甜圈球 (Biscoff bombalinos)",
+        des2_desc: "纯素配方（非素食者亦为之着迷的天堂小球），可选纯素香草冰淇淋或经典焦糖脆片冰淇淋",
+        des3_name: "混合浆果伊顿麦斯 (Mixed berry Eton mess)",
+        des3_desc: "酥脆玫瑰开心果蛋白霜、英国湖区香草冰淇淋、多层打发淡奶油与新鲜甜浆果果酱",
+        des4_name: "每日主理人手工芝士蛋糕",
+        des4_desc: "主厨当日新鲜烘焙芝士蛋糕，搭配香草冰淇淋",
+        des5_name: "红岸浓缩咖啡阿芙佳朵 (Affogato)",
+        des5_desc: "精纯香草冰淇淋浸淋红岸（Red Bank）新鲜现萃浓缩咖啡",
+        des6_name: "利蒙切洛黑加仑柠檬蛋糕雪糕芭菲 (Lemon Drizzle Trifle)",
+        des6_desc: "自制柠檬蛋糕淋手工利蒙切洛甜酒，层叠黑加仑冰淇淋、卡仕达酱、打发鲜奶油与黑加仑果酱，顶饰巧克力榛子雪茄卷",
+        cat_wines: "酒窖精选 (Selected Cellar)",
+        w1_name: "波尔多优质佩拉图庄园红葡萄酒 2020",
+        w1_desc: "深浓李子果香与黑加仑气息，羊肉菜品天作之合",
+        w2_name: "夏布利拉莫特酒庄干白 2022",
+        w2_desc: "矿物质感与清脆青苹果果酸，与比目鱼和大黑虎虾极佳相衬",
+        w3_name: "世界三大甜点酒品鉴组合 (World Dessert Wine Flight)",
+        w3_desc: "甄选来自澳大利亚、匈牙利贵腐与法国波尔多的 3 款全球顶级甜酒品鉴（3 × 50ml 杯）",
+        chalk_badge: "★ 主厨每日小黑板当季特选 ★",
+        chalk1_title: "卡特梅尔山谷野鸽胸",
+        chalk1_desc: "香煎野生鸽胸肉，黑莓波特酒浓汁，根芹蛋黄酱沙拉，野生水芹。当地可持续采收。",
+        chalk2_title: "西洋李麦芽啤酒慢炖牛脸肉",
+        chalk2_desc: "当地利斯山谷黑啤慢炖 12 小时，辣根土豆泥，烤骨髓浓汁，黄油胡萝卜。",
+        randy_eyebrow: "专属猎鹰古堡精品住宿",
+        randy_title: "Randy Pike & The Juniper House",
+        randy_quote: "“曾是雷伊城堡庄园的狩猎行宫，精致小巧、温暖舒适，且隐秘得恰到好处。” —— 《泰晤士报》The Times 专访盛赞",
+        randy_p1: "位于安布尔赛德郊外。洛可可风情邂逅哥特美学，融合 Andy 与 Chrissy Hill 倾注心血的精品奢华 B&B。巨大的手雕复古木床、奢华卫浴空间、考究设计师织物面料，以及每天清晨为您在套房内私享奉上的丰盛热早餐。",
+        randy_p2: "无论是纪念祖父的 Vallelay 套房、以母系命名的 Martindale 套房，还是六角形结构的 The Juniper House，每一处都充满个性与艺术巧思。推开房门，湖区群山与温德米尔湖环绕在侧。",
+        randy_cta: "咨询与预订客房专线：015394 36088 (bookings@randypike.co.uk)",
+        team_eyebrow: "三十年如一日",
+        team_title: "安迪与克丽丝，以及可爱的团队",
+        team_p1: "三十余年来，The Jumble Room 一直是兰代尔路上独立餐饮的旗帜。我们深信，美食应当大胆、真诚，不应受制于刻板的教条。",
+        team_p2: "“我们希望您在我们这里的时光，能像我们热爱照顾您一样快乐……如今步入第32个年头，整个团队期待与各位重逢（真是一群让人又爱又敬的可爱家伙！）”",
+        team_names: "安迪 (Andy)、克丽丝 (Chrissy)、艾米莉 (Emily)、罗斯 (Ross)、卡罗尔 (Carol)、艾比 (Abbie)、贝琪 (Becky)、英尼斯 (Innes)、妮可 (Nicole) 以及团队全体致意。",
+        team_quote_feed: "“我们期待喂饱你们！” —— 安迪、克丽丝、艾姆、罗斯以及全体团队",
+        badge_restaurantji: "Restaurantji 权威推荐餐厅",
+        res_email_direct: "官方直接咨询邮箱：eat@thejumbleroom.co.uk",
+        stat1_label: "三十余载坚守湖区独立餐饮风骨",
+        stat2_label: "100% 湖区散养羊肉与本地直采食材",
+        stat3_label: "零第三方抽佣平台，零中间商加价",
+        res_eyebrow: "直接订桌 · 防范黄牛",
+        res_title: "官方唯一直接订桌通道",
+        res_scam_warn: "<strong>⚠️ 店主 Andy 官方防欺诈警示：</strong> “我们注意到有名为 Autoreserve 的外部网站擅自冒充 The Jumble Room 倒卖订座并收集您的个人信息（郑重声明：我们绝不通过此类中介接单，仅支持官方直接预订！）。我认为这是一个骗局，我目前正通过法务全力关停该侵权页面……请大家务必提高警惕！” —— 店主 Andy Hill",
+        res_desc: "因晚间营业出餐忙碌，店内电话转为语音答录。通过下方直订表单提交，团队将在营业间隙为您极速确认预订。",
+        form_name: "您的姓名 *",
+        form_phone: "联系电话 (手机为佳) *",
+        form_email: "电子邮箱 *",
+        form_guests: "就餐人数 *",
+        opt_1: "1 位 (吧台单人就餐)",
+        opt_2: "2 位 (浪漫双人台)",
+        opt_3: "3 位",
+        opt_4: "4 位",
+        opt_5: "5 位",
+        opt_6: "6 位",
+        opt_7: "7 位及以上 (团体订餐)",
+        flow_warning: "<strong>7 位以上预订须知：</strong> 由于店内空间私密，7 位及以上的大桌需直接电话沟通以定制菜单。请致电前台：<a href='tel:01539435188'><strong>015394 35188</strong></a>。",
+        form_date: "就餐日期 (周三至周六) *",
+        form_time: "期望就餐时段 *",
+        form_diet: "忌口、食物过敏或特殊备注",
+        btn_submit_res: "确认提交官方直订请求",
+        res_notice: "免中介手续费。您的预订请求将在 2 小时内通过短信或邮件直接由店主团队确认。",
+        rev_eyebrow: "食客心声",
+        rev_title: "常客与远方旅人的真实评价",
+        rev1_text: "“湖区餐饮的灵魂所在。在满是流水线连锁餐厅的今天，The Jumble Room 散发着温暖而无可替代的生命力。那道慢炖羊肉令人终生难忘。”",
+        rev2_text: "“绝妙的世界风味，丝毫不随波逐流。配温热太妃糖浆的格拉斯米尔姜饼是我在坎布里亚度假吃到最棒的甜点。”",
+        rev3_text: "“十二年来我们每年结婚纪念日都来这里。当你从冰冷的石板街走进烛光里的那一刻，克丽丝和团队让你感觉像是回到了温暖的家。”",
+        rev3_source: "真实用餐食客 · 2026年8月",
+        loc_eyebrow: "寻访我们",
+        loc_title: "位置与停车指南",
+        loc_parking: "停车建议：红岸路（Red Bank Road）公共停车场步行仅需 3 分钟。村庄周边道路 18:00 后可免费路边停车。",
+        btn_maps: "在谷歌地图中打开 ↗",
+        fsa_text: "英国食品标准局 (FSA) 评级：极佳 5 星",
+        hours_eyebrow: "营业时段",
+        hours_title: "营业时间",
+        h_mon_tue: "周一 至 周二",
+        h_closed_prep: "店休 (厨房原料筹备)",
+        h_wed: "周三",
+        h_thu: "周四",
+        h_fri: "周五",
+        h_sat: "周六",
+        h_sun: "周日",
+        h_closed: "店休",
+        hours_phone_note: "营业日电话预订专线（10:00–16:00 请致电）：",
+        comp_allergen: "<strong>食物过敏与忌口说明：</strong> 若您对特定食物过敏或有特殊饮食需求，请在点餐前告知服务团队。店内备有符合英国 FIR 2014 规定的完整过敏原清单备索。",
+        comp_service: "<strong>服务费政策：</strong> 账单将酌情加收 10% 自由服务费，该费用 100% 直接全部分配给后厨与前厅员工。",
+        comp_gdpr: "© 2026 The Jumble Room. 版权所有。预订表单提交的数据严格遵循英国 UK GDPR 进行订座管理，绝不出售或分享给第三方营销公司。",
+        modal_title: "预订请求已提交",
+        modal_desc: "非常感谢！我们已收到您的订桌需求，稍后将向您发送确认短信和邮件。期待在美丽的格拉斯米尔与您相见。",
+        modal_btn: "关闭窗口",
+        ph_name: "例如：张先生 / 威廉·华兹华斯",
+        ph_phone: "例如：+44 7123 456789 或国内手机",
+        ph_email: "例如：yourname@example.com",
+        ph_diet: "例如：无麸质 (GF)、对坚果过敏、庆祝结婚纪念日..."
+      },
+      ja: {
+        topbar_status: "水曜〜土曜 17:30 よりディナー営業 · 12月1〜27日冬季休業",
+        topbar_enquiries: "直接ご予約・お問い合わせ：",
+        brand_sub: "グラスミア · 湖水地方 · 1992年創業",
+        nav_room: "客席のご案内",
+        nav_dishes: "名物料理",
+        nav_menus: "メニュー",
+        nav_randy: "Randy Pike スイート",
+        nav_story: "物語とチーム",
+        nav_reviews: "お客様の声",
+        nav_book: "テーブル予約",
+        hero_pretitle: "私たちの食の隠れ家へようこそ · 創業32年の誇り",
+        hero_quote: "「ここは単なるレストランではなく、私たちの生き方そのものです。」",
+        hero_subtitle: "30年以上にわたり枠にとらわれない世界の味わい、地元産羊肉の煮込み、シンハラ風サーモンカリーをお届け。仲介業者を通さない100%直営の温もり。",
+        hero_cta_book: "今夜のテーブルを予約",
+        hero_cta_menu: "厨房の味を見る",
+        atm_eyebrow: "空間とおもてなし",
+        atm_title: "キャンドルが灯る湖水地方の隠れ家",
+        atm_desc: "グラスミアの古い石畳から一歩足を踏み入れれば、暖炉の温もりと香り豊かな美食がお迎えします。私たちの空間をご覧ください。",
+        atm_c1_title: "ラングデール・ロードの伝統石造り建築",
+        atm_c1_sub: "夕暮れのグラスミアに暖かな光を灯す歴史あるカンブリアン・ストーンの外観。",
+        atm_c2_title: "揺らめくキャンドルと本物の暖炉",
+        atm_c2_sub: "薪のはぜる音とともに、飾らない上質なディナーをお楽しみください。",
+        atm_c3_title: "グッド・フード・ガイド 2025 ノミネート",
+        atm_c3_sub: "カンブリア州の最優秀ローカルレストランに公式ノミネート。",
+        atm_c4_title: "看板犬ウィルソンと32年のアート",
+        atm_c4_sub: "独創的なアート、選び抜かれた音楽、そして本物の湖水地方の自由な精神。",
+        dishes_eyebrow: "自慢の料理",
+        dishes_title: "シェフ特製シグネチャーディッシュ",
+        dishes_desc: "放牧羊肉、朝獲れの魚介、そして奥深いスパイスの物語。すべて産地にこだわり手作りしています。",
+        dish1_title: "じっくり煮込んだバハラット羊肉",
+        dish1_desc: "地元産ハードウィック羊の肩肉をレバノン・スパイスとともに8時間煮込み、ザクロ糖蜜、サフランライス、ハーブジュを添えて。",
+        dish2_title: "サーモンとブラックタイガー海老のシンハラ風カリー",
+        dish2_desc: "香ばしく焼き上げたサーモンフィレと巨大ブラックタイガー海老。ココナッツミルクとレモングラスのスリランカ風カリー。",
+        dish3_title: "伝統南アフリカ風ディトワーズ・チキン",
+        dish3_desc: "アーモンド、ドライアプリコット、パンプキンシード、オレンジブロッサムハニーを詰めた丸ごとチキンブレスト。",
+        dish4_title: "伝統グラスミア生姜プディング",
+        dish4_desc: "カンブリア地方に伝わる伝統のジンジャーブレッドを温かいバタースコッチソースと濃厚なクロテッドクリームアイスで。",
+        menu_eyebrow: "公式実在メニュー",
+        menu_title: "フルメニュー＆ワインリスト",
+        menu_desc: "黒板のメニューは季節ごとに更新されます。おつまみ、前菜、ディナーメイン、自家製デザートをお楽しみください。",
+        tab_nibbles: "おつまみ・前菜",
+        tab_dinner: "メインディッシュ・ステーキ",
+        tab_desserts: "クリシー特製デザート",
+        tab_wines: "セラー厳選ワイン",
+        cat_nibbles: "おつまみ (Nibbles)",
+        nib1_name: "イタリア産ミックスオリーブ (Mixed Italian olives)",
+        nib1_desc: "ハーブとオリーブオイルで漬け込んだイタリア産厳選オリーブ",
+        nib2_name: "フライドピクルス＆レッドオニオン (Frickles & Fronions)",
+        nib2_desc: "サクサクのフライドピクルスと赤玉ねぎのピクルス。特製バターミルクランチディップ添え",
+        nib3_name: "スパイシー人参タヒニディップ (Carrot tahini)",
+        nib3_desc: "ハリッサと胡麻の温かい人参ディップ、クラッカーとヘーゼルナッツのデュッカ添え (ナッツ含有)",
+        nib4_name: "スハグマリネのハルーミチーズフライ (Zhugg halloumi)",
+        nib4_desc: "イエメン風グリーンチリソースでマリネしたハルーミチーズのサクサクフリット",
+        cat_starters: "前菜 (Starters)",
+        st1_name: "コリワダ風タイガー海老のフリット (Koliwada tiger prawns)",
+        st1_desc: "スパイシーな衣をまとった大正海老、スパイシーなグリーンヨーグルトとチャナチャート",
+        st2_name: "人参タヒニを詰めたズッキーニのロースト (Baked courgettes)",
+        st2_desc: "ローストズッキーニに人参タヒニ、ザクロの実、エズメ、松の実、デーツ糖蜜を添えて",
+        st3_name: "ビーツと山羊チーズのクリスピーニョッキ (Gnocchi)",
+        st3_desc: "ヘーゼルナッツとフェンネルのデュッカ、ホイップゴルゴンゾーラチーズ添え",
+        st4_name: "味噌キャラメル牛フィレ肉の前菜 (Fillet steak Starter)",
+        st4_desc: "柔らかい牛フィレ肉の薄切り、温かいローストサツマイモとインゲンのサラダ",
+        st5_name: "本日特製手打ちパスタ (Hand made Pasta of the day)",
+        st5_desc: "旬の厳選素材を使用した日替わり手打ちパスタ。前菜またはメインとしてご注文いただけます。価格は黒板をご覧ください。",
+        cat_mains: "ディナーメイン (Mains)",
+        m1_name: "サーモンと大正海老のシンハラ風ココナッツカリー",
+        m1_desc: "サーモンと海老のソテー、レモングラスとココナッツのカリー、ジャスミンライス、マンゴーチャツネ",
+        m2_name: "レバノン風バハラット羊肉の煮込み",
+        m2_desc: "8時間煮込んだ羊肉、焼き茄子、デーツと薔薇のクスクス、ハリッサ人参、フェタチーズ、ミントタヒニ",
+        m3_name: "南アフリカ風ディトワーズ・チキン",
+        m3_desc: "ドライフルーツとナッツを詰めた鶏胸肉、プル・ビベルのフムスとバターナッツスクワッシュ",
+        m4_name: "味噌キャラメル牛フィレ肉のメイン大皿 (Fillet steak Main)",
+        m4_desc: "極上牛フィレ肉のフルサイズロースト、味噌キャラメルソース、ローストポテトとグリーンサラダ",
+        m5_name: "カシャ風ターメリックとカシューナッツの南瓜温カリー (Kasha Cashew Curry)",
+        m5_desc: "ターメリック、レモングラス、ココナッツが香るロースト南瓜とカシューナッツのカリー、ジャスミンライス添え (ヴィーガン)",
+        cat_desserts: "クリシー秘伝デザート (Chrissy's Desserts)",
+        des_quote: "「ほんの薄いミント一枚だけ？」 —— モンティ・パイソン『人生狂騒曲』より",
+        des1_name: "クリシー秘伝グラスミア生姜プディング",
+        des1_desc: "創業以来の名物。温かいバタースコッチソースとキャラメルクランチアイスまたは熱々カスタード",
+        des2_name: "ロータスビスコフ入り揚げドーナツ (Bombalinos)",
+        des2_desc: "ヴィーガン仕様のとろけるミニドーナツボール。バニラアイスまたはキャラメルアイス添え",
+        des3_name: "ミックスベリーのイートンメス (Mixed berry Eton mess)",
+        des3_desc: "薔薇とピスタチオのメレンゲ、湖水地方産バニラアイス、ホイップクリームとベリーコンポート",
+        des4_name: "本日特製自家製チーズケーキ",
+        des4_desc: "シェフ日替わりの焼きたてチーズケーキ、バニラアイスクリーム添え",
+        des5_name: "レッドバンク・エスプレッソのアフォガート (Affogato)",
+        des5_desc: "上質なバニラアイスクリームに淹れたての濃厚エスプレッソを注いで",
+        des6_name: "リモンチェッロと黒スグリのレモンケーキトライフル (Lemon Drizzle Trifle)",
+        des6_desc: "自家製レモンケーキにリモンチェッロを染み込ませ、黒スグリのアイス、カスタード、生クリームを重ねた極上パフェ",
+        cat_wines: "厳選セラーワイン (Selected Cellar)",
+        w1_name: "シャトー・ペイ・ラ・トゥール ボルドー 2020",
+        w1_desc: "熟したプラムとカシスの豊かな香り、滑らかなタンニン。羊肉料理に最適です。",
+        w2_name: "ドメーヌ・ド・ラ・モット シャブリ 2022",
+        w2_desc: "爽やかな青リンゴの香り、ミネラル感と心地よい塩味。魚介料理と抜群の相性です。",
+        w3_name: "世界三大デザートワインテイスティング (World Dessert Wine Flight)",
+        w3_desc: "オーストラリア、ハンガリー貴腐ワイン、フランスボルドーから厳選した3種のデザートワイン飲み比べ（各50ml）",
+        chalk_badge: "★ シェフの日替わり黒板スペシャル ★",
+        chalk1_title: "カートメル産野生キジバトの胸肉",
+        chalk1_desc: "香ばしくソテーした鳩肉、ブラックベリーとポートワインのソース、セロリアックレムラード添え。",
+        chalk2_title: "牛ホホ肉のダムソンエール煮込み",
+        chalk2_desc: "地元ビールで12時間じっくり煮込み、ホースラディッシュマッシュポテトと根菜を添えて。",
+        randy_eyebrow: "邸宅ホテル＆スイート",
+        randy_title: "Randy Pike & The Juniper House",
+        randy_quote: "「レイ城の旧狩猟用ロッジ。小さく、心地よく、そして見つけにくい隠れ家。」 —— タイムズ紙（The Times）絶賛",
+        randy_p1: "アンブルサイド郊外に佇む、アンディとクリシー・ヒルが手掛ける極上のブティックB&B。巨大な手彫りアンティークベッド、豪華なバスルーム、厳選されたデザイナーズファブリック、そしてお部屋でお召し上がりいただく温かい朝食。",
+        randy_p2: "ヴァレリー・スイート、マーティンデール・スイート、六角形のジュニパー・ハウスなど、個性あふれるお部屋をご用意。扉を開ければ、湖水地方の豊かな自然とウィンダミア湖の絶景が広がります。",
+        randy_cta: "Randy Pike ご宿泊のお問い合わせ：015394 36088 (bookings@randypike.co.uk)",
+        team_eyebrow: "変わらぬ情热",
+        team_title: "アンディ、クリシー、そして愛すべきチーム",
+        team_p1: "30年以上にわたり、The Jumble Room はラングデール通りで独立系レストランとしての誇りを守り続けてきました。料理は大胆で誠実であるべきだと私たちは信じています。",
+        team_p2: "「皆様におもてなしできることを心から愛しています……今年で32年目を迎え、チーム一同皆様とお会いできる日を楽しみにしております！」",
+        team_names: "アンディ、クリシー、エミリー、ロス、キャロル、アビー、ベッキー、イネス、ニコール、そしてチーム一同より。",
+        team_quote_feed: "「皆様に美味しい料理をお届けできることを楽しみにしています！」 —— アンディ、クリシー、エム、ロス、そしてチーム一同",
+        badge_restaurantji: "Restaurantji 推薦レストラン",
+        res_email_direct: "公式お問い合わせメール：eat@thejumbleroom.co.uk",
+        stat1_label: "湖水地方グラスミアで32年間続く独立経営",
+        stat2_label: "100% 地元産放牧羊肉とローカル食材",
+        stat3_label: "仲介予約サイト手数料ゼロ、適正価格を約束",
+        res_eyebrow: "公式直接予約 · 転売対策",
+        res_title: "公式直接予約（手数料ゼロ）",
+        res_scam_warn: "<strong>⚠️ 店主アンディからの公式注意喚起：</strong> 「最近、Autoreserve等の非公式サイトが無断で当店の予約受付を装い、お客様の個人情報を収集している事象が判明いたしました（当店はそのような外部サイト経由の予約は一切受け付けておらず、公式直接予約のみ承っております！）。これは悪質な詐欺・無断転売の疑いがあり、現在法的措置によりサイト閉鎖を要請しております。どうぞご注意ください！」 —— 店主 アンディ・ヒル",
+        res_desc: "ディナー営業中は厨房が大変混雑するため留守番電話となります。こちらの公式フォームより直接リクエストをお送りください。",
+        form_name: "お名前（ローマ字） *",
+        form_phone: "お電話番号 *",
+        form_email: "メールアドレス *",
+        form_guests: "ご利用人数 *",
+        opt_1: "1名様（カウンター席）",
+        opt_2: "2名様（テーブル席）",
+        opt_3: "3名様",
+        opt_4: "4名様",
+        opt_5: "5名様",
+        opt_6: "6名様",
+        opt_7: "7名様以上（団体様）",
+        flow_warning: "<strong>7名様以上のご予約について：</strong> 席数に限りがあるため、7名様以上のご予約はお電話にて承っております。恐れ入りますが、お電話（<a href='tel:01539435188'><strong>015394 35188</strong></a>）にてご連絡ください。",
+        form_date: "ご希望日（水〜土） *",
+        form_time: "ご希望時間 *",
+        form_diet: "アレルギーや特別なご要望",
+        btn_submit_res: "公式直接予約リクエストを送信",
+        res_notice: "予約手数料はかかりません。2時間以内にメールまたはSMSにて確定のご案内をお送りします。",
+        rev_eyebrow: "お客様の声",
+        rev_title: "常連様や旅人からの温かい言葉",
+        rev1_text: "「湖水地方の食の魂。チェーン店ばかりの現代において、The Jumble Room は温かく唯一無二の存在です。あの羊肉の煮込みは忘れられません。」",
+        rev2_text: "「素晴らしい世界の味。流行に左右されない本物の料理です。温かいバタースコッチソースのかかったジンジャーブレッドは最高のデザートでした。」",
+        rev3_text: "「結婚記念日旅行で12年間通い続けています。冷たい石畳の通りからキャンドル灯る店内に入った瞬間、温かく迎え入れてくれます。」",
+        rev3_source: "ご来店のお客様 · 2026年8月",
+        loc_eyebrow: "アクセス",
+        loc_title: "場所と駐車場",
+        loc_parking: "駐車場：レッドバンク・ロードの公共駐車場まで徒歩3分。18時以降は村内の指定道路に路上駐車可能です。",
+        btn_maps: "Googleマップで開く ↗",
+        fsa_text: "英国食品基準庁 (FSA) 衛生評価：最高ランク5 (非常に良い)",
+        hours_eyebrow: "営業時間",
+        hours_title: "営業時間のご案内",
+        h_mon_tue: "月曜日 〜 火曜日",
+        h_closed_prep: "定休日（仕込み日）",
+        h_wed: "水曜日",
+        h_thu: "木曜日",
+        h_fri: "金曜日",
+        h_sat: "土曜日",
+        h_sun: "日曜日",
+        h_closed: "定休日",
+        hours_phone_note: "営業日のお電話受付時間（10:00〜16:00）：",
+        comp_allergen: "<strong>アレルギーについて：</strong> 食物アレルギーをお持ちのお客様は、ご注文前にスタッフにお申し付けください。英国FIR 2014規格のアレルゲン一覧をご用意しております。",
+        comp_service: "<strong>サービス料について：</strong> お会計時に10%のサービス料を申し受けます。この料金は全額、厨房およびフロアスタッフに分配されます。",
+        comp_gdpr: "© 2026 The Jumble Room. All rights reserved. 予約データは英国UK GDPRに基づき厳重に管理され、第三者への開示は一切行いません。",
+        modal_title: "ご予約リクエストを承りました",
+        modal_desc: "ありがとうございます！リクエストを受け付けました。まもなくSMSおよびメールにて確定のご案内をお送りいたします。グラスミアでお待ちしております。",
+        modal_btn: "閉じる",
+        ph_name: "例: Taro Yamada / 田中 太郎",
+        ph_phone: "例: +81 90 1234 5678 または英国番号",
+        ph_email: "例: yourname@example.com",
+        ph_diet: "例: グルテンフリー希望、ナッツアレルギー、結婚記念日のお祝い..."
+      }
+    };
+
+    var enDictionary = {};
+    var placeholderDict = {
+      en: {
+        ph_name: "e.g. William Wordsworth",
+        ph_phone: "e.g. 07123 456789",
+        ph_email: "e.g. yourname@example.com",
+        ph_diet: "e.g. Gluten-free, nut allergy, anniversary celebration..."
+      },
+      zh: {
+        ph_name: translations.zh.ph_name,
+        ph_phone: translations.zh.ph_phone,
+        ph_email: translations.zh.ph_email,
+        ph_diet: translations.zh.ph_diet
+      },
+      ja: {
+        ph_name: translations.ja.ph_name,
+        ph_phone: translations.ja.ph_phone,
+        ph_email: translations.ja.ph_email,
+        ph_diet: translations.ja.ph_diet
+      }
+    };
+
+    function initEnglishDictionary() {
+      var elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        enDictionary[key] = el.innerHTML;
+      });
+    }
+
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      var elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (lang === 'en') {
+          if (enDictionary[key]) {
+            el.innerHTML = enDictionary[key];
+          }
+        } else if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-ph]').forEach(function(input) {
+        var phKey = input.getAttribute('data-ph');
+        if (placeholderDict[lang] && placeholderDict[lang][phKey]) {
+          input.setAttribute('placeholder', placeholderDict[lang][phKey]);
+        }
+      });
+    }
+
+    // Language switcher buttons
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var lang = this.getAttribute('data-lang');
+        switchLanguage(lang);
+      });
+    });
+
+    // -------------------------------------------------------------
+    // Menu Tab Switching
+    // -------------------------------------------------------------
+    function switchMenuTab(tabId, btnElement) {
+      document.querySelectorAll('.menu-panel').forEach(function(p) {
+        p.classList.remove('active');
+      });
+      document.querySelectorAll('.menu-tab-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+
+      var target = document.getElementById('tab-' + tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+      if (btnElement) {
+        btnElement.classList.add('active');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Party Size Flow Warning
+    // -------------------------------------------------------------
+    function checkGuestCount(select) {
+      var warning = document.getElementById('guest-warning');
+      if (parseInt(select.value, 10) >= 7) {
+        warning.style.display = 'block';
+      } else {
+        warning.style.display = 'none';
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Booking Form Submission & Modal
+    // -------------------------------------------------------------
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+      var form = event.target;
+      if (form._gotcha && form._gotcha.value !== '') {
+        return false;
+      }
+      document.getElementById('success-modal').style.display = 'flex';
+      form.reset();
+      return false;
+    }
+
+    function closeModal() {
+      document.getElementById('success-modal').style.display = 'none';
+    }
+
+    // -------------------------------------------------------------
+    // Mobile Drawer Navigation
+    // -------------------------------------------------------------
+    function toggleMobileMenu() {
+      var btn = document.getElementById('mobile-menu-btn');
+      var drawer = document.getElementById('mobile-drawer');
+      if (btn && drawer) {
+        btn.classList.toggle('active');
+        drawer.classList.toggle('open');
+      }
+    }
+
+    function closeMobileMenu() {
+      var btn = document.getElementById('mobile-menu-btn');
+      var drawer = document.getElementById('mobile-drawer');
+      if (btn && drawer) {
+        btn.classList.remove('active');
+        drawer.classList.remove('open');
+      }
+    }
+
+    // -------------------------------------------------------------
+    // Mobile Sticky Bottom Bar Scroll Visibility
+    // -------------------------------------------------------------
+    window.addEventListener('scroll', function() {
+      var stickyBar = document.getElementById('mobile-sticky-bar');
+      if (!stickyBar) return;
+      if (window.innerWidth <= 768) {
+        if (window.scrollY > 300) {
+          stickyBar.style.display = 'flex';
+        } else {
+          stickyBar.style.display = 'none';
+        }
+      }
+    }, { passive: true });
+
+    // Initialise on load
+    document.addEventListener('DOMContentLoaded', function() {
+      initEnglishDictionary();
+
+      // Set min date to today
+      var dateInput = document.getElementById('cust-date');
+      if (dateInput) {
+        var today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+      }
+    });
+  </script>
+</body>
+</html>
