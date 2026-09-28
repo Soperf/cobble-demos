@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cobble — Boutique Hospitality Demo Showcase</title>
-  <meta name="description" content="Cobble pipeline hospitality demo websites for European boutique B&Bs and luxury nature campsites.">
+  <title>Cobble — Boutique Hospitality Showcase &amp; Directory</title>
+  <meta name="description" content="Direct booking web experiences crafted for European boutique B&Bs, heritage bistros, and luxury nature campsites.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,12 +12,16 @@
     :root {
       --bg-cream: #FAF7F2;
       --bg-card: #FFFFFF;
+      --bg-table-header: #F4EFE6;
       --slate-deep: #1A2E3B;
       --navy-deep: #203F54;
-      --text-muted: #5C6A72;
+      --text-muted: #64748B;
       --amber-braai: #C86A3D;
       --amber-warm: #E28C5E;
+      --gold-accent: #B8860B;
+      --gold-brass: #D4AF37;
       --border-sand: #E6E0D4;
+      --border-light: #F0EAE1;
       --font-serif: 'Playfair Display', Georgia, serif;
       --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -37,25 +41,32 @@
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
+    /* Header */
     header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.5rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid var(--border-sand);
     }
 
-    .badge {
-      display: inline-block;
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--amber-braai);
-      margin-bottom: 0.75rem;
+      background: rgba(200, 106, 61, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(200, 106, 61, 0.2);
     }
 
     h1 {
@@ -68,20 +79,62 @@
     }
 
     .subtitle {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
+    /* Metrics Strip */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-sand);
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(32, 63, 84, 0.03);
+    }
+
+    .metric-number {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Section Header */
     .section-title {
       font-family: var(--font-serif);
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
       color: var(--navy-deep);
       display: flex;
       align-items: center;
       gap: 0.75rem;
+    }
+
+    .section-title svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--amber-braai);
+      flex-shrink: 0;
     }
 
     .section-title::after {
@@ -91,111 +144,200 @@
       background: var(--border-sand);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-      margin-bottom: 3.5rem;
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: -0.75rem;
+      margin-bottom: 1.25rem;
     }
 
-    .card {
+    /* Table Styles */
+    .table-wrapper {
       background: var(--bg-card);
       border: 1px solid var(--border-sand);
-      border-radius: 8px;
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      text-decoration: none;
-      color: inherit;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(32, 63, 84, 0.04);
+      margin-bottom: 3.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(32, 63, 84, 0.08);
-      border-color: var(--amber-warm);
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
     }
 
-    .card.featured {
-      border: 2px solid var(--amber-braai);
-      position: relative;
-      background: linear-gradient(180deg, #FFFFFF 0%, #FDFBF8 100%);
-    }
-
-    .featured-ribbon {
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      background: var(--amber-braai);
-      color: #FFFFFF;
-      font-size: 0.7rem;
+    thead th {
+      background: var(--bg-table-header);
+      color: var(--navy-deep);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 3px 10px;
-      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-sand);
+      white-space: nowrap;
     }
 
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--amber-braai);
+    tbody tr {
+      border-bottom: 1px solid var(--border-light);
+      transition: background 0.15s ease;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: #FAF8F5;
+    }
+
+    tbody td {
+      padding: 1.2rem 1.25rem;
+      vertical-align: middle;
+    }
+
+    /* Cell Components */
+    .cell-demo-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy-deep);
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cell-demo-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      max-width: 320px;
+    }
+
+    .ribbon-tag {
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-title {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      color: var(--navy-deep);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-
-    .card-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      flex-grow: 1;
-    }
-
-    .card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .tag {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-sand);
-      font-size: 0.75rem;
-      color: var(--slate-deep);
       padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .card-link {
+      border-radius: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--navy-deep);
+      gap: 4px;
     }
 
-    .card:hover .card-link {
+    .ribbon-gold {
+      background: #FDF4E3;
+      color: #996500;
+      border: 1px solid #F1D9A7;
+    }
+
+    .ribbon-featured {
+      background: #FBF0EB;
       color: var(--amber-braai);
+      border: 1px solid #F2D2C3;
     }
 
+    .cell-category {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy-deep);
+      background: var(--bg-cream);
+      border: 1px solid var(--border-sand);
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .cell-location {
+      font-size: 0.85rem;
+      color: var(--slate-deep);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      max-width: 280px;
+    }
+
+    .pill-tag {
+      font-size: 0.7rem;
+      background: #F1EFEA;
+      color: #475569;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #E2DED6;
+      white-space: nowrap;
+    }
+
+    .lang-group {
+      display: flex;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .lang-pill {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #ECEFF1;
+      color: #37474F;
+      border: 1px solid #CFD8DC;
+    }
+
+    /* Action Button */
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-launch:hover {
+      background: var(--amber-braai);
+      transform: translateY(-1px);
+    }
+
+    .btn-launch svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding-top: 2rem;
+      padding-top: 2.5rem;
       border-top: 1px solid var(--border-sand);
       font-size: 0.85rem;
       color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 600px) {
@@ -205,157 +347,482 @@
       h1 {
         font-size: 2rem;
       }
-      .grid {
+      .metrics-strip {
         grid-template-columns: 1fr;
+        gap: 0.75rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <header>
-      <span class="badge">Project Cobble · Live Showcase</span>
+      <div class="badge-top">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        Project Cobble &middot; Live Showcase Directory
+      </div>
       <h1>Hospitality Demo Pipeline</h1>
-      <p class="subtitle">Direct booking web experiences crafted for European boutique B&amp;Bs, heritage hideaways, and luxury nature campsites.</p>
+      <p class="subtitle">Direct booking web experiences crafted for European boutique hotels, heritage bistros, and luxury nature campsites.</p>
     </header>
 
+    <!-- Metrics Strip -->
+    <div class="metrics-strip">
+      <div class="metric-card">
+        <div class="metric-number">11</div>
+        <div class="metric-label">Live Showcases &amp; Templates</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">3</div>
+        <div class="metric-label">Bespoke Restaurant Archetypes</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">6</div>
+        <div class="metric-label">Live Merchant Redesigns</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">100%</div>
+        <div class="metric-label">Mobile Parity &amp; Vector SVG</div>
+      </div>
+    </div>
+
     <main>
-      <h2 class="section-title">Generation II — Real Merchant Live Redesigns</h2>
-      <div class="grid">
-        <!-- 1. DUINKANT (Featured) -->
-        <a href="duinkant/" class="card featured">
-          <span class="featured-ribbon">⭐ Featured Demo</span>
-          <div>
-            <div class="card-meta">Terschelling · Netherlands</div>
-            <h3 class="card-title">Camping De Duinkant</h3>
-            <p class="card-desc">Off-grid dune camping &amp; safari tents by the UNESCO Wadden Sea sanctuary. Features instant 5-language toggle, African Braai hearths, seal safari tours, and Finesse UI craftsmanship.</p>
-            <div class="card-tags">
-              <span class="tag">5 Languages (NL/EN/DE/ZH/JA)</span>
-              <span class="tag">Finesse UI &amp; SVG</span>
-              <span class="tag">375px Mobile Parity</span>
-              <span class="tag">Direct Booking Perks</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
+      <!-- SECTION 1: BESPOKE RESTAURANT TEMPLATES -->
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+        Bespoke Restaurant Templates
+      </h2>
+      <p class="section-desc">Tailored Michelin-grade design systems built for independent gastronomy, historic bistros, and intimate wine snugs.</p>
 
-        <!-- 2. OOSTERBEEK -->
-        <a href="oosterbeek/" class="card">
-          <div>
-            <div class="card-meta">Gelderland · Netherlands</div>
-            <h3 class="card-title">Oosterbeeks Rijnoever</h3>
-            <p class="card-desc">Riverside nature campsite &amp; B&amp;B along the Rhine river. The foundational Gen-II baseline benchmark with 11 full sections, atmosphere carousel, and Dutch copy.</p>
-            <div class="card-tags">
-              <span class="tag">Bilingual (NL/EN)</span>
-              <span class="tag">Hero Multi-Scene</span>
-              <span class="tag">Site Plattegrond</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Demo / Archetype</th>
+              <th>Category</th>
+              <th>Location / Setting</th>
+              <th>Key Highlights &amp; Craft</th>
+              <th>Languages</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 1. Warm Linen Editorial -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Warm Linen Editorial
+                  <span class="ribbon-tag ribbon-gold">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    New Template
+                  </span>
+                </div>
+                <div class="cell-demo-desc">Warm linen &amp; espresso tones, asymmetric editorial magazine layout, chef handwritten signature. Ideal for country manor &amp; courtyard hideaways.</div>
+              </td>
+              <td><span class="cell-category">Editorial Dining</span></td>
+              <td><span class="cell-location">Country Courtyard &middot; Whitby</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Asymmetric Editorial</span>
+                  <span class="pill-tag">No-PDF Leader Menu</span>
+                  <span class="pill-tag">Drawer 5D</span>
+                  <span class="pill-tag">Sticky Action Bar</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="restaurant-templates/warm-linen/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
 
-        <!-- 3. WOODBINE HOUSE -->
-        <a href="woodbine/" class="card">
-          <div>
-            <div class="card-meta">Isle of Skye · Scotland</div>
-            <h3 class="card-title">Woodbine House B&amp;B</h3>
-            <p class="card-desc">Victorian stone coastal B&amp;B overlooking Uig Bay and Loch Snizort. Tailored for CalMac ferry travellers with hearty Stornoway breakfast, 3 languages (EN/ZH/JA), official heritage badges, and Finesse UI.</p>
-            <div class="card-tags">
-              <span class="tag">3 Languages (EN/ZH/JA)</span>
-              <span class="tag">Finesse UI &amp; SVG</span>
-              <span class="tag">Uig Bay &amp; Ferry Pier</span>
-              <span class="tag">Direct Booking Guarantee</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
+            <!-- 2. Split-Canvas Brasserie -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Split-Canvas Brasserie
+                  <span class="ribbon-tag ribbon-gold">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    New Template
+                  </span>
+                </div>
+                <div class="cell-demo-desc">38% fixed brand left panel + 62% smooth scrolling gourmet visual canvas. Perfect for modern Soho bistros &amp; tasting menus.</div>
+              </td>
+              <td><span class="cell-category">Modern Brasserie</span></td>
+              <td><span class="cell-location">Soho &middot; Urban Gastronomy</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Split 38/62 Layout</span>
+                  <span class="pill-tag">Sticky Brand Panel</span>
+                  <span class="pill-tag">Heritage Seal</span>
+                  <span class="pill-tag">Dotted Leader</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="restaurant-templates/split-canvas/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
 
-        <!-- 4. HOLLY HOUSE -->
-        <a href="hollyhouse/" class="card">
-          <div>
-            <div class="card-meta">Bourton-on-the-Water · Cotswolds</div>
-            <h3 class="card-title">Holly House B&amp;B</h3>
-            <p class="card-desc">Classic Cotswold honey-stone residence in the 'Venice of the Cotswolds'. Emphasizes exclusive free village-centre parking and award-winning breakfasts.</p>
-            <div class="card-tags">
-              <span class="tag">Cotswold Stone Theme</span>
-              <span class="tag">Free Parking Highlight</span>
-              <span class="tag">Drawer Nav</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
-
-        <!-- 5. THE JUMBLE ROOM (New Flagship Restaurant Demo) -->
-        <a href="the-jumble-room/" class="card featured">
-          <span class="featured-ribbon">⭐ New Flagship Demo</span>
-          <div>
-            <div class="card-meta">Grasmere · Lake District · England</div>
-            <h3 class="card-title">The Jumble Room</h3>
-            <p class="card-desc">Boutique bohemian bistro operating for 32 years on Langdale Road. Features cinematic twilight cottage Hero, candlelight sanctuary ambience, trilingual engine (EN/ZH/JA), full 4-tab interactive seasonal menus, anti-scam direct booking defense, and luxury Randy Pike suite cross-sell showroom.</p>
-            <div class="card-tags">
-              <span class="tag">3 Languages (EN/ZH/JA)</span>
-              <span class="tag">Good Food Guide 2025</span>
-              <span class="tag">Interactive 4-Tab Menu</span>
-              <span class="tag">Mobile H5 Sticky Bar</span>
-              <span class="tag">Randy Pike Suites</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
-
-        <!-- 6. SANDERS YARD BISTRO (New Restaurant & Courtyard Demo) -->
-        <a href="sanders-yard/" class="card featured">
-          <span class="featured-ribbon">⭐ New Restaurant Demo</span>
-          <div>
-            <div class="card-meta">Whitby · North Yorkshire · England</div>
-            <h3 class="card-title">Sanders Yard Bistro</h3>
-            <p class="card-desc">Secluded bistro &amp; courtyard tucked off the historic cobblestones of Church Street. Features live 4-tab mobile menus (eliminating bulky PDFs), famous Bottomless Brunch &amp; Whitby scampi, daily chef blackboard, direct table requests, and 3 languages (EN/ZH/JA).</p>
-            <div class="card-tags">
-              <span class="tag">3 Languages (EN/ZH/JA)</span>
-              <span class="tag">FSA 5-Star Hygiene</span>
-              <span class="tag">Zero-PDF Live Menus</span>
-              <span class="tag">Historic Courtyard Dining</span>
-              <span class="tag">Direct Table Booking</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Live Demo &rarr;</span>
-        </a>
+            <!-- 3. Velvet & Brass Snug -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Velvet &amp; Brass Snug
+                  <span class="ribbon-tag ribbon-gold">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    New Template
+                  </span>
+                </div>
+                <div class="cell-demo-desc">Deep wine velvet &amp; brushed gold palette, candlelight vignette, hearth-lit intimacy. Built for late-night jazz bars &amp; candlelit dining.</div>
+              </td>
+              <td><span class="cell-category">Nocturne Dining</span></td>
+              <td><span class="cell-location">Highland / Lake Hideaway</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Dark Gold Vignette</span>
+                  <span class="pill-tag">Atmospheric Hearth</span>
+                  <span class="pill-tag">Fine Dining Leader</span>
+                  <span class="pill-tag">100% Vector SVG</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="restaurant-templates/velvet-brass/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <h2 class="section-title">Generation I — Conceptual Prototypes</h2>
-      <div class="grid">
-        <!-- 5. CORNWALL -->
-        <a href="cornwall/" class="card">
-          <div>
-            <div class="card-meta">Cornwall Coast · England</div>
-            <h3 class="card-title">St Ives Coastal B&amp;B</h3>
-            <p class="card-desc">Early Gen-I prototype exploring 8-section layout, chalk white and terracotta palette, and direct booking enquiry form.</p>
-            <div class="card-tags">
-              <span class="tag">Gen-I Baseline</span>
-              <span class="tag">8 Sections</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Prototype &rarr;</span>
-        </a>
+      <!-- SECTION 2: GEN-II LIVE MERCHANT REDESIGNS -->
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Generation II &mdash; Live Merchant Redesigns
+      </h2>
+      <p class="section-desc">Production-grade redesigns solving real European boutique hospitality friction points, OTAs dependencies, and mobile parity.</p>
 
-        <!-- 6. LAKE DISTRICT -->
-        <a href="lake-district/" class="card">
-          <div>
-            <div class="card-meta">Lake District · England</div>
-            <h3 class="card-title">Grasmere Country House</h3>
-            <p class="card-desc">Early Gen-I layout testing inline SVG scenery slot placeholders and slate blue mountain palettes.</p>
-            <div class="card-tags">
-              <span class="tag">Gen-I SVG Slots</span>
-              <span class="tag">Slate Blue Theme</span>
-            </div>
-          </div>
-          <span class="card-link">Launch Prototype &rarr;</span>
-        </a>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Demo / Archetype</th>
+              <th>Category</th>
+              <th>Location / Setting</th>
+              <th>Key Highlights &amp; Craft</th>
+              <th>Languages</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 4. Sanders Yard Bistro -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Sanders Yard Bistro
+                  <span class="ribbon-tag ribbon-featured">Featured Restaurant</span>
+                </div>
+                <div class="cell-demo-desc">Historic cobblestone courtyard dining off Church Street. Zero-PDF mobile menus, Bottomless Brunch, daily chef specials, and direct booking.</div>
+              </td>
+              <td><span class="cell-category">Courtyard Bistro</span></td>
+              <td><span class="cell-location">Whitby &middot; North Yorkshire</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Zero-PDF Menu</span>
+                  <span class="pill-tag">FSA 5-Star Badge</span>
+                  <span class="pill-tag">Courtyard Showcase</span>
+                  <span class="pill-tag">Direct Table Booking</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="sanders-yard/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 5. The Jumble Room -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  The Jumble Room
+                  <span class="ribbon-tag ribbon-featured">Featured Flagship</span>
+                </div>
+                <div class="cell-demo-desc">32-year legendary bohemian bistro &amp; luxury Randy Pike suites. Good Food Guide 2025 featured, twilight cottage hero, anti-scam direct booking defense.</div>
+              </td>
+              <td><span class="cell-category">Bohemian Bistro &amp; Suites</span></td>
+              <td><span class="cell-location">Grasmere &middot; Lake District</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">GFG 2025 Badge</span>
+                  <span class="pill-tag">4-Tab Interactive Menu</span>
+                  <span class="pill-tag">Randy Pike Suites</span>
+                  <span class="pill-tag">H5 Sticky Bar</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="the-jumble-room/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 6. Camping De Duinkant -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Camping De Duinkant
+                  <span class="ribbon-tag ribbon-featured">Featured Nature</span>
+                </div>
+                <div class="cell-demo-desc">Off-grid dune camping &amp; safari tents by the UNESCO Wadden Sea. African Braai hearths, seal safari tours, and 5-language instant toggle.</div>
+              </td>
+              <td><span class="cell-category">Nature Campsite</span></td>
+              <td><span class="cell-location">Terschelling &middot; Netherlands</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">5 Languages</span>
+                  <span class="pill-tag">Braai Hearths</span>
+                  <span class="pill-tag">UNESCO Wadden Sea</span>
+                  <span class="pill-tag">Direct Booking Perks</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">NL</span>
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">DE</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="duinkant/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 7. Woodbine House B&B -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Woodbine House B&amp;B
+                </div>
+                <div class="cell-demo-desc">Victorian stone coastal residence overlooking Uig Bay and Loch Snizort. Tailored for ferry travellers with hearty Stornoway breakfast.</div>
+              </td>
+              <td><span class="cell-category">Coastal B&amp;B</span></td>
+              <td><span class="cell-location">Isle of Skye &middot; Scotland</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Uig Bay Overlook</span>
+                  <span class="pill-tag">Ferry Pier Sync</span>
+                  <span class="pill-tag">Drawer Nav</span>
+                  <span class="pill-tag">Direct Best Rate</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                  <span class="lang-pill">ZH</span>
+                  <span class="lang-pill">JA</span>
+                </div>
+              </td>
+              <td>
+                <a href="woodbine/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 8. Oosterbeeks Rijnoever -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Oosterbeeks Rijnoever
+                </div>
+                <div class="cell-demo-desc">Riverside nature campsite &amp; B&amp;B along the Rhine river. Foundational Gen-II baseline with 11 full sections and interactive plattegrond.</div>
+              </td>
+              <td><span class="cell-category">Riverside Campsite</span></td>
+              <td><span class="cell-location">Gelderland &middot; Netherlands</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Rhine Scenery</span>
+                  <span class="pill-tag">Site Plattegrond</span>
+                  <span class="pill-tag">Multi-Scene Hero</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">NL</span>
+                  <span class="lang-pill">EN</span>
+                </div>
+              </td>
+              <td>
+                <a href="oosterbeek/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 9. Holly House B&B -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">
+                  Holly House B&amp;B
+                </div>
+                <div class="cell-demo-desc">Classic Cotswold honey-stone residence in Bourton-on-the-Water. Exclusive free village-centre parking and award-winning breakfasts.</div>
+              </td>
+              <td><span class="cell-category">Heritage B&amp;B</span></td>
+              <td><span class="cell-location">Bourton-on-the-Water &middot; Cotswolds</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Cotswold Stone</span>
+                  <span class="pill-tag">Free Parking Perk</span>
+                  <span class="pill-tag">Village Heart</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                </div>
+              </td>
+              <td>
+                <a href="hollyhouse/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SECTION 3: GEN-I CONCEPTUAL PROTOTYPES -->
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        Generation I &mdash; Conceptual Prototypes
+      </h2>
+      <p class="section-desc">Early foundational exploratory layouts establishing multi-section responsive architecture and color themes.</p>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Demo / Archetype</th>
+              <th>Category</th>
+              <th>Location / Setting</th>
+              <th>Key Highlights &amp; Craft</th>
+              <th>Languages</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 10. Cornwall -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">St Ives Coastal B&amp;B</div>
+                <div class="cell-demo-desc">Early Gen-I prototype testing 8-section layout, chalk white and terracotta palette, and direct booking enquiry form.</div>
+              </td>
+              <td><span class="cell-category">Prototype</span></td>
+              <td><span class="cell-location">Cornwall Coast &middot; England</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Gen-I Baseline</span>
+                  <span class="pill-tag">8 Sections</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                </div>
+              </td>
+              <td>
+                <a href="cornwall/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+
+            <!-- 11. Lake District -->
+            <tr>
+              <td>
+                <div class="cell-demo-title">Grasmere Country House</div>
+                <div class="cell-demo-desc">Early Gen-I layout testing inline SVG scenery slot placeholders and slate blue mountain palettes.</div>
+              </td>
+              <td><span class="cell-category">Prototype</span></td>
+              <td><span class="cell-location">Lake District &middot; England</span></td>
+              <td>
+                <div class="tags-cloud">
+                  <span class="pill-tag">Gen-I SVG Slots</span>
+                  <span class="pill-tag">Slate Blue Theme</span>
+                </div>
+              </td>
+              <td>
+                <div class="lang-group">
+                  <span class="lang-pill">EN</span>
+                </div>
+              </td>
+              <td>
+                <a href="lake-district/" class="btn-launch">
+                  Launch
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </main>
 
+    <!-- Footer -->
     <footer>
-      <p>&copy; 2026 Project Cobble. Built for independent European hospitality businesses.</p>
+      <p>&copy; 2026 Project Cobble. Crafted with boutique precision for independent European hospitality.</p>
     </footer>
   </div>
 </body>
