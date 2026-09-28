@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cobble — Boutique Hospitality Showcase &amp; Directory</title>
-  <meta name="description" content="Direct booking web experiences crafted for European boutique B&Bs, heritage bistros, and luxury nature campsites.">
+  <title>Cobble — 欧洲精品酒店与独立餐厅直订体验展厅</title>
+  <meta name="description" content="专为欧洲精品B&B、历史庭院餐馆、奢华野趣营地打造的现代化独立直订与沉浸式数字体验展厅。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Noto+Serif+SC:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-cream: #FAF7F2;
@@ -19,11 +19,10 @@
       --amber-braai: #C86A3D;
       --amber-warm: #E28C5E;
       --gold-accent: #B8860B;
-      --gold-brass: #D4AF37;
       --border-sand: #E6E0D4;
       --border-light: #F0EAE1;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+      --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     }
 
     * {
@@ -58,12 +57,12 @@
       align-items: center;
       gap: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
       font-weight: 700;
       color: var(--amber-braai);
       background: rgba(200, 106, 61, 0.08);
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 20px;
       margin-bottom: 1rem;
       border: 1px solid rgba(200, 106, 61, 0.2);
@@ -71,18 +70,20 @@
 
     h1 {
       font-family: var(--font-serif);
-      font-size: 2.75rem;
+      font-size: 2.6rem;
       font-weight: 600;
       color: var(--navy-deep);
       margin-bottom: 0.75rem;
-      line-height: 1.2;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
     }
 
     .subtitle {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
+      line-height: 1.65;
     }
 
     /* Metrics Strip */
@@ -104,25 +105,24 @@
 
     .metric-number {
       font-family: var(--font-serif);
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       color: var(--navy-deep);
       line-height: 1.1;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.35rem;
     }
 
     .metric-label {
       font-size: 0.76rem;
       font-weight: 700;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
     }
 
     /* Section Header */
     .section-title {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       margin-bottom: 1.25rem;
       color: var(--navy-deep);
       display: flex;
@@ -173,10 +173,9 @@
       background: var(--bg-table-header);
       color: var(--navy-deep);
       font-family: var(--font-sans);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border-sand);
       white-space: nowrap;
@@ -203,10 +202,10 @@
     /* Cell Components */
     .cell-demo-title {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 600;
       color: var(--navy-deep);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -215,15 +214,14 @@
     .cell-demo-desc {
       font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.45;
       max-width: 320px;
     }
 
     .ribbon-tag {
       font-size: 0.65rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       padding: 2px 8px;
       border-radius: 10px;
       display: inline-flex;
@@ -247,8 +245,7 @@
       display: inline-block;
       font-size: 0.76rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       color: var(--navy-deep);
       background: var(--bg-cream);
       border: 1px solid var(--border-sand);
@@ -268,14 +265,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 4px;
-      max-width: 280px;
+      max-width: 290px;
     }
 
     .pill-tag {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       background: #F1EFEA;
       color: #475569;
-      padding: 2px 7px;
+      padding: 2px 8px;
       border-radius: 4px;
       border: 1px solid #E2DED6;
       white-space: nowrap;
@@ -345,7 +342,7 @@
         padding: 1.5rem 1rem;
       }
       h1 {
-        font-size: 2rem;
+        font-size: 1.85rem;
       }
       .metrics-strip {
         grid-template-columns: 1fr;
@@ -360,29 +357,29 @@
     <header>
       <div class="badge-top">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        Project Cobble &middot; Live Showcase Directory
+        Project Cobble &middot; 精选演示全景导航
       </div>
-      <h1>Hospitality Demo Pipeline</h1>
-      <p class="subtitle">Direct booking web experiences crafted for European boutique hotels, heritage bistros, and luxury nature campsites.</p>
+      <h1>欧洲精品酒店与独立餐厅直订体验展厅</h1>
+      <p class="subtitle">专为欧洲精品 B&amp;B、历史庭院餐馆、奢华野趣营地打造的现代化独立直订与沉浸式数字体验。</p>
     </header>
 
     <!-- Metrics Strip -->
     <div class="metrics-strip">
       <div class="metric-card">
         <div class="metric-number">11</div>
-        <div class="metric-label">Live Showcases &amp; Templates</div>
+        <div class="metric-label">精选演示与落地模板</div>
       </div>
       <div class="metric-card">
         <div class="metric-number">3</div>
-        <div class="metric-label">Bespoke Restaurant Archetypes</div>
+        <div class="metric-label">米其林级餐饮 UI 架构</div>
       </div>
       <div class="metric-card">
         <div class="metric-number">6</div>
-        <div class="metric-label">Live Merchant Redesigns</div>
+        <div class="metric-label">欧洲商户真实重构案例</div>
       </div>
       <div class="metric-card">
         <div class="metric-number">100%</div>
-        <div class="metric-label">Mobile Parity &amp; Vector SVG</div>
+        <div class="metric-label">移动端对齐与矢量精雕</div>
       </div>
     </div>
 
@@ -390,20 +387,20 @@
       <!-- SECTION 1: BESPOKE RESTAURANT TEMPLATES -->
       <h2 class="section-title">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-        Bespoke Restaurant Templates
+        餐饮独立 UI 风格架构
       </h2>
-      <p class="section-desc">Tailored Michelin-grade design systems built for independent gastronomy, historic bistros, and intimate wine snugs.</p>
+      <p class="section-desc">米其林与精品小酒馆高定设计系统，专为高端料理、历史庭院 Bistro 与私享夜调吧台打造。</p>
 
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              <th>Demo / Archetype</th>
-              <th>Category</th>
-              <th>Location / Setting</th>
-              <th>Key Highlights &amp; Craft</th>
-              <th>Languages</th>
-              <th>Action</th>
+              <th>演示项目 / 风格架构</th>
+              <th>业态类别</th>
+              <th>地理坐标 / 空间场景</th>
+              <th>核心技术亮点与精雕细节</th>
+              <th>支持语言</th>
+              <th>体验入口</th>
             </tr>
           </thead>
           <tbody>
@@ -414,19 +411,19 @@
                   Warm Linen Editorial
                   <span class="ribbon-tag ribbon-gold">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    New Template
+                    最新模板
                   </span>
                 </div>
-                <div class="cell-demo-desc">Warm linen &amp; espresso tones, asymmetric editorial magazine layout, chef handwritten signature. Ideal for country manor &amp; courtyard hideaways.</div>
+                <div class="cell-demo-desc">温润棉纸米白配浓缩咖啡深色系，非对称杂志留白排版，主厨手写签名。适合乡村庄园与隐密庭院餐馆。</div>
               </td>
-              <td><span class="cell-category">Editorial Dining</span></td>
-              <td><span class="cell-location">Country Courtyard &middot; Whitby</span></td>
+              <td><span class="cell-category">杂志风高定餐叙</span></td>
+              <td><span class="cell-location">英国惠特比 &middot; 石砌庭院</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Asymmetric Editorial</span>
-                  <span class="pill-tag">No-PDF Leader Menu</span>
-                  <span class="pill-tag">Drawer 5D</span>
-                  <span class="pill-tag">Sticky Action Bar</span>
+                  <span class="pill-tag">非对称杂志排版</span>
+                  <span class="pill-tag">无 PDF 菜单引线</span>
+                  <span class="pill-tag">抽屉五维收起</span>
+                  <span class="pill-tag">移动吸底操作条</span>
                 </div>
               </td>
               <td>
@@ -438,7 +435,7 @@
               </td>
               <td>
                 <a href="restaurant-templates/warm-linen/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -451,19 +448,19 @@
                   Split-Canvas Brasserie
                   <span class="ribbon-tag ribbon-gold">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    New Template
+                    最新模板
                   </span>
                 </div>
-                <div class="cell-demo-desc">38% fixed brand left panel + 62% smooth scrolling gourmet visual canvas. Perfect for modern Soho bistros &amp; tasting menus.</div>
+                <div class="cell-demo-desc">左屏 38% 锁定品牌状态与订座，右屏 62% 顺滑滚动美食画卷与菜单长卷。专为潮流酒馆与赏味菜单打造。</div>
               </td>
-              <td><span class="cell-category">Modern Brasserie</span></td>
-              <td><span class="cell-location">Soho &middot; Urban Gastronomy</span></td>
+              <td><span class="cell-category">现代潮流酒馆</span></td>
+              <td><span class="cell-location">伦敦 Soho &middot; 先锋美食</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Split 38/62 Layout</span>
-                  <span class="pill-tag">Sticky Brand Panel</span>
-                  <span class="pill-tag">Heritage Seal</span>
-                  <span class="pill-tag">Dotted Leader</span>
+                  <span class="pill-tag">38/62 分屏构图</span>
+                  <span class="pill-tag">常驻品牌看板</span>
+                  <span class="pill-tag">传承金色印章</span>
+                  <span class="pill-tag">点状引线排版</span>
                 </div>
               </td>
               <td>
@@ -475,7 +472,7 @@
               </td>
               <td>
                 <a href="restaurant-templates/split-canvas/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -488,19 +485,19 @@
                   Velvet &amp; Brass Snug
                   <span class="ribbon-tag ribbon-gold">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                    New Template
+                    最新模板
                   </span>
                 </div>
-                <div class="cell-demo-desc">Deep wine velvet &amp; brushed gold palette, candlelight vignette, hearth-lit intimacy. Built for late-night jazz bars &amp; candlelit dining.</div>
+                <div class="cell-demo-desc">午夜酒红丝绒与拉丝黄铜金，烛光暗角呼吸动效与壁炉暖意。适合夜间爵士餐吧、高级牛排馆与烛光约会。</div>
               </td>
-              <td><span class="cell-category">Nocturne Dining</span></td>
-              <td><span class="cell-location">Highland / Lake Hideaway</span></td>
+              <td><span class="cell-category">暗调沉浸式晚宴</span></td>
+              <td><span class="cell-location">高地 / 湖区秘境</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Dark Gold Vignette</span>
-                  <span class="pill-tag">Atmospheric Hearth</span>
-                  <span class="pill-tag">Fine Dining Leader</span>
-                  <span class="pill-tag">100% Vector SVG</span>
+                  <span class="pill-tag">暗金微光暗角</span>
+                  <span class="pill-tag">沉浸式壁炉氛围</span>
+                  <span class="pill-tag">精致夜宴菜单排版</span>
+                  <span class="pill-tag">100% 矢量图标</span>
                 </div>
               </td>
               <td>
@@ -512,7 +509,7 @@
               </td>
               <td>
                 <a href="restaurant-templates/velvet-brass/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -524,20 +521,20 @@
       <!-- SECTION 2: GEN-II LIVE MERCHANT REDESIGNS -->
       <h2 class="section-title">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        Generation II &mdash; Live Merchant Redesigns
+        真实商户实战落地重构
       </h2>
-      <p class="section-desc">Production-grade redesigns solving real European boutique hospitality friction points, OTAs dependencies, and mobile parity.</p>
+      <p class="section-desc">深度解决欧洲精品酒店与独立餐馆的直订转化、OTA 平台佣金依赖与移动端体验痛点。</p>
 
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              <th>Demo / Archetype</th>
-              <th>Category</th>
-              <th>Location / Setting</th>
-              <th>Key Highlights &amp; Craft</th>
-              <th>Languages</th>
-              <th>Action</th>
+              <th>演示项目 / 风格架构</th>
+              <th>业态类别</th>
+              <th>地理坐标 / 空间场景</th>
+              <th>核心技术亮点与精雕细节</th>
+              <th>支持语言</th>
+              <th>体验入口</th>
             </tr>
           </thead>
           <tbody>
@@ -546,18 +543,18 @@
               <td>
                 <div class="cell-demo-title">
                   Sanders Yard Bistro
-                  <span class="ribbon-tag ribbon-featured">Featured Restaurant</span>
+                  <span class="ribbon-tag ribbon-featured">精选庭院餐馆</span>
                 </div>
-                <div class="cell-demo-desc">Historic cobblestone courtyard dining off Church Street. Zero-PDF mobile menus, Bottomless Brunch, daily chef specials, and direct booking.</div>
+                <div class="cell-demo-desc">隐于 Church 鹅卵石街的历史庭院。告别笨重 PDF 菜单，支持无限畅饮早午餐、每日主厨黑板菜与直订餐位。</div>
               </td>
-              <td><span class="cell-category">Courtyard Bistro</span></td>
-              <td><span class="cell-location">Whitby &middot; North Yorkshire</span></td>
+              <td><span class="cell-category">庭院小餐馆</span></td>
+              <td><span class="cell-location">英国北约克郡 &middot; 惠特比</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Zero-PDF Menu</span>
-                  <span class="pill-tag">FSA 5-Star Badge</span>
-                  <span class="pill-tag">Courtyard Showcase</span>
-                  <span class="pill-tag">Direct Table Booking</span>
+                  <span class="pill-tag">无 PDF 响应式菜单</span>
+                  <span class="pill-tag">英国 FSA 5星卫生徽章</span>
+                  <span class="pill-tag">庭院实景展厅</span>
+                  <span class="pill-tag">直订餐位闭环</span>
                 </div>
               </td>
               <td>
@@ -569,7 +566,7 @@
               </td>
               <td>
                 <a href="sanders-yard/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -580,18 +577,18 @@
               <td>
                 <div class="cell-demo-title">
                   The Jumble Room
-                  <span class="ribbon-tag ribbon-featured">Featured Flagship</span>
+                  <span class="ribbon-tag ribbon-featured">精选旗舰小馆</span>
                 </div>
-                <div class="cell-demo-desc">32-year legendary bohemian bistro &amp; luxury Randy Pike suites. Good Food Guide 2025 featured, twilight cottage hero, anti-scam direct booking defense.</div>
+                <div class="cell-demo-desc">经营 32 年传奇波西米亚老店。电影级暮光石屋、好食指南 2025 入选、防欺诈直订保障与 Randy Pike 奢华客房展厅。</div>
               </td>
-              <td><span class="cell-category">Bohemian Bistro &amp; Suites</span></td>
-              <td><span class="cell-location">Grasmere &middot; Lake District</span></td>
+              <td><span class="cell-category">波西米亚小酒馆 &amp; 套房</span></td>
+              <td><span class="cell-location">英国湖区 &middot; 格拉斯米尔</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">GFG 2025 Badge</span>
-                  <span class="pill-tag">4-Tab Interactive Menu</span>
-                  <span class="pill-tag">Randy Pike Suites</span>
-                  <span class="pill-tag">H5 Sticky Bar</span>
+                  <span class="pill-tag">好食指南 2025 官方徽章</span>
+                  <span class="pill-tag">4 标签季更菜单</span>
+                  <span class="pill-tag">Randy Pike 奢华客房</span>
+                  <span class="pill-tag">移动端吸底操作条</span>
                 </div>
               </td>
               <td>
@@ -603,7 +600,7 @@
               </td>
               <td>
                 <a href="the-jumble-room/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -614,18 +611,18 @@
               <td>
                 <div class="cell-demo-title">
                   Camping De Duinkant
-                  <span class="ribbon-tag ribbon-featured">Featured Nature</span>
+                  <span class="ribbon-tag ribbon-featured">精选野奢露营</span>
                 </div>
-                <div class="cell-demo-desc">Off-grid dune camping &amp; safari tents by the UNESCO Wadden Sea. African Braai hearths, seal safari tours, and 5-language instant toggle.</div>
+                <div class="cell-demo-desc">联合国瓦登海保护区旁的离网沙丘露营与游猎帐篷。配备非洲 Braai 营火灶台、海豹探险游猎与五国语言即时切换。</div>
               </td>
-              <td><span class="cell-category">Nature Campsite</span></td>
-              <td><span class="cell-location">Terschelling &middot; Netherlands</span></td>
+              <td><span class="cell-category">自然野奢营地</span></td>
+              <td><span class="cell-location">荷兰 &middot; 特谢灵岛（瓦登海）</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">5 Languages</span>
-                  <span class="pill-tag">Braai Hearths</span>
-                  <span class="pill-tag">UNESCO Wadden Sea</span>
-                  <span class="pill-tag">Direct Booking Perks</span>
+                  <span class="pill-tag">五语极速切换</span>
+                  <span class="pill-tag">南非 Braai 营火</span>
+                  <span class="pill-tag">联合国瓦登海保护区</span>
+                  <span class="pill-tag">直订专属礼遇</span>
                 </div>
               </td>
               <td>
@@ -639,7 +636,7 @@
               </td>
               <td>
                 <a href="duinkant/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -651,16 +648,16 @@
                 <div class="cell-demo-title">
                   Woodbine House B&amp;B
                 </div>
-                <div class="cell-demo-desc">Victorian stone coastal residence overlooking Uig Bay and Loch Snizort. Tailored for ferry travellers with hearty Stornoway breakfast.</div>
+                <div class="cell-demo-desc">俯瞰伊格湾海景的维多利亚海岸石砌客栈。精准对齐 CalMac 轮渡时刻表，呈现正宗斯托诺韦黑布丁早餐与三语切换。</div>
               </td>
-              <td><span class="cell-category">Coastal B&amp;B</span></td>
-              <td><span class="cell-location">Isle of Skye &middot; Scotland</span></td>
+              <td><span class="cell-category">沿海海景客栈</span></td>
+              <td><span class="cell-location">苏格兰 &middot; 天空岛</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Uig Bay Overlook</span>
-                  <span class="pill-tag">Ferry Pier Sync</span>
-                  <span class="pill-tag">Drawer Nav</span>
-                  <span class="pill-tag">Direct Best Rate</span>
+                  <span class="pill-tag">俯瞰伊格湾海景</span>
+                  <span class="pill-tag">轮渡码头班次联动</span>
+                  <span class="pill-tag">移动抽屉导航</span>
+                  <span class="pill-tag">官方最优惠直订保证</span>
                 </div>
               </td>
               <td>
@@ -672,7 +669,7 @@
               </td>
               <td>
                 <a href="woodbine/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -684,15 +681,15 @@
                 <div class="cell-demo-title">
                   Oosterbeeks Rijnoever
                 </div>
-                <div class="cell-demo-desc">Riverside nature campsite &amp; B&amp;B along the Rhine river. Foundational Gen-II baseline with 11 full sections and interactive plattegrond.</div>
+                <div class="cell-demo-desc">莱茵河畔生态露营地与河景客栈。第二代基准标杆，拥有 11 个完整功能区块、多场景光影轮播与交互式营区分布图。</div>
               </td>
-              <td><span class="cell-category">Riverside Campsite</span></td>
-              <td><span class="cell-location">Gelderland &middot; Netherlands</span></td>
+              <td><span class="cell-category">莱茵河畔露营客栈</span></td>
+              <td><span class="cell-location">荷兰 &middot; 海尔德兰省</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Rhine Scenery</span>
-                  <span class="pill-tag">Site Plattegrond</span>
-                  <span class="pill-tag">Multi-Scene Hero</span>
+                  <span class="pill-tag">莱茵河景漫游</span>
+                  <span class="pill-tag">交互式营区分布图</span>
+                  <span class="pill-tag">多场景光影轮播</span>
                 </div>
               </td>
               <td>
@@ -703,7 +700,7 @@
               </td>
               <td>
                 <a href="oosterbeek/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -715,15 +712,15 @@
                 <div class="cell-demo-title">
                   Holly House B&amp;B
                 </div>
-                <div class="cell-demo-desc">Classic Cotswold honey-stone residence in Bourton-on-the-Water. Exclusive free village-centre parking and award-winning breakfasts.</div>
+                <div class="cell-demo-desc">坐落于水上伯顿核心区的经典蜂蜜色石灰石宅邸。直击自驾痛点：提供景区稀缺的专属免费停车位与金奖英式早餐。</div>
               </td>
-              <td><span class="cell-category">Heritage B&amp;B</span></td>
-              <td><span class="cell-location">Bourton-on-the-Water &middot; Cotswolds</span></td>
+              <td><span class="cell-category">经典英伦蜜石客栈</span></td>
+              <td><span class="cell-location">英国科茨沃尔德 &middot; 水上伯顿</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Cotswold Stone</span>
-                  <span class="pill-tag">Free Parking Perk</span>
-                  <span class="pill-tag">Village Heart</span>
+                  <span class="pill-tag">科茨沃尔德蜜石居</span>
+                  <span class="pill-tag">独家免费村中心停车</span>
+                  <span class="pill-tag">核心地段金奖早餐</span>
                 </div>
               </td>
               <td>
@@ -733,7 +730,7 @@
               </td>
               <td>
                 <a href="hollyhouse/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -745,20 +742,20 @@
       <!-- SECTION 3: GEN-I CONCEPTUAL PROTOTYPES -->
       <h2 class="section-title">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-        Generation I &mdash; Conceptual Prototypes
+        早期概念探索原型
       </h2>
-      <p class="section-desc">Early foundational exploratory layouts establishing multi-section responsive architecture and color themes.</p>
+      <p class="section-desc">第一代早期探索原型，验证多模块响应式骨架、地域色系调色板与轻量交互表单。</p>
 
       <div class="table-wrapper">
         <table>
           <thead>
             <tr>
-              <th>Demo / Archetype</th>
-              <th>Category</th>
-              <th>Location / Setting</th>
-              <th>Key Highlights &amp; Craft</th>
-              <th>Languages</th>
-              <th>Action</th>
+              <th>演示项目 / 风格架构</th>
+              <th>业态类别</th>
+              <th>地理坐标 / 空间场景</th>
+              <th>核心技术亮点与精雕细节</th>
+              <th>支持语言</th>
+              <th>体验入口</th>
             </tr>
           </thead>
           <tbody>
@@ -766,14 +763,14 @@
             <tr>
               <td>
                 <div class="cell-demo-title">St Ives Coastal B&amp;B</div>
-                <div class="cell-demo-desc">Early Gen-I prototype testing 8-section layout, chalk white and terracotta palette, and direct booking enquiry form.</div>
+                <div class="cell-demo-desc">第一代早期探索原型，验证 8 大功能区块架构、白垩岩白与陶土暖色系、以及直订询价表单交互。</div>
               </td>
-              <td><span class="cell-category">Prototype</span></td>
-              <td><span class="cell-location">Cornwall Coast &middot; England</span></td>
+              <td><span class="cell-category">探索原型</span></td>
+              <td><span class="cell-location">英国康沃尔海岸</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Gen-I Baseline</span>
-                  <span class="pill-tag">8 Sections</span>
+                  <span class="pill-tag">一代架构基线</span>
+                  <span class="pill-tag">8 区块完整骨架</span>
                 </div>
               </td>
               <td>
@@ -783,7 +780,7 @@
               </td>
               <td>
                 <a href="cornwall/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -793,14 +790,14 @@
             <tr>
               <td>
                 <div class="cell-demo-title">Grasmere Country House</div>
-                <div class="cell-demo-desc">Early Gen-I layout testing inline SVG scenery slot placeholders and slate blue mountain palettes.</div>
+                <div class="cell-demo-desc">第一代早期探索原型，验证内联矢量风景 SVG 占位机制与深板岩蓝湖区山系色彩体系。</div>
               </td>
-              <td><span class="cell-category">Prototype</span></td>
-              <td><span class="cell-location">Lake District &middot; England</span></td>
+              <td><span class="cell-category">探索原型</span></td>
+              <td><span class="cell-location">英国湖区国家公园</span></td>
               <td>
                 <div class="tags-cloud">
-                  <span class="pill-tag">Gen-I SVG Slots</span>
-                  <span class="pill-tag">Slate Blue Theme</span>
+                  <span class="pill-tag">内联矢量占位</span>
+                  <span class="pill-tag">板岩蓝湖区山色</span>
                 </div>
               </td>
               <td>
@@ -810,7 +807,7 @@
               </td>
               <td>
                 <a href="lake-district/" class="btn-launch">
-                  Launch
+                  立即体验
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
               </td>
@@ -822,7 +819,7 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2026 Project Cobble. Crafted with boutique precision for independent European hospitality.</p>
+      <p>&copy; 2026 Project Cobble. 专为欧洲独立精品文旅与餐饮打造的高品质直订数字化基础设施。</p>
     </footer>
   </div>
 </body>
