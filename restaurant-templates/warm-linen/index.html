@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanders Yard Bistro · Warm Linen Editorial Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #F9F6F0;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F2EDE4;
+      --text-main: #1D1612;
+      --text-muted: #6B5E54;
+      --accent-gold: #B8860B;
+      --accent-gold-soft: rgba(184, 134, 11, 0.12);
+      --accent-sage: #4E6554;
+      --border-light: rgba(29, 22, 18, 0.08);
+      --border-gold: rgba(184, 134, 11, 0.35);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-cursive: 'Alex Brush', cursive;
+      --shadow-sm: 0 4px 16px rgba(29, 22, 18, 0.04);
+      --shadow-md: 0 12px 32px rgba(29, 22, 18, 0.08);
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Top Ribbon */
+    .top-ribbon {
+      background: #1D1612;
+      color: #EBDDCB;
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      padding: 9px 0;
+    }
+    .ribbon-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Main Navigation */
+    .site-nav {
+      background: rgba(249, 246, 240, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      padding: 18px 0;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 15px;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-gold); }
+    .nav-cta {
+      background: var(--text-main);
+      color: #FAF7F2 !important;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    /* Animated Hamburger Button */
+    .mobile-toggle-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+      background: rgba(29, 22, 18, 0.04);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      cursor: pointer;
+      z-index: 102;
+    }
+    .mobile-toggle-btn span {
+      width: 22px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-toggle-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-toggle-btn.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mobile-toggle-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Drawer Backdrop */
+    .drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(29, 22, 18, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+      z-index: 98;
+    }
+    .drawer-backdrop.open {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--bg-page);
+      border-bottom: 2px solid var(--accent-gold);
+      box-shadow: var(--shadow-md);
+      padding: 24px;
+      display: none;
+      z-index: 101;
+    }
+    .mobile-drawer.open { display: block; }
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .mobile-drawer-links a {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--text-main);
+      display: block;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 8px;
+    }
+    .mobile-drawer-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lang-switcher-row {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .lang-btn.active {
+      background: var(--text-main);
+      color: #FFFFFF;
+      border-color: var(--text-main);
+    }
+
+    /* Notice Banner */
+    .notice-banner {
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
+      padding: 11px 0;
+      text-align: center;
+    }
+    .notice-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .notice-gold-pill {
+      background: var(--accent-gold);
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 3px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    /* Editorial Hero (Asymmetrical) */
+    .editorial-hero {
+      padding: 72px 0 54px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-pill {
+      display: inline-block;
+      font-size: 11.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.8vw, 62px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 22px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+    .hero-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+    .chef-signature-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+    .chef-sig {
+      font-family: var(--font-cursive);
+      font-size: 32px;
+      color: var(--text-main);
+    }
+    .chef-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+      border-left: 1px solid var(--border-light);
+      padding-left: 12px;
+      line-height: 1.3;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-gold {
+      background: var(--accent-gold);
+      color: #FFFFFF;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-gold:hover {
+      background: #9A7007;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1px solid var(--border-gold);
+      color: var(--text-main);
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--bg-card);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(29, 22, 18, 0.06);
+    }
+    .hero-photo-badge {
+      position: absolute;
+      bottom: -18px;
+      left: -18px;
+      background: var(--bg-card);
+      padding: 14px 18px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border-left: 3px solid var(--accent-gold);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Heritage Pillars (01-04) */
+    .pillars-section {
+      padding: 44px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-card);
+    }
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .badge-card {
+      padding: 24px 20px;
+      border: 1px solid var(--border-light);
+      border-top: 2px solid var(--accent-gold);
+      border-radius: var(--radius);
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s;
+    }
+    .badge-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+      border-top-color: var(--text-main);
+    }
+    .badge-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .badge-index {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--accent-gold);
+    }
+    .badge-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent-gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+    }
+    .badge-icon-box svg {
+      width: 18px;
+      height: 18px;
+    }
+    .badge-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .badge-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Editorial Menus with Dot Leaders */
+    .menus-section {
+      padding: 72px 0;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+    .section-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.6vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .menu-tabs::-webkit-scrollbar { display: none; }
+    .menu-tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .menu-tab-btn.active {
+      background: var(--text-main);
+      color: #FAF7F2;
+      border-color: var(--text-main);
+    }
+    .menu-card-paper {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      padding: 40px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 48px;
+    }
+    .dish-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .dish-line {
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+    }
+    .dish-name {
+      font-family: var(--font-serif);
+      font-size: 17.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .dish-leader {
+      flex-grow: 1;
+      border-bottom: 1px dotted rgba(29, 22, 18, 0.25);
+      margin: 0 8px;
+    }
+    .dish-price {
+      font-weight: 700;
+      color: var(--accent-gold);
+      font-size: 16px;
+    }
+    .dish-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .dish-wine-note {
+      font-size: 11.5px;
+      font-style: italic;
+      color: var(--accent-sage);
+    }
+    .diet-pills {
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .diet-pill {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+    .badge-v { color: #4E6554; border: 1px solid rgba(78, 101, 84, 0.3); }
+    .badge-vg { color: #2E7D6A; border: 1px solid rgba(46, 125, 106, 0.3); }
+    .badge-gf { color: #B8860B; border: 1px solid rgba(184, 134, 11, 0.3); }
+
+    /* Reservation Choice Box */
+    .reserve-section {
+      padding: 72px 0;
+      background: var(--bg-subtle);
+    }
+    .reserve-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      background: var(--bg-page);
+      font-size: 14px;
+    }
+
+    /* Mobile Sticky Bottom Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(249, 246, 240, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-gold);
+      padding: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 97;
+    }
+    .sticky-call {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .sticky-book {
+      background: var(--accent-gold);
+      color: #FFFFFF;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo { height: 360px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      body { padding-bottom: 64px; }
+      .mobile-sticky-bar { display: flex; }
+      .badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .badge-card { padding: 14px 12px; }
+      .badge-title { font-size: 13.5px; }
+      .badge-desc { font-size: 11px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sanders Yard Bistro (Warm Linen)",
+    "image": "images/courtyard_tables.jpg",
+    "telephone": "01947 600200",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "95 Church Street",
+      "addressLocality": "Whitby",
+      "postalCode": "YO22 4BH",
+      "addressCountry": "UK"
+    },
+    "servesCuisine": ["British", "Seafood", "Brunch"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Top Ribbon -->
+  <div class="top-ribbon">
+    <div class="container ribbon-inner">
+      <span data-i18n="ribbon_status">Open Today: 10:00 – 16:00 · Church Street Cobblestones</span>
+      <span data-i18n="ribbon_call">Direct Call: 01947 600200</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-mark">SY</div>
+        <div>
+          <span class="brand-title">Sanders Yard</span>
+          <span class="brand-sub">Bistro & Courtyard</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#atmosphere" data-i18n="nav_atmosphere">Atmosphere</a></li>
+        <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+        <li><a href="#reviews" data-i18n="nav_reviews">Reviews</a></li>
+        <li><a href="#reserve" class="nav-cta" data-i18n="nav_reserve">Reserve Table</a></li>
+      </ul>
+      <button id="mobile-nav-toggle" class="mobile-toggle-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul class="mobile-drawer-links">
+        <li><a href="#atmosphere" data-i18n="nav_atmosphere">Atmosphere</a></li>
+        <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+        <li><a href="#reserve" data-i18n="nav_reserve">Reserve Table</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <div class="lang-switcher-row">
+          <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+          <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="closeMobileDrawer()"></div>
+
+  <!-- Notice Guarantee Banner -->
+  <div class="notice-banner">
+    <div class="container notice-inner">
+      <span class="notice-gold-pill">100% DIRECT BOOKING</span>
+      <span data-i18n="banner_notice">100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats</span>
+    </div>
+  </div>
+
+  <!-- Editorial Hero -->
+  <header id="hero" class="editorial-hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-pill" data-i18n="hero_pill">Boutique Culinary Sanctuary · Est. Whitby</span>
+        <h1 class="hero-title">A quiet haven of <em>coastal tides</em> & courtyard craft.</h1>
+        <p class="hero-text">Tucked off the historic Church Street stones — where chef-curated North Sea catches, homemade sourdough pastries, and quiet garden mornings slow time down.</p>
+        <div class="chef-signature-box">
+          <span class="chef-sig">Sanders Yard</span>
+          <div class="chef-tag">
+            <strong>Chef Kitchen & Pantry</strong><br>
+            Whitby Old Town, North Yorkshire
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#reserve" class="btn-gold" data-i18n="hero_cta_book">Reserve a Table</a>
+          <a href="#menus" class="btn-outline" data-i18n="hero_cta_menu">View Tasting Menus</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="images/courtyard_tables.jpg" alt="Sunlit cobblestone courtyard" class="hero-photo">
+        <div class="hero-photo-badge">
+          ✦ Heated Al Fresco Yard · Parasols & Ivy
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Heritage Pillars -->
+  <section class="pillars-section">
+    <div class="container badges-grid">
+      <!-- 01 -->
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">01 · YARD</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 21V10a8 8 0 0 1 16 0v11"/>
+              <path d="M9 13c1.5-2 3-1.5 3-4s2-2 3-1"/>
+              <line x1="2" y1="21" x2="22" y2="21"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_1_title">Historic Stone Yard</h3>
+        <p class="badge-desc" data-i18n="pillar_1_desc">Dine under climbing ivy and heated parasols in a secluded stone courtyard.</p>
+      </div>
+      <!-- 02 -->
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">02 · OCEAN</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 12c4-6 11-6 16-2l4-4v12l-4-4c-5 4-12 4-16-2z"/>
+              <circle cx="6" cy="11" r="1" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_2_title">Wild Coastal Catch</h3>
+        <p class="badge-desc" data-i18n="pillar_2_desc">Locally landed Whitby seafood and artisanal Yorkshire cold cuts.</p>
+      </div>
+      <!-- 03 -->
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">03 · BRUNCH</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M5 3l3 7v8M5 18h6M5 3c2.5 0 3 4 3 7H5z"/>
+              <path d="M19 3l-3 7v8M13 18h6M19 3c-2.5 0-3 4-3 7h3z"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_3_title">Cellar & Daily Bakes</h3>
+        <p class="badge-desc" data-i18n="pillar_3_desc">Sommelier wine pairings, prosecco brunch, and homemade cake counter.</p>
+      </div>
+      <!-- 04 -->
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">04 · WELCOME</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <ellipse cx="12" cy="14.5" rx="3.5" ry="2.8"/>
+              <circle cx="8" cy="10" r="1.5"/>
+              <circle cx="16" cy="10" r="1.5"/>
+              <circle cx="12" cy="7.5" r="1.5"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_4_title">Tailored Hospitality</h3>
+        <p class="badge-desc" data-i18n="pillar_4_desc">Thoughtful vegetarian, vegan and gluten-free care with canine treats.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Live Menus -->
+  <section id="menus" class="menus-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Handcrafted Daily · Zero PDF Hassle</div>
+        <h2 class="section-title">The Seasonal Tasting Selection</h2>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active">All-Day Brunch & Seafood</button>
+        <button class="menu-tab-btn">Courtyard Mezze</button>
+        <button class="menu-tab-btn">Artisan Bakery & Cellar</button>
+      </div>
+
+      <div class="menu-card-paper">
+        <div class="menu-grid">
+          <!-- Item 1 -->
+          <div class="dish-item">
+            <div class="dish-line">
+              <span class="dish-name">Whitby Day-Boat Scampi</span>
+              <span class="dish-leader"></span>
+              <span class="dish-price">£16.95</span>
+            </div>
+            <p class="dish-desc">Crisp golden whole-tail langoustine, hand-cut twice-cooked chips, garden pea puree, homemade tartare.</p>
+            <span class="dish-wine-note">✦ Pairing: Crisp Yorkshire Wolds Pale or Chablis</span>
+            <div class="diet-pills">
+              <span class="diet-pill badge-gf">[GF] Available</span>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div class="dish-item">
+            <div class="dish-line">
+              <span class="dish-name">Celebrated Bottomless Brunch</span>
+              <span class="dish-leader"></span>
+              <span class="dish-price">£32.00</span>
+            </div>
+            <p class="dish-desc">90 minutes of free-flowing Italian Prosecco or Peach Bellinis with three chef small savoury plates.</p>
+            <span class="dish-wine-note">✦ Whitby's Favourite Weekend Gathering</span>
+            <div class="diet-pills">
+              <span class="diet-pill badge-v">[V]</span>
+              <span class="diet-pill badge-gf">[GF]</span>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="dish-item">
+            <div class="dish-line">
+              <span class="dish-name">Pan-Seared Sea Bass & Samphire</span>
+              <span class="dish-leader"></span>
+              <span class="dish-price">£18.50</span>
+            </div>
+            <p class="dish-desc">North Sea wild sea bass fillet, coastal marsh samphire, crushed buttered new potatoes, lemon caper emulsion.</p>
+            <span class="dish-wine-note">✦ Pairing: Marlborough Sauvignon Blanc</span>
+            <div class="diet-pills">
+              <span class="diet-pill badge-gf">[GF]</span>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div class="dish-item">
+            <div class="dish-line">
+              <span class="dish-name">Daily Counter Scones & Clotted Cream</span>
+              <span class="dish-leader"></span>
+              <span class="dish-price">£5.25</span>
+            </div>
+            <p class="dish-desc">Warm home-baked fruit or plain scone, Cornish clotted cream, artisan strawberry preserve, Yorkshire tea.</p>
+            <span class="dish-wine-note">✦ Fresh from our morning oven</span>
+            <div class="diet-pills">
+              <span class="diet-pill badge-v">[V]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reserve" class="reserve-section">
+    <div class="container">
+      <div class="reserve-card">
+        <div class="section-header" style="margin-bottom: 24px;">
+          <div class="section-eyebrow">Zero-Commission Direct Channel</div>
+          <h2 class="section-title">Reserve Your Courtyard Experience</h2>
+        </div>
+        <form id="booking-form" onsubmit="handleBooking(event)">
+          <div class="form-grid">
+            <input type="text" class="form-input" placeholder="Full Name" required>
+            <input type="tel" class="form-input" placeholder="Phone Number" required>
+            <input type="date" class="form-input" required>
+          </div>
+          <div style="text-align: center;">
+            <button type="submit" class="btn-gold" style="border:none; cursor:pointer;">Confirm Direct Reservation</button>
+          </div>
+        </form>
+        <div id="booking-success" style="display:none; text-align:center; margin-top:20px; color:var(--accent-gold); font-weight:600;">
+          ✦ Reservation Reference <span id="booking-ref"></span> Generated! We look forward to hosting you.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile Sticky Bar -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:01947600200" class="sticky-call">☎ 01947 600200</a>
+    <a href="#reserve" class="sticky-book" data-i18n="sticky_book">Book Table</a>
+  </div>
+
+  <footer style="text-align:center; padding:32px 0; font-size:12px; color:var(--text-muted); border-top:1px solid var(--border-light);">
+    <p data-i18n="footer_rights">All rights reserved. Crafted for Independent British Culinary Hospitality.</p>
+  </footer>
+
+  <script>
+    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street Cobblestones", "ribbon_call": "Direct Call: 01947 600200", "nav_story": "Our Story", "nav_atmosphere": "Atmosphere", "nav_menus": "Menus", "nav_blackboard": "Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "banner_notice": "100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats", "hero_pill": "Boutique Culinary Sanctuary · Est. Whitby", "hero_quote": "“Where coastal tides meet secluded courtyard craft”", "hero_cta_book": "Reserve a Table", "hero_cta_menu": "View Tasting Menus", "pillar_1_title": "Historic Stone Yard", "pillar_1_desc": "Dine under climbing ivy and heated parasols in a secluded stone courtyard.", "pillar_2_title": "Wild Coastal Catch", "pillar_2_desc": "Locally landed Whitby seafood and artisanal Yorkshire cold cuts.", "pillar_3_title": "Cellar & Daily Bakes", "pillar_3_desc": "Sommelier wine pairings, prosecco brunch, and homemade cake counter.", "pillar_4_title": "Tailored Hospitality", "pillar_4_desc": "Thoughtful vegetarian, vegan and gluten-free care with canine treats.", "sticky_book": "Book Table", "footer_rights": "All rights reserved. Crafted for Independent British Culinary Hospitality."}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 鹅卵石石板街", "ribbon_call": "预订电话：01947 600200", "nav_story": "餐馆故事", "nav_atmosphere": "庭院环境", "nav_menus": "实时菜单", "nav_blackboard": "每日黑板", "nav_reserve": "直订席位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "banner_notice": "100% 官方直订保障 · 免除第三方中介加价 · 随行爱犬常备精选零食", "hero_pill": "独立特色餐饮圣所 · 惠特比", "hero_quote": "“海风潮汐与静谧庭院交融的美食绿洲”", "hero_cta_book": "直订专属坐席", "hero_cta_menu": "浏览当季全量菜单", "pillar_1_title": "历史鹅卵石庭院", "pillar_1_desc": "攀爬常春藤与户外暖炉环绕，在静谧石砌院落中享受惬意美食。", "pillar_2_title": "北海当季野生鲜捕", "pillar_2_desc": "经典惠特比炸海螯虾、野生鲈鱼与约克郡乡村冷切肉盘。", "pillar_3_title": "品酒庄园与手作烘焙", "pillar_3_desc": "侍酒师甄选餐酒、起泡酒早午餐与每日手作招牌蛋糕柜。", "pillar_4_title": "全饮食关怀与爱犬礼遇", "pillar_4_desc": "专属无麸质(GF)、纯素菜单，爱犬常备免费烘焙小零食。", "sticky_book": "立即订桌", "footer_rights": "保留所有权利。专为英国独立餐饮打造的高雅直订体系。"}};
+    function switchLang(lang) {
+      document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.textContent.toLowerCase().includes(lang)));
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][k]) el.textContent = translations[lang][k];
+      });
+      const drawer = document.getElementById("mobile-drawer");
+      if (drawer && drawer.classList.contains("open")) setTimeout(closeMobileDrawer, 200);
+    }
+    function toggleMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      const isOpen = d.classList.contains("open");
+      if (isOpen) { closeMobileDrawer(); } else { d.classList.add("open"); b.classList.add("open"); t.classList.add("active"); }
+    }
+    function closeMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      if (d) d.classList.remove("open");
+      if (b) b.classList.remove("open");
+      if (t) t.classList.remove("active");
+    }
+    function handleBooking(e) {
+      e.preventDefault();
+      document.getElementById("booking-ref").textContent = "SY-" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("booking-success").style.display = "block";
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const d = document.getElementById("mobile-drawer");
+      if (d) d.addEventListener("click", e => { if (e.target.closest("a")) closeMobileDrawer(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobileDrawer(); });
+    });
+    let lastY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const d = document.getElementById("mobile-drawer");
+      if (d && d.classList.contains("open") && Math.abs(window.scrollY - lastY) > 50) closeMobileDrawer();
+      lastY = window.scrollY;
+    }, { passive: true });
+  </script>
+</body>
+</html>

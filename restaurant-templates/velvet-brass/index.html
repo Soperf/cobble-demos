@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Jumble Room · Velvet & Brass Nocturne Snug</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-velvet: #140B0E;
+      --bg-velvet-card: rgba(32, 16, 22, 0.75);
+      --text-silk: #F7EFE9;
+      --text-muted: #A38C8F;
+      --accent-brass: #E0B268;
+      --accent-brass-border: rgba(224, 178, 104, 0.35);
+      --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --shadow-brass: 0 8px 32px rgba(0, 0, 0, 0.6);
+      --radius: 6px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg-velvet);
+      color: var(--text-silk);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* Candlelit Glow Top Ribbon */
+    .candlelight-ribbon {
+      background: #0D0608;
+      border-bottom: 1px solid var(--accent-brass-border);
+      padding: 9px 0;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent-brass);
+    }
+    .ribbon-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Velvet Header */
+    .velvet-nav {
+      background: rgba(20, 11, 14, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--accent-brass-border);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      padding: 16px 0;
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brass-logo {
+      font-family: var(--font-cormorant);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent-brass);
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a:hover { color: var(--accent-brass); }
+    .nav-brass-btn {
+      background: transparent;
+      border: 1px solid var(--accent-brass);
+      color: var(--accent-brass);
+      padding: 8px 18px;
+      border-radius: var(--radius);
+      font-family: var(--font-cormorant);
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .nav-brass-btn:hover {
+      background: var(--accent-brass);
+      color: #140B0E;
+    }
+
+    /* Mobile Toggle */
+    .mobile-toggle-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 38px;
+      height: 38px;
+      justify-content: center;
+      align-items: center;
+      background: rgba(224, 178, 104, 0.1);
+      border: 1px solid var(--accent-brass-border);
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .mobile-toggle-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--accent-brass);
+      transition: all 0.3s;
+    }
+    .mobile-toggle-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-toggle-btn.active span:nth-child(2) { opacity: 0; }
+    .mobile-toggle-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .drawer-backdrop {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(10, 5, 7, 0.75);
+      backdrop-filter: blur(6px);
+      display: none; opacity: 0;
+      transition: opacity 0.28s;
+      z-index: 98;
+    }
+    .drawer-backdrop.open { display: block; opacity: 1; }
+
+    .mobile-drawer {
+      position: absolute; top: 100%; left: 0; width: 100%;
+      background: #140B0E;
+      border-bottom: 2px solid var(--accent-brass);
+      padding: 24px;
+      display: none;
+      z-index: 101;
+    }
+    .mobile-drawer.open { display: block; }
+
+    /* Nocturne Hero */
+    .velvet-hero {
+      padding: 84px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-eyebrow {
+      color: var(--accent-brass);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: var(--font-cormorant);
+      font-size: clamp(38px, 5.2vw, 68px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-brass);
+    }
+    .hero-sub {
+      max-width: 580px;
+      margin: 0 auto 34px;
+      color: var(--text-muted);
+      font-size: 16.5px;
+    }
+    .brass-frame-photo {
+      max-width: 720px;
+      margin: 0 auto;
+      border: 1px solid var(--accent-brass-border);
+      padding: 10px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-brass);
+    }
+    .brass-frame-photo img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+    }
+
+    /* Heritage Pillars in Velvet & Brass */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 54px 0;
+    }
+    .badge-card {
+      background: var(--bg-velvet-card);
+      border: 1px solid var(--accent-brass-border);
+      border-top: 2px solid var(--accent-brass);
+      padding: 22px 18px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .badge-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .badge-index {
+      font-size: 11px;
+      color: var(--accent-brass);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .badge-icon-box {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--accent-brass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-brass);
+    }
+    .badge-icon-box svg { width: 16px; height: 16px; }
+    .badge-title {
+      font-family: var(--font-cormorant);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .badge-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Blackboard Nocturne */
+    .blackboard-box {
+      background: #0E0709;
+      border: 1px dashed var(--accent-brass-border);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin-bottom: 60px;
+    }
+    .dish-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px dotted rgba(224, 178, 104, 0.2);
+    }
+    .dish-name {
+      font-family: var(--font-cormorant);
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .dish-price {
+      color: var(--accent-brass);
+      font-weight: 700;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      background: rgba(20, 11, 14, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--accent-brass);
+      padding: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 97;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-toggle-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      body { padding-bottom: 64px; }
+      .mobile-sticky-bar { display: flex; }
+      .badges-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .badge-card { padding: 12px; }
+      .badge-title { font-size: 14px; }
+      .badge-desc { font-size: 11px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "The Jumble Room (Velvet & Brass)",
+    "image": "images/interior_dining_hearth.jpg",
+    "telephone": "015394 35188",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Langdale Road",
+      "addressLocality": "Grasmere",
+      "postalCode": "LA22 9SU",
+      "addressCountry": "UK"
+    },
+    "servesCuisine": ["Bohemian Bistro", "European", "Wine Bar"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Candlelight Ribbon -->
+  <div class="candlelight-ribbon">
+    <div class="container ribbon-flex">
+      <span data-i18n="ribbon_status">Evening Hearth & Jazz: Open 17:00 – Late</span>
+      <span data-i18n="ribbon_call">Telephone: 015394 35188</span>
+    </div>
+  </div>
+
+  <!-- Velvet Nav -->
+  <nav class="velvet-nav">
+    <div class="container nav-flex">
+      <a href="#hero" class="brass-logo">The Jumble Room</a>
+      <ul class="nav-links">
+        <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+        <li><a href="#blackboard" data-i18n="nav_blackboard">Cellar & Blackboard</a></li>
+        <li><a href="#reserve" class="nav-brass-btn" data-i18n="nav_reserve">Reserve Table</a></li>
+      </ul>
+      <button id="mobile-nav-toggle" class="mobile-toggle-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:18px;">
+        <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+        <li><a href="#blackboard" data-i18n="nav_blackboard">Cellar</a></li>
+        <li><a href="#reserve" data-i18n="nav_reserve">Reserve Table</a></li>
+      </ul>
+      <div style="display:flex; gap:8px;">
+        <button class="lang-btn active" onclick="switchLang('en')" style="background:transparent; border:1px solid var(--accent-brass); color:var(--accent-brass); padding:4px 12px;">EN</button>
+        <button class="lang-btn" onclick="switchLang('zh')" style="background:transparent; border:1px solid var(--accent-brass); color:var(--accent-brass); padding:4px 12px;">中文</button>
+      </div>
+    </div>
+  </nav>
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="closeMobileDrawer()"></div>
+
+  <!-- Notice Banner -->
+  <div style="background:rgba(224, 178, 104, 0.08); border-bottom:1px solid var(--accent-brass-border); padding:10px 0; text-align:center; font-size:12.5px;">
+    <div class="container">
+      <span data-i18n="banner_notice">100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats</span>
+    </div>
+  </div>
+
+  <!-- Nocturne Hero -->
+  <header id="hero" class="velvet-hero">
+    <div class="container">
+      <div class="hero-eyebrow" data-i18n="hero_pill">Candlelit Bohemian Sanctuary · Est. 1992</div>
+      <h1 class="hero-title">Intimate candlelight, <em>slow jazz</em> & honest kitchen craft.</h1>
+      <p class="hero-sub" data-i18n="hero_quote">“Where coastal tides meet secluded courtyard craft”</p>
+      <div class="brass-frame-photo">
+        <img src="images/interior_dining_hearth.jpg" alt="Candlelit hearth and dining room at The Jumble Room">
+      </div>
+    </div>
+  </header>
+
+  <!-- Heritage Pillars -->
+  <section class="container">
+    <div class="badges-grid">
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">01 · HEARTH</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_1_title">Historic Stone Yard</h3>
+        <p class="badge-desc" data-i18n="pillar_1_desc">Dine under climbing ivy and heated parasols in a secluded stone courtyard.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">02 · SPICE</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_2_title">Wild Coastal Catch</h3>
+        <p class="badge-desc" data-i18n="pillar_2_desc">Locally landed Whitby seafood and artisanal Yorkshire cold cuts.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">03 · CELLAR</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 22h8M12 11v11"/></svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_3_title">Cellar & Daily Bakes</h3>
+        <p class="badge-desc" data-i18n="pillar_3_desc">Sommelier wine pairings, prosecco brunch, and homemade cake counter.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-top">
+          <span class="badge-index">04 · SOUL</span>
+          <div class="badge-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+        </div>
+        <h3 class="badge-title" data-i18n="pillar_4_title">Tailored Hospitality</h3>
+        <p class="badge-desc" data-i18n="pillar_4_desc">Thoughtful vegetarian, vegan and gluten-free care with canine treats.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blackboard Specials -->
+  <section id="blackboard" class="container">
+    <div class="blackboard-box">
+      <div style="text-align:center; margin-bottom:28px;">
+        <span style="color:var(--accent-brass); font-size:12px; letter-spacing:0.18em; text-transform:uppercase;">Evening Blackboard</span>
+        <h2 style="font-family:var(--font-cormorant); font-size:32px;">Chef's Nightly Cuts & Cellar</h2>
+      </div>
+      <div class="dish-row">
+        <div>
+          <div class="dish-name">Slow-Braised Baharat Spiced Lamb</div>
+          <div style="font-size:13px; color:var(--text-muted);">Pomegranate molasses, tahini yogurt, roasted pine nuts.</div>
+        </div>
+        <div class="dish-price">£26.50</div>
+      </div>
+      <div class="dish-row">
+        <div>
+          <div class="dish-name">Pan-Roasted Halibut & King Scallops</div>
+          <div style="font-size:13px; color:var(--text-muted);">Celeriac puree, crispy pancetta, wild mushroom reduction.</div>
+        </div>
+        <div class="dish-price">£28.00</div>
+      </div>
+      <div class="dish-row">
+        <div>
+          <div class="dish-name">Signature Warm Gingerbread Pudding</div>
+          <div style="font-size:13px; color:var(--text-muted);">Hot butterscotch sauce, homemade English Lakes clotted cream ice cream.</div>
+        </div>
+        <div class="dish-price">£9.50</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation -->
+  <section id="reserve" class="container" style="text-align:center; padding-bottom:72px;">
+    <div style="background:var(--bg-velvet-card); border:1px solid var(--accent-brass-border); border-radius:var(--radius); padding:40px;">
+      <h2 style="font-family:var(--font-cormorant); font-size:34px; margin-bottom:12px;">Reserve an Evening Booth</h2>
+      <p style="color:var(--text-muted); font-size:14px; margin-bottom:24px;">Candlelit tables book up weeks in advance. Direct booking avoids intermediary table-holding fees.</p>
+      <a href="tel:01539435188" class="nav-brass-btn" style="display:inline-block; font-size:16px; padding:12px 32px;" data-i18n="hero_cta_book">Call to Confirm: 015394 35188</a>
+    </div>
+  </section>
+
+  <!-- Mobile Sticky Bar -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:01539435188" style="color:var(--accent-brass);">☎ 015394 35188</a>
+    <a href="#reserve" style="background:var(--accent-brass); color:#140B0E; padding:8px 16px; border-radius:4px; font-weight:700;" data-i18n="sticky_book">Reserve Table</a>
+  </div>
+
+  <footer style="text-align:center; padding:32px 0; font-size:12px; color:var(--text-muted); border-top:1px solid var(--accent-brass-border);">
+    <p data-i18n="footer_rights">All rights reserved. Crafted for Independent British Culinary Hospitality.</p>
+  </footer>
+
+  <script>
+    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street Cobblestones", "ribbon_call": "Direct Call: 01947 600200", "nav_story": "Our Story", "nav_atmosphere": "Atmosphere", "nav_menus": "Menus", "nav_blackboard": "Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "banner_notice": "100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats", "hero_pill": "Boutique Culinary Sanctuary · Est. Whitby", "hero_quote": "“Where coastal tides meet secluded courtyard craft”", "hero_cta_book": "Reserve a Table", "hero_cta_menu": "View Tasting Menus", "pillar_1_title": "Historic Stone Yard", "pillar_1_desc": "Dine under climbing ivy and heated parasols in a secluded stone courtyard.", "pillar_2_title": "Wild Coastal Catch", "pillar_2_desc": "Locally landed Whitby seafood and artisanal Yorkshire cold cuts.", "pillar_3_title": "Cellar & Daily Bakes", "pillar_3_desc": "Sommelier wine pairings, prosecco brunch, and homemade cake counter.", "pillar_4_title": "Tailored Hospitality", "pillar_4_desc": "Thoughtful vegetarian, vegan and gluten-free care with canine treats.", "sticky_book": "Book Table", "footer_rights": "All rights reserved. Crafted for Independent British Culinary Hospitality."}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 鹅卵石石板街", "ribbon_call": "预订电话：01947 600200", "nav_story": "餐馆故事", "nav_atmosphere": "庭院环境", "nav_menus": "实时菜单", "nav_blackboard": "每日黑板", "nav_reserve": "直订席位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "banner_notice": "100% 官方直订保障 · 免除第三方中介加价 · 随行爱犬常备精选零食", "hero_pill": "独立特色餐饮圣所 · 惠特比", "hero_quote": "“海风潮汐与静谧庭院交融的美食绿洲”", "hero_cta_book": "直订专属坐席", "hero_cta_menu": "浏览当季全量菜单", "pillar_1_title": "历史鹅卵石庭院", "pillar_1_desc": "攀爬常春藤与户外暖炉环绕，在静谧石砌院落中享受惬意美食。", "pillar_2_title": "北海当季野生鲜捕", "pillar_2_desc": "经典惠特比炸海螯虾、野生鲈鱼与约克郡乡村冷切肉盘。", "pillar_3_title": "品酒庄园与手作烘焙", "pillar_3_desc": "侍酒师甄选餐酒、起泡酒早午餐与每日手作招牌蛋糕柜。", "pillar_4_title": "全饮食关怀与爱犬礼遇", "pillar_4_desc": "专属无麸质(GF)、纯素菜单，爱犬常备免费烘焙小零食。", "sticky_book": "立即订桌", "footer_rights": "保留所有权利。专为英国独立餐饮打造的高雅直订体系。"}};
+    function switchLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][k]) el.textContent = translations[lang][k];
+      });
+      closeMobileDrawer();
+    }
+    function toggleMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      if (d.classList.contains("open")) { closeMobileDrawer(); } else { d.classList.add("open"); b.classList.add("open"); t.classList.add("active"); }
+    }
+    function closeMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      if (d) d.classList.remove("open");
+      if (b) b.classList.remove("open");
+      if (t) t.classList.remove("active");
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const d = document.getElementById("mobile-drawer");
+      if (d) d.addEventListener("click", e => { if (e.target.closest("a")) closeMobileDrawer(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobileDrawer(); });
+    });
+  </script>
+</body>
+</html>

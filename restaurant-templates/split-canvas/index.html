@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanders Yard Brasserie · Split-Canvas Contemporary Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D1217;
+      --bg-light: #F4F3EF;
+      --text-dark: #FFFFFF;
+      --text-light: #161A1E;
+      --text-muted: #8E9BA7;
+      --accent-terracotta: #C06C4C;
+      --accent-gold: #E5A855;
+      --font-display: 'Cinzel', serif;
+      --font-sans: 'Outfit', sans-serif;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      overflow-x: clip;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Split-Canvas Architecture */
+    .split-canvas-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Left Pane (Sticky 38%) */
+    .split-left-pane {
+      width: 38%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      background: #0A0E12;
+      border-right: 1px solid var(--border-subtle);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+    }
+    .left-brand-mark {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      color: var(--accent-gold);
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+    .left-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .left-sub {
+      color: var(--accent-terracotta);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .left-status-box {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 2px solid var(--accent-gold);
+      padding: 12px 16px;
+      font-size: 13px;
+      margin-bottom: 32px;
+    }
+    .left-booking-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .btn-terracotta {
+      background: var(--accent-terracotta);
+      color: #FFFFFF;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+    .btn-terracotta:hover {
+      background: #D57D5C;
+    }
+
+    /* Right Pane (Scrollable 62%) */
+    .split-right-pane {
+      width: 62%;
+      background: var(--bg-dark);
+      padding: 48px;
+    }
+    .right-hero-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 40px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Heritage Pillars in Bento Style */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .badge-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-top: 2px solid var(--accent-terracotta);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .badge-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .badge-index {
+      font-size: 11px;
+      color: var(--accent-terracotta);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .badge-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(192, 108, 76, 0.15);
+      color: var(--accent-terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .badge-icon-box svg { width: 16px; height: 16px; }
+    .badge-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .badge-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Tasting Menu List */
+    .menu-section-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+    }
+    .menu-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .menu-item-name {
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .menu-item-price {
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    .menu-item-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Mobile Drawer & Sticky Bar */
+    .mobile-header {
+      display: none;
+      padding: 16px 20px;
+      background: #0A0E12;
+      border-bottom: 1px solid var(--border-subtle);
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .mobile-toggle-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .mobile-toggle-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--text-dark);
+      transition: all 0.3s;
+    }
+    .mobile-toggle-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-toggle-btn.active span:nth-child(2) { opacity: 0; }
+    .mobile-toggle-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .drawer-backdrop {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      display: none; opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 98;
+    }
+    .drawer-backdrop.open { display: block; opacity: 1; }
+
+    .mobile-drawer {
+      position: fixed; top: 60px; left: 0; width: 100%;
+      background: #0A0E12;
+      border-bottom: 2px solid var(--accent-terracotta);
+      padding: 24px;
+      display: none;
+      z-index: 101;
+    }
+    .mobile-drawer.open { display: block; }
+
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      background: rgba(10, 14, 18, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--accent-terracotta);
+      padding: 10px 18px;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 97;
+    }
+
+    @media (max-width: 992px) {
+      .split-canvas-wrapper { flex-direction: column; }
+      .split-left-pane { width: 100%; height: auto; position: static; padding: 24px; }
+      .split-right-pane { width: 100%; padding: 24px; }
+      .mobile-header { display: flex; }
+      body { padding-bottom: 64px; }
+      .mobile-sticky-bar { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .badges-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .badge-card { padding: 12px; }
+      .badge-title { font-size: 13.5px; }
+      .badge-desc { font-size: 11px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sanders Yard Brasserie (Split-Canvas)",
+    "image": "images/courtyard_tables.jpg",
+    "telephone": "01947 600200",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "95 Church Street",
+      "addressLocality": "Whitby",
+      "postalCode": "YO22 4BH",
+      "addressCountry": "UK"
+    },
+    "servesCuisine": ["European", "Modern British", "Seafood"]
+  }
+  </script>
+</head>
+<body>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <span style="font-family:var(--font-display); font-weight:700;">Sanders Yard</span>
+    <button id="mobile-nav-toggle" class="mobile-toggle-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer">
+    <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:16px;">
+      <li><a href="#story" data-i18n="nav_story">Our Story</a></li>
+      <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+      <li><a href="#reserve" data-i18n="nav_reserve">Reserve Table</a></li>
+    </ul>
+    <div style="display:flex; gap:8px;">
+      <button class="lang-btn active" onclick="switchLang('en')" style="background:transparent; border:1px solid #FFF; color:#FFF; padding:4px 10px;">EN</button>
+      <button class="lang-btn" onclick="switchLang('zh')" style="background:transparent; border:1px solid #FFF; color:#FFF; padding:4px 10px;">中文</button>
+    </div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="closeMobileDrawer()"></div>
+
+  <!-- Split Canvas Wrapper -->
+  <div class="split-canvas-wrapper">
+    <!-- Left Pane -->
+    <aside class="split-left-pane">
+      <div>
+        <div class="left-brand-mark">SY</div>
+        <h1 class="left-title">Sanders Yard</h1>
+        <div class="left-sub">Brasserie & Courtyard · Whitby</div>
+        <div class="left-status-box">
+          ✦ Today's Kitchen: 10:00 – 16:00<br>
+          Direct line: 01947 600200
+        </div>
+        <div id="reserve" class="left-booking-card">
+          <div style="font-size:12px; letter-spacing:0.1em; color:var(--accent-gold); margin-bottom:8px; text-transform:uppercase;">Direct Reservation</div>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Zero middleman fees. Priority courtyard seating.</p>
+          <button class="btn-terracotta" onclick="alert('Table Requested! Direct Confirmation: SY-8821')" data-i18n="hero_cta_book">Reserve Table</button>
+        </div>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted);">
+        <p data-i18n="banner_notice">100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats</p>
+      </div>
+    </aside>
+
+    <!-- Right Pane -->
+    <main class="split-right-pane">
+      <img src="images/courtyard_hero.jpg" alt="Atmospheric courtyard dining" class="right-hero-img">
+
+      <!-- Heritage Bento -->
+      <div class="badges-grid">
+        <div class="badge-card">
+          <div class="badge-card-top">
+            <span class="badge-index">01 · YARD</span>
+            <div class="badge-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 21V10a8 8 0 0 1 16 0v11"/></svg>
+            </div>
+          </div>
+          <h3 class="badge-title" data-i18n="pillar_1_title">Historic Stone Yard</h3>
+          <p class="badge-desc" data-i18n="pillar_1_desc">Dine under climbing ivy and heated parasols in a secluded stone courtyard.</p>
+        </div>
+        <div class="badge-card">
+          <div class="badge-card-top">
+            <span class="badge-index">02 · OCEAN</span>
+            <div class="badge-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="8"/></svg>
+            </div>
+          </div>
+          <h3 class="badge-title" data-i18n="pillar_2_title">Wild Coastal Catch</h3>
+          <p class="badge-desc" data-i18n="pillar_2_desc">Locally landed Whitby seafood and artisanal Yorkshire cold cuts.</p>
+        </div>
+      </div>
+
+      <!-- Menu Stream -->
+      <section id="menus">
+        <h2 class="menu-section-title" data-i18n="nav_menus">Current Tasting Stream</h2>
+        <div class="menu-item-row">
+          <div>
+            <div class="menu-item-name">Whitby Wild Scampi</div>
+            <div class="menu-item-desc">Hand-shelled langoustines, twice-cooked dripping chips, homemade tartare.</div>
+          </div>
+          <div class="menu-item-price">£16.95</div>
+        </div>
+        <div class="menu-item-row">
+          <div>
+            <div class="menu-item-name">Free-Flowing Prosecco Brunch</div>
+            <div class="menu-item-desc">90 minutes of Italian Prosecco with three chef savory tapas.</div>
+          </div>
+          <div class="menu-item-price">£32.00</div>
+        </div>
+        <div class="menu-item-row">
+          <div>
+            <div class="menu-item-name">Greek Keftedes & Tzatziki</div>
+            <div class="menu-item-desc">Spiced lamb meatballs, fresh mint, warm pitta, garlic cucumber dip.</div>
+          </div>
+          <div class="menu-item-price">£13.50</div>
+        </div>
+      </section>
+
+      <footer style="margin-top:64px; font-size:12px; color:var(--text-muted); border-top:1px solid var(--border-subtle); padding-top:24px;">
+        <p data-i18n="footer_rights">All rights reserved. Crafted for Independent British Culinary Hospitality.</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Mobile Sticky Bar -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:01947600200">☎ 01947 600200</a>
+    <a href="#reserve" style="background:var(--accent-terracotta); color:#FFF; padding:8px 16px; border-radius:4px; font-weight:600;" data-i18n="sticky_book">Book Table</a>
+  </div>
+
+  <script>
+    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street Cobblestones", "ribbon_call": "Direct Call: 01947 600200", "nav_story": "Our Story", "nav_atmosphere": "Atmosphere", "nav_menus": "Menus", "nav_blackboard": "Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "banner_notice": "100% Direct Booking Guarantee · No OTA markups · Dogs welcomed with treats", "hero_pill": "Boutique Culinary Sanctuary · Est. Whitby", "hero_quote": "“Where coastal tides meet secluded courtyard craft”", "hero_cta_book": "Reserve a Table", "hero_cta_menu": "View Tasting Menus", "pillar_1_title": "Historic Stone Yard", "pillar_1_desc": "Dine under climbing ivy and heated parasols in a secluded stone courtyard.", "pillar_2_title": "Wild Coastal Catch", "pillar_2_desc": "Locally landed Whitby seafood and artisanal Yorkshire cold cuts.", "pillar_3_title": "Cellar & Daily Bakes", "pillar_3_desc": "Sommelier wine pairings, prosecco brunch, and homemade cake counter.", "pillar_4_title": "Tailored Hospitality", "pillar_4_desc": "Thoughtful vegetarian, vegan and gluten-free care with canine treats.", "sticky_book": "Book Table", "footer_rights": "All rights reserved. Crafted for Independent British Culinary Hospitality."}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 鹅卵石石板街", "ribbon_call": "预订电话：01947 600200", "nav_story": "餐馆故事", "nav_atmosphere": "庭院环境", "nav_menus": "实时菜单", "nav_blackboard": "每日黑板", "nav_reserve": "直订席位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "banner_notice": "100% 官方直订保障 · 免除第三方中介加价 · 随行爱犬常备精选零食", "hero_pill": "独立特色餐饮圣所 · 惠特比", "hero_quote": "“海风潮汐与静谧庭院交融的美食绿洲”", "hero_cta_book": "直订专属坐席", "hero_cta_menu": "浏览当季全量菜单", "pillar_1_title": "历史鹅卵石庭院", "pillar_1_desc": "攀爬常春藤与户外暖炉环绕，在静谧石砌院落中享受惬意美食。", "pillar_2_title": "北海当季野生鲜捕", "pillar_2_desc": "经典惠特比炸海螯虾、野生鲈鱼与约克郡乡村冷切肉盘。", "pillar_3_title": "品酒庄园与手作烘焙", "pillar_3_desc": "侍酒师甄选餐酒、起泡酒早午餐与每日手作招牌蛋糕柜。", "pillar_4_title": "全饮食关怀与爱犬礼遇", "pillar_4_desc": "专属无麸质(GF)、纯素菜单，爱犬常备免费烘焙小零食。", "sticky_book": "立即订桌", "footer_rights": "保留所有权利。专为英国独立餐饮打造的高雅直订体系。"}};
+    function switchLang(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][k]) el.textContent = translations[lang][k];
+      });
+      closeMobileDrawer();
+    }
+    function toggleMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      if (d.classList.contains("open")) { closeMobileDrawer(); } else { d.classList.add("open"); b.classList.add("open"); t.classList.add("active"); }
+    }
+    function closeMobileDrawer() {
+      const d = document.getElementById("mobile-drawer");
+      const b = document.getElementById("drawer-backdrop");
+      const t = document.getElementById("mobile-nav-toggle");
+      if (d) d.classList.remove("open");
+      if (b) b.classList.remove("open");
+      if (t) t.classList.remove("active");
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const d = document.getElementById("mobile-drawer");
+      if (d) d.addEventListener("click", e => { if (e.target.closest("a")) closeMobileDrawer(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape") closeMobileDrawer(); });
+    });
+  </script>
+</body>
+</html>
