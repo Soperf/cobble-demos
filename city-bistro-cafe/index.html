@@ -1,0 +1,3320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+  @author: xiaopeng.fxp
+  @date: 2026-09-28
+  城屿·食光 | 城市主题融合料理与精品咖啡小馆
+  City Oasis Bistro & Coffee Lab
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>城屿·食光 | City Oasis Bistro & Café - 城市主题餐厅与咖啡小馆</title>
+  <meta name="description" content="城屿·食光 - 隐于城市快节奏里的街角小馆。白天是微批次精品手冲咖啡与阳光早午餐，入夜是私房融合料理、自然酒与壁炉微醺。">
+  <meta property="og:title" content="城屿·食光 | City Oasis Bistro & Café">
+  <meta property="og:description" content="在城市的快节奏里，慢享一隅烟火与特调咖啡香。">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e06d53'/%3E%3Cpath d='M10 20c0 3 3 5 6 5s6-2 6-5V10H10v10z' fill='%23fff'/%3E%3Cpath d='M22 12h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+
+  <!-- GSAP 3.12.5 & ScrollTrigger (Finesse Motion Engine) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "城屿·食光 (City Oasis Bistro & Café)",
+    "image": "images/hero_bistro_main.jpg",
+    "description": "城市街角融合料理与精品咖啡小馆，提供全天候手冲咖啡、健康早午餐、主厨季节融合料理及自然酒。",
+    "servesCuisine": ["Bistro", "Coffee", "Brunch", "European Fusion"],
+    "priceRange": "￥￥",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "绿荫路 88 号街角创意园区 A1",
+      "addressLocality": "城市中心",
+      "addressCountry": "CN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "22:30"
+      }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "街角露台", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "宠物友好", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "单车驿站", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "微批次SOE", "value": true }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & SYSTEM VARIABLES
+       ========================================================================== */
+    :root {
+      --terracotta: #E06D53;
+      --terracotta-dark: #C45239;
+      --terracotta-light: #FBF0ED;
+      --coffee-amber: #D4A373;
+      --paper-cream: #FBF9F5;
+      --paper-card: #FFFFFF;
+      --midnight: #1E293B;
+      --midnight-soft: #334155;
+      --sage-olive: #606C38;
+      --sage-light: #F2F5EB;
+      --text-muted: #64748B;
+      --text-light: #94A3B8;
+      --border-line: rgba(30, 41, 59, 0.08);
+      --border-accent: rgba(224, 109, 83, 0.25);
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(30, 41, 59, 0.04);
+      --shadow-md: 0 10px 30px rgba(30, 41, 59, 0.08);
+      --shadow-lg: 0 20px 45px rgba(224, 109, 83, 0.12);
+      
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography Utilities */
+    .serif-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+      background: var(--terracotta-light);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(251, 249, 245, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-line);
+      transition: var(--transition);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--terracotta);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--midnight);
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--midnight-soft);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--terracotta);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--terracotta);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--sage-olive);
+      background: var(--sage-light);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage-olive);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(96, 108, 56, 0.4); }
+      70% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(96, 108, 56, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(96, 108, 56, 0); }
+    }
+
+    .cart-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: #fff;
+      border: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--midnight);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cart-btn:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      box-shadow: 0 2px 6px rgba(224, 109, 83, 0.4);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .cart-badge.bounce {
+      transform: scale(1.35);
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.05);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-full);
+      padding: 3px 6px;
+      gap: 3px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      color: var(--midnight-soft);
+      line-height: 1;
+      font-size: 0.76rem;
+      transition: var(--transition);
+    }
+
+    .lang-btn:hover {
+      color: var(--terracotta);
+    }
+
+    .lang-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(224, 109, 83, 0.35);
+    }
+
+    .lang-divider {
+      color: var(--text-light);
+      font-size: 0.72rem;
+      user-select: none;
+    }
+
+    .btn-reserve {
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(224, 109, 83, 0.3);
+      white-space: nowrap;
+    }
+
+    .btn-reserve:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(224, 109, 83, 0.4);
+    }
+
+    .hamburger-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--border-line);
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--midnight);
+      transition: var(--transition);
+    }
+
+    .hamburger-btn.is-active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger-btn.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.is-active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 80px;
+      right: -100%;
+      width: 310px;
+      max-width: 92vw;
+      height: calc(100vh - 80px);
+      background: #fff;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      padding: 28px 24px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: var(--transition);
+      z-index: 99;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.is-open {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--midnight);
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-line);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      margin-top: auto;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .mobile-lang-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+    }
+
+    .mobile-lang-pills {
+      display: flex;
+      gap: 6px;
+      background: rgba(30, 41, 59, 0.05);
+      border-radius: var(--radius-full);
+      padding: 4px;
+    }
+
+    .mobile-lang-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+      min-height: 36px;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s, color 0.2s;
+    }
+
+    .mobile-lang-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(224, 109, 83, 0.3);
+    }
+
+    .mobile-lang-btn.changing {
+      transform: scale(0.92);
+      opacity: 0.8;
+    }
+
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 80px 0 0 0;
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 98;
+    }
+
+    .mobile-drawer-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (FOODHUB LIVELY ASYMMETRIC INSPIRATION)
+       ========================================================================== */
+    .hero-section {
+      padding: 40px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title em {
+      color: var(--terracotta);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--terracotta);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--midnight);
+      border: 1px solid var(--border-line);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--coffee-amber);
+      color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    .hero-highlights {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlight-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--terracotta-light);
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .highlight-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Asymmetric Visual Composition (Right Column) */
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-main-card {
+      position: relative;
+      width: 340px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 6px solid #fff;
+      z-index: 2;
+      transform: rotate(-2deg);
+      transition: var(--transition);
+    }
+
+    .hero-main-card:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .hero-main-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .hero-sub-card {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 210px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 5px solid #fff;
+      z-index: 3;
+      transform: rotate(4deg);
+      transition: var(--transition);
+    }
+
+    .hero-sub-card:hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    .hero-sub-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Floating Badges & Speech Bubbles (Foodhub Inspired) */
+    .floating-badge {
+      position: absolute;
+      background: #fff;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 4;
+      animation: float 4s ease-in-out infinite;
+      border: 1px solid rgba(224, 109, 83, 0.15);
+      white-space: nowrap;
+    }
+
+    .badge-top {
+      top: 40px;
+      left: 10px;
+      animation-delay: 0s;
+    }
+
+    .badge-bottom {
+      bottom: 40px;
+      right: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .badge-icon {
+      font-size: 1.1rem;
+    }
+
+    .badge-info strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .badge-info span {
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+
+    /* Decorative Geometric Rings */
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px dashed rgba(212, 163, 115, 0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ring-1 {
+      width: 440px;
+      height: 440px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring-2 {
+      width: 120px;
+      height: 120px;
+      border: 3px solid rgba(224, 109, 83, 0.2);
+      bottom: 20px;
+      left: 20px;
+    }
+
+    /* ==========================================================================
+       HERITAGE & STORY SECTION
+       ========================================================================== */
+    .story-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-image-wrap {
+      position: relative;
+    }
+
+    .story-img {
+      border-radius: var(--radius-lg);
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      border: 4px solid #fff;
+    }
+
+    .exp-years {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .exp-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .story-content .serif-title {
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      margin-bottom: 24px;
+    }
+
+    .story-lead {
+      font-size: 1.15rem;
+      color: var(--midnight);
+      font-weight: 500;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .story-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .founder-signature {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .chef-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--terracotta);
+    }
+
+    .founder-meta h4 {
+      font-size: 1rem;
+      color: var(--midnight);
+    }
+
+    .founder-meta p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       01-05 URBAN PILLARS SECTION (FOODHUB SERVICES CARD REIMAGINED)
+       ========================================================================== */
+    .pillars-section {
+      padding: 90px 0;
+      background: var(--paper-cream);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header .serif-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: #fff;
+      padding: 30px 22px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-line);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--terracotta);
+    }
+
+    .pillar-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(224, 109, 83, 0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover .pillar-num {
+      color: var(--terracotta);
+    }
+
+    .pillar-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--midnight);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .pillar-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       MENU SECTION (5-TAB FILTER, ZERO-PDF, CART INTEGRATION)
+       ========================================================================== */
+    .menu-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+    }
+
+    /* Menu Filter Tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+      background: var(--paper-cream);
+      border: 1px solid var(--border-line);
+    }
+
+    .tab-btn:hover {
+      color: var(--terracotta);
+      border-color: var(--border-accent);
+    }
+
+    .tab-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      border-color: var(--terracotta);
+      box-shadow: 0 4px 14px rgba(224, 109, 83, 0.3);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--paper-cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-line);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      white-space: nowrap;
+    }
+
+    .product-price small {
+      font-size: 0.82rem;
+      margin-right: 2px;
+    }
+
+    .product-ingredients {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-line);
+    }
+
+    .flavor-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--coffee-amber);
+      background: rgba(212, 163, 115, 0.12);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--midnight);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--terracotta);
+    }
+
+    /* ==========================================================================
+       CART DRAWER (INTERACTIVE FLYOUT)
+       ========================================================================== */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.is-open {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-drawer-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--midnight);
+    }
+
+    .btn-close-cart {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-close-cart:hover {
+      background: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    .cart-items-container {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--midnight);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      background: var(--paper-cream);
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .qty-btn:hover {
+      background: var(--terracotta);
+      color: #fff;
+    }
+
+    .qty-number {
+      font-size: 0.85rem;
+      font-weight: 600;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-line);
+      background: var(--paper-cream);
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .cart-subtotal-row .total-amount {
+      color: var(--terracotta);
+      font-size: 1.35rem;
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-checkout:hover {
+      background: var(--terracotta-dark);
+    }
+
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .cart-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==========================================================================
+       TABLE RESERVATION MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      padding: 20px;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      background: #fff;
+      width: 100%;
+      max-width: 540px;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .modal-overlay.is-open .modal-container {
+      transform: translateY(0);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+    }
+
+    .btn-close-modal:hover {
+      background: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--midnight);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--midnight);
+      background: var(--paper-cream);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--terracotta);
+      background: #fff;
+    }
+
+    .booking-success-box {
+      display: none;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .booking-success-box.is-visible {
+      display: block;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--sage-light);
+      color: var(--sage-olive);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 16px;
+    }
+
+    /* ==========================================================================
+       REVIEWS / TESTIMONIALS SECTION
+       ========================================================================== */
+    .reviews-section {
+      padding: 90px 0;
+      background: var(--paper-cream);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 32px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .rating-stars {
+      color: #F59E0B;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .review-quote {
+      font-size: 0.96rem;
+      color: var(--midnight-soft);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--terracotta-light);
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .reviewer-name h4 {
+      font-size: 0.92rem;
+      color: var(--midnight);
+    }
+
+    .reviewer-name span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       LOCATION & URBAN GUIDE
+       ========================================================================== */
+    .location-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .location-card {
+      background: var(--paper-cream);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-line);
+    }
+
+    .location-card .serif-title {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .location-desc {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 0.98rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--midnight);
+    }
+
+    .info-text span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .location-image-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 420px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .location-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--midnight);
+      color: #fff;
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .brand-title {
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .footer-desc {
+      color: var(--text-light);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      font-size: 0.86rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--terracotta);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    /* Sticky Mobile Booking Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-line);
+      padding: 12px 20px;
+      z-index: 90;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (FINESSE STANDARDS)
+       ========================================================================== */
+    @media (max-width: 1180px) {
+      .nav-menu {
+        gap: 18px;
+      }
+      .status-badge {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .story-grid, .location-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      /* Tablet Header Optimization (prevents wrapping at 964px) */
+      .nav-menu, .status-badge {
+        display: none;
+      }
+      .hamburger-btn {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .btn-reserve {
+        display: none;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-tabs {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 4px 4px 12px;
+        margin-bottom: 32px;
+        justify-content: flex-start;
+      }
+      .menu-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-btn {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        white-space: nowrap;
+        padding: 9px 18px;
+        font-size: 0.88rem;
+      }
+      .hero-section {
+        padding: 24px 0 60px;
+      }
+      .hero-visual {
+        min-height: 420px;
+      }
+      .hero-main-card {
+        width: 270px;
+      }
+      .hero-main-card img {
+        height: 340px;
+      }
+      .hero-sub-card {
+        width: 160px;
+      }
+      .hero-sub-card img {
+        height: 140px;
+      }
+      .ring-1 {
+        width: 320px;
+        height: 320px;
+      }
+      .mobile-sticky-bar {
+        display: flex;
+      }
+      body {
+        padding-bottom: 76px;
+      }
+      .site-footer {
+        padding: 42px 0 24px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 20px;
+        margin-bottom: 26px;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+      .footer-brand .brand-title {
+        margin-bottom: 8px;
+        font-size: 1.25rem;
+      }
+      .footer-desc {
+        max-width: 100%;
+        margin-bottom: 0;
+        font-size: 0.84rem;
+        line-height: 1.6;
+      }
+      .footer-col h4 {
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
+      .footer-col:nth-child(4) {
+        grid-column: 1 / -1;
+      }
+      .footer-links {
+        gap: 8px;
+      }
+      .footer-links a {
+        font-size: 0.84rem;
+      }
+      .footer-bottom {
+        padding-top: 20px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* 375px - 430px Mobile Precision Optimization */
+    @media (max-width: 480px) {
+      .site-header {
+        height: 68px;
+      }
+      .nav-wrapper {
+        height: 68px;
+        padding: 0 12px;
+        gap: 6px;
+      }
+      .brand-logo {
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .brand-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-sm);
+      }
+      .brand-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .brand-title span {
+        font-size: 0.58rem;
+        letter-spacing: 0.04em;
+      }
+      .header-actions {
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .lang-switcher {
+        padding: 2px 4px;
+        gap: 2px;
+        font-size: 0.72rem;
+      }
+      .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.72rem;
+      }
+      .cart-btn, .hamburger-btn {
+        width: 38px;
+        height: 38px;
+      }
+      .hero-visual {
+        min-height: 330px;
+        width: 100%;
+        overflow: hidden;
+      }
+      .hero-main-card {
+        width: 220px;
+        transform: rotate(-1.5deg);
+      }
+      .hero-main-card img {
+        height: 270px;
+      }
+      .hero-sub-card {
+        width: 130px;
+        bottom: 12px;
+        right: 12px;
+        transform: rotate(2deg);
+      }
+      .hero-sub-card img {
+        height: 110px;
+      }
+      .floating-badge {
+        padding: 8px 12px;
+        max-width: calc(100% - 24px);
+      }
+      .badge-top {
+        top: 10px;
+        left: 10px;
+      }
+      .badge-bottom {
+        bottom: 10px;
+        right: 10px;
+      }
+      .ring-1 {
+        width: 240px;
+        height: 240px;
+        opacity: 0.5;
+      }
+      .ring-2 {
+        width: 290px;
+        height: 290px;
+        opacity: 0.35;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .cart-drawer {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 20px 16px 28px;
+      }
+      .cart-drawer-header {
+        position: relative;
+        padding-top: 12px;
+      }
+      .cart-drawer-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 4px;
+        background: var(--border-line);
+        border-radius: 2px;
+      }
+      .btn-close-cart {
+        min-width: 44px;
+        min-height: 44px;
+      }
+      .mobile-sticky-bar {
+        padding: 10px 14px;
+      }
+    }
+
+    /* ==========================================================================
+       FINESSE UI & GSAP MOTION STYLES (WCAG 2.1 AA)
+       ========================================================================== */
+    .site-header {
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 4px 20px rgba(30, 41, 59, 0.04);
+    }
+
+    .product-img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.04);
+    }
+
+    .form-control:focus {
+      border-color: var(--terracotta);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(224, 109, 83, 0.16);
+    }
+
+    /* GSAP Ready Staging */
+    html.gsap-ready .hero-left,
+    html.gsap-ready .hero-visual,
+    html.gsap-ready .story-content,
+    html.gsap-ready .story-image-wrap,
+    html.gsap-ready .pillar-card,
+    html.gsap-ready .product-card,
+    html.gsap-ready .review-card,
+    html.gsap-ready .location-card,
+    html.gsap-ready .location-image-wrap {
+      will-change: transform, opacity;
+    }
+
+    /* WCAG 2.1 AA Reduced Motion Protection */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-main-card,
+      .hero-sub-card,
+      .floating-badge {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo" aria-label="返回首页">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+        </div>
+        <div class="brand-title">
+          城屿·食光
+          <span>City Oasis Bistro</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active" data-i18n="nav_home">首页</a></li>
+        <li><a href="#story" class="nav-link" data-i18n="nav_story">故事</a></li>
+        <li><a href="#pillars" class="nav-link" data-i18n="nav_pillars">城市印记</a></li>
+        <li><a href="#menu" class="nav-link" data-i18n="nav_menu">当季餐单</a></li>
+        <li><a href="#reviews" class="nav-link" data-i18n="nav_reviews">口碑评价</a></li>
+        <li><a href="#location" class="nav-link" data-i18n="nav_location">街角坐标</a></li>
+      </ul>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span data-i18n="nav_status_open">营业中 09:00 - 22:30</span>
+        </div>
+
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn active" data-lang="zh" onclick="setLanguage('zh')">中</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <button class="cart-btn" id="open-cart-btn" aria-label="查看点单车">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+
+        <button class="btn-reserve" onclick="openBookingModal()" data-i18n="nav_reserve_btn">预订小桌</button>
+
+        <button class="hamburger-btn" id="mobile-toggle" aria-label="打开手机菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="status-badge" style="display:inline-flex; width:fit-content;">
+      <span class="status-dot"></span>
+      <span data-i18n="nav_status_open">营业中 09:00 - 22:30</span>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_home">首页 Home</a></li>
+      <li><a href="#story" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_story">小馆故事 Story</a></li>
+      <li><a href="#pillars" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_pillars">城市印记 Features</a></li>
+      <li><a href="#menu" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_menu">当季餐单 Menu</a></li>
+      <li><a href="#reviews" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_reviews">食客口碑 Reviews</a></li>
+      <li><a href="#location" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_location">街角坐标 Location</a></li>
+    </ul>
+    <button class="btn-primary" style="justify-content:center;" onclick="closeMobileDrawer(); openBookingModal();" data-i18n="nav_mob_reserve">立即预约席位</button>
+    <div class="mobile-lang-row">
+      <span class="mobile-lang-label" data-i18n="nav_lang_select">语言选择</span>
+      <div class="mobile-lang-pills">
+        <button type="button" class="mobile-lang-btn active" data-lang="zh" onclick="setLanguage('zh')">中文</button>
+        <button type="button" class="mobile-lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-drawer-backdrop" id="drawer-backdrop" onclick="closeMobileDrawer()"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-left">
+        <div class="section-kicker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span data-i18n="hero_kicker">城市街角 · 慢调生活提案</span>
+        </div>
+        <h1 class="serif-title hero-title" data-i18n="hero_title">
+          在城市的奔波里，<br>
+          慢享一隅烟火与<em>特调咖啡香</em>
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          我们融汇在地时令风味与精品微批次咖啡。晨间的手冲苏醒，午后的阳光早午餐，入夜的暖胃小酒与慢煮私房 Bistro。让快节奏的城市，留下一处温柔归宿。
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            <span data-i18n="hero_btn_menu">浏览当季餐单</span>
+          </a>
+          <button class="btn-secondary" onclick="openBookingModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span data-i18n="hero_btn_reserve">预订街角席位</span>
+          </button>
+        </div>
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <div class="highlight-text">
+              <strong data-i18n="hero_rating_score">4.9 / 5.0</strong>
+              <span data-i18n="hero_rating_desc">大众与小红书双榜推荐</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="highlight-text">
+              <strong data-i18n="hero_roast_title">100% 鲜烘选豆</strong>
+              <span data-i18n="hero_roast_desc">埃塞俄比亚 & 云南微批次</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual (Foodhub Lively Style) -->
+      <div class="hero-visual">
+        <div class="deco-ring ring-1"></div>
+        <div class="deco-ring ring-2"></div>
+
+        <div class="hero-main-card">
+          <img src="images/hero_bistro_main.jpg" alt="城屿小馆招牌慢烤牛排与红酒晚宴" loading="lazy">
+        </div>
+
+        <div class="hero-sub-card">
+          <img src="images/coffee_latte_art.jpg" alt="特调拉花拿铁咖啡" loading="lazy">
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="floating-badge badge-top">
+          <span class="badge-icon">☕</span>
+          <div class="badge-info">
+            <strong data-i18n="hero_badge_soe_title">本日微批次 SOE</strong>
+            <span data-i18n="hero_badge_soe_desc">厌氧日晒 · 花香柑橘</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom">
+          <span class="badge-icon">🌿</span>
+          <div class="badge-info">
+            <strong data-i18n="hero_badge_terrace_title">街角阳光露台</strong>
+            <span data-i18n="hero_badge_terrace_desc">已开放 · 宠物友好</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section" id="story">
+    <div class="container story-grid">
+      <div class="story-image-wrap">
+        <img src="images/chef_artisan.jpg" alt="城屿小馆主厨与咖啡师在料理台" class="story-img" loading="lazy">
+        <div class="experience-badge">
+          <span class="exp-years" data-i18n="story_badge_years">08</span>
+          <span class="exp-label" data-i18n="story_badge_label">年街角陪伴</span>
+        </div>
+      </div>
+      <div class="story-content">
+        <div class="section-kicker" data-i18n="story_kicker">我们的初衷 · Story</div>
+        <h2 class="serif-title" data-i18n="story_title">做城市快节奏中的<br>温度锚点与能量补给</h2>
+        <p class="story-lead" data-i18n="story_lead">
+          “我们不仅是在烹煮食物与冲煮咖啡，更是在为每一个走进店里的人，构建一段属于当下的放松情绪。”
+        </p>
+        <p class="story-desc" data-i18n="story_desc">
+          创立八年来，城屿·食光始终坚持与在地有机农场直接合作，让新鲜蔬菜与时令食材在 24 小时内由泥土抵达餐桌。咖啡吧台选用的微批次咖啡豆，均由主理人亲自参与烘焙与杯测调试，无论是清晨赶路的一杯澳白，还是夜幕降临后的一盘香煎扇贝与自然酒，都凝聚着我们对生活细节的热忱。
+        </p>
+        <div class="founder-signature">
+          <img src="images/chef_artisan.jpg" alt="主理人头像" class="chef-avatar">
+          <div class="founder-meta">
+            <h4 data-i18n="story_founder_names">Alex & Lin</h4>
+            <p data-i18n="story_founder_title">联合创始人 · 主理人与主厨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01-05 URBAN PILLARS SECTION -->
+  <section class="pillars-section" id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="pillars_kicker">服务与特色 · Urban Pillars</div>
+        <h2 class="serif-title" data-i18n="pillars_title">藏在街角里的 5 个心动理由</h2>
+        <p data-i18n="pillars_subtitle">让每一次相逢，都是城市日常生活里的一场美好微旅行</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-heading" data-i18n="pillar_1_title">城市绿洲坐标</h3>
+          <p class="pillar-desc" data-i18n="pillar_1_desc">位于街心公园旁绿荫街角，地铁直达，独享落地大窗与绿意环绕。</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-heading" data-i18n="pillar_2_title">微批次 SOE 选豆</h3>
+          <p class="pillar-desc" data-i18n="pillar_2_desc">全自烘微批次咖啡，专业杯测风味轮，提供多产区手冲与创新特调。</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-heading" data-i18n="pillar_3_title">四季融合私房菜</h3>
+          <p class="pillar-desc" data-i18n="pillar_3_desc">融合欧陆小馆与在地风味，低温慢烤、时令海鲜，不负每一份好食材。</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-heading" data-i18n="pillar_4_title">30分钟极速外带</h3>
+          <p class="pillar-desc" data-i18n="pillar_4_desc">环保保温降解包材，支持提前预点与城市专送，锁住刚出炉的香气。</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">05</div>
+          <h3 class="pillar-heading" data-i18n="pillar_5_title">露台与宠物友好</h3>
+          <p class="pillar-desc" data-i18n="pillar_5_desc">开放式户外木质露台，配有毛孩子饮水盆与单车停放桩，自在惬意。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="menu_kicker">当季赏味 · Seasonal Menu</div>
+        <h2 class="serif-title" data-i18n="menu_title">主厨私房料理与精选咖啡</h2>
+        <p data-i18n="menu_subtitle">点击分类切换，支持一键加入点单心愿单</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-category="all" data-i18n="tab_all">全部 All</button>
+        <button class="tab-btn" data-category="bistro" data-i18n="tab_bistro">主厨私房菜 Bistro</button>
+        <button class="tab-btn" data-category="coffee" data-i18n="tab_coffee">精品咖啡 Coffee</button>
+        <button class="tab-btn" data-category="brunch" data-i18n="tab_brunch">阳光早午餐 Brunch</button>
+        <button class="tab-btn" data-category="bakery" data-i18n="tab_bakery">手作烘焙 & 甜品</button>
+      </div>
+
+      <!-- Dishes Grid -->
+      <div class="products-grid" id="dishes-grid">
+        <!-- 1. Bistro: Wagyu Steak -->
+        <div class="product-card" data-cat="bistro">
+          <div class="product-img-wrap">
+            <img src="images/dish_wagyu_steak.jpg" alt="慢烤和牛牛排" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_1_tag">主厨推荐</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_1_name">慢烤和牛小排配黑蒜黄油</h3>
+              <div class="product-price"><small>￥</small>168</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_1_desc">M5 级和牛肋排、黑蒜香草黄油、烤时蔬泥、红酒肉汁</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_1_badge">🔥 招牌必点</span>
+              <button class="btn-add-cart" onclick="addToCart('慢烤和牛小排', 168, 'images/dish_wagyu_steak.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Bistro: Scallops -->
+        <div class="product-card" data-cat="bistro">
+          <div class="product-img-wrap">
+            <img src="images/dish_seared_scallops.jpg" alt="香煎北海道扇贝" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_2_tag">当季海味</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_2_name">香煎扇贝配香槟奶油汁</h3>
+              <div class="product-price"><small>￥</small>98</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_2_desc">大颗粒刺身级扇贝、鱼子酱、香槟白汁、脆欧芹碎</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_2_badge">🌊 鲜甜细腻</span>
+              <button class="btn-add-cart" onclick="addToCart('香煎北海道扇贝', 98, 'images/dish_seared_scallops.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Coffee: Osmanthus Cold Brew -->
+        <div class="product-card" data-cat="coffee">
+          <div class="product-img-wrap">
+            <img src="images/coffee_coldbrew.jpg" alt="城市限定桂花冷萃" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_3_tag">城市限定第12期</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_3_name">金桂酒酿冰滴冷萃</h3>
+              <div class="product-price"><small>￥</small>42</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_3_desc">云南日晒花香浅焙豆、手工甜酒酿、手采秋季金桂、慢萃16小时</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_3_badge">🌸 桂香酒韵</span>
+              <button class="btn-add-cart" onclick="addToCart('金桂酒酿冰滴冷萃', 42, 'images/coffee_coldbrew.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Coffee: Pour-over Single Origin -->
+        <div class="product-card" data-cat="coffee">
+          <div class="product-img-wrap">
+            <img src="images/coffee_pourover.jpg" alt="耶加雪菲手冲咖啡" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_4_tag">SOE 单一产区</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_4_name">埃塞俄比亚 · 沃卡日晒</h3>
+              <div class="product-price"><small>￥</small>48</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_4_desc">浅度烘焙、V60手冲注水提取、佛手柑与茉莉花香、复合莓果酸甜</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_4_badge">🍋 柑橘茉莉</span>
+              <button class="btn-add-cart" onclick="addToCart('埃塞俄比亚手冲', 48, 'images/coffee_pourover.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Brunch: Avocado Toast Salad -->
+        <div class="product-card" data-cat="brunch">
+          <div class="product-img-wrap">
+            <img src="images/dish_brunch_salad.jpg" alt="羽衣甘蓝牛油果轻食早午餐" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_5_tag">元气早午餐</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_5_name">温泉蛋牛油果谷物暖沙拉</h3>
+              <div class="product-price"><small>￥</small>62</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_5_desc">羽衣甘蓝、成熟牛油果、兰皇温泉蛋、三色藜麦、第戎油醋汁</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_5_badge">🥗 低卡营养</span>
+              <button class="btn-add-cart" onclick="addToCart('温泉蛋牛油果暖沙拉', 62, 'images/dish_brunch_salad.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Bakery: Tiramisu -->
+        <div class="product-card" data-cat="bakery">
+          <div class="product-img-wrap">
+            <img src="images/dessert_tiramisu.jpg" alt="传统意式浓缩提拉米苏" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_6_tag">每日现做</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_6_name">特调浓缩液传统提拉米苏</h3>
+              <div class="product-price"><small>￥</small>46</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_6_desc">马斯卡彭乳酪、店酿意式浓缩浸润手指饼干、法芙娜可可粉</p>
+            <div class="product-footer">
+              <span class="flavor-badge" data-i18n="dish_6_badge">🍫 绵密微苦</span>
+              <button class="btn-add-cart" onclick="addToCart('特调浓缩提拉米苏', 46, 'images/dessert_tiramisu.jpg')"><span data-i18n="btn_add_cart">+ 点单</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="reviews_kicker">食客口碑 · Reviews</div>
+        <h2 class="serif-title" data-i18n="reviews_title">听听城市探索者怎么说</h2>
+        <p data-i18n="reviews_subtitle">在充满生活气的小馆，遇见同频的知音</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_1_text">
+              “每次下班经过街角，总忍不住点一杯桂花冷萃。露台的风很舒服，店员还会贴心地给我的柴犬准备水碗，简直是城市社畜的避风港。”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">陈</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_1_author">陈小姐</h4>
+              <span data-i18n="review_1_meta">建筑设计师 · 3年常客</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_2_text">
+              “慢烤和牛绝对有米其林小酒馆的水准！肉质鲜嫩多汁，黑蒜黄油调味恰到好处。周末配一杯自然酒，一周的疲惫都被治愈了。”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">何</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_2_author">何先生</h4>
+              <span data-i18n="review_2_meta">美食专栏作家</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_3_text">
+              “手冲选豆非常专业，主理人对产区风味的理解很深刻。提拉米苏带着地道的意式浓缩香气，口感轻盈不腻，无限次回购！”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">林</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_3_author">林晓</h4>
+              <span data-i18n="review_3_meta">精品咖啡爱好者</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & URBAN GUIDE -->
+  <section class="location-section" id="location">
+    <div class="container location-grid">
+      <div class="location-card">
+        <div class="section-kicker" data-i18n="location_kicker">街角指引 · Location</div>
+        <h2 class="serif-title" data-i18n="location_title">欢迎步入城屿街角</h2>
+        <p class="location-desc" data-i18n="location_desc">无论是晨光微熹时的第一杯唤醒咖啡，还是夜幕降临后的好友聚叙，我们的大门始终为你敞开。</p>
+        
+        <ul class="info-list">
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_addr_title">详细地址</strong>
+              <span data-i18n="loc_addr_val">绿荫路 88 号街角创意园区 A1（街心公园东侧）</span>
+            </div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_hours_title">营业时间</strong>
+              <span data-i18n="loc_hours_val">周一至周日 09:00 - 22:30 (全天供餐与咖啡)</span>
+            </div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_tel_title">预约与服务热线</strong>
+              <span data-i18n="loc_tel_val">021-8888 6688 / 微信同号预约</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="location-image-wrap">
+        <img src="images/terrace_ambience.jpg" alt="城屿小馆庭院露台实景" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-title">
+            城屿·食光
+            <span style="color:#94a3b8;">City Oasis Bistro & Café</span>
+          </div>
+          <p class="footer-desc" data-i18n="footer_desc">
+            城市街角独立融合小馆。融合手冲咖啡、阳光早午餐、主厨季节餐盘与自然微醺酒，探索在地温度生活。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col1_title">快速导航</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" data-i18n="footer_nav_top">回到顶部</a></li>
+            <li><a href="#story" data-i18n="footer_nav_about">关于我们</a></li>
+            <li><a href="#menu" data-i18n="footer_nav_menu">季节餐单</a></li>
+            <li><a href="#reviews" data-i18n="footer_nav_reviews">食客评价</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col2_title">便民服务</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_terrace">街角露台开放</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_pet">宠物友好专区</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_wifi">无线上网 & 办公插座</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_event">包场与小型沙龙活动</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col3_title">营业执照与认证</h4>
+          <p style="font-size:0.82rem; color:var(--text-light); line-height:1.7;" data-i18n="footer_cert_info">
+            食品经营许可证：JY1310002938491<br>
+            精品咖啡 SCA 认证主理工作室<br>
+            安全卫生 A 级餐饮示范店
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 城屿·食光 City Oasis Bistro. 保留所有权利。</p>
+        <p data-i18n="footer_author">设计与代码：@author xiaopeng.fxp &middot; 2026-09-28 &middot; 基于 Cobble Finesse 标准打造</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOOKING BAR -->
+  <div class="mobile-sticky-bar">
+    <div>
+      <div style="font-size:0.75rem; color:var(--text-muted);" data-i18n="sticky_hours">今日营业至 22:30</div>
+      <div style="font-weight:700; font-size:0.95rem; color:var(--midnight);" data-i18n="sticky_title">城屿街角席位预订</div>
+    </div>
+    <button class="btn-primary" style="padding:10px 20px; font-size:0.9rem;" onclick="openBookingModal()" data-i18n="sticky_btn">预订小桌</button>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title" data-i18n="cart_title">我的点单 (Your Order)</h3>
+      <button class="btn-close-cart" id="close-cart-btn" aria-label="关闭点单车">&times;</button>
+    </div>
+    <div class="cart-items-container" id="cart-items-list">
+      <div class="cart-empty-state" data-i18n="cart_empty">点单车暂无商品，快去探索心仪美食吧！</div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span data-i18n="cart_subtotal">预计小计 (Subtotal)</span>
+        <span class="total-amount" id="cart-total-price">￥0</span>
+      </div>
+      <button class="btn-checkout" onclick="checkoutOrder()" data-i18n="cart_checkout_btn">立即确认并外带 / 到店点餐</button>
+    </div>
+  </div>
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+
+  <!-- TABLE RESERVATION MODAL -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-container">
+      <button class="btn-close-modal" onclick="closeBookingModal()">&times;</button>
+      <div id="booking-form-wrap">
+        <div class="section-kicker" data-i18n="modal_kicker">在线预订 · Reservation</div>
+        <h3 class="modal-title" data-i18n="modal_title">预订街角舒适小桌</h3>
+        <p class="modal-desc" data-i18n="modal_desc">请填写就餐意向，我们将为您提前预留席位并发送确认短信。</p>
+        
+        <form id="reservation-form" onsubmit="handleReservation(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_name_label">预约人姓名 *</label>
+              <input type="text" class="form-control" placeholder="如：方先生" data-i18n-attr="placeholder:form_name_ph" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_phone_label">联系电话 *</label>
+              <input type="tel" class="form-control" placeholder="手机号码" data-i18n-attr="placeholder:form_phone_ph" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_date_label">就餐日期 *</label>
+              <input type="date" class="form-control" id="book-date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_time_label">到店时间段 *</label>
+              <select class="form-control" required>
+                <option value="" data-i18n="form_time_opt0">请选择时间</option>
+                <option data-i18n="form_time_opt1">晨间咖啡 09:30 - 11:30</option>
+                <option data-i18n="form_time_opt2">午间早午餐 11:30 - 14:00</option>
+                <option data-i18n="form_time_opt3">下午茶手冲 14:00 - 17:30</option>
+                <option data-i18n="form_time_opt4">晚间Bistro 17:30 - 20:30</option>
+                <option data-i18n="form_time_opt5">入夜微醺 20:30 - 22:30</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_guests_label">就餐人数 *</label>
+              <select class="form-control">
+                <option data-i18n="form_guests_opt1">1 位（吧台/窗边漫享）</option>
+                <option selected data-i18n="form_guests_opt2">2 位（约会/对谈）</option>
+                <option data-i18n="form_guests_opt3">3 - 4 位（好友欢叙）</option>
+                <option data-i18n="form_guests_opt4">5 - 8 位（小聚长桌）</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_pref_label">座位偏好</label>
+              <select class="form-control">
+                <option data-i18n="form_pref_opt1">街角绿荫露台（微风惬意）</option>
+                <option data-i18n="form_pref_opt2">咖啡吧台（近距离观摩手冲）</option>
+                <option data-i18n="form_pref_opt3">室内温暖卡座（静谧舒适）</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:8px;" data-i18n="form_submit_btn">确认并提交预订</button>
+        </form>
+      </div>
+
+      <!-- Success Feedback Box -->
+      <div class="booking-success-box" id="booking-success">
+        <div class="success-icon">✓</div>
+        <h3 class="serif-title" style="font-size:1.6rem; margin-bottom:8px;" data-i18n="success_title">预订成功！</h3>
+        <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:20px;">
+          <span data-i18n="success_ref_prefix">席位保留凭证：</span><strong style="color:var(--terracotta);" id="booking-ref-code">CO-2026-8891</strong><br>
+          <span data-i18n="success_msg">我们已为您在指定时间锁定席位，期待在街角与您相逢。</span>
+        </p>
+        <button class="btn-secondary" onclick="closeBookingModal()" data-i18n="success_btn">完成并返回</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    /**
+     * @author xiaopeng.fxp
+     * @date 2026-09-28
+     */
+    'use strict';
+
+    // 0. I18N Bilingual Engine
+    const I18N_DATA = {
+      "zh": {
+        "nav_home": "首页",
+        "nav_story": "故事",
+        "nav_pillars": "城市印记",
+        "nav_menu": "当季餐单",
+        "nav_reviews": "口碑评价",
+        "nav_location": "街角坐标",
+        "nav_status_open": "营业中 09:00 - 22:30",
+        "nav_reserve_btn": "预订小桌",
+        "nav_mob_home": "首页 Home",
+        "nav_mob_story": "小馆故事 Story",
+        "nav_mob_pillars": "城市印记 Features",
+        "nav_mob_menu": "当季餐单 Menu",
+        "nav_mob_reviews": "食客口碑 Reviews",
+        "nav_mob_location": "街角坐标 Location",
+        "nav_mob_reserve": "立即预约席位",
+        "nav_lang_select": "语言选择",
+        "hero_kicker": "城市街角 · 慢调生活提案",
+        "hero_title": "在城市的奔波里，<br>慢享一隅烟火与<em>特调咖啡香</em>",
+        "hero_desc": "我们融汇在地时令风味与精品微批次咖啡。晨间的手冲苏醒，午后的阳光早午餐，入夜的暖胃小酒与慢煮私房 Bistro。让快节奏的城市，留下一处温柔归宿。",
+        "hero_btn_menu": "浏览当季餐单",
+        "hero_btn_reserve": "预订街角席位",
+        "hero_rating_score": "4.9 / 5.0",
+        "hero_rating_desc": "大众与小红书双榜推荐",
+        "hero_roast_title": "100% 鲜烘选豆",
+        "hero_roast_desc": "埃塞俄比亚 & 云南微批次",
+        "hero_badge_soe_title": "本日微批次 SOE",
+        "hero_badge_soe_desc": "厌氧日晒 · 花香柑橘",
+        "hero_badge_terrace_title": "街角阳光露台",
+        "hero_badge_terrace_desc": "已开放 · 宠物友好",
+        "story_badge_years": "08",
+        "story_badge_label": "年街角陪伴",
+        "story_kicker": "我们的初衷 · Story",
+        "story_title": "做城市快节奏中的<br>温度锚点与能量补给",
+        "story_lead": "“我们不仅是在烹煮食物与冲煮咖啡，更是在为每一个走进店里的人，构建一段属于当下的放松情绪。”",
+        "story_desc": "创立八年来，城屿·食光始终坚持与在地有机农场直接合作，让新鲜蔬菜与时令食材在 24 小时内由泥土抵达餐桌。咖啡吧台选用的微批次咖啡豆，均由主理人亲自参与烘焙与杯测调试，无论是清晨赶路的一杯澳白，还是夜幕降临后的一盘香煎扇贝与自然酒，都凝聚着我们对生活细节的热忱。",
+        "story_founder_names": "Alex & Lin",
+        "story_founder_title": "联合创始人 · 主理人与主厨",
+        "pillars_kicker": "服务与特色 · Urban Pillars",
+        "pillars_title": "藏在街角里的 5 个心动理由",
+        "pillars_subtitle": "让每一次相逢，都是城市日常生活里的一场美好微旅行",
+        "pillar_1_title": "城市绿洲坐标",
+        "pillar_1_desc": "位于街心公园旁绿荫街角，地铁直达，独享落地大窗与绿意环绕。",
+        "pillar_2_title": "微批次 SOE 选豆",
+        "pillar_2_desc": "全自烘微批次咖啡，专业杯测风味轮，提供多产区手冲与创新特调。",
+        "pillar_3_title": "四季融合私房菜",
+        "pillar_3_desc": "融合欧陆小馆与在地风味，低温慢烤、时令海鲜，不负每一份好食材。",
+        "pillar_4_title": "30分钟极速外带",
+        "pillar_4_desc": "环保保温降解包材，支持提前预点与城市专送，锁住刚出炉的香气。",
+        "pillar_5_title": "露台与宠物友好",
+        "pillar_5_desc": "开放式户外木质露台，配有毛孩子饮水盆与单车停放桩，自在惬意。",
+        "menu_kicker": "当季赏味 · Seasonal Menu",
+        "menu_title": "主厨私房料理与精选咖啡",
+        "menu_subtitle": "点击分类切换，支持一键加入点单心愿单",
+        "tab_all": "全部 All",
+        "tab_bistro": "主厨私房菜 Bistro",
+        "tab_coffee": "精品咖啡 Coffee",
+        "tab_brunch": "阳光早午餐 Brunch",
+        "tab_bakery": "手作烘焙 & 甜品",
+        "btn_add_cart": "+ 点单",
+        "dish_1_tag": "主厨推荐",
+        "dish_1_name": "慢烤和牛小排配黑蒜黄油",
+        "dish_1_desc": "M5 级和牛肋排、黑蒜香草黄油、烤时蔬泥、红酒肉汁",
+        "dish_1_badge": "🔥 招牌必点",
+        "dish_2_tag": "当季海味",
+        "dish_2_name": "香煎扇贝配香槟奶油汁",
+        "dish_2_desc": "大颗粒刺身级扇贝、鱼子酱、香槟白汁、脆欧芹碎",
+        "dish_2_badge": "🌊 鲜甜细腻",
+        "dish_3_tag": "城市限定第12期",
+        "dish_3_name": "金桂酒酿冰滴冷萃",
+        "dish_3_desc": "云南日晒花香浅焙豆、手工甜酒酿、手采秋季金桂、慢萃16小时",
+        "dish_3_badge": "🌸 桂香酒韵",
+        "dish_4_tag": "SOE 单一产区",
+        "dish_4_name": "埃塞俄比亚 · 沃卡日晒",
+        "dish_4_desc": "浅度烘焙、V60手冲注水提取、佛手柑与茉莉花香、复合莓果酸甜",
+        "dish_4_badge": "🍋 柑橘茉莉",
+        "dish_5_tag": "元气早午餐",
+        "dish_5_name": "温泉蛋牛油果谷物暖沙拉",
+        "dish_5_desc": "羽衣甘蓝、成熟牛油果、兰皇温泉蛋、三色藜麦、第戎油醋汁",
+        "dish_5_badge": "🥗 低卡营养",
+        "dish_6_tag": "每日现做",
+        "dish_6_name": "特调浓缩液传统提拉米苏",
+        "dish_6_desc": "马斯卡彭乳酪、店酿意式浓缩浸润手指饼干、法芙娜可可粉",
+        "dish_6_badge": "🍫 绵密微苦",
+        "reviews_kicker": "食客口碑 · Reviews",
+        "reviews_title": "听听城市探索者怎么说",
+        "reviews_subtitle": "在充满生活气的小馆，遇见同频的知音",
+        "review_1_text": "“每次下班经过街角，总忍不住点一杯桂花冷萃。露台的风很舒服，店员还会贴心地给我的柴犬准备水碗，简直是城市社畜的避风港。”",
+        "review_1_author": "陈小姐",
+        "review_1_meta": "建筑设计师 · 3年常客",
+        "review_2_text": "“慢烤和牛绝对有米其林小酒馆的水准！肉质鲜嫩多汁，黑蒜黄油调味恰到好处。周末配一杯自然酒，一周的疲惫都被治愈了。”",
+        "review_2_author": "何先生",
+        "review_2_meta": "美食专栏作家",
+        "review_3_text": "“手冲选豆非常专业，主理人对产区风味的理解很深刻。提拉米苏带着地道的意式浓缩香气，口感轻盈不腻，无限次回购！”",
+        "review_3_author": "林晓",
+        "review_3_meta": "精品咖啡爱好者",
+        "location_kicker": "街角指引 · Location",
+        "location_title": "欢迎步入城屿街角",
+        "location_desc": "无论是晨光微熹时的第一杯唤醒咖啡，还是夜幕降临后的好友聚叙，我们的大门始终为你敞开。",
+        "loc_addr_title": "详细地址",
+        "loc_addr_val": "绿荫路 88 号街角创意园区 A1（街心公园东侧）",
+        "loc_hours_title": "营业时间",
+        "loc_hours_val": "周一至周日 09:00 - 22:30 (全天供餐与咖啡)",
+        "loc_tel_title": "预约与服务热线",
+        "loc_tel_val": "021-8888 6688 / 微信同号预约",
+        "footer_desc": "城市街角独立融合小馆。融合手冲咖啡、阳光早午餐、主厨季节餐盘与自然微醺酒，探索在地温度生活。",
+        "footer_col1_title": "快速导航",
+        "footer_nav_top": "回到顶部",
+        "footer_nav_about": "关于我们",
+        "footer_nav_menu": "季节餐单",
+        "footer_nav_reviews": "食客评价",
+        "footer_col2_title": "便民服务",
+        "footer_srv_terrace": "街角露台开放",
+        "footer_srv_pet": "宠物友好专区",
+        "footer_srv_wifi": "无线上网 & 办公插座",
+        "footer_srv_event": "包场与小型沙龙活动",
+        "footer_col3_title": "营业执照与认证",
+        "footer_cert_info": "食品经营许可证：JY1310002938491<br>精品咖啡 SCA 认证主理工作室<br>安全卫生 A 级餐饮示范店",
+        "footer_copy": "&copy; 2026 城屿·食光 City Oasis Bistro. 保留所有权利。",
+        "footer_author": "设计与代码：@author xiaopeng.fxp · 2026-09-28 · 基于 Cobble Finesse 标准打造",
+        "sticky_hours": "今日营业至 22:30",
+        "sticky_title": "城屿街角席位预订",
+        "sticky_btn": "预订小桌",
+        "cart_title": "我的点单 (Your Order)",
+        "cart_empty": "点单车暂无商品，快去探索心仪美食吧！",
+        "cart_subtotal": "预计小计 (Subtotal)",
+        "cart_checkout_btn": "立即确认并外带 / 到店点餐",
+        "modal_kicker": "在线预订 · Reservation",
+        "modal_title": "预订街角舒适小桌",
+        "modal_desc": "请填写就餐意向，我们将为您提前预留席位并发送确认短信。",
+        "form_name_label": "预约人姓名 *",
+        "form_name_ph": "如：方先生",
+        "form_phone_label": "联系电话 *",
+        "form_phone_ph": "手机号码",
+        "form_date_label": "就餐日期 *",
+        "form_time_label": "到店时间段 *",
+        "form_time_opt0": "请选择时间",
+        "form_time_opt1": "晨间咖啡 09:30 - 11:30",
+        "form_time_opt2": "午间早午餐 11:30 - 14:00",
+        "form_time_opt3": "下午茶手冲 14:00 - 17:30",
+        "form_time_opt4": "晚间Bistro 17:30 - 20:30",
+        "form_time_opt5": "入夜微醺 20:30 - 22:30",
+        "form_guests_label": "就餐人数 *",
+        "form_guests_opt1": "1 位（吧台/窗边漫享）",
+        "form_guests_opt2": "2 位（约会/对谈）",
+        "form_guests_opt3": "3 - 4 位（好友欢叙）",
+        "form_guests_opt4": "5 - 8 位（小聚长桌）",
+        "form_pref_label": "座位偏好",
+        "form_pref_opt1": "街角绿荫露台（微风惬意）",
+        "form_pref_opt2": "咖啡吧台（近距离观摩手冲）",
+        "form_pref_opt3": "室内温暖卡座（静谧舒适）",
+        "form_submit_btn": "确认并提交预订",
+        "success_title": "预订成功！",
+        "success_ref_prefix": "席位保留凭证：",
+        "success_msg": "我们已为您在指定时间锁定席位，期待在街角与您相逢。",
+        "success_btn": "完成并返回"
+      },
+      "en": {
+        "nav_home": "Home",
+        "nav_story": "Our Story",
+        "nav_pillars": "Urban Pillars",
+        "nav_menu": "Seasonal Menu",
+        "nav_reviews": "Reviews",
+        "nav_location": "Find Us",
+        "nav_status_open": "Open Daily 09:00 - 22:30",
+        "nav_reserve_btn": "Book a Table",
+        "nav_mob_home": "Home",
+        "nav_mob_story": "Our Story",
+        "nav_mob_pillars": "Urban Pillars",
+        "nav_mob_menu": "Seasonal Menu",
+        "nav_mob_reviews": "Guest Reviews",
+        "nav_mob_location": "Location & Map",
+        "nav_mob_reserve": "Book a Table Now",
+        "nav_lang_select": "Language",
+        "hero_kicker": "Urban Corner · Mindful Living Concept",
+        "hero_title": "Amid the city hustle,<br>savour warmth and <em>artisan brews</em>",
+        "hero_desc": "Blending seasonal terroir ingredients with micro-lot specialty coffee. Morning pour-overs to awaken your senses, sunlit brunches, cosy evening sips, and slow-crafted bistro dishes. A gentle sanctuary in the pulse of the city.",
+        "hero_btn_menu": "Explore Seasonal Menu",
+        "hero_btn_reserve": "Reserve Corner Table",
+        "hero_rating_score": "4.9 / 5.0",
+        "hero_rating_desc": "Top Rated on Dianping & RedBook",
+        "hero_roast_title": "100% Fresh Roasted",
+        "hero_roast_desc": "Ethiopian & Yunnan Micro-lots",
+        "hero_badge_soe_title": "Single Origin SOE Today",
+        "hero_badge_soe_desc": "Anaerobic Natural · Floral Citrus",
+        "hero_badge_terrace_title": "Garden Corner Terrace",
+        "hero_badge_terrace_desc": "Now Open · Pet Friendly",
+        "story_badge_years": "08",
+        "story_badge_label": "Years in the City",
+        "story_kicker": "Our Roots · Story",
+        "story_title": "An anchor of warmth<br>in the rhythm of the city",
+        "story_lead": "“We are not merely cooking food or brewing coffee; we create moments of calm for everyone who walks through our door.”",
+        "story_desc": "Since our founding eight years ago, City Oasis has partnered directly with local organic farms, bringing fresh vegetables and seasonal produce from soil to table within 24 hours. Every single-origin coffee lot is personally roasted and cup-tested by our founders. From a morning flat white to an evening plate of seared scallops paired with natural wine, our passion thrives in every detail.",
+        "story_founder_names": "Alex & Lin",
+        "story_founder_title": "Co-Founders · Head Chef & Roaster",
+        "pillars_kicker": "Craft & Care · Urban Pillars",
+        "pillars_title": "5 Reasons to Fall in Love with Our Corner",
+        "pillars_subtitle": "Making every visit a soothing urban retreat in daily life",
+        "pillar_1_title": "Urban Oasis Setting",
+        "pillar_1_desc": "Nestled by the leafy city park, steps from the metro, wrapped in floor-to-ceiling windows and lush greenery.",
+        "pillar_2_title": "Micro-Lot SOE Beans",
+        "pillar_2_desc": "In-house micro-batch roasted beans with professional flavour wheel calibration, offering single-origin brews and signature drinks.",
+        "pillar_3_title": "Four Seasons Fusion Bistro",
+        "pillar_3_desc": "Harmonising European bistro classics with local produce: slow-roasted meats, fresh seafood, honouring honest ingredients.",
+        "pillar_4_title": "30-Min Rapid Takeaway",
+        "pillar_4_desc": "Eco-friendly compostable thermal packaging with mobile pre-ordering to lock in freshly brewed aroma.",
+        "pillar_5_title": "Terrace & Pet Friendly",
+        "pillar_5_desc": "Sunlit timber deck equipped with pet water stations and bike racks, creating an easy-going community haven.",
+        "menu_kicker": "Seasonal Palette · Menu",
+        "menu_title": "Chef's Private Recipes & Artisan Coffee",
+        "menu_subtitle": "Filter by category and tap to add directly to your order",
+        "tab_all": "All Items",
+        "tab_bistro": "Bistro Mains",
+        "tab_coffee": "Specialty Coffee",
+        "tab_brunch": "Sunlit Brunch",
+        "tab_bakery": "Bakery & Sweets",
+        "btn_add_cart": "+ Order",
+        "dish_1_tag": "Chef's Choice",
+        "dish_1_name": "Slow-Roasted Wagyu Ribs with Black Garlic Butter",
+        "dish_1_desc": "Grade M5 wagyu rib, black garlic herb butter, seasonal vegetable purée, red wine jus",
+        "dish_1_badge": "🔥 Chef's Signature",
+        "dish_2_tag": "Seasonal Catch",
+        "dish_2_name": "Pan-Seared Scallops with Champagne Cream",
+        "dish_2_desc": "Jumbo sashimi-grade scallops, caviar, champagne velouté, crispy parsley crumb",
+        "dish_2_badge": "🌊 Delicate & Sweet",
+        "dish_3_tag": "Seasonal Exclusive No.12",
+        "dish_3_name": "Osmanthus & Sweet Fermented Rice Cold Brew",
+        "dish_3_desc": "Yunnan sun-dried light roast, artisanal fermented sweet rice, handpicked autumn osmanthus, 16-hr slow drip",
+        "dish_3_badge": "🌸 Floral & Melodic",
+        "dish_4_tag": "Single Origin SOE",
+        "dish_4_name": "Ethiopia · Wonka Natural",
+        "dish_4_desc": "Light roast, V60 pour-over extraction, notes of bergamot, jasmine florals, and complex berry acidity",
+        "dish_4_badge": "🍋 Citrus Jasmine",
+        "dish_5_tag": "Energy Brunch",
+        "dish_5_name": "Onsen Egg, Avocado & Grain Warm Salad",
+        "dish_5_desc": "Tuscan kale, ripe Hass avocado, poached onsen egg, tri-colour quinoa, Dijon vinaigrette",
+        "dish_5_badge": "🥗 Light & Nourishing",
+        "dish_6_tag": "Daily Fresh Bake",
+        "dish_6_name": "Traditional Espresso Infused Tiramisu",
+        "dish_6_desc": "Italian mascarpone cheese, house espresso soaked ladyfingers, Valrhona dark cocoa dust",
+        "dish_6_badge": "🍫 Velvety & Rich",
+        "reviews_kicker": "Guest Feedback · Reviews",
+        "reviews_title": "Words from Urban Explorers",
+        "reviews_subtitle": "Meeting kindred spirits in an inviting street-corner café",
+        "review_1_text": "“Every day after work I can't resist a cup of the osmanthus cold brew. The breeze on the terrace is heavenly, and they always bring a bowl of fresh water for my Shiba. A true city sanctuary.”",
+        "review_1_author": "Ms. Chen",
+        "review_1_meta": "Architectural Designer · Regular for 3 Years",
+        "review_2_text": "“The slow-roasted wagyu easily rivals Michelin bistros! Tender, succulent, and the black garlic butter is sublime. Paired with natural wine, all weekly stress dissolves.”",
+        "review_2_author": "Mr. He",
+        "review_2_meta": "Culinary Columnist",
+        "review_3_text": "“Exceptional bean curation. The roaster truly understands origin nuances. And the tiramisu has such authentic espresso depth without being heavy. An absolute must-return!”",
+        "review_3_author": "Lin Xiao",
+        "review_3_meta": "Specialty Coffee Enthusiast",
+        "location_kicker": "Neighbourhood Guide · Location",
+        "location_title": "Welcome to Our Street Corner",
+        "location_desc": "Whether for your morning awakening brew or an evening gathering under warm lights, our doors are always open.",
+        "loc_addr_title": "Address",
+        "loc_addr_val": "Building A1, Corner Creative Park, 88 Lvyin Road (East of Central Park)",
+        "loc_hours_title": "Opening Hours",
+        "loc_hours_val": "Monday to Sunday 09:00 - 22:30 (All-day Dining & Coffee)",
+        "loc_tel_title": "Reservations & Enquiries",
+        "loc_tel_val": "021-8888 6688 / WeChat Booking Available",
+        "footer_desc": "An independent urban corner bistro. Handcrafted coffee, sunlit brunch, seasonal chef creations, and natural wines celebrating mindful local living.",
+        "footer_col1_title": "Quick Links",
+        "footer_nav_top": "Back to Top",
+        "footer_nav_about": "Our Story",
+        "footer_nav_menu": "Seasonal Menu",
+        "footer_nav_reviews": "Guest Reviews",
+        "footer_col2_title": "Guest Amenities",
+        "footer_srv_terrace": "Open Garden Terrace",
+        "footer_srv_pet": "Pet-Friendly Area",
+        "footer_srv_wifi": "High-Speed Wi-Fi & Power Outlets",
+        "footer_srv_event": "Private Buyouts & Workshops",
+        "footer_col3_title": "Licensing & Standards",
+        "footer_cert_info": "Food Business License: JY1310002938491<br>SCA Certified Specialty Coffee Roastery<br>Grade-A Hygiene Demonstration Venue",
+        "footer_copy": "&copy; 2026 City Oasis Bistro & Café. All rights reserved.",
+        "footer_author": "Design & Code: @author xiaopeng.fxp · 2026-09-28 · Built with Cobble Finesse Standards",
+        "sticky_hours": "Open Today until 22:30",
+        "sticky_title": "Corner Table Reservation",
+        "sticky_btn": "Book Table",
+        "cart_title": "Your Order (我的点单)",
+        "cart_empty": "Your cart is empty. Discover our culinary creations!",
+        "cart_subtotal": "Estimated Subtotal (预计小计)",
+        "cart_checkout_btn": "Confirm & Order / Takeaway",
+        "modal_kicker": "Online Booking · Reservation",
+        "modal_title": "Reserve a Cosy Corner Table",
+        "modal_desc": "Share your preferences and we will hold the best table and send SMS confirmation.",
+        "form_name_label": "Full Name *",
+        "form_name_ph": "e.g. Mr. Fang",
+        "form_phone_label": "Contact Number *",
+        "form_phone_ph": "Mobile Number",
+        "form_date_label": "Dining Date *",
+        "form_time_label": "Preferred Time *",
+        "form_time_opt0": "Please select time",
+        "form_time_opt1": "Morning Coffee 09:30 - 11:30",
+        "form_time_opt2": "Midday Brunch 11:30 - 14:00",
+        "form_time_opt3": "Afternoon Pour-Over 14:00 - 17:30",
+        "form_time_opt4": "Evening Bistro 17:30 - 20:30",
+        "form_time_opt5": "Late Night Sips 20:30 - 22:30",
+        "form_guests_label": "Party Size *",
+        "form_guests_opt1": "1 Guest (Bar / Window seat)",
+        "form_guests_opt2": "2 Guests (Date / Conversation)",
+        "form_guests_opt3": "3 - 4 Guests (Friends gathering)",
+        "form_guests_opt4": "5 - 8 Guests (Long table social)",
+        "form_pref_label": "Seating Preference",
+        "form_pref_opt1": "Garden Corner Terrace (Breezy & relaxing)",
+        "form_pref_opt2": "Coffee Bar (Watch pour-over craft)",
+        "form_pref_opt3": "Indoor Warm Booth (Quiet & cosy)",
+        "form_submit_btn": "Confirm & Submit Reservation",
+        "success_title": "Reservation Confirmed!",
+        "success_ref_prefix": "Booking Reference: ",
+        "success_msg": "Your table has been reserved for the selected time. We look forward to welcoming you at the corner.",
+        "success_btn": "Done & Return"
+      }
+    };
+
+    let currentLang = 'zh';
+
+    function applyTranslations(lang) {
+      const dict = I18N_DATA[lang] || I18N_DATA['zh'];
+      
+      // Update text/innerHTML for elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.value = dict[key];
+          } else {
+            el.innerHTML = dict[key];
+          }
+        }
+      });
+
+      // Update attributes (e.g. placeholder) for elements with data-i18n-attr
+      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const attrSpec = el.getAttribute('data-i18n-attr');
+        const parts = attrSpec.split(':');
+        if (parts.length === 2) {
+          const attr = parts[0].trim();
+          const key = parts[1].trim();
+          if (dict[key] !== undefined) {
+            el.setAttribute(attr, dict[key]);
+          }
+        }
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-CN';
+    }
+
+    function setLanguage(lang) {
+      if (!I18N_DATA[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('city_bistro_lang', lang);
+
+      // Highlight active buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isActive);
+        if (isActive) {
+          btn.classList.add('changing');
+          setTimeout(() => btn.classList.remove('changing'), 200);
+        }
+      });
+
+      applyTranslations(lang);
+
+      // Auto close mobile drawer with 200ms haptic delay
+      if (document.getElementById('mobile-drawer').classList.contains('is-open')) {
+        setTimeout(() => {
+          closeMobileDrawer();
+        }, 200);
+      }
+    }
+
+    // Initialize Language from localStorage
+    const savedLang = localStorage.getItem('city_bistro_lang') || 'zh';
+    setLanguage(savedLang);
+
+    // 1. Cart State Management
+    let cart = [];
+
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartBackdrop = document.getElementById('cart-backdrop');
+    const cartBadge = document.getElementById('cart-count');
+    const cartItemsList = document.getElementById('cart-items-list');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+
+    document.getElementById('open-cart-btn').addEventListener('click', () => {
+      openCart();
+    });
+
+    document.getElementById('close-cart-btn').addEventListener('click', () => {
+      closeCart();
+    });
+
+    cartBackdrop.addEventListener('click', () => {
+      closeCart();
+    });
+
+    function openCart() {
+      cartDrawer.classList.add('is-open');
+      cartBackdrop.classList.add('is-visible');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('is-open');
+      cartBackdrop.classList.remove('is-visible');
+    }
+
+    function addToCart(title, price, img) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, img, quantity: 1 });
+      }
+      renderCart();
+      triggerBadgeBounce();
+      openCart();
+    }
+
+    function changeQty(title, delta) {
+      const item = cart.find(i => i.title === title);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.title !== title);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      
+      cartBadge.textContent = totalCount;
+      cartTotalPrice.textContent = '￥' + totalAmount;
+
+      const dict = I18N_DATA[currentLang] || I18N_DATA['zh'];
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `<div class="cart-empty-state">${dict.cart_empty}</div>`;
+        return;
+      }
+
+      cartItemsList.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img src="${item.img}" alt="${item.title}" class="cart-item-img">
+          <div class="cart-item-info">
+            <h4 class="cart-item-title">${item.title}</h4>
+            <div class="cart-item-price">￥${item.price}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty('${item.title}', -1)">-</button>
+            <span class="qty-number">${item.quantity}</span>
+            <button class="qty-btn" onclick="changeQty('${item.title}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function triggerBadgeBounce() {
+      cartBadge.classList.add('bounce');
+      setTimeout(() => {
+        cartBadge.classList.remove('bounce');
+      }, 300);
+    }
+
+    function checkoutOrder() {
+      const isZh = currentLang === 'zh';
+      if (cart.length === 0) {
+        alert(isZh ? '点单车目前为空，请先选择心仪餐品！' : 'Your cart is currently empty. Please choose your items first!');
+        return;
+      }
+      alert(isZh ? '已收到您的外带/点单需求！预计 15 分钟内为您备齐，凭手机号至吧台取餐。' : 'Order received! We will have it ready in approximately 15 minutes. Pick up at the counter with your phone number.');
+      cart = [];
+      renderCart();
+      closeCart();
+    }
+
+    // 2. Menu Category Tabs Filter
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Smooth center scroll on mobile
+        button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+        const category = button.dataset.category;
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.cat === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Mobile Navigation Drawer (5-Way Auto-Collapse)
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function toggleMobileDrawer() {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      drawerBackdrop.classList.toggle('is-visible', isOpen);
+      mobileToggle.classList.toggle('is-active', isOpen);
+      if (isOpen && typeof gsap !== 'undefined') {
+        gsap.fromTo('.mobile-nav-link', { x: 20, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.04, duration: 0.35, ease: 'power2.out' });
+      }
+    }
+
+    function closeMobileDrawer() {
+      mobileDrawer.classList.remove('is-open');
+      drawerBackdrop.classList.remove('is-visible');
+      mobileToggle.classList.remove('is-active');
+    }
+
+    mobileToggle.addEventListener('click', toggleMobileDrawer);
+
+    // 1-way: Auto-close on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        closeMobileDrawer();
+      }
+    });
+
+    // 2-way: Auto-close on Esc key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileDrawer();
+        closeCart();
+        closeBookingModal();
+      }
+    });
+
+    // 3-way: Auto-close on page scroll / swipe
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (mobileDrawer.classList.contains('is-open')) {
+        if (Math.abs(window.scrollY - lastScrollY) > 25) {
+          closeMobileDrawer();
+        }
+      }
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+
+    // 4. Reservation Modal Logic
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingFormWrap = document.getElementById('booking-form-wrap');
+    const bookingSuccess = document.getElementById('booking-success');
+    const bookDateInput = document.getElementById('book-date');
+
+    if (bookDateInput) {
+      bookDateInput.min = new Date().toISOString().split('T')[0];
+    }
+
+    function openBookingModal() {
+      bookingModal.classList.add('is-open');
+      bookingFormWrap.style.display = 'block';
+      bookingSuccess.classList.remove('is-visible');
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.remove('is-open');
+    }
+
+    function handleReservation(event) {
+      event.preventDefault();
+      const randomCode = 'CO-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('booking-ref-code').textContent = randomCode;
+      bookingFormWrap.style.display = 'none';
+      bookingSuccess.classList.add('is-visible');
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo('#booking-ref-code', { scale: 0.8 }, { scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
+      }
+    }
+
+    // 5. GSAP Motion Beat Sheet Engine (Dual Engine Architecture - Non-Destructive Anti-Blank)
+    function initGsapEnhancements() {
+      if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') {
+        // Fallback gracefully to pure baseline
+        return;
+      }
+
+      // Check prefers-reduced-motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      document.documentElement.classList.add('gsap-ready');
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Beat 1: Signature Hero Entrance (Gentle lift without blocking opacity)
+      gsap.from('.hero-main-card', {
+        y: 20,
+        rotation: -2,
+        duration: 0.8,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      gsap.from('.hero-sub-card', {
+        y: 24,
+        rotation: 3,
+        duration: 0.8,
+        delay: 0.15,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      gsap.from('.floating-badge', {
+        scale: 0.92,
+        duration: 0.6,
+        delay: 0.25,
+        stagger: 0.12,
+        ease: 'back.out(1.5)',
+        clearProps: 'all'
+      });
+
+      // Beat 2: Scroll Narrative with ScrollTrigger (Safe lift with clearProps: 'all', non-destructive)
+      gsap.utils.toArray('.pillar-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 20,
+          duration: 0.6,
+          delay: (index % 3) * 0.08,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.utils.toArray('.product-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 20,
+          duration: 0.65,
+          delay: (index % 2) * 0.08,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.utils.toArray('.review-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 18,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.from('.location-card, .location-image-wrap', {
+        scrollTrigger: {
+          trigger: '#location',
+          start: 'top 90%',
+          once: true
+        },
+        y: 20,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+    }
+
+    // Initialize GSAP on DOM load or defer load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initGsapEnhancements, 60);
+      });
+    } else {
+      setTimeout(initGsapEnhancements, 60);
+    }
+  </script>
+</body>
+</html>
