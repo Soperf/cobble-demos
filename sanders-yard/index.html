@@ -53,10 +53,11 @@
       width: 100%;
     }
 
-    /* Top Ribbon */
+    /* Top Ribbon with Hairline Highlight */
     .top-ribbon {
       background: #080D12;
       border-bottom: 1px solid rgba(229, 168, 85, 0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--text-secondary);
       font-size: 13px;
       padding: 9px 0;
@@ -125,12 +126,12 @@
       color: var(--accent-amber);
     }
 
-    /* Main Navigation */
+    /* Main Navigation with Frosted Backdrop & Hairline */
     .site-nav {
-      background: rgba(13, 20, 28, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(13, 20, 28, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       padding: 16px 0;
       position: sticky;
       top: 0;
@@ -149,6 +150,7 @@
     .brand-mark {
       background: linear-gradient(135deg, var(--accent-terracotta), var(--accent-amber));
       border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(192, 108, 76, 0.35);
       color: #0D141C;
       font-family: var(--font-serif);
       font-size: 20px;
@@ -200,6 +202,7 @@
     }
     .nav-cta:hover {
       background: var(--accent-terracotta-hover);
+      box-shadow: 0 4px 14px rgba(192, 108, 76, 0.4);
       transform: translateY(-1px);
     }
 
@@ -215,40 +218,45 @@
       padding: 6px 10px;
     }
 
-    /* Hero Section */
+    /* Hero Section with Dual-Layer Film Scrim & Radial Vignette */
     #hero {
       align-items: center;
-      background: linear-gradient(180deg, rgba(13, 20, 28, 0.6) 0%, rgba(13, 20, 28, 0.95) 100%),
-                  url("images/courtyard_hero.jpg") center/cover no-repeat;
+      background: 
+        radial-gradient(circle at 50% 45%, rgba(13, 20, 28, 0.35) 0%, rgba(13, 20, 28, 0.88) 75%),
+        linear-gradient(180deg, rgba(13, 20, 28, 0.6) 0%, rgba(13, 20, 28, 0.98) 100%),
+        url("images/courtyard_hero.jpg") center/cover no-repeat;
       display: flex;
       min-height: 85vh;
-      padding: 80px 0;
+      padding: 90px 0;
       position: relative;
     }
     .hero-content {
       margin: 0 auto;
-      max-width: 860px;
+      max-width: 880px;
       text-align: center;
     }
     .hero-pill {
       background: rgba(229, 168, 85, 0.15);
       border: 1px solid var(--accent-amber);
       border-radius: 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
       color: var(--accent-amber);
       display: inline-block;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.1em;
       margin-bottom: 24px;
-      padding: 6px 18px;
+      padding: 7px 20px;
       text-transform: uppercase;
     }
     .hero-title {
       font-family: var(--font-serif);
       font-size: clamp(34px, 5.2vw, 56px);
       font-weight: 700;
+      letter-spacing: -0.01em;
       line-height: 1.15;
       margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     }
     .hero-subtitle {
       color: var(--text-secondary);
@@ -257,6 +265,7 @@
       line-height: 1.6;
       margin: 0 auto 36px auto;
       max-width: 720px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     .hero-actions {
       align-items: center;
@@ -279,12 +288,12 @@
     }
     .btn-primary:hover {
       background: var(--accent-terracotta-hover);
-      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.4);
+      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.45);
       transform: translateY(-2px);
     }
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(229, 168, 85, 0.4);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(229, 168, 85, 0.45);
       border-radius: var(--radius-sm);
       color: var(--accent-amber);
       cursor: pointer;
@@ -295,14 +304,14 @@
       transition: var(--transition);
     }
     .btn-secondary:hover {
-      background: rgba(229, 168, 85, 0.15);
+      background: rgba(229, 168, 85, 0.18);
       border-color: var(--accent-amber);
       transform: translateY(-2px);
     }
 
     /* Notice Banner */
     .notice-banner {
-      background: #0A0F15;
+      background: #090E14;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       color: var(--text-secondary);
       font-size: 13px;
@@ -310,11 +319,11 @@
       text-align: center;
     }
 
-    /* Badges Bar */
+    /* Badges Bar with Pure Inline SVGs */
     .trust-badges-section {
       background: var(--bg-surface);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 40px 0;
+      padding: 44px 0;
     }
     .badges-grid {
       display: grid;
@@ -330,12 +339,25 @@
     }
     .badge-card:hover {
       border-color: var(--accent-amber);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       transform: translateY(-3px);
     }
-    .badge-icon {
+    .badge-icon-box {
+      align-items: center;
+      background: rgba(229, 168, 85, 0.12);
+      border: 1px solid rgba(229, 168, 85, 0.3);
+      border-radius: 50%;
       color: var(--accent-amber);
-      font-size: 24px;
-      margin-bottom: 12px;
+      display: flex;
+      height: 48px;
+      justify-content: center;
+      margin-bottom: 16px;
+      width: 48px;
+    }
+    .badge-icon-box svg {
+      height: 22px;
+      stroke-width: 1.75;
+      width: 22px;
     }
     .badge-title {
       font-family: var(--font-serif);
@@ -475,7 +497,7 @@
       transform: scale(1.05);
     }
     .dish-tag-badge {
-      background: rgba(13, 20, 28, 0.85);
+      background: rgba(13, 20, 28, 0.88);
       border: 1px solid var(--accent-amber);
       border-radius: 4px;
       color: var(--accent-amber);
@@ -552,10 +574,15 @@
       color: #FFFFFF;
     }
     .menu-tab-pane {
+      animation: fadeInTab 0.35s ease;
       display: none;
     }
     .menu-tab-pane.active {
       display: block;
+    }
+    @keyframes fadeInTab {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .menu-card-container {
       background: var(--bg-surface);
@@ -676,6 +703,77 @@
       margin-top: 4px;
     }
 
+    /* Direct Booking Perks Strip */
+    .direct-perks-strip {
+      background: linear-gradient(135deg, rgba(27, 59, 75, 0.5) 0%, rgba(21, 31, 42, 0.8) 100%);
+      border: 1px solid rgba(229, 168, 85, 0.3);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      margin: 0 auto 40px auto;
+      max-width: 1040px;
+      padding: 30px;
+    }
+    .perks-header {
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+    }
+    .perks-badge-tag {
+      align-items: center;
+      background: rgba(229, 168, 85, 0.15);
+      border: 1px solid var(--accent-amber);
+      border-radius: 20px;
+      color: var(--accent-amber);
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 700;
+      gap: 8px;
+      padding: 5px 14px;
+    }
+    .perks-ota-note {
+      color: #F87171;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .perks-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .perk-item {
+      align-items: flex-start;
+      display: flex;
+      gap: 12px;
+    }
+    .perk-icon-circle {
+      align-items: center;
+      background: rgba(74, 222, 128, 0.15);
+      border-radius: 50%;
+      color: #4ADE80;
+      display: flex;
+      flex-shrink: 0;
+      height: 24px;
+      justify-content: center;
+      margin-top: 2px;
+      width: 24px;
+    }
+    .perk-title {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .perk-desc {
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
     /* Direct Booking Form */
     #reserve {
       padding: 90px 0;
@@ -743,7 +841,7 @@
       font-weight: 700;
     }
 
-    /* Booking Form Fields */
+    /* Booking Form Fields with Glowing Focus Rings */
     .form-group-grid {
       display: grid;
       gap: 16px;
@@ -776,6 +874,7 @@
     }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
       border-color: var(--accent-amber);
+      box-shadow: 0 0 0 3px rgba(229, 168, 85, 0.2);
       outline: none;
     }
     .large-party-notice {
@@ -802,7 +901,7 @@
     }
     .booking-btn:hover {
       background: var(--accent-terracotta-hover);
-      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.4);
+      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.45);
     }
     .booking-success-box {
       background: rgba(46, 93, 75, 0.25);
@@ -846,6 +945,7 @@
     }
     .review-card:hover {
       border-color: var(--accent-amber);
+      box-shadow: var(--shadow-soft);
       transform: translateY(-3px);
     }
     .review-stars {
@@ -967,6 +1067,57 @@
       width: 100%;
     }
 
+    /* Mobile Sticky Bottom CTA Bar (High Conversion) */
+    .mobile-sticky-bar {
+      align-items: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(13, 20, 28, 0.96);
+      border-top: 1px solid var(--border-subtle);
+      bottom: 0;
+      box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.7);
+      box-sizing: border-box;
+      display: none;
+      gap: 12px;
+      justify-content: space-between;
+      left: 0;
+      padding: 10px 16px max(10px, env(safe-area-inset-bottom));
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    .sticky-bar-call {
+      align-items: center;
+      border: 1px solid rgba(229, 168, 85, 0.4);
+      border-radius: var(--radius-sm);
+      box-sizing: border-box;
+      color: var(--accent-amber);
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 700;
+      gap: 6px;
+      min-height: 44px;
+      padding: 8px 14px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .sticky-bar-book {
+      align-items: center;
+      background: var(--accent-terracotta);
+      border-radius: var(--radius-sm);
+      box-sizing: border-box;
+      color: #FFFFFF !important;
+      display: inline-flex;
+      flex: 1;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      justify-content: center;
+      min-height: 44px;
+      padding: 8px 16px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     /* Footer */
     #footer {
       background: #06090D;
@@ -993,6 +1144,7 @@
     /* Mobile Responsive */
     @media (max-width: 992px) {
       .badges-grid { grid-template-columns: repeat(2, 1fr); }
+      .perks-grid { grid-template-columns: repeat(2, 1fr); }
       .atmosphere-grid, .specialities-grid, .reviews-grid { grid-template-columns: 1fr; }
       .reserve-wrapper, .location-wrapper { grid-template-columns: 1fr; }
       .menu-items-grid { grid-template-columns: 1fr; }
@@ -1001,9 +1153,12 @@
     }
     @media (max-width: 640px) {
       .top-ribbon-content { flex-direction: column; gap: 8px; }
-      .badges-grid { grid-template-columns: 1fr; }
+      .badges-grid, .perks-grid { grid-template-columns: 1fr; }
       .form-group-grid { grid-template-columns: 1fr; }
-      .menu-card-container, .reserve-wrapper, .location-info-card { padding: 24px; }
+      .menu-card-container, .reserve-wrapper, .location-info-card, .direct-perks-strip { padding: 24px; }
+    }
+    @media (min-width: 769px) {
+      .mobile-sticky-bar { display: none !important; }
     }
   </style>
 
@@ -1080,7 +1235,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Vignette & Dual Scrim -->
   <header id="hero">
     <div class="container hero-content">
       <div class="hero-pill" data-i18n="hero_badge">Church Street Cobblestones · Whitby Old Town · Est. 2000s</div>
@@ -1100,26 +1255,38 @@
     </div>
   </div>
 
-  <!-- Trust Badges Section -->
+  <!-- Trust Badges Section (100% Inline Fine SVGs) -->
   <section class="trust-badges-section">
     <div class="container badges-grid">
+      <!-- Badge 1: Courtyard -->
       <div class="badge-card">
-        <div class="badge-icon">🌿</div>
+        <div class="badge-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
         <h3 class="badge-title" data-i18n="badge_1_title">Historic Cobblestone Courtyard</h3>
         <p class="badge-desc" data-i18n="badge_1_desc">Dine under climbing ivy and heated parasols in Whitby's prettiest secluded stone yard.</p>
       </div>
+      <!-- Badge 2: Seafood -->
       <div class="badge-card">
-        <div class="badge-icon">⚓</div>
+        <div class="badge-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="21"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+        </div>
         <h3 class="badge-title" data-i18n="badge_2_title">Fresh Coast & Local Seafood</h3>
         <p class="badge-desc" data-i18n="badge_2_desc">Iconic Whitby scampi, North Sea catches, and artisanal Yorkshire cold cuts.</p>
       </div>
+      <!-- Badge 3: Brunch -->
       <div class="badge-card">
-        <div class="badge-icon">🥂</div>
+        <div class="badge-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 22h8M12 11v11M17 2l2 4c0 3-3 5-7 5s-7-2-7-5l2-4h10z"/></svg>
+        </div>
         <h3 class="badge-title" data-i18n="badge_3_title">Bottomless Brunch & Fresh Bakes</h3>
         <p class="badge-desc" data-i18n="badge_3_desc">Celebrated brunch with prosecco, bellinis, and our legendary daily homemade cake counter.</p>
       </div>
+      <!-- Badge 4: Dog Friendly -->
       <div class="badge-card">
-        <div class="badge-icon">🐾</div>
+        <div class="badge-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="14" r="3"/><circle cx="7" cy="8" r="2"/><circle cx="17" cy="8" r="2"/><circle cx="4" cy="12" r="1.5"/><circle cx="20" cy="12" r="1.5"/></svg>
+        </div>
         <h3 class="badge-title" data-i18n="badge_4_title">Dog Friendly & Dietary Minded</h3>
         <p class="badge-desc" data-i18n="badge_4_desc">Doggy treats always on hand; thoughtful vegetarian, vegan and gluten-free menus.</p>
       </div>
@@ -1448,6 +1615,55 @@
   <!-- Table Reservation Section -->
   <section id="reserve">
     <div class="container">
+      <!-- Direct Booking Perks Strip vs OTA -->
+      <div class="direct-perks-strip">
+        <div class="perks-header">
+          <div class="perks-badge-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span data-i18n="perks_badge">Direct Table Booking = Best Experience</span>
+          </div>
+          <div class="perks-ota-note" data-i18n="perks_ota_note">Save up to 20% in hidden booking fees vs third-party restaurant portals</div>
+        </div>
+        <div class="perks-grid">
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_1_title">Zero Commission Fees</div>
+              <div class="perk-desc" data-i18n="perk_1_desc">100% of your bill supports our independent kitchen team and local Yorkshire farmers.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_2_title">Priority Courtyard Seating</div>
+              <div class="perk-desc" data-i18n="perk_2_desc">Direct diners receive preferred access to our ivy-draped heated courtyard booths.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_3_title">Dietary & Pup Care</div>
+              <div class="perk-desc" data-i18n="perk_3_desc">Advance notice direct to Chef for gluten-free bakes, vegan requests, or dog treats.</div>
+            </div>
+          </div>
+          <div class="perk-item">
+            <div class="perk-icon-circle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="perk-title" data-i18n="perk_4_title">Direct Front Desk Link</div>
+              <div class="perk-desc" data-i18n="perk_4_desc">Direct confirmation with our Whitby team — no automated call centres or lost reservations.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="reserve-wrapper">
         <div class="reserve-info">
           <div class="reserve-info-head">
@@ -1641,6 +1857,15 @@
     </div>
   </section>
 
+  <!-- Mobile Sticky Bottom CTA Bar (High Conversion) -->
+  <div id="mobile-sticky-bar" class="mobile-sticky-bar">
+    <a href="tel:01947600200" class="sticky-bar-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>01947 600200</span>
+    </a>
+    <a href="#reserve" class="sticky-bar-book" data-i18n="sticky_book">Book Table</a>
+  </div>
+
   <!-- Footer -->
   <footer id="footer">
     <div class="container footer-content">
@@ -1658,7 +1883,7 @@
 
   <script>
     // Multilingual Translations Dictionary
-    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street, Whitby", "ribbon_call": "Direct Line: 01947 600200", "nav_atmosphere": "Courtyard & Atmosphere", "nav_specialities": "Specialities", "nav_menus": "Menus", "nav_blackboard": "Daily Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "hero_badge": "Church Street Cobblestones · Whitby Old Town · Est. 2000s", "hero_title": "A Hidden Oasis of Coast, Courtyard & Culinary Craft", "hero_subtitle": "\"Tucked away off the historic cobbled Church Street in the heart of Whitby — fresh North Sea seafood, generous bottomless brunches, and homemade courtyard bakes.\"", "hero_cta_reserve": "Reserve a Courtyard Table", "hero_cta_menu": "Explore Live Menus", "banner_notice": "Notice: 100% direct booking with no third-party markups. Dogs warmly welcomed in the lounge and sunny courtyard.", "badge_1_title": "Historic Cobblestone Courtyard", "badge_1_desc": "Dine under climbing ivy and heated parasols in Whitby's prettiest secluded stone yard.", "badge_2_title": "Fresh Coast & Local Seafood", "badge_2_desc": "Iconic Whitby scampi, North Sea catches, and artisanal Yorkshire cold cuts.", "badge_3_title": "Bottomless Brunch & Fresh Bakes", "badge_3_desc": "Celebrated brunch with prosecco, bellinis, and our legendary daily homemade cake counter.", "badge_4_title": "Dog Friendly & Dietary Minded", "badge_4_desc": "Doggy treats always on hand; thoughtful vegetarian, vegan and gluten-free menus.", "atmo_subtitle": "Sanctuary off Church Street", "atmo_title": "Where Historic Whitby Slows to a Relaxed Sip", "atmo_desc": "Step off the bustling cobblestones of Church Street into our peaceful haven. Surrounded by colourful climbing ivy and warm Yorkshire hospitality, whether basking in the courtyard sunshine with an iced drink or curling up in our cosy interior snug, Sanders Yard is your warm culinary refuge.", "spec_subtitle": "Signature Creations", "spec_title": "Chef-Crafted Flavours From Sea to Stove", "spec_desc": "From our famous bottomless brunch small plates to crispy Whitby scampi and warm Greek halloumi.", "menu_subtitle": "Real Live Menus · No PDF Hassle", "menu_title": "Browse Our Full Menu Directly On Mobile", "menu_desc": "No bulky downloads or pinched zoom. Everything made fresh to order with locally sourced Yorkshire ingredients.", "tab_breakfast": "Breakfast & Light Bites", "tab_brunch": "Bottomless Brunch & Lunch", "tab_greek": "Greek Specials & Mezze", "tab_drinks": "Cakes, Coffee & Cellar", "blackboard_title": "★ Chef's Daily Blackboard Specials ★", "blackboard_subtitle": "Updated Daily According to the Morning Harbor Landing", "reserve_title": "Reserve Your Table Directly", "reserve_subtitle": "Direct Booking Guarantee: Zero Third-Party Commission Fees", "reviews_title": "Loved by Whitby Locals & Coastal Travellers", "reviews_subtitle": "What Our Guests Say About Dining in Sanders Yard", "location_title": "Finding Sanders Yard Bistro", "location_subtitle": "Opposite the Old Market Place on Historic Church Street", "footer_rights": "All rights reserved. Designed for Independent British Hospitality."}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 惠特比教堂石板街", "ribbon_call": "前台直拨热线：01947 600200", "nav_atmosphere": "庭院环境", "nav_specialities": "招牌风味", "nav_menus": "全套菜单", "nav_blackboard": "今日黑板", "nav_reserve": "预约桌位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "hero_badge": "教堂石板街深处 · 惠特比历史老城 · 独立经营", "hero_title": "隐匿于古老石板街的庭院静谧美食绿洲", "hero_subtitle": "“告别喧闹的惠特比石板街，走进爬满常春藤的静谧庭院——品味北海野生海鲜、尽享欢畅早午餐与手作烘焙甜点。”", "hero_cta_reserve": "预约庭院/暖阁坐席", "hero_cta_menu": "浏览实时全量菜单", "banner_notice": "郑重提示：100%官网直接预订，严拒中介溢价抽成。欢迎携带爱犬进入室内暖阁与阳光庭院。", "badge_1_title": "历史鹅卵石庭院就餐", "badge_1_desc": "在惠特比最美隐秘石砌庭院中，沐浴阳光暖炉，绿植常春藤环绕就餐。", "badge_2_title": "北海新鲜海产与本地直供", "badge_2_desc": "经典惠特比炸海螯虾、约克郡本地冷切肉盘与鲜捕海味。", "badge_3_title": "无限畅饮早午餐与手作烘焙", "badge_3_desc": "人气起泡酒/贝利尼鸡尾酒早午餐，搭配每日新鲜出炉的招牌手工蛋糕柜。", "badge_4_title": "宠物友好与全饮食关怀", "badge_4_desc": "常备狗狗小零食；细致提供丰富蛋奶素、纯素与无麸质(GF)专属美味。", "atmo_subtitle": "教堂街深处的静谧避风港", "atmo_title": "让时光慢下来的惠特比惬意小憩", "atmo_desc": "穿过古老的教堂街石板路，推开 Sanders Yard 的木门。无论是在阳光庭院享用冷饮，还是蜷缩在温暖舒适的室内暖阁，这里都是您旅途中的温馨驿站。", "spec_subtitle": "主厨招牌呈现", "spec_title": "北海海产与约克郡乡村手工风味", "spec_desc": "从人气早午餐小食、酥脆炸虾，到地中海香煎哈罗米芝士与热蜂蜜菲达。", "menu_subtitle": "实时原生菜单 · 告别繁琐PDF", "menu_title": "手机端即开即选，体验流畅丝滑", "menu_desc": "无需下载几十兆的PDF文档。所有菜品甄选约克郡优质农场与海港新鲜食材现点现做。", "tab_breakfast": "早餐与轻食小点", "tab_brunch": "畅饮早午餐与主食", "tab_greek": "希腊风味小食与拼盘", "tab_drinks": "手工蛋糕、咖啡与酒窖", "blackboard_title": "★ 主厨每日小黑板当季特选 ★", "blackboard_subtitle": "每天早晨根据海港捕捞与农场晨送即时书写", "reserve_title": "官方直订通道 · 免除平台抽成", "reserve_subtitle": "零中介费保障：直连前台主理人，避免晚间高峰漏单", "reviews_title": "惠特比街坊与各地饕客口碑", "reviews_subtitle": "听听食客在 Sanders Yard 留下的真实美好回忆", "location_title": "如何找到 Sanders Yard Bistro", "location_subtitle": "位于历史悠久的教堂街，老集市广场（Old Market Place）正对面巷内", "footer_rights": "保留所有权利。专为英国独立特色餐饮打造的高质感直订系统。"}, "ja": {"ribbon_status": "本日の営業: 10:00 – 16:00 · ウィットビー・チャーチ通り石畳", "ribbon_call": "直通お電話: 01947 600200", "nav_atmosphere": "中庭と空間", "nav_specialities": "看板料理", "nav_menus": "お品書き", "nav_blackboard": "本日の黒板", "nav_reserve": "お席のご予約", "nav_reviews": "お客様の声", "nav_location": "アクセス", "hero_badge": "歴史あるチャーチ通りの石畳 · ウィットビー旧市街", "hero_title": "石畳の奥に佇む、海と中庭の隠れ家ビストロ", "hero_subtitle": "「ウィットビーの歴史的な石畳の小路を抜けた静寂の中庭へ——新鮮な北海シーフード、人気のフリーフローブランチ、そして手作りケーキ。」", "hero_cta_reserve": "中庭・お席を予約する", "hero_cta_menu": "最新メニューを見る", "banner_notice": "公式直接予約で手数料ゼロ。ラウンジと中庭は愛犬も大歓迎です。", "badge_1_title": "石畳の中庭ダイニング", "badge_1_desc": "ツタの緑と屋外ヒーターに包まれた、ウィットビー屈指の美しい隠れ家空間。", "badge_2_title": "獲れたて北海シーフード", "badge_2_desc": "名物ウィットビースキャンピ、新鮮な旬の魚介、ヨークシャーのこだわり冷製肉。", "badge_3_title": "ブランチ＆自家製ケーキ", "badge_3_desc": "プロセッコ付きブランチと、毎日焼き上げる自慢のケーキカウンター。", "badge_4_title": "愛犬同伴＆アレルギー対応", "badge_4_desc": "ワンちゃん用おやつ常備。ベジタリアン、ヴィーガン、グルテンフリー(GF)対応。", "atmo_subtitle": "チャーチ通りの隠れ家", "atmo_title": "歴史薫るウィットビーで過ごす、贅沢なひととき", "atmo_desc": "石畳の喧騒を離れ、Sanders Yardの扉を開けてください。陽光あふれる中庭でも、温もりある室内スナッグでも、心地よい安らぎをお届けします。", "spec_subtitle": "シェフ自慢の味", "spec_title": "海と大地の恵みを活かした逸品料理", "spec_desc": "大人気ブランチ小皿から、サクサクのスキャンピ、ギリシャ風ハルミチーズまで。", "menu_subtitle": "PDF不要の快適モバイルメニュー", "menu_title": "スマートフォンでそのまま快適にご覧いただけます", "menu_desc": "重いPDFダウンロードは不要。厳選された地元食材による出来立てのお料理。", "tab_breakfast": "朝食・軽食", "tab_brunch": "ブランチ・ランチ", "tab_greek": "ギリシャ風小皿料理", "tab_drinks": "ケーキ・カフェ・ワイン", "blackboard_title": "★ 本日のシェフ特選黒板メニュー ★", "blackboard_subtitle": "毎朝の港の揚がりと地元の収穫に合わせて更新", "reserve_title": "公式直接予約（仲介手数料ゼロ）", "reserve_subtitle": "お電話がつながりにくいピーク時も、オンラインで確実にお席をリクエスト", "reviews_title": "地元客と旅人に愛され続ける理由", "reviews_subtitle": "Sanders Yard Bistro に寄せられた温かいお客様の声", "location_title": "店舗へのアクセス", "location_subtitle": "旧マーケットプレイス向かい、歴史あるチャーチ通りの石畳小路を入ってすぐ", "footer_rights": "All rights reserved. 英国の誇りある独立系レストランのために。"}};
+    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street, Whitby", "ribbon_call": "Direct Line: 01947 600200", "nav_atmosphere": "Courtyard & Atmosphere", "nav_specialities": "Specialities", "nav_menus": "Menus", "nav_blackboard": "Daily Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "hero_badge": "Church Street Cobblestones · Whitby Old Town · Est. 2000s", "hero_title": "A Hidden Oasis of Coast, Courtyard & Culinary Craft", "hero_subtitle": "\"Tucked away off the historic cobbled Church Street in the heart of Whitby — fresh North Sea seafood, generous bottomless brunches, and homemade courtyard bakes.\"", "hero_cta_reserve": "Reserve a Courtyard Table", "hero_cta_menu": "Explore Live Menus", "banner_notice": "Notice: 100% direct booking with no third-party markups. Dogs warmly welcomed in the lounge and sunny courtyard.", "badge_1_title": "Historic Cobblestone Courtyard", "badge_1_desc": "Dine under climbing ivy and heated parasols in Whitby's prettiest secluded stone yard.", "badge_2_title": "Fresh Coast & Local Seafood", "badge_2_desc": "Iconic Whitby scampi, North Sea catches, and artisanal Yorkshire cold cuts.", "badge_3_title": "Bottomless Brunch & Fresh Bakes", "badge_3_desc": "Celebrated brunch with prosecco, bellinis, and our legendary daily homemade cake counter.", "badge_4_title": "Dog Friendly & Dietary Minded", "badge_4_desc": "Doggy treats always on hand; thoughtful vegetarian, vegan and gluten-free menus.", "atmo_subtitle": "Sanctuary off Church Street", "atmo_title": "Where Historic Whitby Slows to a Relaxed Sip", "atmo_desc": "Step off the bustling cobblestones of Church Street into our peaceful haven. Surrounded by colourful climbing ivy and warm Yorkshire hospitality, whether basking in the courtyard sunshine with an iced drink or curling up in our cosy interior snug, Sanders Yard is your warm culinary refuge.", "spec_subtitle": "Signature Creations", "spec_title": "Chef-Crafted Flavours From Sea to Stove", "spec_desc": "From our famous bottomless brunch small plates to crispy Whitby scampi and warm Greek halloumi.", "menu_subtitle": "Real Live Menus · No PDF Hassle", "menu_title": "Browse Our Full Menu Directly On Mobile", "menu_desc": "No bulky downloads or pinched zoom. Everything made fresh to order with locally sourced Yorkshire ingredients.", "tab_breakfast": "Breakfast & Light Bites", "tab_brunch": "Bottomless Brunch & Lunch", "tab_greek": "Greek Specials & Mezze", "tab_drinks": "Cakes, Coffee & Cellar", "blackboard_title": "★ Chef's Daily Blackboard Specials ★", "blackboard_subtitle": "Updated Daily According to the Morning Harbor Landing", "reserve_title": "Reserve Your Table Directly", "reserve_subtitle": "Direct Booking Guarantee: Zero Third-Party Commission Fees", "perks_badge": "Direct Table Booking = Best Experience", "perks_ota_note": "Save up to 20% in hidden booking fees vs third-party restaurant portals", "perk_1_title": "Zero Commission Fees", "perk_1_desc": "100% of your bill supports our independent kitchen team and local Yorkshire farmers.", "perk_2_title": "Priority Courtyard Seating", "perk_2_desc": "Direct diners receive preferred access to our ivy-draped heated courtyard booths.", "perk_3_title": "Dietary & Pup Care", "perk_3_desc": "Advance notice direct to Chef for gluten-free bakes, vegan requests, or dog treats.", "perk_4_title": "Direct Front Desk Link", "perk_4_desc": "Direct confirmation with our Whitby team — no automated call centres or lost reservations.", "reviews_title": "Loved by Whitby Locals & Coastal Travellers", "reviews_subtitle": "What Our Guests Say About Dining in Sanders Yard", "location_title": "Finding Sanders Yard Bistro", "location_subtitle": "Opposite the Old Market Place on Historic Church Street", "footer_rights": "All rights reserved. Designed for Independent British Hospitality.", "sticky_book": "Book Table"}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 惠特比教堂石板街", "ribbon_call": "前台直拨热线：01947 600200", "nav_atmosphere": "庭院环境", "nav_specialities": "招牌风味", "nav_menus": "全套菜单", "nav_blackboard": "今日黑板", "nav_reserve": "预约桌位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "hero_badge": "教堂石板街深处 · 惠特比历史老城 · 独立经营", "hero_title": "隐匿于古老石板街的庭院静谧美食绿洲", "hero_subtitle": "“告别喧闹的惠特比石板街，走进爬满常春藤的静谧庭院——品味北海野生海鲜、尽享欢畅早午餐与手作烘焙甜点。”", "hero_cta_reserve": "预约庭院/暖阁坐席", "hero_cta_menu": "浏览实时全量菜单", "banner_notice": "郑重提示：100%官网直接预订，严拒中介溢价抽成。欢迎携带爱犬进入室内暖阁与阳光庭院。", "badge_1_title": "历史鹅卵石庭院就餐", "badge_1_desc": "在惠特比最美隐秘石砌庭院中，沐浴阳光暖炉，绿植常春藤环绕就餐。", "badge_2_title": "北海新鲜海产与本地直供", "badge_2_desc": "经典惠特比炸海螯虾、约克郡本地冷切肉盘与鲜捕海味。", "badge_3_title": "无限畅饮早午餐与手作烘焙", "badge_3_desc": "人气起泡酒/贝利尼鸡尾酒早午餐，搭配每日新鲜出炉的招牌手工蛋糕柜。", "badge_4_title": "宠物友好与全饮食关怀", "badge_4_desc": "常备狗狗小零食；细致提供丰富蛋奶素、纯素与无麸质(GF)专属美味。", "atmo_subtitle": "教堂街深处的静谧避风港", "atmo_title": "让时光慢下来的惠特比惬意小憩", "atmo_desc": "穿过古老的教堂街石板路，推开 Sanders Yard 的木门。无论是在阳光庭院享用冷饮，还是蜷缩在温暖舒适的室内暖阁，这里都是您旅途中的温馨驿站。", "spec_subtitle": "主厨招牌呈现", "spec_title": "北海海产与约克郡乡村手工风味", "spec_desc": "从人气早午餐小食、酥脆炸虾，到地中海香煎哈罗米芝士与热蜂蜜菲达。", "menu_subtitle": "实时原生菜单 · 告别繁琐PDF", "menu_title": "手机端即开即选，体验流畅丝滑", "menu_desc": "无需下载几十兆的PDF文档。所有菜品甄选约克郡优质农场与海港新鲜食材现点现做。", "tab_breakfast": "早餐与轻食小点", "tab_brunch": "畅饮早午餐与主食", "tab_greek": "希腊风味小食与拼盘", "tab_drinks": "手工蛋糕、咖啡与酒窖", "blackboard_title": "★ 主厨每日小黑板当季特选 ★", "blackboard_subtitle": "每天早晨根据海港捕捞与农场晨送即时书写", "reserve_title": "官方直订通道 · 免除平台抽成", "reserve_subtitle": "零中介费保障：直连前台主理人，避免晚间高峰漏单", "perks_badge": "官方直接订桌 = 尊享四大直订权益", "perks_ota_note": "相比第三方中介软件，为您省去高达 20% 隐形加价与按人头抽成", "perk_1_title": "免收任何平台佣金", "perk_1_desc": "您的每一笔餐费 100% 用于支持独立厨师团队与约克郡本土农家食材。", "perk_2_title": "优先锁定庭院景观位", "perk_2_desc": "直订食客优先安排常春藤环绕、带户外暖炉的雅致石砌庭院卡座。", "perk_3_title": "定制过敏原与爱犬礼遇", "perk_3_desc": "特殊忌口直接交代主厨（无麸质/纯素），随行爱犬常备免费小零食。", "perk_4_title": "前台直接对接确认", "perk_4_desc": "惠特比前厅店员直接短信与邮件双向确认，杜绝第三方系统吞单错位。", "reviews_title": "惠特比街坊与各地饕客口碑", "reviews_subtitle": "听听食客在 Sanders Yard 留下的真实美好回忆", "location_title": "如何找到 Sanders Yard Bistro", "location_subtitle": "位于历史悠久的教堂街，老集市广场（Old Market Place）正对面巷内", "footer_rights": "保留所有权利。专为英国独立特色餐饮打造的高质感直订系统。", "sticky_book": "立即订桌"}, "ja": {"ribbon_status": "本日の営業: 10:00 – 16:00 · ウィットビー・チャーチ通り石畳", "ribbon_call": "直通お電話: 01947 600200", "nav_atmosphere": "中庭と空間", "nav_specialities": "看板料理", "nav_menus": "お品書き", "nav_blackboard": "本日の黒板", "nav_reserve": "お席のご予約", "nav_reviews": "お客様の声", "nav_location": "アクセス", "hero_badge": "歴史あるチャーチ通りの石畳 · ウィットビー旧市街", "hero_title": "石畳の奥に佇む、海と中庭の隠れ家ビストロ", "hero_subtitle": "「ウィットビーの歴史的な石畳の小路を抜けた静寂の中庭へ——新鮮な北海シーフード、人気のフリーフローブランチ、そして手作りケーキ。」", "hero_cta_reserve": "中庭・お席を予約する", "hero_cta_menu": "最新メニューを見る", "banner_notice": "公式直接予約で手数料ゼロ。ラウンジと中庭は愛犬も大歓迎です。", "badge_1_title": "石畳の中庭ダイニング", "badge_1_desc": "ツタの緑と屋外ヒーターに包まれた、ウィットビー屈指の美しい隠れ家空間。", "badge_2_title": "獲れたて北海シーフード", "badge_2_desc": "名物ウィットビースキャンピ、新鮮な旬の魚介、ヨークシャーのこだわり冷製肉。", "badge_3_title": "ブランチ＆自家製ケーキ", "badge_3_desc": "プロセッコ付きブランチと、毎日焼き上げる自慢のケーキカウンター。", "badge_4_title": "愛犬同伴＆アレルギー対応", "badge_4_desc": "ワンちゃん用おやつ常備。ベジタリアン、ヴィーガン、グルテンフリー(GF)対応。", "atmo_subtitle": "チャーチ通りの隠れ家", "atmo_title": "歴史薫るウィットビーで過ごす、贅沢なひととき", "atmo_desc": "石畳の喧騒を離れ、Sanders Yardの扉を開けてください。陽光あふれる中庭でも、温もりある室内スナッグでも、心地よい安らぎをお届けします。", "spec_subtitle": "シェフ自慢の味", "spec_title": "海と大地の恵みを活かした逸品料理", "spec_desc": "大人気ブランチ小皿から、サクサクのスキャンピ、ギリシャ風ハルミチーズまで。", "menu_subtitle": "PDF不要の快適モバイルメニュー", "menu_title": "スマートフォンでそのまま快適にご覧いただけます", "menu_desc": "重いPDFダウンロードは不要。厳選された地元食材による出来立てのお料理。", "tab_breakfast": "朝食・軽食", "tab_brunch": "ブランチ・ランチ", "tab_greek": "ギリシャ風小皿料理", "tab_drinks": "ケーキ・カフェ・ワイン", "blackboard_title": "★ 本日のシェフ特選黒板メニュー ★", "blackboard_subtitle": "毎朝の港の揚がりと地元の収穫に合わせて更新", "reserve_title": "公式直接予約（仲介手数料ゼロ）", "reserve_subtitle": "お電話がつながりにくいピーク時も、オンラインで確実にお席をリクエスト", "perks_badge": "公式直接予約 = 4大特典", "perks_ota_note": "外部予約仲介サイトと比べて最大20%の手数料上乗せをカット", "perk_1_title": "仲介手数料ゼロ", "perk_1_desc": "お支払いいただくお代は100%独立キッチンと地元ヨークシャーの生産者に届きます。", "perk_2_title": "中庭テラス優先案内", "perk_2_desc": "直接ご予約のお客様には、ツタとヒーターに囲まれた人気の中庭席を優先確保。", "perk_3_title": "アレルギー＆愛犬対応", "perk_3_desc": "グルテンフリーやヴィーガン対応、ワンちゃんのおやつもシェフに直接共有。", "perk_4_title": "店舗直通の確実な受付", "perk_4_desc": "ウィットビー店舗スタッフが直接確認するため、予約の行き違いがありません。", "reviews_title": "地元客と旅人に愛され続ける理由", "reviews_subtitle": "Sanders Yard Bistro に寄せられた温かいお客様の声", "location_title": "店舗へのアクセス", "location_subtitle": "旧マーケットプレイス向かい、歴史あるチャーチ通りの石畳小路を入ってすぐ", "footer_rights": "All rights reserved. 英国の誇りある独立系レストランのために。", "sticky_book": "お席を予約"}};
 
     function switchLang(lang) {
       document.querySelectorAll(".lang-btn").forEach(btn => {
@@ -1713,6 +1938,19 @@
         links.style.padding = "24px";
       }
     }
+
+    // Mobile Sticky Bottom Bar Scroll Visibility
+    window.addEventListener("scroll", function() {
+      const stickyBar = document.getElementById("mobile-sticky-bar");
+      if (!stickyBar) return;
+      if (window.innerWidth <= 768) {
+        if (window.scrollY > 280) {
+          stickyBar.style.display = "flex";
+        } else {
+          stickyBar.style.display = "none";
+        }
+      }
+    }, { passive: true });
 
     // Set today minimum date on date picker
     document.addEventListener("DOMContentLoaded", () => {
