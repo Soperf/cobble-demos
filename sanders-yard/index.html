@@ -207,7 +207,7 @@
       transform: translateY(-1px);
     }
 
-    /* Mobile Hamburger Toggle */
+    /* Mobile Hamburger Toggle with Smooth Animated Lines */
     .mobile-toggle-btn {
       align-items: center;
       background: rgba(255, 255, 255, 0.05);
@@ -215,24 +215,67 @@
       border-radius: var(--radius-sm);
       cursor: pointer;
       display: none;
+      flex-direction: column;
       height: 40px;
       justify-content: center;
-      padding: 8px;
+      gap: 5px;
+      padding: 8px 9px;
       width: 40px;
+      transition: var(--transition);
+      z-index: 102;
     }
-    .mobile-toggle-btn svg {
-      height: 22px;
-      stroke: var(--accent-amber);
+    .mobile-toggle-btn span {
+      background: var(--accent-amber);
+      border-radius: 2px;
+      display: block;
+      height: 2px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       width: 22px;
+    }
+    .mobile-toggle-btn.active {
+      background: rgba(229, 168, 85, 0.15);
+      border-color: var(--accent-amber);
+    }
+    .mobile-toggle-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-toggle-btn.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .mobile-toggle-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer Backdrop Overlay */
+    .drawer-backdrop {
+      background: rgba(4, 7, 10, 0.65);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: none;
+      height: 100vh;
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      transition: opacity 0.3s ease;
+      width: 100vw;
+      z-index: 98;
+    }
+    .drawer-backdrop.open {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
     }
 
     /* Mobile Nav Drawer */
     .mobile-drawer {
       background: rgba(11, 17, 24, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-bottom: 2px solid var(--accent-amber);
-      box-shadow: var(--shadow-hover);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
       box-sizing: border-box;
       display: none;
       left: 0;
@@ -243,7 +286,7 @@
       z-index: 101;
     }
     .mobile-drawer.open {
-      animation: drawerFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: drawerFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       display: block;
     }
     @keyframes drawerFadeIn {
@@ -1358,12 +1401,10 @@
         <li><a href="#location" data-i18n="nav_location">Find Us</a></li>
         <li><a href="#reserve" class="nav-cta" data-i18n="nav_reserve">Reserve Table</a></li>
       </ul>
-      <button class="mobile-toggle-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+      <button id="mobile-nav-toggle" class="mobile-toggle-btn" onclick="toggleMobileDrawer()" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
 
@@ -1387,6 +1428,9 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="drawer-backdrop" class="drawer-backdrop" onclick="closeMobileDrawer()"></div>
 
   <!-- Hero Section with Editorial 2-Tone Typo & Gold Citation Border -->
   <header id="hero">
@@ -2056,6 +2100,11 @@
           el.textContent = translations[lang][key];
         }
       });
+      // If language switched inside mobile drawer, auto-collapse smoothly after brief feedback
+      const drawer = document.getElementById("mobile-drawer");
+      if (drawer && drawer.classList.contains("open")) {
+        setTimeout(closeMobileDrawer, 200);
+      }
     }
 
     function switchMenuTab(tabId) {
@@ -2086,16 +2135,39 @@
 
     function toggleMobileDrawer() {
       const drawer = document.getElementById("mobile-drawer");
-      drawer.classList.toggle("open");
+      const toggleBtn = document.getElementById("mobile-nav-toggle");
+      const backdrop = document.getElementById("drawer-backdrop");
+      if (!drawer) return;
+      const isOpen = drawer.classList.contains("open");
+      if (isOpen) {
+        closeMobileDrawer();
+      } else {
+        drawer.classList.add("open");
+        if (toggleBtn) toggleBtn.classList.add("active");
+        if (backdrop) backdrop.classList.add("open");
+      }
     }
 
     function closeMobileDrawer() {
       const drawer = document.getElementById("mobile-drawer");
-      drawer.classList.remove("open");
+      const toggleBtn = document.getElementById("mobile-nav-toggle");
+      const backdrop = document.getElementById("drawer-backdrop");
+      if (drawer) drawer.classList.remove("open");
+      if (toggleBtn) toggleBtn.classList.remove("active");
+      if (backdrop) backdrop.classList.remove("open");
     }
 
-    // Mobile Sticky Bottom Bar Scroll Visibility
+    // Mobile Auto-Collapse & Sticky Bottom Bar Scroll Visibility
+    let lastScrollY = window.scrollY;
     window.addEventListener("scroll", function() {
+      const drawer = document.getElementById("mobile-drawer");
+      if (drawer && drawer.classList.contains("open")) {
+        if (Math.abs(window.scrollY - lastScrollY) > 50) {
+          closeMobileDrawer();
+        }
+      }
+      lastScrollY = window.scrollY;
+
       const stickyBar = document.getElementById("mobile-sticky-bar");
       if (!stickyBar) return;
       if (window.innerWidth <= 768) {
@@ -2107,8 +2179,27 @@
       }
     }, { passive: true });
 
-    // Set today minimum date on date picker
+    // Event listeners on DOM load
     document.addEventListener("DOMContentLoaded", () => {
+      // Auto-collapse mobile drawer when clicking any link inside
+      const drawer = document.getElementById("mobile-drawer");
+      if (drawer) {
+        drawer.addEventListener("click", (e) => {
+          const link = e.target.closest("a");
+          if (link) {
+            closeMobileDrawer();
+          }
+        });
+      }
+
+      // Close on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeMobileDrawer();
+        }
+      });
+
+      // Set today minimum date on date picker
       const dateInput = document.querySelector("input[name='booking_date']");
       if (dateInput) {
         const today = new Date().toISOString().split("T")[0];
