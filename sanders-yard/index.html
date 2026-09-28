@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanders Yard Bistro | Historic Church Street Courtyard Dining | Whitby</title>
+  <meta name="description" content="Sanders Yard Bistro tucked away off historic Church Street in Whitby. Famous for courtyard dining, bottomless brunch, North Sea seafood, and homemade artisan bakes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-primary: #0D141C;
+      --bg-surface: #151F2A;
+      --bg-card: #1C2836;
+      --bg-card-subtle: #243345;
+      --text-primary: #F5F7FA;
+      --text-secondary: #CBD5E1;
+      --text-muted: #94A3B8;
+      --accent-navy: #1B3B4B;
+      --accent-terracotta: #C06C4C;
+      --accent-terracotta-hover: #D47B5A;
+      --accent-amber: #E5A855;
+      --accent-green: #2E5D4B;
+      --border-subtle: rgba(229, 168, 85, 0.22);
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", -apple-system, "system-ui", "Segoe UI", Roboto, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.7);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100vw; overflow-x: hidden; width: 100%; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; transition: var(--transition); }
+    img { display: block; height: auto; max-width: 100%; }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Top Ribbon */
+    .top-ribbon {
+      background: #080D12;
+      border-bottom: 1px solid rgba(229, 168, 85, 0.25);
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 9px 0;
+      position: relative;
+      z-index: 100;
+    }
+    .top-ribbon-content {
+      align-items: center;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 16px;
+      justify-content: space-between;
+      white-space: nowrap;
+    }
+    .ribbon-status {
+      align-items: center;
+      display: flex;
+      flex-shrink: 1;
+      gap: 8px;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pulse-dot {
+      background-color: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4ade80;
+      display: inline-block;
+      flex-shrink: 0;
+      height: 8px;
+      width: 8px;
+    }
+    .ribbon-right {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 20px;
+    }
+    .ribbon-call {
+      align-items: center;
+      color: var(--accent-amber);
+      display: flex;
+      font-weight: 600;
+      gap: 6px;
+      letter-spacing: 0.02em;
+    }
+    .lang-switcher {
+      align-items: center;
+      display: flex;
+      gap: 6px;
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      transition: var(--transition);
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: rgba(229, 168, 85, 0.18);
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+    }
+
+    /* Main Navigation */
+    .site-nav {
+      background: rgba(13, 20, 28, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .nav-container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      align-items: center;
+      display: flex;
+      gap: 12px;
+    }
+    .brand-mark {
+      background: linear-gradient(135deg, var(--accent-terracotta), var(--accent-amber));
+      border-radius: 6px;
+      color: #0D141C;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+      width: 38px;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .brand-subtitle {
+      color: var(--accent-amber);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      align-items: center;
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--accent-amber);
+    }
+    .nav-cta {
+      background: var(--accent-terracotta);
+      border-radius: var(--radius-sm);
+      color: #FFFFFF !important;
+      font-weight: 600 !important;
+      padding: 8px 18px;
+      transition: var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--accent-terracotta-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Mobile Hamburger Menu */
+    .hamburger-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: none;
+      font-size: 18px;
+      padding: 6px 10px;
+    }
+
+    /* Hero Section */
+    #hero {
+      align-items: center;
+      background: linear-gradient(180deg, rgba(13, 20, 28, 0.6) 0%, rgba(13, 20, 28, 0.95) 100%),
+                  url("images/courtyard_hero.jpg") center/cover no-repeat;
+      display: flex;
+      min-height: 85vh;
+      padding: 80px 0;
+      position: relative;
+    }
+    .hero-content {
+      margin: 0 auto;
+      max-width: 860px;
+      text-align: center;
+    }
+    .hero-pill {
+      background: rgba(229, 168, 85, 0.15);
+      border: 1px solid var(--accent-amber);
+      border-radius: 30px;
+      color: var(--accent-amber);
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      padding: 6px 18px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 5.2vw, 56px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      color: var(--text-secondary);
+      font-size: clamp(16px, 1.8vw, 19px);
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0 auto 36px auto;
+      max-width: 720px;
+    }
+    .hero-actions {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--accent-terracotta);
+      border: 1px solid var(--accent-terracotta);
+      border-radius: var(--radius-sm);
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      transition: var(--transition);
+    }
+    .btn-primary:hover {
+      background: var(--accent-terracotta-hover);
+      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.4);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(229, 168, 85, 0.4);
+      border-radius: var(--radius-sm);
+      color: var(--accent-amber);
+      cursor: pointer;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      transition: var(--transition);
+    }
+    .btn-secondary:hover {
+      background: rgba(229, 168, 85, 0.15);
+      border-color: var(--accent-amber);
+      transform: translateY(-2px);
+    }
+
+    /* Notice Banner */
+    .notice-banner {
+      background: #0A0F15;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      font-size: 13px;
+      padding: 12px 0;
+      text-align: center;
+    }
+
+    /* Badges Bar */
+    .trust-badges-section {
+      background: var(--bg-surface);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 0;
+    }
+    .badges-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .badge-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: var(--transition);
+    }
+    .badge-card:hover {
+      border-color: var(--accent-amber);
+      transform: translateY(-3px);
+    }
+    .badge-icon {
+      color: var(--accent-amber);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .badge-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .badge-desc {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    .section-eyebrow {
+      color: var(--accent-amber);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.8vw, 42px);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 16px;
+      margin: 0 auto;
+      max-width: 680px;
+    }
+
+    /* Atmosphere Section */
+    #atmosphere {
+      padding: 90px 0;
+    }
+    .atmosphere-grid {
+      align-items: stretch;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .atmosphere-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .atmosphere-card:hover {
+      border-color: var(--accent-amber);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .atmosphere-img-wrap {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+    .atmosphere-img-wrap img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+    }
+    .atmosphere-card:hover .atmosphere-img-wrap img {
+      transform: scale(1.05);
+    }
+    .atmosphere-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 24px;
+    }
+    .atmosphere-tag {
+      color: var(--accent-amber);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .atmosphere-card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .atmosphere-card-desc {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* Specialities Section */
+    #specialities {
+      background: var(--bg-surface);
+      padding: 90px 0;
+    }
+    .specialities-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .dish-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .dish-card:hover {
+      border-color: var(--accent-amber);
+      transform: translateY(-4px);
+    }
+    .dish-img-wrap {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .dish-img-wrap img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+    }
+    .dish-card:hover .dish-img-wrap img {
+      transform: scale(1.05);
+    }
+    .dish-tag-badge {
+      background: rgba(13, 20, 28, 0.85);
+      border: 1px solid var(--accent-amber);
+      border-radius: 4px;
+      color: var(--accent-amber);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      position: absolute;
+      right: 12px;
+      top: 12px;
+    }
+    .dish-body {
+      padding: 24px;
+    }
+    .dish-header {
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .dish-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .dish-price {
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .dish-desc {
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .diet-tags {
+      display: flex;
+      gap: 6px;
+    }
+    .diet-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      color: #94A3B8;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 6px;
+    }
+
+    /* Live Menus Section */
+    #menus {
+      padding: 90px 0;
+    }
+    .menu-tabs {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .menu-tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      transition: var(--transition);
+    }
+    .menu-tab-btn.active, .menu-tab-btn:hover {
+      background: var(--accent-terracotta);
+      border-color: var(--accent-terracotta);
+      color: #FFFFFF;
+    }
+    .menu-tab-pane {
+      display: none;
+    }
+    .menu-tab-pane.active {
+      display: block;
+    }
+    .menu-card-container {
+      background: var(--bg-surface);
+      border: 1px solid rgba(229, 168, 85, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .menu-category-title {
+      border-bottom: 1px solid rgba(229, 168, 85, 0.3);
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+    }
+    .menu-items-grid {
+      display: grid;
+      gap: 28px 40px;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 36px;
+    }
+    .menu-item-row {
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-item-head {
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .item-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .item-dots {
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+    .item-price {
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .item-desc {
+      color: var(--text-secondary);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* Daily Blackboard */
+    #blackboard {
+      background: var(--bg-surface);
+      padding: 90px 0;
+    }
+    .chalkboard-frame {
+      background: #090F14;
+      border: 8px solid #3E2B1E;
+      border-radius: var(--radius-lg);
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), 0 16px 40px rgba(0, 0, 0, 0.6);
+      margin: 0 auto;
+      max-width: 860px;
+      padding: 48px;
+      position: relative;
+    }
+    .chalkboard-header {
+      border-bottom: 2px dashed rgba(229, 168, 85, 0.4);
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+    .chalkboard-title {
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .chalkboard-subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-style: italic;
+    }
+    .chalkboard-specials {
+      display: grid;
+      gap: 24px;
+    }
+    .chalk-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .chalk-head {
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+    }
+    .chalk-name {
+      color: #FFFFFF;
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .chalk-price {
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+    }
+    .chalk-desc {
+      color: #94A3B8;
+      font-size: 13.5px;
+      margin-top: 4px;
+    }
+
+    /* Direct Booking Form */
+    #reserve {
+      padding: 90px 0;
+    }
+    .reserve-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid rgba(229, 168, 85, 0.25);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1fr 1.2fr;
+      margin: 0 auto;
+      max-width: 1040px;
+      overflow: hidden;
+      padding: 48px;
+    }
+    .reserve-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .reserve-info-head h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+    .reserve-info-head p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .reserve-direct-perks {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    .reserve-direct-perks li {
+      align-items: center;
+      color: var(--text-secondary);
+      display: flex;
+      font-size: 13.5px;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .reserve-direct-perks li span {
+      color: var(--accent-amber);
+    }
+    .call-strip-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+    .call-strip-box strong {
+      color: var(--accent-amber);
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .call-strip-box a {
+      color: var(--text-primary);
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* Booking Form Fields */
+    .form-group-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 16px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+    .form-field label {
+      color: var(--text-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 14px;
+      padding: 12px 14px;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: var(--accent-amber);
+      outline: none;
+    }
+    .large-party-notice {
+      background: rgba(192, 108, 76, 0.15);
+      border: 1px solid var(--accent-terracotta);
+      border-radius: var(--radius-sm);
+      color: #F87171;
+      display: none;
+      font-size: 12.5px;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+    }
+    .booking-btn {
+      background: var(--accent-terracotta);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .booking-btn:hover {
+      background: var(--accent-terracotta-hover);
+      box-shadow: 0 6px 20px rgba(192, 108, 76, 0.4);
+    }
+    .booking-success-box {
+      background: rgba(46, 93, 75, 0.25);
+      border: 1px solid #4ADE80;
+      border-radius: var(--radius-md);
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      text-align: center;
+    }
+    .booking-success-box h4 {
+      color: #4ADE80;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+    .booking-success-box p {
+      color: var(--text-secondary);
+      font-size: 13.5px;
+    }
+
+    /* Guest Reviews */
+    #reviews {
+      background: var(--bg-surface);
+      padding: 90px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 30px;
+      transition: var(--transition);
+    }
+    .review-card:hover {
+      border-color: var(--accent-amber);
+      transform: translateY(-3px);
+    }
+    .review-stars {
+      color: var(--accent-amber);
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .review-quote {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      gap: 12px;
+      padding-top: 14px;
+    }
+    .author-initial {
+      background: rgba(229, 168, 85, 0.2);
+      border-radius: 50%;
+      color: var(--accent-amber);
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      width: 36px;
+    }
+    .author-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .author-meta {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* Location & Hours */
+    #location {
+      padding: 90px 0;
+    }
+    .location-wrapper {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .location-info-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .info-block {
+      margin-bottom: 28px;
+    }
+    .info-block:last-child {
+      margin-bottom: 0;
+    }
+    .info-label {
+      color: var(--accent-amber);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .info-val {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .fsa-badge-box {
+      align-items: center;
+      background: #090F14;
+      border: 1px solid rgba(74, 222, 128, 0.4);
+      border-radius: var(--radius-md);
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      padding: 16px;
+    }
+    .fsa-rating {
+      background: #4ADE80;
+      border-radius: 4px;
+      color: #0D141C;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      width: 44px;
+    }
+    .fsa-text strong {
+      color: #4ADE80;
+      display: block;
+      font-size: 13px;
+    }
+    .fsa-text span {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    .location-map-wrap {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      min-height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+    .location-map-wrap iframe {
+      border: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Footer */
+    #footer {
+      background: #06090D;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 13px;
+      padding: 48px 0;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .footer-links a:hover {
+      color: var(--accent-amber);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .badges-grid { grid-template-columns: repeat(2, 1fr); }
+      .atmosphere-grid, .specialities-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .reserve-wrapper, .location-wrapper { grid-template-columns: 1fr; }
+      .menu-items-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger-btn { display: block; }
+    }
+    @media (max-width: 640px) {
+      .top-ribbon-content { flex-direction: column; gap: 8px; }
+      .badges-grid { grid-template-columns: 1fr; }
+      .form-group-grid { grid-template-columns: 1fr; }
+      .menu-card-container, .reserve-wrapper, .location-info-card { padding: 24px; }
+    }
+  </style>
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Sanders Yard Bistro",
+    "image": "https://sandersyardbistro.co.uk/wp-content/uploads/2021/01/Courtyard-1-scaled.jpg",
+    "telephone": "01947 600200",
+    "email": "info@sandersyardbistro.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Sanders Yard, 95 Church Street",
+      "addressLocality": "Whitby",
+      "addressRegion": "North Yorkshire",
+      "postalCode": "YO22 4BH",
+      "addressCountry": "UK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 54.487964,
+      "longitude": -0.6120577
+    },
+    "servesCuisine": ["British", "Seafood", "Brunch", "Mediterranean"],
+    "priceRange": "££",
+    "hasMenu": "https://sandersyardbistro.co.uk/our-menus/"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Ribbon -->
+  <div class="top-ribbon">
+    <div class="container top-ribbon-content">
+      <div class="ribbon-status">
+        <span class="pulse-dot"></span>
+        <span data-i18n="ribbon_status">Open Today: 10:00 – 16:00 · Church Street, Whitby</span>
+      </div>
+      <div class="ribbon-right">
+        <a href="tel:01947600200" class="ribbon-call">
+          <span data-i18n="ribbon_call">Direct Line: 01947 600200</span>
+        </a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+          <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+          <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-mark">SY</div>
+        <div class="brand-text">
+          <span class="brand-title">Sanders Yard</span>
+          <span class="brand-subtitle">Bistro & Courtyard · Whitby</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#atmosphere" data-i18n="nav_atmosphere">Courtyard & Atmosphere</a></li>
+        <li><a href="#specialities" data-i18n="nav_specialities">Specialities</a></li>
+        <li><a href="#menus" data-i18n="nav_menus">Menus</a></li>
+        <li><a href="#blackboard" data-i18n="nav_blackboard">Daily Blackboard</a></li>
+        <li><a href="#reviews" data-i18n="nav_reviews">Reviews</a></li>
+        <li><a href="#location" data-i18n="nav_location">Find Us</a></li>
+        <li><a href="#reserve" class="nav-cta" data-i18n="nav_reserve">Reserve Table</a></li>
+      </ul>
+      <button class="hamburger-btn" onclick="toggleNav()">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero">
+    <div class="container hero-content">
+      <div class="hero-pill" data-i18n="hero_badge">Church Street Cobblestones · Whitby Old Town · Est. 2000s</div>
+      <h1 class="hero-title" data-i18n="hero_title">A Hidden Oasis of Coast, Courtyard & Culinary Craft</h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">"Tucked away off the historic cobbled Church Street in the heart of Whitby — fresh North Sea seafood, generous bottomless brunches, and homemade courtyard bakes."</p>
+      <div class="hero-actions">
+        <a href="#reserve" class="btn-primary" data-i18n="hero_cta_reserve">Reserve a Courtyard Table</a>
+        <a href="#menus" class="btn-secondary" data-i18n="hero_cta_menu">Explore Live Menus</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notice Banner -->
+  <div class="notice-banner">
+    <div class="container">
+      <span data-i18n="banner_notice">Notice: 100% direct booking with no third-party markups. Dogs warmly welcomed in the lounge and sunny courtyard.</span>
+    </div>
+  </div>
+
+  <!-- Trust Badges Section -->
+  <section class="trust-badges-section">
+    <div class="container badges-grid">
+      <div class="badge-card">
+        <div class="badge-icon">🌿</div>
+        <h3 class="badge-title" data-i18n="badge_1_title">Historic Cobblestone Courtyard</h3>
+        <p class="badge-desc" data-i18n="badge_1_desc">Dine under climbing ivy and heated parasols in Whitby's prettiest secluded stone yard.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-icon">⚓</div>
+        <h3 class="badge-title" data-i18n="badge_2_title">Fresh Coast & Local Seafood</h3>
+        <p class="badge-desc" data-i18n="badge_2_desc">Iconic Whitby scampi, North Sea catches, and artisanal Yorkshire cold cuts.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-icon">🥂</div>
+        <h3 class="badge-title" data-i18n="badge_3_title">Bottomless Brunch & Fresh Bakes</h3>
+        <p class="badge-desc" data-i18n="badge_3_desc">Celebrated brunch with prosecco, bellinis, and our legendary daily homemade cake counter.</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-icon">🐾</div>
+        <h3 class="badge-title" data-i18n="badge_4_title">Dog Friendly & Dietary Minded</h3>
+        <p class="badge-desc" data-i18n="badge_4_desc">Doggy treats always on hand; thoughtful vegetarian, vegan and gluten-free menus.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmosphere Section -->
+  <section id="atmosphere">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" data-i18n="atmo_subtitle">Sanctuary off Church Street</div>
+        <h2 class="section-title" data-i18n="atmo_title">Where Historic Whitby Slows to a Relaxed Sip</h2>
+        <p class="section-desc" data-i18n="atmo_desc">Step off the bustling cobblestones of Church Street into our peaceful haven. Surrounded by colourful climbing ivy and warm Yorkshire hospitality, whether basking in the courtyard sunshine with an iced drink or curling up in our cosy interior snug, Sanders Yard is your warm culinary refuge.</p>
+      </div>
+      <div class="atmosphere-grid">
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap">
+            <img src="images/courtyard_tables.jpg" alt="Sunny secluded cobblestone courtyard at Sanders Yard Bistro" loading="lazy">
+          </div>
+          <div class="atmosphere-body">
+            <span class="atmosphere-tag">Al Fresco Dining</span>
+            <h3 class="atmosphere-card-title">Ivy-Draped Courtyard</h3>
+            <p class="atmosphere-card-desc">Sheltered under climbing ivy with covered tables and outdoor heaters for crisp coastal afternoons.</p>
+          </div>
+        </div>
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap">
+            <img src="images/interior_dining.jpg" alt="Cosy interior dining room and chalkboards at Sanders Yard Bistro" loading="lazy">
+          </div>
+          <div class="atmosphere-body">
+            <span class="atmosphere-tag">Warm Heritage Snug</span>
+            <h3 class="atmosphere-card-title">Historic Bistro Snug</h3>
+            <p class="atmosphere-card-desc">Candlelit stone-wall interior, comfortable booths, and friendly staff ready with canine treats.</p>
+          </div>
+        </div>
+        <div class="atmosphere-card">
+          <div class="atmosphere-img-wrap">
+            <img src="images/window_display.jpg" alt="Artisan shopfront and cake counter display at Sanders Yard" loading="lazy">
+          </div>
+          <div class="atmosphere-body">
+            <span class="atmosphere-tag">Artisan Counter</span>
+            <h3 class="atmosphere-card-title">Window Bakes & Coffee</h3>
+            <p class="atmosphere-card-desc">Home-baked scones, decadent sponge cakes, and locally roasted artisan coffees to stay or takeaway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialities Section -->
+  <section id="specialities">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" data-i18n="spec_subtitle">Signature Creations</div>
+        <h2 class="section-title" data-i18n="spec_title">Chef-Crafted Flavours From Sea to Stove</h2>
+        <p class="section-desc" data-i18n="spec_desc">From our famous bottomless brunch small plates to crispy Whitby scampi and warm Greek halloumi.</p>
+      </div>
+      <div class="specialities-grid">
+        <div class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="images/dish_prosecco_platter.jpg" alt="Celebrated Bottomless Brunch with prosecco and savoury platters" loading="lazy">
+            <span class="dish-tag-badge">Whitby Favourite</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">Bottomless Brunch Selection</h3>
+              <span class="dish-price">£32.00</span>
+            </div>
+            <p class="dish-desc">Unlimited Prosecco, Bellinis, or Raspberry Gin Fizz paired with your choice of 3 chef small plates.</p>
+            <div class="diet-tags">
+              <span class="diet-pill">[GF Available]</span>
+              <span class="diet-pill">[V]</span>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="images/dish_salad_lunch.jpg" alt="Whitby Scampi and freshly caught local seafood" loading="lazy">
+            <span class="dish-tag-badge">Local Catch</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">Whitby Scampi & Chips</h3>
+              <span class="dish-price">£13.50</span>
+            </div>
+            <p class="dish-desc">Crispy golden breaded Whitby scampi served with homemade tartar sauce, chunky chips, and fresh garden salad.</p>
+            <div class="diet-tags">
+              <span class="diet-pill">North Sea</span>
+              <span class="diet-pill">Signature</span>
+            </div>
+          </div>
+        </div>
+        <div class="dish-card">
+          <div class="dish-img-wrap">
+            <img src="images/bakes_cakes_treats.jpg" alt="Homemade sweet bakes and artisan courtyard dessert counter" loading="lazy">
+            <span class="dish-tag-badge">Daily Bake</span>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">Daily Counter Bakes & Tea</h3>
+              <span class="dish-price">£4.95</span>
+            </div>
+            <p class="dish-desc">Warm home-baked scones with clotted cream, gluten-free brownies, and Yorkshire fruit sponge.</p>
+            <div class="diet-tags">
+              <span class="diet-pill">[V]</span>
+              <span class="diet-pill">[VG]</span>
+              <span class="diet-pill">[GF]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Menus Section (Eliminating PDFs) -->
+  <section id="menus">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" data-i18n="menu_subtitle">Real Live Menus · No PDF Hassle</div>
+        <h2 class="section-title" data-i18n="menu_title">Browse Our Full Menu Directly On Mobile</h2>
+        <p class="section-desc" data-i18n="menu_desc">No bulky downloads or pinched zoom. Everything made fresh to order with locally sourced Yorkshire ingredients.</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active" data-tab="breakfast" onclick="switchMenuTab('breakfast')" data-i18n="tab_breakfast">Breakfast & Light Bites</button>
+        <button class="menu-tab-btn" data-tab="brunch" onclick="switchMenuTab('brunch')" data-i18n="tab_brunch">Bottomless Brunch & Lunch</button>
+        <button class="menu-tab-btn" data-tab="greek" onclick="switchMenuTab('greek')" data-i18n="tab_greek">Greek Specials & Mezze</button>
+        <button class="menu-tab-btn" data-tab="drinks" onclick="switchMenuTab('drinks')" data-i18n="tab_drinks">Cakes, Coffee & Cellar</button>
+      </div>
+
+      <div class="menu-card-container">
+        <!-- Breakfast Tab -->
+        <div class="menu-tab-pane active" id="pane-breakfast">
+          <h3 class="menu-category-title">Morning Classics & Light Bites (10:00 – 11:30)</h3>
+          <div class="menu-items-grid">
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Greek Yoghurt & Fruit Compote [V, GF]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£4.95</span>
+              </div>
+              <p class="item-desc">Thick natural Greek yoghurt topped with house berry compote and wildflower honey.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Creamy Porridge & Golden Syrup [V]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£5.50</span>
+              </div>
+              <p class="item-desc">Scottish rolled oats simmered with double cream, walnuts and sultanas.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">French Toast with Cinnamon Sugar [V]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£6.50</span>
+              </div>
+              <p class="item-desc">Thick sliced brioche griddled golden, dusted with spiced sugar and Yorkshire butter.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Oak-Smoked Salmon & Poached Eggs [GF]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£11.95</span>
+              </div>
+              <p class="item-desc">Cured Scottish salmon, two free-range poached eggs on toasted malted bloomer bread.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brunch Tab -->
+        <div class="menu-tab-pane" id="pane-brunch">
+          <h3 class="menu-category-title">Bottomless Brunch & Daytime Favourites</h3>
+          <div class="menu-items-grid">
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Bottomless Brunch Experience (90 Mins)</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£32.00</span>
+              </div>
+              <p class="item-desc">Choose any 3 small plates accompanied by free-flowing Prosecco, Bellinis, or Raspberry Gin Fizz.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Whitby Scampi & Chunky Chips</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£13.50</span>
+              </div>
+              <p class="item-desc">Crisp golden scampi bites served with house tartar sauce, minted peas, and fresh courtyard salad.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Sanders Yard Rarebit with Bacon & Egg</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£12.95</span>
+              </div>
+              <p class="item-desc">Yorkshire ale and mature cheddar rarebit, thick bacon, and a soft poached farm egg.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Chilli Spiced Avocado Bruschetta [V, VG]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£7.95</span>
+              </div>
+              <p class="item-desc">Smashed Hass avocado, Greek feta, fresh chilli flakes, and citrus dressed leaves.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Greek Tab -->
+        <div class="menu-tab-pane" id="pane-greek">
+          <h3 class="menu-category-title">Greek Night Small Plates & Mezze Specialities</h3>
+          <div class="menu-items-grid">
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Hot Honey Baked Feta [V, GF]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£9.00</span>
+              </div>
+              <p class="item-desc">Oven-baked Greek feta cheese drizzled with wildflower hot honey, fresh thyme and warm pita.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Herbed Beef Meatballs (Keftedes)</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£10.00</span>
+              </div>
+              <p class="item-desc">Tender beef meatballs in slow-simmered oregano tomato sauce topped with cool garlic tzatziki.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Crispy Salt & Pepper Squid</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£10.00</span>
+              </div>
+              <p class="item-desc">Flash-fried tender squid with garlic herb mayo, pickled capers and lemon wedge.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Veggie Mezze Trio with Dips [V, GF]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£14.50</span>
+              </div>
+              <p class="item-desc">House tzatziki, spiced hummus, stuffed vine leaves, olives, and crisp tortilla chips.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks Tab -->
+        <div class="menu-tab-pane" id="pane-drinks">
+          <h3 class="menu-category-title">Coffee, Hand-Crafted Ales & Cellar Wines</h3>
+          <div class="menu-items-grid">
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Black Sheep / Hobgoblin Yorkshire Ale</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.95</span>
+              </div>
+              <p class="item-desc">Locally brewed Yorkshire bitter and craft ales, crisp and refreshing.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Tooma River Australian Shiraz (Bottle)</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£19.99</span>
+              </div>
+              <p class="item-desc">Smooth and textured with dark chocolate notes and rich spices on the palate.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Whipped Cream Hot Chocolate & Marshmallows</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.95</span>
+              </div>
+              <p class="item-desc">Rich Belgian cocoa, steamed whole milk, topped with generous fresh cream.</p>
+            </div>
+            <div class="menu-item-row">
+              <div class="menu-item-head">
+                <span class="item-title">Fresh Cake Counter Slice of the Day [V]</span>
+                <span class="item-dots"></span>
+                <span class="item-price">£3.75</span>
+              </div>
+              <p class="item-desc">Check our display for Victoria sponge, gluten-free carrot cake, or chocolate fudge bake.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Blackboard Section -->
+  <section id="blackboard">
+    <div class="container">
+      <div class="chalkboard-frame">
+        <div class="chalkboard-header">
+          <h3 class="chalkboard-title" data-i18n="blackboard_title">★ Chef's Daily Blackboard Specials ★</h3>
+          <div class="chalkboard-subtitle" data-i18n="blackboard_subtitle">Updated Daily According to the Morning Harbor Landing</div>
+        </div>
+        <div class="chalkboard-specials">
+          <div class="chalk-item">
+            <div class="chalk-head">
+              <span class="chalk-name">Pan-Seared Whitby Wild Seabass Fillet</span>
+              <span class="chalk-price">£18.50</span>
+            </div>
+            <p class="chalk-desc">North Sea seabass, crushed buttered new potatoes, samphire, caper and lemon beurre noisette.</p>
+          </div>
+          <div class="chalk-item">
+            <div class="chalk-head">
+              <span class="chalk-name">Yorkshire Halloumi & Beetroot Stack [V, GF]</span>
+              <span class="chalk-price">£13.95</span>
+            </div>
+            <p class="chalk-desc">Grilled local halloumi, roasted baby beetroot, toasted walnuts and balsamic glaze on toasted bloomer.</p>
+          </div>
+          <div class="chalk-item">
+            <div class="chalk-head">
+              <span class="chalk-name">Warm Grasmere & Yorkshire Gingerbread Sundae</span>
+              <span class="chalk-price">£6.50</span>
+            </div>
+            <p class="chalk-desc">Layers of spiced crumb, vanilla bean dairy ice cream, salted butterscotch sauce, and toasted pecans.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table Reservation Section -->
+  <section id="reserve">
+    <div class="container">
+      <div class="reserve-wrapper">
+        <div class="reserve-info">
+          <div class="reserve-info-head">
+            <h3 data-i18n="reserve_title">Reserve Your Table Directly</h3>
+            <p data-i18n="reserve_subtitle">Direct Booking Guarantee: Zero Third-Party Commission Fees</p>
+            <ul class="reserve-direct-perks">
+              <li><span>✓</span> Priority seating in our sunny heated courtyard or cosy snug</li>
+              <li><span>✓</span> Immediate notification to the bistro owner with no booking fees</li>
+              <li><span>✓</span> Full accommodation for dietary requests (Gluten-Free, Vegan, Dog-Friendly)</li>
+            </ul>
+          </div>
+          <div class="call-strip-box">
+            <strong>Prefer to speak with our front desk?</strong>
+            <a href="tel:01947600200">01947 600200</a>
+          </div>
+        </div>
+
+        <!-- Direct Table Form -->
+        <div class="reserve-form-container">
+          <form id="booking-form" onsubmit="handleDirectBooking(event)">
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label>Your Full Name *</label>
+                <input type="text" name="guest_name" required placeholder="e.g. Charlotte Bronte">
+              </div>
+              <div class="form-field">
+                <label>Contact Phone *</label>
+                <input type="tel" name="guest_phone" required placeholder="e.g. 07123 456789">
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Email Address *</label>
+              <input type="email" name="guest_email" required placeholder="e.g. guest@example.co.uk">
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label>Dining Date *</label>
+                <input type="date" name="booking_date" required>
+              </div>
+              <div class="form-field">
+                <label>Preferred Time *</label>
+                <select name="booking_time" required>
+                  <option value="">Select Dining Slot</option>
+                  <option value="10:00">10:00 (Breakfast)</option>
+                  <option value="11:30">11:30 (Morning Brunch)</option>
+                  <option value="13:00">13:00 (Lunch Rush)</option>
+                  <option value="14:30">14:30 (Afternoon Tea / Bakes)</option>
+                  <option value="18:00">18:00 (Evening / Special Events)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-grid">
+              <div class="form-field">
+                <label>Party Size *</label>
+                <select name="party_size" required onchange="handlePartySizeChange(this.value)">
+                  <option value="2">2 Guests</option>
+                  <option value="1">1 Guest</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                  <option value="6">6 Guests</option>
+                  <option value="7+">7+ Guests (Large Party)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label>Seating Preference</label>
+                <select name="seating_area">
+                  <option value="Courtyard">Heated Courtyard (Outdoor / Covered)</option>
+                  <option value="Snug">Cosy Interior Snug</option>
+                  <option value="FirstAvailable">First Available Table</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="large-party-alert" class="large-party-notice">
+              ⚠️ For groups of 7 or more, please call us directly on <strong>01947 600200</strong> so we can arrange dedicated seating and catering menus.
+            </div>
+
+            <div class="form-field">
+              <label>Dietary or Special Requests</label>
+              <textarea name="special_notes" rows="2" placeholder="e.g. Bringing friendly spaniel, 1 guest gluten-free, celebrating anniversary..."></textarea>
+            </div>
+
+            <button type="submit" class="booking-btn">Confirm Direct Table Request</button>
+            <div id="booking-success" class="booking-success-box">
+              <h4>Request Sent Directly to Sanders Yard!</h4>
+              <p>Reference: <strong id="booking-ref-code">SYB-9482</strong>. Our front desk will confirm your seating within 2 business hours.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" data-i18n="reviews_title">Loved by Whitby Locals & Coastal Travellers</div>
+        <h2 class="section-title" data-i18n="reviews_subtitle">What Our Guests Say About Dining in Sanders Yard</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The best vegetarian breakfast I have ever had by far! Tucked away in a beautiful courtyard off Church Street. The warm hospitality and food made our Whitby weekend unforgettable."</p>
+          <div class="review-author">
+            <div class="author-initial">K</div>
+            <div>
+              <div class="author-name">Kayleigh Lavender Robinson</div>
+              <div class="author-meta">TripAdvisor Reviewer</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"I took my 3yo and 1yo for lunch and we had such a lovely time! Lots of toys to play with, the menu caters for all tastes with vegan & gluten-free options. Even some lovely pooches hanging around!"</p>
+          <div class="review-author">
+            <div class="author-initial">C</div>
+            <div>
+              <div class="author-name">Cara Mawson</div>
+              <div class="author-meta">Family Guest</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The bottomless brunch is unmatched in Whitby. Exceptional value, generous Prosecco refills, and the scampi is so fresh. Sanders Yard is a true hidden gem off the cobbles."</p>
+          <div class="review-author">
+            <div class="author-initial">M</div>
+            <div>
+              <div class="author-name">Mark & Sophie H.</div>
+              <div class="author-meta">Yorkshire Travellers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section id="location">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow" data-i18n="location_title">Finding Sanders Yard Bistro</div>
+        <h2 class="section-title" data-i18n="location_subtitle">Opposite the Old Market Place on Historic Church Street</h2>
+      </div>
+      <div class="location-wrapper">
+        <div class="location-info-card">
+          <div class="info-block">
+            <div class="info-label">Address & Landmark</div>
+            <div class="info-val">
+              Sanders Yard, 95 Church Street<br>
+              Whitby, North Yorkshire, YO22 4BH, United Kingdom<br>
+              <em>(Directly opposite the historic Old Market Place through the stone courtyard archway)</em>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-label">Standard Opening Hours</div>
+            <div class="info-val">
+              Monday – Friday: 10:00 – 16:00<br>
+              Saturday & Sunday: 09:30 – 16:30<br>
+              <em>Evening events & Greek nights on select dates — see blackboard</em>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-label">Direct Contact</div>
+            <div class="info-val">
+              Telephone: <strong>01947 600200</strong><br>
+              Email: <strong>info@sandersyardbistro.co.uk</strong>
+            </div>
+          </div>
+          <div class="fsa-badge-box">
+            <div class="fsa-rating">5</div>
+            <div class="fsa-text">
+              <strong>Food Standards Agency Rating 5 (Very Good)</strong>
+              <span>Highest Food Hygiene Standards officially inspected and awarded.</span>
+            </div>
+          </div>
+        </div>
+        <div class="location-map-wrap">
+          <iframe 
+            title="Sanders Yard Bistro Google Map Location"
+            src="https://maps.google.com/maps?q=Sanders%20Yard%20Bistro%2095%20Church%20St%20Whitby%20YO22%204BH&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-content">
+      <div class="brand-title">Sanders Yard Bistro · Whitby</div>
+      <div class="footer-links">
+        <a href="#atmosphere">Courtyard</a>
+        <a href="#menus">Full Menus</a>
+        <a href="#reserve">Direct Booking</a>
+        <a href="#location">Find Us</a>
+        <a href="tel:01947600200">Call: 01947 600200</a>
+      </div>
+      <p data-i18n="footer_rights">All rights reserved. Designed for Independent British Hospitality.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Multilingual Translations Dictionary
+    const translations = {"en": {"ribbon_status": "Open Today: 10:00 – 16:00 · Church Street, Whitby", "ribbon_call": "Direct Line: 01947 600200", "nav_atmosphere": "Courtyard & Atmosphere", "nav_specialities": "Specialities", "nav_menus": "Menus", "nav_blackboard": "Daily Blackboard", "nav_reserve": "Reserve Table", "nav_reviews": "Reviews", "nav_location": "Find Us", "hero_badge": "Church Street Cobblestones · Whitby Old Town · Est. 2000s", "hero_title": "A Hidden Oasis of Coast, Courtyard & Culinary Craft", "hero_subtitle": "\"Tucked away off the historic cobbled Church Street in the heart of Whitby — fresh North Sea seafood, generous bottomless brunches, and homemade courtyard bakes.\"", "hero_cta_reserve": "Reserve a Courtyard Table", "hero_cta_menu": "Explore Live Menus", "banner_notice": "Notice: 100% direct booking with no third-party markups. Dogs warmly welcomed in the lounge and sunny courtyard.", "badge_1_title": "Historic Cobblestone Courtyard", "badge_1_desc": "Dine under climbing ivy and heated parasols in Whitby's prettiest secluded stone yard.", "badge_2_title": "Fresh Coast & Local Seafood", "badge_2_desc": "Iconic Whitby scampi, North Sea catches, and artisanal Yorkshire cold cuts.", "badge_3_title": "Bottomless Brunch & Fresh Bakes", "badge_3_desc": "Celebrated brunch with prosecco, bellinis, and our legendary daily homemade cake counter.", "badge_4_title": "Dog Friendly & Dietary Minded", "badge_4_desc": "Doggy treats always on hand; thoughtful vegetarian, vegan and gluten-free menus.", "atmo_subtitle": "Sanctuary off Church Street", "atmo_title": "Where Historic Whitby Slows to a Relaxed Sip", "atmo_desc": "Step off the bustling cobblestones of Church Street into our peaceful haven. Surrounded by colourful climbing ivy and warm Yorkshire hospitality, whether basking in the courtyard sunshine with an iced drink or curling up in our cosy interior snug, Sanders Yard is your warm culinary refuge.", "spec_subtitle": "Signature Creations", "spec_title": "Chef-Crafted Flavours From Sea to Stove", "spec_desc": "From our famous bottomless brunch small plates to crispy Whitby scampi and warm Greek halloumi.", "menu_subtitle": "Real Live Menus · No PDF Hassle", "menu_title": "Browse Our Full Menu Directly On Mobile", "menu_desc": "No bulky downloads or pinched zoom. Everything made fresh to order with locally sourced Yorkshire ingredients.", "tab_breakfast": "Breakfast & Light Bites", "tab_brunch": "Bottomless Brunch & Lunch", "tab_greek": "Greek Specials & Mezze", "tab_drinks": "Cakes, Coffee & Cellar", "blackboard_title": "★ Chef's Daily Blackboard Specials ★", "blackboard_subtitle": "Updated Daily According to the Morning Harbor Landing", "reserve_title": "Reserve Your Table Directly", "reserve_subtitle": "Direct Booking Guarantee: Zero Third-Party Commission Fees", "reviews_title": "Loved by Whitby Locals & Coastal Travellers", "reviews_subtitle": "What Our Guests Say About Dining in Sanders Yard", "location_title": "Finding Sanders Yard Bistro", "location_subtitle": "Opposite the Old Market Place on Historic Church Street", "footer_rights": "All rights reserved. Designed for Independent British Hospitality."}, "zh": {"ribbon_status": "今日营业：10:00 – 16:00 · 惠特比教堂石板街", "ribbon_call": "前台直拨热线：01947 600200", "nav_atmosphere": "庭院环境", "nav_specialities": "招牌风味", "nav_menus": "全套菜单", "nav_blackboard": "今日黑板", "nav_reserve": "预约桌位", "nav_reviews": "客人口碑", "nav_location": "到达指引", "hero_badge": "教堂石板街深处 · 惠特比历史老城 · 独立经营", "hero_title": "隐匿于古老石板街的庭院静谧美食绿洲", "hero_subtitle": "“告别喧闹的惠特比石板街，走进爬满常春藤的静谧庭院——品味北海野生海鲜、尽享欢畅早午餐与手作烘焙甜点。”", "hero_cta_reserve": "预约庭院/暖阁坐席", "hero_cta_menu": "浏览实时全量菜单", "banner_notice": "郑重提示：100%官网直接预订，严拒中介溢价抽成。欢迎携带爱犬进入室内暖阁与阳光庭院。", "badge_1_title": "历史鹅卵石庭院就餐", "badge_1_desc": "在惠特比最美隐秘石砌庭院中，沐浴阳光暖炉，绿植常春藤环绕就餐。", "badge_2_title": "北海新鲜海产与本地直供", "badge_2_desc": "经典惠特比炸海螯虾、约克郡本地冷切肉盘与鲜捕海味。", "badge_3_title": "无限畅饮早午餐与手作烘焙", "badge_3_desc": "人气起泡酒/贝利尼鸡尾酒早午餐，搭配每日新鲜出炉的招牌手工蛋糕柜。", "badge_4_title": "宠物友好与全饮食关怀", "badge_4_desc": "常备狗狗小零食；细致提供丰富蛋奶素、纯素与无麸质(GF)专属美味。", "atmo_subtitle": "教堂街深处的静谧避风港", "atmo_title": "让时光慢下来的惠特比惬意小憩", "atmo_desc": "穿过古老的教堂街石板路，推开 Sanders Yard 的木门。无论是在阳光庭院享用冷饮，还是蜷缩在温暖舒适的室内暖阁，这里都是您旅途中的温馨驿站。", "spec_subtitle": "主厨招牌呈现", "spec_title": "北海海产与约克郡乡村手工风味", "spec_desc": "从人气早午餐小食、酥脆炸虾，到地中海香煎哈罗米芝士与热蜂蜜菲达。", "menu_subtitle": "实时原生菜单 · 告别繁琐PDF", "menu_title": "手机端即开即选，体验流畅丝滑", "menu_desc": "无需下载几十兆的PDF文档。所有菜品甄选约克郡优质农场与海港新鲜食材现点现做。", "tab_breakfast": "早餐与轻食小点", "tab_brunch": "畅饮早午餐与主食", "tab_greek": "希腊风味小食与拼盘", "tab_drinks": "手工蛋糕、咖啡与酒窖", "blackboard_title": "★ 主厨每日小黑板当季特选 ★", "blackboard_subtitle": "每天早晨根据海港捕捞与农场晨送即时书写", "reserve_title": "官方直订通道 · 免除平台抽成", "reserve_subtitle": "零中介费保障：直连前台主理人，避免晚间高峰漏单", "reviews_title": "惠特比街坊与各地饕客口碑", "reviews_subtitle": "听听食客在 Sanders Yard 留下的真实美好回忆", "location_title": "如何找到 Sanders Yard Bistro", "location_subtitle": "位于历史悠久的教堂街，老集市广场（Old Market Place）正对面巷内", "footer_rights": "保留所有权利。专为英国独立特色餐饮打造的高质感直订系统。"}, "ja": {"ribbon_status": "本日の営業: 10:00 – 16:00 · ウィットビー・チャーチ通り石畳", "ribbon_call": "直通お電話: 01947 600200", "nav_atmosphere": "中庭と空間", "nav_specialities": "看板料理", "nav_menus": "お品書き", "nav_blackboard": "本日の黒板", "nav_reserve": "お席のご予約", "nav_reviews": "お客様の声", "nav_location": "アクセス", "hero_badge": "歴史あるチャーチ通りの石畳 · ウィットビー旧市街", "hero_title": "石畳の奥に佇む、海と中庭の隠れ家ビストロ", "hero_subtitle": "「ウィットビーの歴史的な石畳の小路を抜けた静寂の中庭へ——新鮮な北海シーフード、人気のフリーフローブランチ、そして手作りケーキ。」", "hero_cta_reserve": "中庭・お席を予約する", "hero_cta_menu": "最新メニューを見る", "banner_notice": "公式直接予約で手数料ゼロ。ラウンジと中庭は愛犬も大歓迎です。", "badge_1_title": "石畳の中庭ダイニング", "badge_1_desc": "ツタの緑と屋外ヒーターに包まれた、ウィットビー屈指の美しい隠れ家空間。", "badge_2_title": "獲れたて北海シーフード", "badge_2_desc": "名物ウィットビースキャンピ、新鮮な旬の魚介、ヨークシャーのこだわり冷製肉。", "badge_3_title": "ブランチ＆自家製ケーキ", "badge_3_desc": "プロセッコ付きブランチと、毎日焼き上げる自慢のケーキカウンター。", "badge_4_title": "愛犬同伴＆アレルギー対応", "badge_4_desc": "ワンちゃん用おやつ常備。ベジタリアン、ヴィーガン、グルテンフリー(GF)対応。", "atmo_subtitle": "チャーチ通りの隠れ家", "atmo_title": "歴史薫るウィットビーで過ごす、贅沢なひととき", "atmo_desc": "石畳の喧騒を離れ、Sanders Yardの扉を開けてください。陽光あふれる中庭でも、温もりある室内スナッグでも、心地よい安らぎをお届けします。", "spec_subtitle": "シェフ自慢の味", "spec_title": "海と大地の恵みを活かした逸品料理", "spec_desc": "大人気ブランチ小皿から、サクサクのスキャンピ、ギリシャ風ハルミチーズまで。", "menu_subtitle": "PDF不要の快適モバイルメニュー", "menu_title": "スマートフォンでそのまま快適にご覧いただけます", "menu_desc": "重いPDFダウンロードは不要。厳選された地元食材による出来立てのお料理。", "tab_breakfast": "朝食・軽食", "tab_brunch": "ブランチ・ランチ", "tab_greek": "ギリシャ風小皿料理", "tab_drinks": "ケーキ・カフェ・ワイン", "blackboard_title": "★ 本日のシェフ特選黒板メニュー ★", "blackboard_subtitle": "毎朝の港の揚がりと地元の収穫に合わせて更新", "reserve_title": "公式直接予約（仲介手数料ゼロ）", "reserve_subtitle": "お電話がつながりにくいピーク時も、オンラインで確実にお席をリクエスト", "reviews_title": "地元客と旅人に愛され続ける理由", "reviews_subtitle": "Sanders Yard Bistro に寄せられた温かいお客様の声", "location_title": "店舗へのアクセス", "location_subtitle": "旧マーケットプレイス向かい、歴史あるチャーチ通りの石畳小路を入ってすぐ", "footer_rights": "All rights reserved. 英国の誇りある独立系レストランのために。"}};
+
+    function switchLang(lang) {
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.textContent.toLowerCase() === lang || (lang === "zh" && btn.textContent === "中文") || (lang === "ja" && btn.textContent === "日本語"));
+      });
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    function switchMenuTab(tabId) {
+      document.querySelectorAll(".menu-tab-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-tab") === tabId);
+      });
+      document.querySelectorAll(".menu-tab-pane").forEach(pane => {
+        pane.classList.toggle("active", pane.id === "pane-" + tabId);
+      });
+    }
+
+    function handlePartySizeChange(val) {
+      const alertBox = document.getElementById("large-party-alert");
+      if (val === "7+") {
+        alertBox.style.display = "block";
+      } else {
+        alertBox.style.display = "none";
+      }
+    }
+
+    function handleDirectBooking(e) {
+      e.preventDefault();
+      const code = "SYB-" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById("booking-ref-code").textContent = code;
+      document.getElementById("booking-success").style.display = "block";
+      document.getElementById("booking-form").reset();
+    }
+
+    function toggleNav() {
+      const links = document.querySelector(".nav-links");
+      if (links.style.display === "flex") {
+        links.style.display = "none";
+      } else {
+        links.style.display = "flex";
+        links.style.flexDirection = "column";
+        links.style.position = "absolute";
+        links.style.top = "70px";
+        links.style.left = "0";
+        links.style.width = "100%";
+        links.style.background = "#0D141C";
+        links.style.padding = "24px";
+      }
+    }
+
+    // Set today minimum date on date picker
+    document.addEventListener("DOMContentLoaded", () => {
+      const dateInput = document.querySelector("input[name='booking_date']");
+      if (dateInput) {
+        const today = new Date().toISOString().split("T")[0];
+        dateInput.setAttribute("min", today);
+      }
+    });
+  </script>
+</body>
+</html>
