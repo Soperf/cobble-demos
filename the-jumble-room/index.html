@@ -1930,15 +1930,18 @@
           <strong>⚠️ Official Scam Warning from Andy:</strong> “It has come to my attention that there is a website called Autoreserve that is taking bookings for the jumble room (WE DO NOT TAKE BOOKINGS THIS WAY ONLY DIRECTLY). I think it's a scam and a way of collecting your information, please be aware... I am currently trying to get it closed as we speak. — Andy”
         </div>
 
-        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;" data-i18n="res_desc">
-          Due to kitchen preparation, our telephone is switched to answerphone during service. Submit your request below for prompt direct confirmation.
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
+          For an actual table reservation, please call the restaurant directly. The form below only shows a possible design.
         </p>
 
         <p style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--accent-amber);" data-i18n="res_email_direct">
           Direct questions & group enquiries: <a href="mailto:eat@thejumbleroom.co.uk" style="text-decoration: underline; color: var(--accent-amber);">eat@thejumbleroom.co.uk</a>
         </p>
 
-        <form id="booking-form" class="booking-form" onsubmit="handleBookingSubmit(event)">
+        <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+          <strong>Interactive concept preview — not a booking system.</strong> This example form is disabled; your details are not sent. For a real table booking, please call the restaurant on <a href="tel:01539435188">015394 35188</a>.
+        </aside>
+        <form id="booking-form" class="booking-form" inert aria-disabled="true" style="opacity:.55;" onsubmit="handleBookingSubmit(event)">
           <!-- Honeypot for Anti-Spam -->
           <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
 
@@ -2125,16 +2128,6 @@
     </div>
   </footer>
 
-  <!-- Confirmation Modal -->
-  <div id="success-modal" class="modal-overlay" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <h3 data-i18n="modal_title">Reservation Requested</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;" data-i18n="modal_desc">
-        Thank you! We have received your booking details and will send a confirmation SMS and email shortly. We look forward to welcoming you to Grasmere.
-      </p>
-      <button class="btn btn-primary" onclick="closeModal()" data-i18n="modal_btn">Close Window</button>
-    </div>
-  </div>
 
   <!-- Mobile Sticky Bottom CTA Bar (High Conversion) -->
   <div id="mobile-sticky-bar" class="mobile-sticky-bar">
@@ -2599,21 +2592,11 @@
     }
 
     // -------------------------------------------------------------
-    // Booking Form Submission & Modal
+    // Concept form: never simulate a completed reservation.
     // -------------------------------------------------------------
     function handleBookingSubmit(event) {
       event.preventDefault();
-      var form = event.target;
-      if (form._gotcha && form._gotcha.value !== '') {
-        return false;
-      }
-      document.getElementById('success-modal').style.display = 'flex';
-      form.reset();
       return false;
-    }
-
-    function closeModal() {
-      document.getElementById('success-modal').style.display = 'none';
     }
 
     // -------------------------------------------------------------

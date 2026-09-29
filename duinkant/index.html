@@ -2010,10 +2010,13 @@
         <div class="text-center" style="margin-bottom:2rem;">
           <span class="section-eyebrow" data-i18n="form_eyebrow">Direct Boeken & Besparen</span>
           <h2 class="section-title" data-i18n="form_title">Vrijblijvende Reserveringsaanvraag</h2>
-          <p style="color:var(--text-muted);font-size:0.95rem;" data-i18n="form_desc">Boek rechtstreeks bij familie Bos zonder boekingskosten. We reageren altijd binnen 24 uur met een passend voorstel.</p>
+          <p style="color:var(--text-muted);font-size:0.95rem;">Dit is een ontwerpvoorbeeld. Voor een echte reservering gebruikt u de officiële boekingspagina van de camping.</p>
         </div>
 
-        <form id="enquiry-form">
+        <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+          <strong>Interactief conceptvoorbeeld — geen boekingssysteem.</strong> Dit voorbeeldformulier is uitgeschakeld; gegevens worden niet verzonden. Reserveer via de <a href="https://www.campingdeduinkant.nl/zoek_en_boek">officiële boekingspagina van De Duinkant</a>.
+        </aside>
+        <form id="enquiry-form" inert aria-disabled="true" style="opacity:.55;">
           <!-- Honeypot -->
           <input type="text" name="website_hp" style="display:none;" tabindex="-1" autocomplete="off">
 
@@ -2079,13 +2082,6 @@
           </div>
         </form>
 
-        <!-- Confirmation Notice -->
-        <div class="confirmation-box" id="enquiry-confirmation">
-          <h3>Bedankt voor uw aanvraag!</h3>
-          <p>Uw directe reserveringsaanvraag is succesvol in goede orde ontvangen met referentie:</p>
-          <div class="confirmation-ref" id="enquiry-ref">DK-2026-0000</div>
-          <p style="font-size:0.9rem;color:var(--text-muted);">Jort of familie Bos neemt binnen 24 uur persoonlijk contact met u op om de beschikbaarheid en details te bevestigen.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -3038,36 +3034,11 @@
       });
     }
 
-    // 9. FORM SUBMISSION, HONEYPOT & REFERENCE CONFIRMATION
+    // 9. CONCEPT FORM: NO SUBMISSION OR FAKE CONFIRMATION
     var enquiryForm = document.getElementById('enquiry-form');
-    var confirmationBox = document.getElementById('enquiry-confirmation');
-    var refEl = document.getElementById('enquiry-ref');
-
     if (enquiryForm) {
       enquiryForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var hp = enquiryForm.querySelector('input[name="website_hp"]');
-        if (hp && hp.value.length > 0) {
-          return; // bot trapped
-        }
-
-        // Generate DK-2026-XXXX reference
-        var randomNum = Math.floor(1000 + Math.random() * 9000);
-        var refCode = 'DK-2026-' + randomNum;
-        if (refEl) { refEl.textContent = refCode; }
-
-        enquiryForm.style.display = 'none';
-        if (confirmationBox) {
-          confirmationBox.style.display = 'block';
-          if (window.gsap && !prefersReducedMotion()) {
-            gsap.fromTo(confirmationBox, { autoAlpha: 0, y: 16 }, {
-              autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out'
-            });
-            if (refEl) {
-              gsap.fromTo(refEl, { scale: 0.8 }, { scale: 1, duration: 0.45, ease: 'back.out(1.7)', delay: 0.25 });
-            }
-          }
-        }
       });
     }
   </script>

@@ -3200,8 +3200,8 @@
         <div class="enquiry-intro">
           <span class="section-eyebrow" data-i18n="enq_eyebrow">Direct Reservation Enquiry</span>
           <h2 class="section-title" data-i18n="enq_title">Plan Your Isle of Skye Escape</h2>
-          <p class="section-lead mx-auto" style="margin-bottom: 1.5rem;" data-i18n="enq_desc">
-            Reserve directly with Steve &amp; Cass for the guaranteed lowest rates, flexible terms, and our full Scottish breakfast included.
+          <p class="section-lead mx-auto" style="margin-bottom: 1.5rem;">
+            A concept of how a direct enquiry could look. For a real booking, please use Woodbine House's official website.
           </p>
 
           <div class="direct-pledge-box" data-i18n="enq_pledge">
@@ -3209,17 +3209,11 @@
           </div>
         </div>
 
-        <!-- Form Submission Confirmation Block -->
-        <div id="enquiry-success" class="enquiry-confirmation">
-          <div class="confirm-icon">✓</div>
-          <h3 class="confirm-title" data-i18n="confirm_title">Thank You — Your Enquiry Is Received</h3>
-          <p class="confirm-desc">
-            <span data-i18n="confirm_prefix">Thank you for contacting Woodbine House! We have received your direct booking request (</span><span id="confirm-ref-code" style="font-weight: 700;">WB-2026</span><span data-i18n="confirm_suffix">). Steve &amp; Cass will personally review availability and reply by email within 24 hours.</span>
-          </p>
-        </div>
-
         <!-- Enquiry Form -->
-        <form id="enquiry-form" class="enquiry-form" novalidate>
+        <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+          <strong>Interactive concept preview — not a booking system.</strong> This example form is disabled; your details are not sent. Please contact Woodbine House through its <a href="https://www.woodbineskye.co.uk/">official website</a>.
+        </aside>
+        <form id="enquiry-form" class="enquiry-form" novalidate inert aria-disabled="true" style="opacity:.55;">
           <!-- Anti-spam Honeypot -->
           <input type="text" name="website_hp" class="hp-field" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; width: 1px; height: 1px;">
 
@@ -3628,49 +3622,11 @@
         });
       });
 
-      // 7. Form Submission with Honeypot & Inline Confirmation
+      // 7. Concept form: never simulate a sent enquiry.
       var form = document.getElementById('enquiry-form');
-      var successBlock = document.getElementById('enquiry-success');
-      var refCodeEl = document.getElementById('confirm-ref-code');
-
       if (form) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-
-          // Honeypot check
-          var hp = form.querySelector('.hp-field');
-          if (hp && hp.value.trim() !== '') {
-            console.warn('Spam submission detected.');
-            return;
-          }
-
-          // Generate reference code
-          var randomNum = Math.floor(1000 + Math.random() * 9000);
-          if (refCodeEl) {
-            refCodeEl.textContent = 'WB-' + randomNum;
-          }
-
-          form.style.display = 'none';
-          if (successBlock) {
-            successBlock.style.display = 'block';
-            if (window.gsap && !prefersReducedMotion()) {
-              window.gsap.fromTo(successBlock, { autoAlpha: 0, y: 16 }, {
-                autoAlpha: 1,
-                y: 0,
-                duration: 0.5,
-                ease: 'power2.out'
-              });
-              if (refCodeEl) {
-                window.gsap.fromTo(refCodeEl, { scale: 0.8 }, {
-                  scale: 1,
-                  duration: 0.45,
-                  ease: 'back.out(1.7)',
-                  delay: 0.2
-                });
-              }
-            }
-            successBlock.scrollIntoView({ behavior: 'smooth' });
-          }
         });
       }
 

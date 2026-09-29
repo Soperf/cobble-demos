@@ -2001,7 +2001,7 @@
             <p data-i18n="reserve_subtitle">Direct Booking Guarantee: Zero Third-Party Commission Fees</p>
             <ul class="reserve-direct-perks">
               <li><span>✓</span> Priority seating in our sunny heated courtyard or cosy snug</li>
-              <li><span>✓</span> Immediate notification to the bistro owner with no booking fees</li>
+              <li><span>✓</span> A direct phone booking with the bistro, without this preview form</li>
               <li><span>✓</span> Full accommodation for dietary requests (Gluten-Free, Vegan, Dog-Friendly)</li>
             </ul>
           </div>
@@ -2013,7 +2013,10 @@
 
         <!-- Direct Table Form -->
         <div class="reserve-form-container">
-          <form id="booking-form" onsubmit="handleDirectBooking(event)">
+          <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+            <strong>Interactive concept preview — not a booking system.</strong> This example form is disabled; your details are not sent. For a real booking, please call Sanders Yard on <a href="tel:01947600200">01947 600200</a>.
+          </aside>
+          <form id="booking-form" inert aria-disabled="true" style="opacity:.55;" onsubmit="handleDirectBooking(event)">
             <div class="form-group-grid">
               <div class="form-field">
                 <label>Your Full Name *</label>
@@ -2081,10 +2084,6 @@
             </div>
 
             <button type="submit" class="booking-btn">Confirm Direct Table Request</button>
-            <div id="booking-success" class="booking-success-box">
-              <h4>Request Sent Directly to Sanders Yard!</h4>
-              <p>Reference: <strong id="booking-ref-code">SYB-9482</strong>. Our front desk will confirm your seating within 2 business hours.</p>
-            </div>
           </form>
         </div>
       </div>
@@ -2253,10 +2252,6 @@
 
     function handleDirectBooking(e) {
       e.preventDefault();
-      const code = "SYB-" + Math.floor(1000 + Math.random() * 9000);
-      document.getElementById("booking-ref-code").textContent = code;
-      document.getElementById("booking-success").style.display = "block";
-      document.getElementById("booking-form").reset();
     }
 
     function toggleMobileDrawer() {

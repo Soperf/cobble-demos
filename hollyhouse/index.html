@@ -2111,7 +2111,10 @@
           <span class="perk-pill">✓ 24-Hour Reply from Hosts</span>
         </div>
 
-        <form id="booking-enquiry-form">
+        <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+          <strong>Interactive concept preview — not a booking system.</strong> This example form is disabled; your details are not sent. Please use the <a href="https://hollyhousebourton.co.uk/">official Holly House website</a> for booking and contact details.
+        </aside>
+        <form id="booking-enquiry-form" inert aria-disabled="true" style="opacity:.55;">
           <!-- Anti-spam Honeypot -->
           <input type="text" name="website_hp" style="display:none;" tabindex="-1" autocomplete="off">
 
@@ -2180,13 +2183,6 @@
           </div>
         </form>
 
-        <div class="confirmation-notice" id="enquiry-confirmation">
-          <h3>Thank You for Your Direct Enquiry!</h3>
-          <p>Your request has been received directly by David &amp; Jayne at Holly House.</p>
-          <div>Your enquiry reference is:</div>
-          <div class="confirmation-ref" id="confirmation-ref-code">HH-2026-0000</div>
-          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">We will check availability and reply personally to your email within 24 hours.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -2459,25 +2455,11 @@
       });
     }
 
-    // 6. FORM SUBMISSION, HONEYPOT & REFERENCE
+    // 6. CONCEPT FORM: NO SUBMISSION OR FAKE CONFIRMATION
     var bookingForm = document.getElementById('booking-enquiry-form');
-    var confirmBox = document.getElementById('enquiry-confirmation');
-    var refEl = document.getElementById('confirmation-ref-code');
-
     if (bookingForm) {
       bookingForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        var hp = bookingForm.querySelector('input[name="website_hp"]');
-        if (hp && hp.value.length > 0) {
-          return; // bot trapped
-        }
-
-        var randomNum = Math.floor(1000 + Math.random() * 9000);
-        var refCode = 'HH-2026-' + randomNum;
-        if (refEl) { refEl.textContent = refCode; }
-
-        bookingForm.style.display = 'none';
-        if (confirmBox) { confirmBox.style.display = 'block'; }
       });
     }
   </script>

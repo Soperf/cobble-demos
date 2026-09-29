@@ -3676,7 +3676,10 @@
         </div>
 
         <div class="booking-wrapper">
-          <form id="booking-form" novalidate>
+          <aside data-demo-notice style="padding:1.25rem; margin-bottom:1.5rem; border:1px solid currentColor; border-radius:12px; line-height:1.6;">
+            <strong>Interactief conceptvoorbeeld — geen boekingssysteem.</strong> Dit voorbeeldformulier is uitgeschakeld; gegevens worden niet verzonden. Reserveer via de <a href="https://oosterbeeksrijnoever.nl/reserveren/">officiële boekingspagina van Oosterbeekse Rijnoever</a>.
+          </aside>
+          <form id="booking-form" novalidate inert aria-disabled="true" style="opacity:.55;">
             <!-- Anti-spam Honeypot -->
             <div style="position: absolute; left: -9999px;" aria-hidden="true">
               <label for="hp-field">Niet invullen indien mens:</label>
@@ -3769,21 +3772,6 @@
             </p>
           </form>
 
-          <!-- Confirmation Receipt -->
-          <div id="booking-confirmation" class="confirmation-box hidden" role="status" aria-live="polite">
-            <div class="conf-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <h3 class="conf-title" data-i18n="conf_title">Hartelijk dank voor uw aanvraag!</h3>
-            <p class="conf-text" data-i18n="conf_text">
-              Pepijn &amp; Marieke hebben uw reserveringsaanvraag in goede orde ontvangen. We kijken direct in onze planning en nemen binnen 24 uur persoonlijk contact met u op.
-            </p>
-            <div>
-              <span class="conf-ref-box">
-                <span data-i18n="conf_ref">Aanvraagreferentie:</span> <strong id="booking-ref-display">OR-2026-7842</strong>
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -5146,40 +5134,11 @@
       });
     });
 
-    // Booking Form Submission & Honeypot Intercept
+    // The form is a non-interactive concept preview; never synthesize a receipt.
     const bookingForm = document.getElementById('booking-form');
-    const confirmationBox = document.getElementById('booking-confirmation');
-    const refDisplay = document.getElementById('booking-ref-display');
-
     if (bookingForm) {
       bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
-        // Honeypot check
-        const hpField = bookingForm.querySelector('input[name="b_website"]');
-        if (hpField && hpField.value) {
-          console.warn("Spam detected");
-          return;
-        }
-
-        // Validate required fields
-        if (!bookingForm.checkValidity()) {
-          bookingForm.reportValidity();
-          return;
-        }
-
-        // Generate Random Enquiry Reference: OR-2026-XXXX
-        const randomRef = 'OR-2026-' + Math.floor(1000 + Math.random() * 9000);
-        if (refDisplay) {
-          refDisplay.textContent = randomRef;
-        }
-
-        // Hide form, show confirmation receipt
-        bookingForm.style.display = 'none';
-        if (confirmationBox) {
-          confirmationBox.classList.remove('hidden');
-          confirmationBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
       });
     }
 
@@ -5211,4 +5170,3 @@
   </script>
 </body>
 </html>
-
