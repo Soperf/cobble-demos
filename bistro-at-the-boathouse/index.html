@@ -1,0 +1,3680 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  @author: xiaopeng.fxp
+  @date: 2026-09-29
+  Bistro at The Boathouse | Riverside Bistro & Deck Dining in Henley-on-Thames
+  Based on Cobble Urban Bistro Architecture with Regatta Waterside Finesse
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bistro at The Boathouse | Riverside Bistro &amp; Deck Dining in Henley-on-Thames</title>
+  <meta name="description" content="Bistro at The Boathouse - Shaun &amp; Gemma Dickens' premier riverside bistro overlooking the River Thames in Henley-on-Thames. All-day dining, artisan brunch, fresh Cornish mussels, and prime steak frites.">
+  <meta property="og:title" content="Bistro at The Boathouse | Riverside Dining in Henley-on-Thames">
+  <meta property="og:description" content="Breath-taking river views, fresh local provenance, Gabriel Machin artisan sausages, and sunny deck dining by the River Thames.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts: Playfair Display + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B365D'/%3E%3Cpath d='M6 18c4 3 16 3 20 0l-2 5c-3 2-13 2-16 0z' fill='%23C88D4E'/%3E%3Cpath d='M16 6v12M12 9l4-3 4 3' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+
+  <!-- GSAP 3.12.5 & ScrollTrigger (Finesse Motion Engine) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Bistro at The Boathouse",
+    "image": "images/view_orig.jpg",
+    "description": "Shaun & Gemma Dickens' premier riverside bistro overlooking the River Thames in Henley-on-Thames. All-day dining, artisan brunch, Gabriel Machin sausages, fresh Cornish mussels, and steak frites.",
+    "servesCuisine": ["British", "Modern European", "Bistro", "Seafood", "Brunch"],
+    "priceRange": "££",
+    "telephone": "+44 1491 577937",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Station Road",
+      "addressLocality": "Henley-on-Thames",
+      "addressRegion": "Oxfordshire",
+      "postalCode": "RG9 1AZ",
+      "addressCountry": "GB"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday"],
+        "opens": "09:00",
+        "closes": "15:30"
+      }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Riverside Deck Dining", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Dog Friendly Outside Deck", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "2-Minute Walk from Henley Railway Station", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Thames River Views & Regatta Setting", "value": true }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & SYSTEM VARIABLES
+       ========================================================================== */
+    :root {
+      --terracotta: #1B365D;
+      --terracotta-dark: #10223B;
+      --terracotta-light: #EBF2F7;
+      --coffee-amber: #C88D4E;
+      --paper-cream: #FAF9F6;
+      --paper-card: #FFFFFF;
+      --midnight: #0C1829;
+      --midnight-soft: #1E2E42;
+      --sage-olive: #4A6B62;
+      --sage-light: #EEF4F1;
+      --text-muted: #5A6A7E;
+      --text-light: #8D9BAE;
+      --border-line: rgba(27, 54, 93, 0.1);
+      --border-accent: rgba(27, 54, 93, 0.25);
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(30, 41, 59, 0.04);
+      --shadow-md: 0 10px 30px rgba(30, 41, 59, 0.08);
+      --shadow-lg: 0 20px 45px rgba(224, 109, 83, 0.12);
+      
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    body {
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography Utilities */
+    .serif-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+      background: var(--terracotta-light);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(251, 249, 245, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-line);
+      transition: var(--transition);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--terracotta);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--midnight);
+      line-height: 1.1;
+    }
+
+    .brand-title span {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--midnight-soft);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--terracotta);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--terracotta);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--sage-olive);
+      background: var(--sage-light);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage-olive);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(96, 108, 56, 0.4); }
+      70% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(96, 108, 56, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(96, 108, 56, 0); }
+    }
+
+    .cart-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: #fff;
+      border: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--midnight);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cart-btn:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      box-shadow: 0 2px 6px rgba(224, 109, 83, 0.4);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .cart-badge.bounce {
+      transform: scale(1.35);
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.05);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-full);
+      padding: 3px 6px;
+      gap: 3px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      color: var(--midnight-soft);
+      line-height: 1;
+      font-size: 0.76rem;
+      transition: var(--transition);
+    }
+
+    .lang-btn:hover {
+      color: var(--terracotta);
+    }
+
+    .lang-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(224, 109, 83, 0.35);
+    }
+
+    .lang-divider {
+      color: var(--text-light);
+      font-size: 0.72rem;
+      user-select: none;
+    }
+
+    .btn-reserve {
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(224, 109, 83, 0.3);
+      white-space: nowrap;
+    }
+
+    .btn-reserve:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(224, 109, 83, 0.4);
+    }
+
+    .hamburger-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--border-line);
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--midnight);
+      transition: var(--transition);
+    }
+
+    .hamburger-btn.is-active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger-btn.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.is-active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 80px;
+      right: -100%;
+      width: 310px;
+      max-width: 92vw;
+      height: calc(100vh - 80px);
+      background: #fff;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      padding: 28px 24px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: var(--transition);
+      z-index: 99;
+      overflow-y: auto;
+    }
+
+    .mobile-drawer.is-open {
+      right: 0;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--midnight);
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-line);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      margin-top: auto;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .mobile-lang-label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+    }
+
+    .mobile-lang-pills {
+      display: flex;
+      gap: 6px;
+      background: rgba(30, 41, 59, 0.05);
+      border-radius: var(--radius-full);
+      padding: 4px;
+    }
+
+    .mobile-lang-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+      min-height: 36px;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s, color 0.2s;
+    }
+
+    .mobile-lang-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(224, 109, 83, 0.3);
+    }
+
+    .mobile-lang-btn.changing {
+      transform: scale(0.92);
+      opacity: 0.8;
+    }
+
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 80px 0 0 0;
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 98;
+    }
+
+    .mobile-drawer-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (FOODHUB LIVELY ASYMMETRIC INSPIRATION)
+       ========================================================================== */
+    .hero-section {
+      padding: 40px 0 90px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-title em {
+      color: var(--terracotta);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--terracotta);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--midnight);
+      border: 1px solid var(--border-line);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 26px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--coffee-amber);
+      color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    .hero-highlights {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlight-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--terracotta-light);
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .highlight-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .highlight-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Asymmetric Visual Composition (Right Column) */
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-main-card {
+      position: relative;
+      width: 340px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 6px solid #fff;
+      z-index: 2;
+      transform: rotate(-2deg);
+      transition: var(--transition);
+    }
+
+    .hero-main-card:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .hero-main-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .hero-sub-card {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 210px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 5px solid #fff;
+      z-index: 3;
+      transform: rotate(4deg);
+      transition: var(--transition);
+    }
+
+    .hero-sub-card:hover {
+      transform: rotate(0deg) scale(1.04);
+    }
+
+    .hero-sub-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Floating Badges & Speech Bubbles (Foodhub Inspired) */
+    .floating-badge {
+      position: absolute;
+      background: #fff;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 4;
+      animation: float 4s ease-in-out infinite;
+      border: 1px solid rgba(224, 109, 83, 0.15);
+      white-space: nowrap;
+    }
+
+    .badge-top {
+      top: 40px;
+      left: 10px;
+      animation-delay: 0s;
+    }
+
+    .badge-bottom {
+      bottom: 40px;
+      right: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .badge-icon {
+      font-size: 1.1rem;
+    }
+
+    .badge-info strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--midnight);
+      line-height: 1.2;
+    }
+
+    .badge-info span {
+      font-size: 0.72rem;
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+
+    /* Decorative Geometric Rings */
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px dashed rgba(212, 163, 115, 0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ring-1 {
+      width: 440px;
+      height: 440px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ring-2 {
+      width: 120px;
+      height: 120px;
+      border: 3px solid rgba(224, 109, 83, 0.2);
+      bottom: 20px;
+      left: 20px;
+    }
+
+    /* ==========================================================================
+       HERITAGE & STORY SECTION
+       ========================================================================== */
+    .story-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-image-wrap {
+      position: relative;
+    }
+
+    .story-img {
+      border-radius: var(--radius-lg);
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      border: 4px solid #fff;
+    }
+
+    .exp-years {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .exp-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .story-content .serif-title {
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      margin-bottom: 24px;
+    }
+
+    .story-lead {
+      font-size: 1.15rem;
+      color: var(--midnight);
+      font-weight: 500;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .story-desc {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .founder-signature {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .chef-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--terracotta);
+    }
+
+    .founder-meta h4 {
+      font-size: 1rem;
+      color: var(--midnight);
+    }
+
+    .founder-meta p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       01-05 URBAN PILLARS SECTION (FOODHUB SERVICES CARD REIMAGINED)
+       ========================================================================== */
+    .pillars-section {
+      padding: 90px 0;
+      background: var(--paper-cream);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header .serif-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: #fff;
+      padding: 30px 22px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-line);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--terracotta);
+    }
+
+    .pillar-num {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: rgba(224, 109, 83, 0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover .pillar-num {
+      color: var(--terracotta);
+    }
+
+    .pillar-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--midnight);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .pillar-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       MENU SECTION (5-TAB FILTER, ZERO-PDF, CART INTEGRATION)
+       ========================================================================== */
+    .menu-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+    }
+
+    /* Menu Filter Tabs */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--midnight-soft);
+      background: var(--paper-cream);
+      border: 1px solid var(--border-line);
+    }
+
+    .tab-btn:hover {
+      color: var(--terracotta);
+      border-color: var(--border-accent);
+    }
+
+    .tab-btn.active {
+      background: var(--terracotta);
+      color: #fff;
+      border-color: var(--terracotta);
+      box-shadow: 0 4px 14px rgba(224, 109, 83, 0.3);
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--paper-cream);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-line);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+    }
+
+    .product-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      white-space: nowrap;
+    }
+
+    .product-price small {
+      font-size: 0.82rem;
+      margin-right: 2px;
+    }
+
+    .product-ingredients {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-line);
+    }
+
+    .flavour-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--coffee-amber);
+      background: rgba(212, 163, 115, 0.12);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--midnight);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--terracotta);
+    }
+
+    /* ==========================================================================
+       CART DRAWER (INTERACTIVE FLYOUT)
+       ========================================================================== */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -15px 0 40px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cart-drawer.is-open {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-drawer-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--midnight);
+    }
+
+    .btn-close-cart {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-close-cart:hover {
+      background: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    .cart-items-container {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--midnight);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+
+    .cart-qty-ctrl {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      background: var(--paper-cream);
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .qty-btn:hover {
+      background: var(--terracotta);
+      color: #fff;
+    }
+
+    .qty-number {
+      font-size: 0.85rem;
+      font-weight: 600;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .cart-empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .cart-drawer-footer {
+      padding: 24px;
+      border-top: 1px solid var(--border-line);
+      background: var(--paper-cream);
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--midnight);
+    }
+
+    .cart-subtotal-row .total-amount {
+      color: var(--terracotta);
+      font-size: 1.35rem;
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background: var(--terracotta);
+      color: #fff;
+      padding: 14px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-checkout:hover {
+      background: var(--terracotta-dark);
+    }
+
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .cart-backdrop.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ==========================================================================
+       TABLE RESERVATION MODAL
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      padding: 20px;
+    }
+
+    .modal-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-container {
+      background: #fff;
+      width: 100%;
+      max-width: 540px;
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transform: translateY(20px);
+      transition: var(--transition);
+    }
+
+    .modal-overlay.is-open .modal-container {
+      transform: translateY(0);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+    }
+
+    .btn-close-modal:hover {
+      background: var(--paper-cream);
+      color: var(--midnight);
+    }
+
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--midnight);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--midnight);
+      background: var(--paper-cream);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--terracotta);
+      background: #fff;
+    }
+
+    .booking-success-box {
+      display: none;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .booking-success-box.is-visible {
+      display: block;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--sage-light);
+      color: var(--sage-olive);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 16px;
+    }
+
+    /* ==========================================================================
+       REVIEWS / TESTIMONIALS SECTION
+       ========================================================================== */
+    .reviews-section {
+      padding: 90px 0;
+      background: var(--paper-cream);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 32px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .rating-stars {
+      color: #F59E0B;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .review-quote {
+      font-size: 0.96rem;
+      color: var(--midnight-soft);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--terracotta-light);
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .reviewer-name h4 {
+      font-size: 0.92rem;
+      color: var(--midnight);
+    }
+
+    .reviewer-name span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       LOCATION & URBAN GUIDE
+       ========================================================================== */
+    .location-section {
+      padding: 90px 0;
+      background: #fff;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .location-card {
+      background: var(--paper-cream);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-line);
+    }
+
+    .location-card .serif-title {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .location-desc {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 0.98rem;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--midnight);
+    }
+
+    .info-text span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .location-image-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 420px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .location-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Interactive Urban Map Component */
+    .location-map-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-line);
+      background: #FBF9F5;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-svg-container {
+      width: 100%;
+      height: 330px;
+      overflow: hidden;
+      position: relative;
+      background: #F4EFEA;
+    }
+
+    .urban-map-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .pulse-ring {
+      animation: mapPulse 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    }
+
+    @keyframes mapPulse {
+      0% { r: 16px; opacity: 0.8; }
+      50% { r: 30px; opacity: 0.2; }
+      100% { r: 34px; opacity: 0; }
+    }
+
+    .map-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-line);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .map-location-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--midnight);
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    .map-location-tag svg {
+      color: var(--terracotta);
+      flex-shrink: 0;
+    }
+
+    .btn-map-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--midnight);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-map-nav:hover {
+      background: var(--terracotta);
+      transform: translateY(-1px);
+    }
+
+    .transit-capsules {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .transit-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      background: #FFFFFF;
+      border: 1px solid var(--border-line);
+      font-size: 0.78rem;
+      color: var(--midnight-soft);
+      font-weight: 500;
+    }
+
+    .transit-chip span {
+      color: var(--terracotta);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--midnight);
+      color: #fff;
+      padding: 70px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand .brand-title {
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .footer-desc {
+      color: var(--text-light);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      max-width: 320px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      font-size: 0.86rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--terracotta);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+
+    /* Sticky Mobile Booking Bar */
+    .mobile-sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-line);
+      padding: 12px 20px;
+      z-index: 90;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS (FINESSE STANDARDS)
+       ========================================================================== */
+    @media (max-width: 1180px) {
+      .nav-menu {
+        gap: 18px;
+      }
+      .status-badge {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid, .story-grid, .location-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      /* Tablet Header Optimization (prevents wrapping at 964px) */
+      .nav-menu, .status-badge {
+        display: none;
+      }
+      .hamburger-btn {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .btn-reserve {
+        display: none;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-tabs {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 4px 4px 12px;
+        margin-bottom: 32px;
+        justify-content: flex-start;
+      }
+      .menu-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-btn {
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        white-space: nowrap;
+        padding: 9px 18px;
+        font-size: 0.88rem;
+      }
+      .hero-section {
+        padding: 24px 0 60px;
+      }
+      .hero-visual {
+        min-height: 420px;
+      }
+      .hero-main-card {
+        width: 270px;
+      }
+      .hero-main-card img {
+        height: 340px;
+      }
+      .hero-sub-card {
+        width: 160px;
+      }
+      .hero-sub-card img {
+        height: 140px;
+      }
+      .ring-1 {
+        width: 320px;
+        height: 320px;
+      }
+      .mobile-sticky-bar {
+        display: flex;
+      }
+      body {
+        padding-bottom: 76px;
+      }
+      .site-footer {
+        padding: 42px 0 24px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 20px;
+        margin-bottom: 26px;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+      .footer-brand .brand-title {
+        margin-bottom: 8px;
+        font-size: 1.25rem;
+      }
+      .footer-desc {
+        max-width: 100%;
+        margin-bottom: 0;
+        font-size: 0.84rem;
+        line-height: 1.6;
+      }
+      .footer-col h4 {
+        margin-bottom: 10px;
+        font-size: 0.88rem;
+      }
+      .footer-col:nth-child(4) {
+        grid-column: 1 / -1;
+      }
+      .footer-links {
+        gap: 8px;
+      }
+      .footer-links a {
+        font-size: 0.84rem;
+      }
+      .footer-bottom {
+        padding-top: 20px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* 375px - 430px Mobile Precision Optimization */
+    @media (max-width: 480px) {
+      .site-header {
+        height: 68px;
+      }
+      .nav-wrapper {
+        height: 68px;
+        padding: 0 12px;
+        gap: 6px;
+      }
+      .brand-logo {
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .brand-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-sm);
+      }
+      .brand-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .brand-title {
+        font-size: 1.05rem;
+      }
+      .brand-title span {
+        font-size: 0.58rem;
+        letter-spacing: 0.04em;
+      }
+      .header-actions {
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .lang-switcher {
+        padding: 2px 4px;
+        gap: 2px;
+        font-size: 0.72rem;
+      }
+      .lang-btn {
+        padding: 3px 6px;
+        font-size: 0.72rem;
+      }
+      .cart-btn, .hamburger-btn {
+        width: 38px;
+        height: 38px;
+      }
+      .hero-visual {
+        min-height: 330px;
+        width: 100%;
+        overflow: hidden;
+      }
+      .hero-main-card {
+        width: 220px;
+        transform: rotate(-1.5deg);
+      }
+      .hero-main-card img {
+        height: 270px;
+      }
+      .hero-sub-card {
+        width: 130px;
+        bottom: 12px;
+        right: 12px;
+        transform: rotate(2deg);
+      }
+      .hero-sub-card img {
+        height: 110px;
+      }
+      .floating-badge {
+        padding: 8px 12px;
+        max-width: calc(100% - 24px);
+      }
+      .badge-top {
+        top: 10px;
+        left: 10px;
+      }
+      .badge-bottom {
+        bottom: 10px;
+        right: 10px;
+      }
+      .ring-1 {
+        width: 240px;
+        height: 240px;
+        opacity: 0.5;
+      }
+      .ring-2 {
+        width: 290px;
+        height: 290px;
+        opacity: 0.35;
+      }
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .cart-drawer {
+        width: 100vw;
+        max-width: 100vw;
+        padding: 20px 16px 28px;
+      }
+      .cart-drawer-header {
+        position: relative;
+        padding-top: 12px;
+      }
+      .cart-drawer-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 4px;
+        background: var(--border-line);
+        border-radius: 2px;
+      }
+      .btn-close-cart {
+        min-width: 44px;
+        min-height: 44px;
+      }
+      .mobile-sticky-bar {
+        padding: 10px 14px;
+      }
+    }
+
+    /* ==========================================================================
+       FINESSE UI & GSAP MOTION STYLES (WCAG 2.1 AA)
+       ========================================================================== */
+    .site-header {
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 4px 20px rgba(30, 41, 59, 0.04);
+    }
+
+    .product-img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.04);
+    }
+
+    .form-control:focus {
+      border-color: var(--terracotta);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(224, 109, 83, 0.16);
+    }
+
+    /* GSAP Ready Staging */
+    html.gsap-ready .hero-left,
+    html.gsap-ready .hero-visual,
+    html.gsap-ready .story-content,
+    html.gsap-ready .story-image-wrap,
+    html.gsap-ready .pillar-card,
+    html.gsap-ready .product-card,
+    html.gsap-ready .review-card,
+    html.gsap-ready .location-card,
+    html.gsap-ready .location-map-wrap {
+      will-change: transform, opacity;
+    }
+
+    /* WCAG 2.1 AA Reduced Motion Protection */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-main-card,
+      .hero-sub-card,
+      .floating-badge {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="#hero" class="brand-logo" aria-label="Bistro at The Boathouse Home">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+        </div>
+        <div class="brand-title">
+          The Boathouse
+          <span>Bistro · Henley-on-Thames</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-menu">
+        <li><a href="#hero" class="nav-link active" data-i18n="nav_home">Home</a></li>
+        <li><a href="#story" class="nav-link" data-i18n="nav_story">Our Story</a></li>
+        <li><a href="#pillars" class="nav-link" data-i18n="nav_pillars">Riverside Heritage</a></li>
+        <li><a href="#menu" class="nav-link" data-i18n="nav_menu">Seasonal Menu</a></li>
+        <li><a href="#reviews" class="nav-link" data-i18n="nav_reviews">Reviews</a></li>
+        <li><a href="#location" class="nav-link" data-i18n="nav_location">Find Us</a></li>
+      </ul>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span data-i18n="nav_status_open">Open Wed-Sun from 09:00</span>
+        </div>
+
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button type="button" class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="zh" onclick="setLanguage('zh')">中</button>
+        </div>
+
+        <button class="cart-btn" id="open-cart-btn" aria-label="View Order Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+
+        <button class="btn-reserve" onclick="openBookingModal()" data-i18n="nav_reserve_btn">Book a Table</button>
+
+        <button class="hamburger-btn" id="mobile-toggle" aria-label="Open Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="status-badge" style="display:inline-flex; width:fit-content;">
+      <span class="status-dot"></span>
+      <span data-i18n="nav_status_open">Open Wed-Sun from 09:00</span>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_home">Home</a></li>
+      <li><a href="#story" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_story">Our Story</a></li>
+      <li><a href="#pillars" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_pillars">Riverside Heritage</a></li>
+      <li><a href="#menu" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_menu">Seasonal Menu</a></li>
+      <li><a href="#reviews" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_reviews">Guest Reviews</a></li>
+      <li><a href="#location" class="mobile-nav-link" onclick="closeMobileDrawer()" data-i18n="nav_mob_location">Location &amp; Map</a></li>
+    </ul>
+    <button class="btn-primary" style="justify-content:center;" onclick="closeMobileDrawer(); openBookingModal();" data-i18n="nav_mob_reserve">Book a Table Now</button>
+    <div class="mobile-lang-row">
+      <span class="mobile-lang-label" data-i18n="nav_lang_select">Language</span>
+      <div class="mobile-lang-pills">
+        <button type="button" class="mobile-lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
+        <button type="button" class="mobile-lang-btn" data-lang="zh" onclick="setLanguage('zh')">中文</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-drawer-backdrop" id="drawer-backdrop" onclick="closeMobileDrawer()"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <!-- Left Content -->
+      <div class="hero-left">
+        <div class="section-kicker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span data-i18n="hero_kicker">Urban Sanctuary · Clerkenwell Mindful Living</span>
+        </div>
+        <h1 class="serif-title hero-title" data-i18n="hero_title">
+          Where the River Glides,<br>
+          savour <em>Artisan Bistro &amp; Deck Dining</em>
+        </h1>
+        <p class="hero-desc" data-i18n="hero_desc">
+          A relaxed, family-run riverside bistro led by Shaun &amp; Gemma Dickens. Unrivalled panoramic views of the River Thames, local favourite Gabriel Machin artisan butcher cuts, rich seasonal flavours, fresh Cornish mussels, and sunlit deck dining in the heart of Henley-on-Thames.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            <span data-i18n="hero_btn_menu">Explore Menus</span>
+          </a>
+          <button class="btn-secondary" onclick="openBookingModal()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span data-i18n="hero_btn_reserve">Reserve a Table</span>
+          </button>
+        </div>
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+            <div class="highlight-text">
+              <strong data-i18n="hero_rating_score">4.9 / 5.0</strong>
+              <span data-i18n="hero_rating_desc">580+ Reviews on Google &amp; TripAdvisor</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="highlight-text">
+              <strong data-i18n="hero_roast_title">100% Direct Booking</strong>
+              <span data-i18n="hero_roast_desc">Zero Markups · Verified Direct Channel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual (Foodhub Lively Style) -->
+      <div class="hero-visual">
+        <div class="deco-ring ring-1"></div>
+        <div class="deco-ring ring-2"></div>
+
+        <div class="hero-main-card">
+          <img src="images/view_orig.jpg" alt="Panoramic view of the River Thames from Bistro at The Boathouse" loading="lazy">
+        </div>
+
+        <div class="hero-sub-card">
+          <img src="images/deck1_orig.jpg" alt="Spacious riverside deck overlooking the River Thames" loading="lazy">
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="floating-badge badge-top">
+          <span class="badge-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12c4-2 8-2 12 0s8 2 12 0"/><path d="M2 17c4-2 8-2 12 0s8 2 12 0"/><path d="M6 8l6-4 6 4"/></svg>
+          </span>
+          <div class="badge-info">
+            <strong data-i18n="hero_badge_soe_title">Riverside Terrace Deck</strong>
+            <span data-i18n="hero_badge_soe_desc">Thames Panorama · Swans &amp; Rowing</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom">
+          <span class="badge-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </span>
+          <div class="badge-info">
+            <strong data-i18n="hero_badge_terrace_title">Shaun &amp; Gemma Dickens</strong>
+            <span data-i18n="hero_badge_terrace_desc">Family-Run Bistro · Local Provenance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section" id="story">
+    <div class="container story-grid">
+      <div class="story-image-wrap">
+        <img src="images/deck1_orig.jpg" alt="Riverside terrace deck at Bistro at The Boathouse" class="story-img" loading="lazy">
+        <div class="experience-badge">
+          <span class="exp-years" data-i18n="story_badge_years">Henley</span>
+          <span class="exp-label" data-i18n="story_badge_label">Thames Riverside</span>
+        </div>
+      </div>
+      <div class="story-content">
+        <div class="section-kicker" data-i18n="story_kicker">Our Story · Shaun &amp; Gemma Dickens</div>
+        <h2 class="serif-title" data-i18n="story_title">Casual Riverside Dining,<br>Crafted with Passion &amp; Warmth</h2>
+        <p class="story-lead" data-i18n="story_lead">
+          “Making the most of our beautiful riverside setting, we bring warmth and colour to honest dishes we love in a relaxed, comfortable atmosphere — food to be enjoyed with family and friends alike.”
+        </p>
+        <p class="story-desc" data-i18n="story_desc">
+          Bistro at The Boathouse is an independent, family-run riverside bistro perched right on the River Thames in Henley. Led by Shaun and Gemma Dickens, our philosophy is simple: top-tier local provenance, warm hospitality, and an understated ambience where everyone feels at home. Whether it is a morning coffee and fresh pastry on the deck, a relaxed brunch with loved ones, or an evening of fresh Cornish mussels and steak frites watching the boats glide by, we take pride in every dish we serve.
+        </p>
+        <div class="founder-signature">
+          <img src="images/deck1_orig.jpg" alt="Shaun &amp; Gemma Dickens" class="chef-avatar">
+          <div class="founder-meta">
+            <h4 data-i18n="story_founder_names">Shaun &amp; Gemma Dickens</h4>
+            <p data-i18n="story_founder_title">Head Chef &amp; Proprietors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01-04 RIVERSIDE PILLARS SECTION -->
+  <section class="pillars-section" id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="pillars_kicker">Hospitality &amp; Setting · Riverside Pillars</div>
+        <h2 class="serif-title" data-i18n="pillars_title">4 Reasons to Gather at The Boathouse</h2>
+        <p data-i18n="pillars_subtitle">An authentic taste of Henley living by the tranquil waters of the River Thames</p>
+      </div>
+
+      <div class="pillars-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-heading" data-i18n="pillar_1_title">Unrivalled River Deck</h3>
+          <p class="pillar-desc" data-i18n="pillar_1_desc">Our open-air heated deck directly overlooks the River Thames, offering breath-taking views of swans, weeping willows, and rowing crews.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-heading" data-i18n="pillar_2_title">Gabriel Machin &amp; South Coast</h3>
+          <p class="pillar-desc" data-i18n="pillar_2_desc">Handcrafted bangers from Henley's premier butcher Gabriel Machin, and day-boat Cornish mussels steamed fresh with garlic cream.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-heading" data-i18n="pillar_3_title">All-Day Casual Bistro</h3>
+          <p class="pillar-desc" data-i18n="pillar_3_desc">From morning Boathouse Bonanza breakfasts to candlelit dry-aged steak frites and chilled European wines as dusk settles.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <h3 class="pillar-heading" data-i18n="pillar_4_title">Dog-Friendly Riverside Deck</h3>
+          <p class="pillar-desc" data-i18n="pillar_4_desc">While our indoor dining room remains calm and tranquil, well-behaved dogs are warmly welcomed on our spacious outside deck.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="menu_kicker">Fresh Provenance · Menus</div>
+        <h2 class="serif-title" data-i18n="menu_title">Artisan Brunch, Seafood &amp; Bistro Classics</h2>
+        <p data-i18n="menu_subtitle">Select a category to view dishes and add directly to your takeaway order</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-category="all" data-i18n="tab_all">All Items</button>
+        <button class="tab-btn" data-category="early" data-i18n="tab_early">Early Start (09:00 - 11:30)</button>
+        <button class="tab-btn" data-category="starters" data-i18n="tab_starters">Starters &amp; Grazing</button>
+        <button class="tab-btn" data-category="mains" data-i18n="tab_mains">Mains &amp; Seafood</button>
+        <button class="tab-btn" data-category="burgers" data-i18n="tab_burgers">Gourmet Burgers</button>
+        <button class="tab-btn" data-category="sweets" data-i18n="tab_sweets">Sweets &amp; Treats</button>
+      </div>
+
+      <!-- Dishes Grid -->
+      <div class="products-grid" id="dishes-grid">
+        <!-- 1. Early: The Boathouse Bonanza -->
+        <div class="product-card" data-cat="early">
+          <div class="product-img-wrap">
+            <img src="images/roast3_orig.jpeg" alt="The Boathouse Bonanza Breakfast" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_1_tag">House Signature</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_1_name">The Boathouse Bonanza</h3>
+              <div class="product-price"><small>£</small>20.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_1_desc">Gabriel Machin sausage, bacon, black pudding, hash browns, field mushroom, roast tomato, beans, 2 eggs of choice, and toast</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_1_badge">Breakfast Feast</span>
+              <button class="btn-add-cart" onclick="addToCart('The Boathouse Bonanza', 20.00, 'images/roast3_orig.jpeg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Early: The Boathouse Full English -->
+        <div class="product-card" data-cat="early">
+          <div class="product-img-wrap">
+            <img src="images/deck1_orig.jpg" alt="The Boathouse Full English" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_2_tag">Morning Classic</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_2_name">The Boathouse Full English</h3>
+              <div class="product-price"><small>£</small>16.50</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_2_desc">Gabriel Machin sausage, bacon, mushroom, roast tomato, baked beans, 2 eggs of choice, and crusty toast</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_2_badge">Local Provenance</span>
+              <button class="btn-add-cart" onclick="addToCart('The Boathouse Full English', 16.50, 'images/deck1_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Early: Waffles with Berries -->
+        <div class="product-card" data-cat="early">
+          <div class="product-img-wrap">
+            <img src="images/wafflesmore_orig.jpeg" alt="Fresh Berry &amp; Maple Waffles" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_3_tag">Sweet Brunch</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_3_name">Fresh Berry &amp; Maple Waffles</h3>
+              <div class="product-price"><small>£</small>12.50</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_3_desc">Fresh berries, homemade berry compote, pure maple syrup, and whipped double cream</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_3_badge">Sweet Indulgence</span>
+              <button class="btn-add-cart" onclick="addToCart('Fresh Berry &amp; Maple Waffles', 12.50, 'images/wafflesmore_orig.jpeg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Early: Scottish Smoked Salmon on Toast -->
+        <div class="product-card" data-cat="early">
+          <div class="product-img-wrap">
+            <img src="images/salmon1ke_orig.jpg" alt="Smoked Scottish Salmon on Toast" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_4_tag">Seafood Brunch</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_4_name">Scottish Smoked Salmon on Toast</h3>
+              <div class="product-price"><small>£</small>14.50</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_4_desc">Smoked Scottish salmon, Clarence Court poached eggs, capers, and dill on artisan sourdough</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_4_badge">Loch Fyne Salmon</span>
+              <button class="btn-add-cart" onclick="addToCart('Smoked Scottish Salmon', 14.50, 'images/salmon1ke_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Starters: Roast Garlic Chicken Liver Pâté -->
+        <div class="product-card" data-cat="starters">
+          <div class="product-img-wrap">
+            <img src="images/pork_orig.jpg" alt="Roast Garlic Chicken Liver Pâté" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_5_tag">Chef's Pâté</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_5_name">Roast Garlic Chicken Liver Pâté</h3>
+              <div class="product-price"><small>£</small>12.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_5_desc">Smooth chicken liver pâté, spiced orchard apple chutney, garden salad, and warm crusty bread</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_5_badge">House Speciality</span>
+              <button class="btn-add-cart" onclick="addToCart('Chicken Liver Pâté', 12.00, 'images/pork_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Starters: Baked Camembert -->
+        <div class="product-card" data-cat="starters">
+          <div class="product-img-wrap">
+            <img src="images/view_orig.jpg" alt="Whole Baked Camembert with Garlic &amp; Thyme" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_6_tag">Sharing Starter</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_6_name">Whole Baked Camembert with Garlic &amp; Thyme</h3>
+              <div class="product-price"><small>£</small>16.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_6_desc">Infused with garlic and fresh thyme, caramelised onion chutney, and warm crusty bread</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_6_badge">Warm &amp; Melty</span>
+              <button class="btn-add-cart" onclick="addToCart('Baked Camembert', 16.00, 'images/view_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Mains: Steamed St. Austell Bay Mussels -->
+        <div class="product-card" data-cat="mains">
+          <div class="product-img-wrap">
+            <img src="images/mussells_orig.jpg" alt="Steamed St. Austell Bay Mussels" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_7_tag">Cornish Catch</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_7_name">Steamed St. Austell Bay Mussels</h3>
+              <div class="product-price"><small>£</small>24.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_7_desc">Fresh Cornish mussels in white wine cream, garlic, and fresh parsley with skin-on fries</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_7_badge">Fresh Shellfish</span>
+              <button class="btn-add-cart" onclick="addToCart('St. Austell Mussels', 24.00, 'images/mussells_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Mains: Prime British Steak Frites -->
+        <div class="product-card" data-cat="mains">
+          <div class="product-img-wrap">
+            <img src="images/steak_orig.jpg" alt="Prime British Steak Frites" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_8_tag">Butcher's Cut</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_8_name">Prime British Steak Frites</h3>
+              <div class="product-price"><small>£</small>30.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_8_desc">Dry-aged British rump steak, skin-on fries, dressed peppery watercress, and house Béarnaise sauce</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_8_badge">28-Day Dry Aged</span>
+              <button class="btn-add-cart" onclick="addToCart('Steak Frites', 30.00, 'images/steak_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Mains: Pan-Roasted Sea Bream -->
+        <div class="product-card" data-cat="mains">
+          <div class="product-img-wrap">
+            <img src="images/salmon1ke_orig.jpg" alt="Pan-Roasted Sea Bream" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_9_tag">Fresh Fish</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_9_name">Pan-Roasted Sea Bream</h3>
+              <div class="product-price"><small>£</small>24.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_9_desc">Crushed new potatoes, roast garlic cream, creamed leeks, and fresh river watercress</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_9_badge">Pan-Roasted</span>
+              <button class="btn-add-cart" onclick="addToCart('Pan-Roasted Sea Bream', 24.00, 'images/salmon1ke_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Mains: Boathouse Battered Fish & Chips -->
+        <div class="product-card" data-cat="mains">
+          <div class="product-img-wrap">
+            <img src="images/deck1_orig.jpg" alt="Boathouse Battered Fish &amp; Chips" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_10_tag">Thames Tradition</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_10_name">Boathouse Battered Fish &amp; Chips</h3>
+              <div class="product-price"><small>£</small>23.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_10_desc">Fresh day-boat white fish in golden batter, crushed mushy peas, charred lemon, and house tartare sauce</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_10_badge">Crisp &amp; Golden</span>
+              <button class="btn-add-cart" onclick="addToCart('Fish &amp; Chips', 23.00, 'images/deck1_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Burgers: Bistro Classic Beef Burger -->
+        <div class="product-card" data-cat="burgers">
+          <div class="product-img-wrap">
+            <img src="images/steak_orig.jpg" alt="Bistro Classic Beef Burger" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_11_tag">Gourmet Burger</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_11_name">Bistro Classic Beef Burger</h3>
+              <div class="product-price"><small>£</small>23.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_11_desc">Prime British beef patty, smoked streaky bacon, aged cheddar, lettuce, tomato, and house relish</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_11_badge">Prime British Beef</span>
+              <button class="btn-add-cart" onclick="addToCart('Bistro Classic Burger', 23.00, 'images/steak_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Sweets: Mango & Passionfruit Cheesecake -->
+        <div class="product-card" data-cat="sweets">
+          <div class="product-img-wrap">
+            <img src="images/quince_orig.jpg" alt="Mango &amp; Passionfruit Cheesecake" class="product-img" loading="lazy">
+            <span class="product-tag" data-i18n="dish_12_tag">House Dessert</span>
+          </div>
+          <div class="product-body">
+            <div class="product-head">
+              <h3 class="product-name" data-i18n="dish_12_name">Mango &amp; Passionfruit Cheesecake</h3>
+              <div class="product-price"><small>£</small>9.00</div>
+            </div>
+            <p class="product-ingredients" data-i18n="dish_12_desc">Silky baked cheesecake with tropical mango reduction, passionfruit seeds, and fresh mint</p>
+            <div class="product-footer">
+              <span class="flavour-badge" data-i18n="dish_12_badge">Refreshing Sweet</span>
+              <button class="btn-add-cart" onclick="addToCart('Mango Cheesecake', 9.00, 'images/quince_orig.jpg')"><span data-i18n="btn_add_cart">+ Add to Order</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker" data-i18n="reviews_kicker">Guest Feedback · Reviews</div>
+        <h2 class="serif-title" data-i18n="reviews_title">Words from Urban Explorers</h2>
+        <p data-i18n="reviews_subtitle">Meeting kindred spirits in an inviting neighbourhood sanctuary</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_1_text">
+              “Every evening on my walk home from Farringdon, I can't resist a glass of natural wine or their cascara cold brew. The breeze on the terrace is delightful, and they always bring a bowl of fresh water for my golden retriever. A true urban sanctuary.”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">CE</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_1_author">Charlotte Evans</h4>
+              <span data-i18n="review_1_meta">Architect &amp; Clerkenwell Resident · Regular for 3 Years</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_2_text">
+              “The slow-roasted wagyu easily rivals top London bistros! Succulent, tender, and the black garlic butter is sublime. Paired with low-intervention natural wine, all weekly stress dissolves.”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">JW</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_2_author">Julian Ward</h4>
+              <span data-i18n="review_2_meta">Food &amp; Wine Critic · British Bistro Chronicles</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review_3_text">
+              “Exceptional coffee curation. The roasters genuinely understand bean terroir. And the artisanal tiramisu has such authentic espresso depth without being heavy. An absolute must-visit!”
+            </p>
+          </div>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">MF</div>
+            <div class="reviewer-name">
+              <h4 data-i18n="review_3_author">Marcus Finch</h4>
+              <span data-i18n="review_3_meta">Specialty Coffee Educator · SCA Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & URBAN GUIDE -->
+  <section class="location-section" id="location">
+    <div class="container location-grid">
+      <div class="location-card">
+        <div class="section-kicker" data-i18n="location_kicker">Neighbourhood Guide · Location</div>
+        <h2 class="serif-title" data-i18n="location_title">Welcome to Our Street Corner</h2>
+        <p class="location-desc" data-i18n="location_desc">Whether for your morning awakening brew or an evening gathering under warm amber lights, our doors are always open.</p>
+        
+        <ul class="info-list">
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_addr_title">Address</strong>
+              <span data-i18n="loc_addr_val">Station Road, Henley-on-Thames, Oxfordshire RG9 1AZ</span>
+            </div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_hours_title">Opening Hours</strong>
+              <span data-i18n="loc_hours_val">Wed - Sat: 09:00 - 20:30 (last orders) · Sun: 09:00 - 15:30 · Mon &amp; Tue: Closed (Open Tuesdays during Regatta week)</span>
+            </div>
+          </li>
+          <li class="info-item">
+            <div class="info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div class="info-text">
+              <strong data-i18n="loc_tel_title">Reservations &amp; Enquiries</strong>
+              <span data-i18n="loc_tel_val">01491 577937 / Tables of 7+ please call directly</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="transit-capsules">
+          <div class="transit-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/></svg>
+            <span>Henley Railway Station (2 min walk)</span>
+          </div>
+          <div class="transit-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M7 16l5 5 5-5"/></svg>
+            <span>River Thames Frontage (Direct Deck)</span>
+          </div>
+          <div class="transit-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M10 8h3a2 2 0 0 1 0 4h-3v4"/></svg>
+            <span>Station Car Park (2 min walk)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE URBAN MAP CANVAS -->
+      <div class="location-map-wrap" id="urban-map">
+        <div class="map-svg-container">
+          <svg class="urban-map-svg" viewBox="0 0 600 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Map of Henley-on-Thames showing Bistro at The Boathouse riverside location">
+            <!-- Background Land -->
+            <rect width="600" height="340" fill="#F4EFEA"/>
+            
+            <!-- Mill Meadows & Riverbank Greens -->
+            <path d="M180 180 C 260 210, 360 230, 480 200 L 520 340 L 160 340 Z" fill="#DDE8D2"/>
+            <text x="280" y="290" fill="#4A6B62" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" letter-spacing="1.5">MILL MEADOWS PARK</text>
+            
+            <!-- River Thames Curved Waterway -->
+            <path d="M-10 60 C 140 80, 240 120, 340 100 C 440 80, 520 120, 610 140 L 610 210 C 520 190, 430 150, 330 170 C 230 190, 130 140, -10 130 Z" fill="#CBE0EC"/>
+            <!-- Thames water current lines -->
+            <path d="M20 95 C 150 110, 250 145, 340 135 C 440 115, 510 150, 590 175" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="8 12" fill="none"/>
+            <text x="210" y="145" fill="#1B365D" font-family="'Playfair Display', serif" font-size="12" font-style="italic" font-weight="600" letter-spacing="2">RIVER THAMES</text>
+            
+            <!-- Henley Bridge Crossing -->
+            <rect x="135" y="70" width="30" height="75" rx="4" fill="#FFFFFF" stroke="#8D9BAE" stroke-width="2"/>
+            <text x="110" y="55" fill="#5A6A7E" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="600">Henley Bridge</text>
+
+            <!-- Station Road -->
+            <path d="M330 170 L 330 330" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+            <path d="M330 170 L 330 330" stroke="#E2DAD0" stroke-width="2"/>
+            <text x="338" y="240" fill="#8D9BAE" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.5" transform="rotate(90 338 240)">STATION ROAD</text>
+
+            <!-- Henley Railway Station -->
+            <g transform="translate(305, 290)">
+              <circle cx="16" cy="16" r="14" fill="#10223B"/>
+              <rect x="9" y="14" width="14" height="4" fill="#FFFFFF"/>
+              <text x="36" y="16" fill="#10223B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Henley-on-Thames Station</text>
+              <text x="36" y="28" fill="#5A6A7E" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5">GWR Rail · 2 min walk</text>
+            </g>
+
+            <!-- Target Venue Pin right at river deck edge -->
+            <g class="map-pin-anchor" transform="translate(305, 95)">
+              <g id="urban-map-pin">
+                <circle cx="20" cy="20" r="28" fill="rgba(27, 54, 93, 0.25)" class="pulse-ring"/>
+                <circle cx="20" cy="20" r="16" fill="#1B365D"/>
+                <path d="M20 12v16M16 16h8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="52" y="6" width="220" height="42" rx="8" fill="#10223B"/>
+                <text x="64" y="23" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Bistro at The Boathouse</text>
+                <text x="64" y="38" fill="#C88D4E" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5">Station Rd, Henley RG9 1AZ</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="map-actions-bar">
+          <div class="map-location-tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Station Road, Henley-on-Thames RG9 1AZ</span>
+          </div>
+          <a href="https://www.google.com/maps/search/?api=1&query=Bistro+at+The+Boathouse+Station+Road+Henley-on-Thames+RG9+1AZ" target="_blank" rel="noopener noreferrer" class="btn-map-nav">
+            <span>Open in Google Maps</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-title">
+            Bistro at The Boathouse
+            <span style="color:#8D9BAE;">Riverside Dining · River Thames</span>
+          </div>
+          <p class="footer-desc" data-i18n="footer_desc">
+            An independent, family-run bistro by Shaun and Gemma Dickens directly overlooking the River Thames in Henley-on-Thames. Handcrafted brunch, local butcher cuts, Cornish seafood, and waterside dining.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col1_title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" data-i18n="footer_nav_top">Back to Top</a></li>
+            <li><a href="#story" data-i18n="footer_nav_about">Our Story</a></li>
+            <li><a href="#menu" data-i18n="footer_nav_menu">Seasonal Menu</a></li>
+            <li><a href="#reviews" data-i18n="footer_nav_reviews">Guest Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col2_title">Guest Amenities</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_terrace">Garden Terrace Open</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_pet">Dog-Friendly Terrace</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_wifi">High-Speed Wi-Fi &amp; Plugs</a></li>
+            <li><a href="javascript:void(0)" data-i18n="footer_srv_event">Private Buyouts &amp; Gatherings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_col3_title">Licensing &amp; Standards</h4>
+          <p style="font-size:0.82rem; color:var(--text-light); line-height:1.7;" data-i18n="footer_cert_info">
+            Gabriel Machin Butchers Partner<br>
+            Food Hygiene Rating: 5 (Very Good)<br>
+            Official Direct Booking Channel
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">&copy; 2026 Bistro at The Boathouse. All rights reserved.</p>
+        <p data-i18n="footer_author">Design &amp; Code: @author xiaopeng.fxp &middot; 2026-09-29 &middot; Built with Cobble Finesse Standards</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY BOOKING BAR -->
+  <div class="mobile-sticky-bar">
+    <div>
+      <div style="font-size:0.75rem; color:var(--text-muted);" data-i18n="sticky_hours">Open Today until 20:30</div>
+      <div style="font-weight:700; font-size:0.95rem; color:var(--midnight);" data-i18n="sticky_title">Riverside Table Reservation</div>
+    </div>
+    <button class="btn-primary" style="padding:10px 20px; font-size:0.9rem;" onclick="openBookingModal()" data-i18n="sticky_btn">Book Table</button>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title" data-i18n="cart_title">Your Order</h3>
+      <button class="btn-close-cart" id="close-cart-btn" aria-label="Close Order Cart">&times;</button>
+    </div>
+    <div class="cart-items-container" id="cart-items-list">
+      <div class="cart-empty-state" data-i18n="cart_empty">Your cart is empty. Discover our culinary creations!</div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span data-i18n="cart_subtotal">Estimated Subtotal</span>
+        <span class="total-amount" id="cart-total-price">£0.00</span>
+      </div>
+      <button class="btn-checkout" onclick="checkoutOrder()" data-i18n="cart_checkout_btn">Proceed to Checkout</button>
+    </div>
+  </div>
+  <div class="cart-backdrop" id="cart-backdrop"></div>
+
+  <!-- TABLE RESERVATION MODAL -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-container">
+      <button class="btn-close-modal" onclick="closeBookingModal()">&times;</button>
+      <div id="booking-form-wrap">
+        <div class="section-kicker" data-i18n="modal_kicker">Online Booking · Reservation</div>
+        <h3 class="modal-title" data-i18n="modal_title">Reserve a Cosy Corner Table</h3>
+        <p class="modal-desc" data-i18n="modal_desc">Share your preferences and we will hold the best table and send email confirmation.</p>
+        
+        <form id="reservation-form" onsubmit="handleReservation(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_name_label">Full Name *</label>
+              <input type="text" class="form-control" placeholder="e.g. Eleanor Vance" data-i18n-attr="placeholder:form_name_ph" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_phone_label">Contact Phone *</label>
+              <input type="tel" class="form-control" placeholder="e.g. 020 7946 0912" data-i18n-attr="placeholder:form_phone_ph" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_date_label">Dining Date *</label>
+              <input type="date" class="form-control" id="book-date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_time_label">Preferred Time *</label>
+              <select class="form-control" required>
+                <option value="" data-i18n="form_time_opt0">Please select time</option>
+                <option data-i18n="form_time_opt1">Morning Breakfast 09:00 - 11:30</option>
+                <option data-i18n="form_time_opt2">Leisurely Lunch 12:00 - 14:30</option>
+                <option data-i18n="form_time_opt3">Afternoon Tea &amp; Drinks 14:30 - 17:00</option>
+                <option data-i18n="form_time_opt4">Early Evening Bistro 17:30 - 19:00</option>
+                <option data-i18n="form_time_opt5">Dinner &amp; Sunset Deck 19:00 - 20:30</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_guests_label">Party Size *</label>
+              <select class="form-control">
+                <option data-i18n="form_guests_opt1">1 Guest (Bar / Window seat)</option>
+                <option selected data-i18n="form_guests_opt2">2 Guests (Date / Conversation)</option>
+                <option data-i18n="form_guests_opt3">3 - 4 Guests (Friends gathering)</option>
+                <option data-i18n="form_guests_opt4">5 - 8 Guests (Long table social)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form_pref_label">Seating Preference</label>
+              <select class="form-control">
+                <option data-i18n="form_pref_opt1">Riverside Deck (Preferred on arrival, weather permitting)</option>
+                <option data-i18n="form_pref_opt2">Cosy Indoor Dining Room</option>
+                <option data-i18n="form_pref_opt3">Window Table Overlooking River</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; margin-top:8px;" data-i18n="form_submit_btn">Confirm &amp; Submit Reservation</button>
+        </form>
+      </div>
+
+      <!-- Success Feedback Box -->
+      <div class="booking-success-box" id="booking-success">
+        <div class="success-icon">✓</div>
+        <h3 class="serif-title" style="font-size:1.6rem; margin-bottom:8px;" data-i18n="success_title">Reservation Confirmed!</h3>
+        <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:20px;">
+          <span data-i18n="success_ref_prefix">Booking Reference: </span><strong style="color:var(--terracotta);" id="booking-ref-code">BH-2026-8891</strong><br>
+          <span data-i18n="success_msg">Your table has been reserved for the selected time. We look forward to welcoming you at the corner.</span>
+        </p>
+        <button class="btn-secondary" onclick="closeBookingModal()" data-i18n="success_btn">Done &amp; Return</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    /**
+     * @author xiaopeng.fxp
+     * @date 2026-09-28
+     */
+    'use strict';
+
+    // 0. I18N Bilingual Engine
+    const I18N_DATA = {
+      "en": {
+            "nav_home": "Home",
+            "nav_story": "Our Story",
+            "nav_pillars": "Riverside Heritage",
+            "nav_menu": "Menus & Dining",
+            "nav_reviews": "Reviews",
+            "nav_location": "Find Us",
+            "nav_status_open": "Open Today 09:00 - 20:30",
+            "nav_reserve_btn": "Book a Table",
+            "nav_mob_home": "Home",
+            "nav_mob_story": "Our Story",
+            "nav_mob_pillars": "Riverside Heritage",
+            "nav_mob_menu": "Menus & Dining",
+            "nav_mob_reviews": "Guest Reviews",
+            "nav_mob_location": "Location & Map",
+            "nav_mob_reserve": "Book a Table Now",
+            "nav_lang_select": "Language",
+            "hero_kicker": "River Thames · Henley-on-Thames · Regatta Town",
+            "hero_title": "Where the River Glides,<br>Savour <em>Artisan Bistro &amp; Deck Dining</em>",
+            "hero_desc": "A relaxed, family-run riverside bistro led by Shaun & Gemma Dickens. Unrivalled panoramic views of the River Thames, local favourite Gabriel Machin artisan butcher cuts, rich seasonal flavours, fresh Cornish mussels, and sunlit deck dining in the heart of Henley-on-Thames.",
+            "hero_btn_menu": "Explore Menus",
+            "hero_btn_reserve": "Reserve a Table",
+            "hero_rating_score": "4.8 / 5.0",
+            "hero_rating_desc": "580+ Reviews on Google & TripAdvisor",
+            "hero_roast_title": "100% Direct Booking",
+            "hero_roast_desc": "Zero Markups · Verified Direct Reservation",
+            "hero_badge_soe_title": "Riverside Terrace Deck",
+            "hero_badge_soe_desc": "Thames Panorama · Swans & Rowing",
+            "hero_badge_terrace_title": "Shaun & Gemma Dickens",
+            "hero_badge_terrace_desc": "Family-Run Bistro · Local Provenance",
+            "story_badge_years": "Henley",
+            "story_badge_label": "Thames Riverside",
+            "story_kicker": "Our Story · Shaun & Gemma Dickens",
+            "story_title": "Casual Riverside Dining,<br>Crafted with Passion & Warmth",
+            "story_lead": "“Making the most of our beautiful riverside setting, we bring warmth and colour to honest dishes we love in a relaxed, comfortable atmosphere — food to be enjoyed with family and friends alike.”",
+            "story_desc": "Bistro at The Boathouse is an independent, family-run riverside bistro perched right on the River Thames in Henley. Led by Shaun and Gemma Dickens, our philosophy is simple: top-tier local provenance, warm hospitality, and an understated ambience where everyone feels at home. Whether it is a morning coffee and fresh pastry on the deck, a relaxed brunch with loved ones, or an evening of fresh Cornish mussels and steak frites watching the boats glide by, we take pride in every dish we serve.",
+            "story_founder_names": "Shaun & Gemma Dickens",
+            "story_founder_title": "Head Chef & Proprietors",
+            "pillars_kicker": "Hospitality & Setting · Riverside Pillars",
+            "pillars_title": "4 Reasons to Gather at The Boathouse",
+            "pillars_subtitle": "An authentic taste of Henley living by the tranquil waters of the River Thames",
+            "pillar_1_title": "Unrivalled River Deck",
+            "pillar_1_desc": "Our open-air heated deck directly overlooks the River Thames, offering breath-taking views of swans, weeping willows, and rowing crews.",
+            "pillar_2_title": "Gabriel Machin & South Coast",
+            "pillar_2_desc": "Handcrafted bangers from Henley's premier butcher Gabriel Machin, and day-boat Cornish mussels steamed fresh with garlic cream.",
+            "pillar_3_title": "All-Day Casual Bistro",
+            "pillar_3_desc": "From morning Boathouse Bonanza breakfasts to candlelit dry-aged steak frites and chilled European wines as dusk settles.",
+            "pillar_4_title": "Dog-Friendly Riverside Deck",
+            "pillar_4_desc": "While our indoor dining room remains calm and tranquil, well-behaved dogs are warmly welcomed on our spacious outside deck.",
+            "menu_kicker": "Fresh Provenance · Menus",
+            "menu_title": "Artisan Brunch, Seafood & Bistro Classics",
+            "menu_subtitle": "Select a category to view dishes and add directly to your takeaway order",
+            "tab_all": "All Items",
+            "tab_early": "Early Start (09:00 - 11:30)",
+            "tab_starters": "Starters & Grazing",
+            "tab_mains": "Mains & Seafood",
+            "tab_burgers": "Gourmet Burgers",
+            "tab_sweets": "Sweets & Treats",
+            "btn_add_cart": "+ Order",
+            "dish_1_tag": "House Signature",
+            "dish_1_name": "The Boathouse Bonanza",
+            "dish_1_desc": "Gabriel Machin sausage, bacon, black pudding, hash browns, field mushroom, roast tomato, beans, 2 eggs of choice, and artisan toast",
+            "dish_1_badge": "Breakfast Feast",
+            "dish_2_tag": "Morning Classic",
+            "dish_2_name": "The Boathouse Full English",
+            "dish_2_desc": "Gabriel Machin sausage, smoked bacon, field mushroom, roast plum tomato, baked beans, 2 eggs of choice, and toasted crusty bread",
+            "dish_2_badge": "Local Provenance",
+            "dish_3_tag": "Sweet Brunch",
+            "dish_3_name": "Fresh Berry & Maple Waffles",
+            "dish_3_desc": "Belgian waffles, fresh seasonal berries, homemade berry compote, pure Canadian maple syrup, and whipped Cornish cream",
+            "dish_3_badge": "Sweet Indulgence",
+            "dish_4_tag": "Seafood Brunch",
+            "dish_4_name": "Scottish Smoked Salmon on Toast",
+            "dish_4_desc": "Scottish smoked salmon, soft Clarence Court poached eggs, caper berries, and fresh dill on toasted artisan sourdough",
+            "dish_4_badge": "Loch Fyne Salmon",
+            "dish_5_tag": "Chef's Pâté",
+            "dish_5_name": "Roast Garlic Chicken Liver Pâté",
+            "dish_5_desc": "Smooth chicken liver pâté with roasted garlic, spiced orchard apple chutney, dressed garden leaves, and warm crusty bread",
+            "dish_5_badge": "House Speciality",
+            "dish_6_tag": "Sharing Starter",
+            "dish_6_name": "Whole Baked Camembert with Garlic & Thyme",
+            "dish_6_desc": "Gently baked whole Camembert infused with garlic and fresh thyme, caramelised red onion chutney, and warm crusty baguette",
+            "dish_6_badge": "Warm & Melty",
+            "dish_7_tag": "Cornish Catch",
+            "dish_7_name": "Steamed St. Austell Bay Mussels",
+            "dish_7_desc": "Fresh Cornish mussels steamed in white wine, garlic cream, shallots, and fresh parsley, served with crisp skin-on fries",
+            "dish_7_badge": "Fresh Shellfish",
+            "dish_8_tag": "Butcher's Cut",
+            "dish_8_name": "Prime British Steak Frites",
+            "dish_8_desc": "Dry-aged 28-day British rump steak, crisp skin-on fries, dressed peppery watercress, and homemade silky Béarnaise sauce",
+            "dish_8_badge": "28-Day Dry Aged",
+            "dish_9_tag": "Fresh Fish",
+            "dish_9_name": "Pan-Roasted Sea Bream",
+            "dish_9_desc": "Crispy skinned sea bream fillet, crushed herb new potatoes, roast garlic cream, creamed leeks, and fresh river watercress",
+            "dish_9_badge": "Pan-Roasted",
+            "dish_10_tag": "Thames Tradition",
+            "dish_10_name": "Boathouse Battered Fish & Chips",
+            "dish_10_desc": "Fresh day-boat white fish in crisp golden batter, crushed minted mushy peas, charred lemon, and house caper tartare sauce",
+            "dish_10_badge": "Crisp & Golden",
+            "dish_11_tag": "Gourmet Burger",
+            "dish_11_name": "Bistro Classic Beef Burger",
+            "dish_11_desc": "Prime British beef patty, crispy smoked streaky bacon, melted aged cheddar, crisp lettuce, plum tomato, and house burger relish in brioche",
+            "dish_11_badge": "Prime British Beef",
+            "dish_12_tag": "House Dessert",
+            "dish_12_name": "Mango & Passionfruit Cheesecake",
+            "dish_12_desc": "Silky baked vanilla cheesecake with vibrant tropical mango reduction, crunchy passionfruit seeds, and fresh garden mint",
+            "dish_12_badge": "Refreshing Sweet",
+            "reviews_kicker": "Guest Feedback · Reviews",
+            "reviews_title": "Words from Thames Visitors",
+            "reviews_subtitle": "Cherished moments from Henley residents, regatta rowers, and weekend explorers",
+            "review_1_text": "“The riverside terrace overlooking the Thames is pure magic. We enjoyed the St. Austell mussels and a chilled bottle of Picpoul while watching the rowing crews practise. Shaun Dickens' food is consistently superb.”",
+            "review_1_author": "David & Eleanor M.",
+            "review_1_meta": "Henley Residents · Regulars for 4 Years",
+            "review_2_text": "“The Boathouse Bonanza is without doubt the best full English in Oxfordshire. Sourcing sausages from Gabriel Machin elevates the entire plate. Gemma and the team looked after us with genuine warmth.”",
+            "review_2_author": "Sarah & Tom W.",
+            "review_2_meta": "Weekend Explorers from Marlow",
+            "review_3_text": "“A truly special riverside bistro. The steak frites was cooked to perfection and watching the sun go down over the river made our anniversary dinner unforgettable. Love that dogs are welcome on the deck!”",
+            "review_3_author": "James & Chloe R.",
+            "review_3_meta": "TripAdvisor Verified Review",
+            "location_kicker": "Find Us · Location Guide",
+            "location_title": "Riverside at Station Road",
+            "location_desc": "Directly on the banks of the River Thames, just two minutes' stroll from Henley-on-Thames railway station.",
+            "loc_addr_title": "Physical Address",
+            "loc_addr_val": "Station Road, Henley-on-Thames, Oxfordshire RG9 1AZ, UK",
+            "loc_hours_title": "Restaurant Hours",
+            "loc_hours_val": "Wed - Sat: 09:00 - 20:30 (last orders) · Sun: 09:00 - 15:30 (last orders) · Mon & Tue: Closed (Open Tuesdays during Regatta week)",
+            "loc_tel_title": "Telephone & Direct Bookings",
+            "loc_tel_val": "01491 577937 (Tables of 7+ please call)",
+            "footer_desc": "An independent, family-run bistro by Shaun and Gemma Dickens directly overlooking the River Thames in Henley-on-Thames. Handcrafted brunch, local butcher cuts, Cornish seafood, and waterside dining.",
+            "footer_col1_title": "Navigation",
+            "footer_nav_top": "Back to Top",
+            "footer_nav_about": "Our Story",
+            "footer_nav_menu": "Menus",
+            "footer_nav_reviews": "Reviews",
+            "footer_col2_title": "Hospitality & Amenities",
+            "footer_srv_terrace": "Riverside Deck Open",
+            "footer_srv_pet": "Dogs Welcome Outdoors",
+            "footer_srv_wifi": "High Chairs on Request",
+            "footer_srv_event": "Henley Regatta Gatherings",
+            "footer_col3_title": "Heritage & Standards",
+            "footer_cert_info": "Food Hygiene Rating: 5 (Very Good)<br>Gabriel Machin Butchers Partner<br>Official Direct Booking Channel",
+            "footer_copy": "&copy; 2026 Bistro at The Boathouse. All rights reserved.",
+            "footer_author": "Design & Code: @author xiaopeng.fxp · 2026-09-29 · Cobble Restaurant Finesse",
+            "sticky_hours": "Open Today until 20:30",
+            "sticky_title": "Riverside Dining Reservation",
+            "sticky_btn": "Book Table",
+            "cart_title": "Your Takeaway Order",
+            "cart_empty": "Your cart is empty. Explore our artisan menu!",
+            "cart_subtotal": "Estimated Subtotal",
+            "cart_checkout_btn": "Proceed to Collection Order",
+            "modal_kicker": "Direct Booking · Table Reservation",
+            "modal_title": "Reserve a Table by the Thames",
+            "modal_desc": "All advance reservations are allocated indoors. On arrival, guests are warmly invited to choose an available table inside or out on our riverside deck. For tables of 7+, please call 01491 577937.",
+            "form_name_label": "Full Name *",
+            "form_name_ph": "e.g. Shaun Dickens",
+            "form_phone_label": "Contact Phone *",
+            "form_phone_ph": "e.g. 01491 577937",
+            "form_date_label": "Dining Date *",
+            "form_time_label": "Preferred Time *",
+            "form_time_opt0": "Please select time",
+            "form_time_opt1": "Morning Breakfast 09:00 - 11:30",
+            "form_time_opt2": "Leisurely Lunch 12:00 - 14:30",
+            "form_time_opt3": "Afternoon Tea & Drinks 14:30 - 17:00",
+            "form_time_opt4": "Early Evening Bistro 17:30 - 19:00",
+            "form_time_opt5": "Dinner & Sunset Deck 19:00 - 20:30",
+            "form_guests_label": "Party Size *",
+            "form_guests_opt1": "1 Guest (Solo Riverside Repast)",
+            "form_guests_opt2": "2 Guests (Table by the Water)",
+            "form_guests_opt3": "3 - 4 Guests (Family & Friends)",
+            "form_guests_opt4": "5 - 6 Guests (Celebration Table)",
+            "form_pref_label": "Seating Preference",
+            "form_pref_opt1": "Riverside Deck (Preferred on arrival, weather permitting)",
+            "form_pref_opt2": "Cosy Indoor Dining Room",
+            "form_pref_opt3": "Window Table Overlooking River",
+            "form_submit_btn": "Confirm & Submit Reservation",
+            "success_title": "Reservation Confirmed!",
+            "success_ref_prefix": "Booking Reference: ",
+            "success_msg": "Your table has been reserved. Allocated indoors with option to switch to the riverside deck upon arrival. We look forward to welcoming you to Henley-on-Thames!",
+            "success_btn": "Done & Return"
+      },
+      "zh": {
+            "nav_home": "首页",
+            "nav_story": "小馆故事",
+            "nav_pillars": "水岸底蕴",
+            "nav_menu": "精选餐单",
+            "nav_reviews": "食客口碑",
+            "nav_location": "水岸坐标",
+            "nav_status_open": "今日营业中 09:00 - 20:30",
+            "nav_reserve_btn": "预订席位",
+            "nav_mob_home": "首页 Home",
+            "nav_mob_story": "小馆故事 Story",
+            "nav_mob_pillars": "水岸底蕴 Heritage",
+            "nav_mob_menu": "精选餐单 Menus",
+            "nav_mob_reviews": "食客口碑 Reviews",
+            "nav_mob_location": "水岸坐标 Location",
+            "nav_mob_reserve": "立即预约席位",
+            "nav_lang_select": "语言选择",
+            "hero_kicker": "泰晤士河畔 · 皇家赛艇胜地 · 亨利小镇",
+            "hero_title": "泰晤士河畔的慢调流光，<br>静享<em>一线河景Bistro与手工美馔</em>",
+            "hero_desc": "由名厨 Shaun & Gemma Dickens 夫妇掌舵的泰晤士河一线亲水 Bistro。坐拥无与伦比的泰晤士河赛艇水景、当地传奇 Gabriel Machin 肉庄精制香肠、圣奥斯特尔湾鲜活贻贝与阳光甲板慢调早午餐。",
+            "hero_btn_menu": "浏览当季餐单",
+            "hero_btn_reserve": "预订河畔席位",
+            "hero_rating_score": "4.8 / 5.0",
+            "hero_rating_desc": "TripAdvisor 与 Google 580+ 真实好评",
+            "hero_roast_title": "100% 官方直订保证",
+            "hero_roast_desc": "零中介加价 · 实时直连前厅与主厨",
+            "hero_badge_soe_title": "泰晤士河亲水甲板",
+            "hero_badge_soe_desc": "一线水景 · 观白天鹅与赛艇竞渡",
+            "hero_badge_terrace_title": "Shaun & Gemma Dickens",
+            "hero_badge_terrace_desc": "名厨夫妻档 · 精选本地优质食材",
+            "story_badge_years": "Henley",
+            "story_badge_label": "泰晤士河畔",
+            "story_kicker": "主理人故事 · Shaun & Gemma Dickens",
+            "story_title": "泰晤士河畔的惬意滋味，<br>源于对纯粹美食的初心倾注",
+            "story_lead": "“依托泰晤士河绝美的一线水岸风光，我们在轻松从容的氛围里，烹制我们真正热爱的美食——与家人和挚友一同分享的质朴本味。”",
+            "story_desc": "Bistro at The Boathouse 是一家独立、温馨的家庭式河畔 Bistro，坐落于英国著名赛艇名城 Henley 的泰晤士河边。由名厨 Shaun 与 Gemma Dickens 共同掌勺经营。无论是在微风拂面的甲板上享用早晨热咖啡与刚出炉的可颂，还是周末与至亲好友享用丰盛的早午餐，抑或入夜后点上一盘热腾腾的圣奥斯特尔湾贻贝与干式熟成肋眼牛排，伴随河面划过的赛艇与水鸟，每一个瞬间都凝聚着对生活细节的温度与挚爱。",
+            "story_founder_names": "Shaun & Gemma Dickens",
+            "story_founder_title": "主厨与联合创始人",
+            "pillars_kicker": "空间与待客之道 · 水岸支柱",
+            "pillars_title": "在 The Boathouse 欢聚的 4 个理由",
+            "pillars_subtitle": "在泰晤士河宁静水光之间，细细品味最地道的英式水畔慢调生活",
+            "pillar_1_title": "泰晤士河一线甲板",
+            "pillar_1_desc": "宽阔的户外加热露台甲板直面泰晤士河水面，绝佳头等舱视角尽览天鹅、垂柳与皇家赛艇选手的英姿。",
+            "pillar_2_title": "Gabriel Machin 传承肉源",
+            "pillar_2_desc": "选用 Henley 本地自18世纪传承至今的 Gabriel Machin 传奇肉庄香肠，搭配南岸康沃尔水域直采贻贝。",
+            "pillar_3_title": "全日慢调 Bistro 料理",
+            "pillar_3_desc": "周三至周日早9点起开放。从晨光里的 Boathouse Bonanza 丰盛英早，到入夜后的烛光牛排与欧陆精选葡萄酒。",
+            "pillar_4_title": "户外露台宠物友好",
+            "pillar_4_desc": "室内餐厅维持恬静雅致的就餐氛围，户外宽敞的临河露台全天候热情欢迎有礼貌的毛孩子一同感受河风。",
+            "menu_kicker": "在地时令风物 · 餐单",
+            "menu_title": "手工早午餐、河畔海鲜与经典小馆菜",
+            "menu_subtitle": "轻触分类快速筛选，可直接点击加入外带自提点单车",
+            "tab_all": "全部品类",
+            "tab_early": "晨光早午餐 (09:00 - 11:30)",
+            "tab_starters": "佐酒前菜 (12:00起)",
+            "tab_mains": "主菜与河畔海鲜",
+            "tab_burgers": "主厨汉堡",
+            "tab_sweets": "手工甜品",
+            "btn_add_cart": "+ 加购",
+            "dish_1_tag": "招牌必点",
+            "dish_1_name": "The Boathouse Bonanza 泰晤士超大英早",
+            "dish_1_desc": "Gabriel Machin 传统香肠、培根、黑布丁、金黄薯饼、烘烤田园大蘑菇、慢烤番茄、茄汁焗豆、双蛋与乡村酵母吐司",
+            "dish_1_badge": "丰盛早午餐",
+            "dish_2_tag": "经典早点",
+            "dish_2_name": "The Boathouse 经典全英式早餐",
+            "dish_2_desc": "Gabriel Machin 香肠、烟熏培根、大蘑菇、慢烤番茄、焗豆、自选双蛋与外脆内软的烘烤吐司",
+            "dish_2_badge": "本地名店肉源",
+            "dish_3_tag": "甜心早午餐",
+            "dish_3_name": "鲜莓果配枫糖华夫饼",
+            "dish_3_desc": "比利时现烤华夫饼，配当季鲜莓果、自制果酱、加拿大纯枫糖浆与康沃尔现打稠奶油",
+            "dish_3_badge": "甜美治愈",
+            "dish_4_tag": "水产早午餐",
+            "dish_4_name": "苏格兰烟熏三文鱼水波蛋吐司",
+            "dish_4_desc": "苏格兰精选烟熏三文鱼，配两枚溏心水波蛋、水瓜柳果与新鲜莳萝，铺于酥脆酵母酸面包之上",
+            "dish_4_badge": "洛克法恩三文鱼",
+            "dish_5_tag": "主厨私房",
+            "dish_5_name": "烤大蒜鸡肝酱配果酱与脆酸包",
+            "dish_5_desc": "丝滑细腻的香烤大蒜鸡肝肉酱，搭配自制辛香果园苹果酱、田园沙拉与微温的手工脆皮面包",
+            "dish_5_badge": "法式传统风味",
+            "dish_6_tag": "分享前菜",
+            "dish_6_name": "整颗百里香蒜香烘烤卡芒贝尔芝士",
+            "dish_6_desc": "融入新鲜百里香与整颗蒜瓣温烤的法式卡芒贝尔奶酪，伴焦糖红葱头果酱与热法棍切片",
+            "dish_6_badge": "浓郁拉丝",
+            "dish_7_tag": "康沃尔鲜捕",
+            "dish_7_name": "白葡萄酒奶油焖圣奥斯特尔湾贻贝",
+            "dish_7_desc": "康沃尔新鲜贻贝，白葡萄酒、蒜香浓香奶油、细香葱与新鲜欧芹焖煮，配金黄带皮薯条",
+            "dish_7_badge": "鲜美肥嫩",
+            "dish_8_tag": "肉食主义",
+            "dish_8_name": "熟成英式牛排配法式薯条 (Steak Frites)",
+            "dish_8_desc": "28天干式熟成英国后臀牛排，配香脆带皮薯条、新鲜西洋菜与主厨现打法式伯奈斯酱 (Béarnaise)",
+            "dish_8_badge": "28天干式熟成",
+            "dish_9_tag": "海钓鲜鱼",
+            "dish_9_name": "香煎海鲷鱼柳配大蒜土豆泥",
+            "dish_9_desc": "脆皮海鲷鱼柳，配手工碎香草新土豆、慢烤大蒜白汁、奶油焖韭葱与清冽的河畔西洋菜",
+            "dish_9_badge": "香煎外脆内嫩",
+            "dish_10_tag": "泰晤士传统",
+            "dish_10_name": "Boathouse 酥浆黄金炸鱼配薯条",
+            "dish_10_desc": "新鲜当日海捕白鱼裹以松脆啤酒面浆炸至金黄，配薄荷碎青豆泥、炙烤柠檬与自制塔塔酱",
+            "dish_10_badge": "外酥里嫩",
+            "dish_11_tag": "手工汉堡",
+            "dish_11_name": "Bistro 经典牛肉汉堡",
+            "dish_11_desc": "英国优质纯牛肉肉饼、香脆烟熏培根、融化车达芝士、爽脆生菜、罗马番茄与秘制汉堡酱布里欧包",
+            "dish_11_badge": "优质纯牛肉",
+            "dish_12_tag": "私房甜点",
+            "dish_12_name": "芒果百香果烘烤芝士蛋糕",
+            "dish_12_desc": "细腻浓郁的香草烤芝士蛋糕，淋以热带芒果浓汁、脆籽百香果与新鲜薄荷叶",
+            "dish_12_badge": "热带清爽酸甜",
+            "reviews_kicker": "真实口碑 · Reviews",
+            "reviews_title": "泰晤士河客人的真实心声",
+            "reviews_subtitle": "来自当地居民、赛艇运动员与周末伦敦旅人的由衷赞誉",
+            "review_1_text": "“正对泰晤士河的露台甲板简直像魔法一般美妙。一边品尝圣奥斯特尔贻贝，一边喝着冰镇白葡萄酒，看着赛艇队在河面上划过，Shaun 的厨艺永远稳定出色。”",
+            "review_1_author": "David & Eleanor M.",
+            "review_1_meta": "Henley 本地常客 · 4年忠实老友",
+            "review_2_text": "“Boathouse Bonanza 毫无疑问是整个牛津郡最棒的英式全早！选用 Gabriel Machin 肉庄的香肠让整盘早餐完全上升了一个境界，Gemma 和团队的热情款待让人宾至如归。”",
+            "review_2_author": "Sarah & Tom W.",
+            "review_2_meta": "来自邻近 Marlow 的周末食客",
+            "review_3_text": "“Henley 真正不可多得的宝藏河畔餐厅。牛排薯条火候精准完美，坐在露台上看落日余晖洒在河面上的景象难以忘怀。最棒的是露台对小狗特别友好！”",
+            "review_3_author": "James & Chloe R.",
+            "review_3_meta": "TripAdvisor 认证 5 星好评",
+            "location_kicker": "交通与到达 · Location Guide",
+            "location_title": "Station Road 泰晤士河亲水一线",
+            "location_desc": "紧邻泰晤士河岸，距离 Henley-on-Thames 火车站仅 2 分钟步行路程。",
+            "loc_addr_title": "详细地址",
+            "loc_addr_val": "Station Road, Henley-on-Thames, Oxfordshire RG9 1AZ, UK",
+            "loc_hours_title": "营业时间",
+            "loc_hours_val": "周三至周六 09:00 - 20:30 (最后点餐) · 周日 09:00 - 15:30 · 周一周二休息 (赛艇节周二开放)",
+            "loc_tel_title": "预订与联系电话",
+            "loc_tel_val": "01491 577937 (7人及以上团队请电话咨询)",
+            "footer_desc": "由 Shaun 与 Gemma Dickens 掌舵的泰晤士河畔独立家庭 Bistro。手工早午餐、本地肉庄直采、康沃尔海鲜与亲水露台慢调生活。",
+            "footer_col1_title": "快捷导航",
+            "footer_nav_top": "回到顶部",
+            "footer_nav_about": "小馆故事",
+            "footer_nav_menu": "精选餐单",
+            "footer_nav_reviews": "真实口碑",
+            "footer_col2_title": "服务与设施",
+            "footer_srv_terrace": "河畔露台开放",
+            "footer_srv_pet": "露台宠物友好",
+            "footer_srv_wifi": "儿童高脚椅备索",
+            "footer_srv_event": "赛艇季聚会预订",
+            "footer_col3_title": "品质背书与认证",
+            "footer_cert_info": "英国食品标准局卫生评级：5星 (极佳)<br>Gabriel Machin 授权肉品合作餐厅<br>官方直订保障通道",
+            "footer_copy": "&copy; 2026 Bistro at The Boathouse. 保留所有权利。",
+            "footer_author": "设计与代码: @author xiaopeng.fxp · 2026-09-29 · Cobble 独立餐厅精雕体系",
+            "sticky_hours": "今日营业至 20:30",
+            "sticky_title": "泰晤士河畔座席预订",
+            "sticky_btn": "预订桌位",
+            "cart_title": "外带自提点单",
+            "cart_empty": "点单车目前为空，快去挑选招牌美味吧！",
+            "cart_subtotal": "预计小计",
+            "cart_checkout_btn": "前往确认外带点单",
+            "modal_kicker": "官方直订 · 桌位预约",
+            "modal_title": "预订泰晤士河畔桌位",
+            "modal_desc": "所有提前预订均优先锁定室内座位；到店后若户外甲板有空位，欢迎自由移至河畔露台入座。7人及以上聚餐请致电 01491 577937。",
+            "form_name_label": "姓名 *",
+            "form_name_ph": "例如：Shaun Dickens",
+            "form_phone_label": "联系电话 *",
+            "form_phone_ph": "例如：01491 577937",
+            "form_date_label": "就餐日期 *",
+            "form_time_label": "就餐时段 *",
+            "form_time_opt0": "请选择时段",
+            "form_time_opt1": "晨间早餐 09:00 - 11:30",
+            "form_time_opt2": "午间漫餐 12:00 - 14:30",
+            "form_time_opt3": "午后小憩 14:30 - 17:00",
+            "form_time_opt4": "傍晚小聚 17:30 - 19:00",
+            "form_time_opt5": "晚霞正餐 19:00 - 20:30",
+            "form_guests_label": "就餐人数 *",
+            "form_guests_opt1": "1 位 (独享河畔悠闲)",
+            "form_guests_opt2": "2 位 (亲水双人对酌)",
+            "form_guests_opt3": "3 - 4 位 (亲友欢聚)",
+            "form_guests_opt4": "5 - 6 位 (家庭聚餐)",
+            "form_pref_label": "座位偏好",
+            "form_pref_opt1": "河畔露台甲板 (到店优先安排户外)",
+            "form_pref_opt2": "舒适室内大厅 (温暖静谧)",
+            "form_pref_opt3": "靠窗观景席 (望泰晤士河景)",
+            "form_submit_btn": "确认并提交预约",
+            "success_title": "预约已成功提交！",
+            "success_ref_prefix": "预约确认编号：",
+            "success_msg": "已为您锁定室内席位，到店后如户外甲板有位可自由切换。我们期待在美丽的泰晤士河畔与您相遇！",
+            "success_btn": "完成并返回"
+      }
+};
+
+    let currentLang = 'en';
+
+    function applyTranslations(lang) {
+      const dict = I18N_DATA[lang] || I18N_DATA['en'];
+      
+      // Update text/innerHTML for elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.value = dict[key];
+          } else {
+            el.innerHTML = dict[key];
+          }
+        }
+      });
+
+      // Update attributes (e.g. placeholder) for elements with data-i18n-attr
+      document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const attrSpec = el.getAttribute('data-i18n-attr');
+        const parts = attrSpec.split(':');
+        if (parts.length === 2) {
+          const attr = parts[0].trim();
+          const key = parts[1].trim();
+          if (dict[key] !== undefined) {
+            el.setAttribute(attr, dict[key]);
+          }
+        }
+      });
+
+      // Update html lang attribute
+      document.documentElement.lang = (lang === 'en') ? 'en' : 'zh-CN';
+    }
+
+    function setLanguage(lang) {
+      if (!I18N_DATA[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('city_bistro_lang', lang);
+
+      // Highlight active buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      document.querySelectorAll('.mobile-lang-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isActive);
+        if (isActive) {
+          btn.classList.add('changing');
+          setTimeout(() => btn.classList.remove('changing'), 200);
+        }
+      });
+
+      applyTranslations(lang);
+
+      // Auto close mobile drawer with 200ms haptic delay
+      if (document.getElementById('mobile-drawer').classList.contains('is-open')) {
+        setTimeout(() => {
+          closeMobileDrawer();
+        }, 200);
+      }
+    }
+
+    // Initialize Language from localStorage (default to 'en')
+    const savedLang = localStorage.getItem('city_bistro_lang') || 'en';
+    setLanguage(savedLang);
+
+    // 1. Cart State Management
+    let cart = [];
+
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartBackdrop = document.getElementById('cart-backdrop');
+    const cartBadge = document.getElementById('cart-count');
+    const cartItemsList = document.getElementById('cart-items-list');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+
+    document.getElementById('open-cart-btn').addEventListener('click', () => {
+      openCart();
+    });
+
+    document.getElementById('close-cart-btn').addEventListener('click', () => {
+      closeCart();
+    });
+
+    cartBackdrop.addEventListener('click', () => {
+      closeCart();
+    });
+
+    function openCart() {
+      cartDrawer.classList.add('is-open');
+      cartBackdrop.classList.add('is-visible');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('is-open');
+      cartBackdrop.classList.remove('is-visible');
+    }
+
+    function addToCart(title, price, img) {
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, img, quantity: 1 });
+      }
+      renderCart();
+      triggerBadgeBounce();
+      openCart();
+    }
+
+    function changeQty(title, delta) {
+      const item = cart.find(i => i.title === title);
+      if (!item) return;
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.title !== title);
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      
+      cartBadge.textContent = totalCount;
+      cartTotalPrice.textContent = '£' + totalAmount.toFixed(2);
+
+      const dict = I18N_DATA[currentLang] || I18N_DATA['en'];
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `<div class="cart-empty-state">${dict.cart_empty}</div>`;
+        return;
+      }
+
+      cartItemsList.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img src="${item.img}" alt="${item.title}" class="cart-item-img">
+          <div class="cart-item-info">
+            <h4 class="cart-item-title">${item.title}</h4>
+            <div class="cart-item-price">£${Number(item.price).toFixed(2)}</div>
+          </div>
+          <div class="cart-qty-ctrl">
+            <button class="qty-btn" onclick="changeQty('${item.title}', -1)">-</button>
+            <span class="qty-number">${item.quantity}</span>
+            <button class="qty-btn" onclick="changeQty('${item.title}', 1)">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function triggerBadgeBounce() {
+      cartBadge.classList.add('bounce');
+      setTimeout(() => {
+        cartBadge.classList.remove('bounce');
+      }, 300);
+    }
+
+    function checkoutOrder() {
+      const isZh = currentLang === 'zh';
+      if (cart.length === 0) {
+        alert(isZh ? '点单车目前为空，请先选择心仪餐品！' : 'Your cart is currently empty. Please choose your items first!');
+        return;
+      }
+      alert(isZh ? '已收到您的外带/点单需求！预计 15 分钟内为您备齐，凭手机号至吧台取餐。' : 'Order received! We will have it ready in approximately 15 minutes. Pick up at the counter with your phone number.');
+      cart = [];
+      renderCart();
+      closeCart();
+    }
+
+    // 2. Menu Category Tabs Filter
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Smooth center scroll on mobile
+        button.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+        const category = button.dataset.category;
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.cat === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Mobile Navigation Drawer (5-Way Auto-Collapse)
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerBackdrop = document.getElementById('drawer-backdrop');
+
+    function toggleMobileDrawer() {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      drawerBackdrop.classList.toggle('is-visible', isOpen);
+      mobileToggle.classList.toggle('is-active', isOpen);
+      if (isOpen && typeof gsap !== 'undefined') {
+        gsap.fromTo('.mobile-nav-link', { x: 20, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.04, duration: 0.35, ease: 'power2.out' });
+      }
+    }
+
+    function closeMobileDrawer() {
+      mobileDrawer.classList.remove('is-open');
+      drawerBackdrop.classList.remove('is-visible');
+      mobileToggle.classList.remove('is-active');
+    }
+
+    mobileToggle.addEventListener('click', toggleMobileDrawer);
+
+    // 1-way: Auto-close on resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024) {
+        closeMobileDrawer();
+      }
+    });
+
+    // 2-way: Auto-close on Esc key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMobileDrawer();
+        closeCart();
+        closeBookingModal();
+      }
+    });
+
+    // 3-way: Auto-close on page scroll / swipe
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (mobileDrawer.classList.contains('is-open')) {
+        if (Math.abs(window.scrollY - lastScrollY) > 25) {
+          closeMobileDrawer();
+        }
+      }
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+
+    // 4. Reservation Modal Logic
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingFormWrap = document.getElementById('booking-form-wrap');
+    const bookingSuccess = document.getElementById('booking-success');
+    const bookDateInput = document.getElementById('book-date');
+
+    if (bookDateInput) {
+      bookDateInput.min = new Date().toISOString().split('T')[0];
+    }
+
+    function openBookingModal() {
+      bookingModal.classList.add('is-open');
+      bookingFormWrap.style.display = 'block';
+      bookingSuccess.classList.remove('is-visible');
+    }
+
+    function closeBookingModal() {
+      bookingModal.classList.remove('is-open');
+    }
+
+    function handleReservation(event) {
+      event.preventDefault();
+      const randomCode = 'CO-2026-' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('booking-ref-code').textContent = randomCode;
+      bookingFormWrap.style.display = 'none';
+      bookingSuccess.classList.add('is-visible');
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo('#booking-ref-code', { scale: 0.8 }, { scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
+      }
+    }
+
+    // 5. GSAP Motion Beat Sheet Engine (Dual Engine Architecture - Non-Destructive Anti-Blank)
+    function initGsapEnhancements() {
+      if (typeof window.gsap === 'undefined' || typeof window.ScrollTrigger === 'undefined') {
+        // Fallback gracefully to pure baseline
+        return;
+      }
+
+      // Check prefers-reduced-motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      document.documentElement.classList.add('gsap-ready');
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Beat 1: Signature Hero Entrance (Gentle lift without blocking opacity)
+      gsap.from('.hero-main-card', {
+        y: 20,
+        rotation: -2,
+        duration: 0.8,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      gsap.from('.hero-sub-card', {
+        y: 24,
+        rotation: 3,
+        duration: 0.8,
+        delay: 0.15,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      gsap.from('.floating-badge', {
+        scale: 0.92,
+        duration: 0.6,
+        delay: 0.25,
+        stagger: 0.12,
+        ease: 'back.out(1.5)',
+        clearProps: 'all'
+      });
+
+      // Beat 2: Scroll Narrative with ScrollTrigger (Safe lift with clearProps: 'all', non-destructive)
+      gsap.utils.toArray('.pillar-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 20,
+          duration: 0.6,
+          delay: (index % 3) * 0.08,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.utils.toArray('.product-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 20,
+          duration: 0.65,
+          delay: (index % 2) * 0.08,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.utils.toArray('.review-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 95%',
+            once: true
+          },
+          y: 18,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      });
+
+      gsap.from('.location-card, .location-map-wrap', {
+        scrollTrigger: {
+          trigger: '#location',
+          start: 'top 90%',
+          once: true
+        },
+        y: 20,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power2.out',
+        clearProps: 'all'
+      });
+
+      if (document.querySelector('#urban-map-pin')) {
+        gsap.from('#urban-map-pin', {
+          scrollTrigger: {
+            trigger: '#location',
+            start: 'top 85%',
+            once: true
+          },
+          y: 12,
+          opacity: 0,
+          duration: 0.6,
+          delay: 0.2,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      }
+    }
+
+    // Initialize GSAP on DOM load or defer load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(initGsapEnhancements, 60);
+      });
+    } else {
+      setTimeout(initGsapEnhancements, 60);
+    }
+  </script>
+</body>
+</html>
