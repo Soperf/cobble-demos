@@ -912,8 +912,8 @@
 
     .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
 
     .pillar-card {
@@ -1802,7 +1802,8 @@
         order: -1;
       }
       .pillars-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
       .products-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1921,6 +1922,16 @@
         gap: 8px;
         text-align: center;
         font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .pillar-card {
+        padding: 24px 20px;
       }
     }
 
@@ -2299,7 +2310,7 @@
         <p data-i18n="pillars_subtitle">An authentic taste of Henley living by the tranquil waters of the River Thames</p>
       </div>
 
-      <div class="pillars-grid" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="pillars-grid">
         <div class="pillar-card">
           <div class="pillar-num">01</div>
           <h3 class="pillar-heading" data-i18n="pillar_1_title">Unrivalled River Deck</h3>
